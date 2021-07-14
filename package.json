@@ -1,0 +1,49 @@
+{
+  "name": "siteup",
+  "description": "WIP - nothing to see here",
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    "import": "./index.js"
+  },
+  "author": "Bret Comnes <bcomnes@gmail.com> (https://bret.io)",
+  "bugs": {
+    "url": "https://github.com/bcomnes/siteup/issues"
+  },
+  "dependencies": {
+    "async-folder-walker": "^2.0.1",
+    "desm": "^1.1.0",
+    "esbuild": "^0.12.15"
+  },
+  "devDependencies": {
+    "auto-changelog": "^2.0.0",
+    "gh-release": "^6.0.0",
+    "mine.css": "^4.5.0",
+    "mkdirp": "^1.0.4",
+    "npm-run-all2": "^5.0.0",
+    "rimraf": "^3.0.2",
+    "standard": "^16.0.0",
+    "tap": "^15.0.1",
+    "uhtml-ssr": "^0.7.3"
+  },
+  "homepage": "https://github.com/bcomnes/siteup",
+  "keywords": [],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bcomnes/siteup.git"
+  },
+  "scripts": {
+    "prepublishOnly": "git push --follow-tags && gh-releas -y",
+    "test": "run-s test:*",
+    "test:standard": "standard",
+    "test:tap": "tap",
+    "version": "run-s prepare version:*",
+    "version:changelog": "auto-changelog -p --template keepachangelog auto-changelog --breaking-pattern 'BREAKING CHANGE:'",
+    "version:git": "git add CHANGELOG.md cjs"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/bcomnes"
+  }
+}
