@@ -5,7 +5,7 @@ import { nav } from '../nav.js'
 export default async function aPage ({
   foo
 }) {
-  return render(String, html`
+  return html`
     <div class='blue-text'>
       Hello world
     </div>
@@ -16,5 +16,9 @@ export default async function aPage ({
       lib: ${JSON.stringify(lib, null, ' ')}
     </div>
     ${nav(html)}
-`)
+`
+}
+
+export const vars = {
+  page: 'level vars'
 }
