@@ -22,7 +22,7 @@ export default async function RootLayout ({
       <link rel="stylesheet" href="/global.css" />
     </head>
     <body>
-      ${children}
+      ${typeof children === 'string' ? html([children]) : children /* Support both uhtml and string children. Optional. */}
     </body>
     </html>
 `)
