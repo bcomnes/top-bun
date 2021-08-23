@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "auto-changelog": "^2.0.0",
+    "dependency-cruiser": "^10.1.1",
     "gh-release": "^6.0.0",
     "mine.css": "^4.5.0",
     "mkdirp": "^1.0.4",
@@ -58,9 +59,11 @@
     "test": "run-s test:*",
     "test:standard": "standard --verbose | snazzy",
     "test:tap": "tap",
+    "test:deps": "dependency-check package.json --missing --unused --entry bin/siteup --no-dev",
     "version": "run-s prepare version:*",
     "version:changelog": "auto-changelog -p --template keepachangelog auto-changelog --breaking-pattern 'BREAKING CHANGE:'",
-    "version:git": "git add CHANGELOG.md cjs"
+    "version:git": "git add CHANGELOG.md cjs",
+    "deps": "depcruise --exclude '^node_modules' --output-type dot . | dot -T svg > dependencygraph.svg"
   },
   "funding": {
     "type": "individual",
