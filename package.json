@@ -59,7 +59,7 @@
     "test": "run-s test:*",
     "test:standard": "standard --verbose | snazzy",
     "test:tap": "tap",
-    "test:deps": "dependency-check package.json --missing --unused --entry bin/siteup --no-dev",
+    "test-skip:deptree": "depcruise --validate .dependency-cruiser.json bin/siteup",
     "version": "run-s prepare version:*",
     "version:changelog": "auto-changelog -p --template keepachangelog auto-changelog --breaking-pattern 'BREAKING CHANGE:'",
     "version:git": "git add CHANGELOG.md cjs",
