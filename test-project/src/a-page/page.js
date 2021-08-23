@@ -1,4 +1,4 @@
-import { html, render } from 'uhtml-ssr'
+import { html } from 'uhtml-ssr'
 import { foo as lib } from './libs/a-lib.js'
 import { nav } from '../nav.js'
 

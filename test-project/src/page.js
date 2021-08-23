@@ -1,4 +1,4 @@
-import { html, render } from 'uhtml-ssr'
+import { html } from 'uhtml-ssr'
 import { nav } from './nav.js'
 
 export default async function rootPage ({
