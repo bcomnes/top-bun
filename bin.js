@@ -78,4 +78,7 @@ async function run () {
   console.log('done')
 }
 
-run().catch(console.error)
+run().catch(e => {
+  console.error(e)
+  process.exit(1)
+})

@@ -37,6 +37,7 @@
     "postcss-url": "^10.1.3",
     "pretty": "^2.0.0",
     "streamx": "^2.10.3",
+    "uhtml-ssr": "^0.7.4",
     "webassert": "^3.0.2"
   },
   "devDependencies": {
