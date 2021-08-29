@@ -66,7 +66,7 @@
     "test:tap": "tap",
     "test-skip:deptree": "depcruise --validate .dependency-cruiser.json bin/siteup",
     "test:test-build": "./bin.js --src test-project/src --dest test-project/public",
-    "version": "run-s prepare version:*",
+    "version": "run-s version:*",
     "version:changelog": "auto-changelog -p --template keepachangelog auto-changelog --breaking-pattern 'BREAKING CHANGE:'",
     "version:git": "git add CHANGELOG.md cjs",
     "deps": "depcruise --exclude '^node_modules' --output-type dot . | dot -T svg > dependencygraph.svg"
