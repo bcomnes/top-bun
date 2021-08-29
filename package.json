@@ -1,7 +1,7 @@
 {
   "name": "siteup",
   "description": "WIP - nothing to see here",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "exports": {
     "import": "./index.js"
