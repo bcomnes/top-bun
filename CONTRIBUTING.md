@@ -5,8 +5,8 @@
 - Patches, ideas and changes welcome.
 - Fixes almost always welcome.
 - Features sometimes welcome.
-  - Please open an issue to discuss the issue prior to spending lots of time on the problem.  
-  - It may be rejected.  
+  - Please open an issue to discuss the issue prior to spending lots of time on the problem.
+  - It may be rejected.
   - If you don't want to wait around for the discussion to commence, and you really want to jump into the implementation work, be prepared for fork if the idea is respectfully declined.
 - Try to stay within the style of the existing code.
 - All tests must pass.
@@ -17,7 +17,7 @@
 
 ## Releasing
 
-Changelog, and releasing is autmated with npm scripts and actions.  To create a release:
+Changelog, and releasing is automated with npm scripts and actions.  To create a release:
 
 - Navigate to the actions tab
 - Select the `npm bump` action.
