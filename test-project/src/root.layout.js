@@ -2,6 +2,7 @@ import { html, render } from 'uhtml-ssr'
 
 export default async function RootLayout ({
   title,
+  siteName,
   scripts,
   styles,
   children
@@ -11,7 +12,7 @@ export default async function RootLayout ({
     <html>
     <head>
       <meta charset="utf-8">
-      <title>${title}</title>
+      <title>${siteName}${title ? ` | ${title}` : ''}</title>
       <meta name="viewport" content="width=device-width, user-scalable=no" />
       ${scripts
         ? scripts.map(script => html`<script src="${script}" type='module'></script>`)

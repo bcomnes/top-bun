@@ -1,5 +1,6 @@
 export default async function () {
   return {
-    foo: 'global'
+    foo: 'global',
+    siteName: 'test-project'
   }
 }

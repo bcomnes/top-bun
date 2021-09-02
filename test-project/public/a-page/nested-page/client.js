@@ -20,3 +20,4 @@ var myFoo = new Foo();
 export {
   myFoo
 };
+//# sourceMappingURL=client.js.map
