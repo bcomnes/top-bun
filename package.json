@@ -82,5 +82,10 @@
     "ignore": [
       "test-project/public"
     ]
-  }
+  },
+  "files": [
+    "bin.js",
+    "lib/**",
+    "index.js"
+  ]
 }
