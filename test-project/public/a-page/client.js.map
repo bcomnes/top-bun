@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/a-page/client.js"],
+  "sourcesContent": ["\nimport { foo as lib } from './libs/a-lib.js'\n\nconsole.log('a-page client bundle')\nconsole.log({ lib })\n"],
+  "mappings": ";;;;;;AAGA,QAAQ,IAAI;AACZ,QAAQ,IAAI,EAAE;",
+  "names": []
+}

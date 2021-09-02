@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/html-page/client.js"],
+  "sourcesContent": ["console.log('html page client bundle')\n"],
+  "mappings": ";;;AAAA,QAAQ,IAAI;",
+  "names": []
+}

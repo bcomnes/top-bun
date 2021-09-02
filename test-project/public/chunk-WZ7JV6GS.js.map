@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/a-page/libs/a-lib.js"],
+  "sourcesContent": ["export const foo = { some: 'data' }\n"],
+  "mappings": ";;;;;AAAA;AAAA;AAAA;AAAA;AAAO,IAAM,MAAM,EAAE,MAAM;",
+  "names": []
+}

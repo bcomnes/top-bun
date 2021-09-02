@@ -21,6 +21,7 @@
                   'dejavu serif', 'bitstream vera serif', 'liberation serif', /* linux */
                   georgia, /* old systems */
                   serif; /* fallback */
+  --system-round: SFRounded, ui-rounded, "SF Pro Rounded", system-ui, "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 /* stylelint-enable */
 /* variable settings */
@@ -482,5 +483,6 @@ input.inline-grid {
 /* style.css site specific stuff */
 .serif { font-family: var(--system-serif); }
 .sans { font-family: var(--system-sans); }
+.round { font-family: var(--system-round); }
 
 /*# sourceMappingURL=global.css.map */

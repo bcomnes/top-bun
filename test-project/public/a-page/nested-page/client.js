@@ -1,7 +1,7 @@
 import {
   a_lib_exports
-} from "../../chunk-OWLKZ7N7.js";
-import "../../chunk-OFR2H3GI.js";
+} from "../../chunk-WZ7JV6GS.js";
+import "../../chunk-HC4Q5QIB.js";
 
 // test-project/src/a-page/nested-page/client.js
 console.log(a_lib_exports);

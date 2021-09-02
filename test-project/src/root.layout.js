@@ -19,7 +19,6 @@ export default async function RootLayout ({
       ${styles
         ? styles.map(style => html`<link rel="stylesheet" href=${style} />`)
         : null}
-      <link rel="stylesheet" href="/global.css" />
     </head>
     <body>
       ${typeof children === 'string' ? html([children]) : children /* Support both uhtml and string children. Optional. */}

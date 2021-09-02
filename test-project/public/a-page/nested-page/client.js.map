@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/a-page/nested-page/client.js"],
+  "sourcesContent": ["import * as lib from '../libs/a-lib.js'\n\nconsole.log(lib)\n\nconst thisShouldBeConst = true\n\nconsole.log(thisShouldBeConst)\n\nclass Foo {\n  cosntructor () {\n    console.log('hello world')\n  }\n\n  foo () {\n\n  }\n\n  bar () {\n\n  }\n}\n\nexport const myFoo = new Foo()\n"],
+  "mappings": ";;;;;;AAEA,QAAQ,IAAI;AAEZ,IAAM,oBAAoB;AAE1B,QAAQ,IAAI;AAEZ,gBAAU;AAAA,EACR,cAAe;AACb,YAAQ,IAAI;AAAA;AAAA,EAGd,MAAO;AAAA;AAAA,EAIP,MAAO;AAAA;AAAA;AAKF,IAAM,QAAQ,IAAI;",
+  "names": []
+}
