@@ -1,7 +1,7 @@
 {
   "name": "@bret/siteup",
   "description": "WIP - nothing to see here",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "type": "module",
   "exports": {
     "import": "./index.js"
