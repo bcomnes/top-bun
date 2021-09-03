@@ -7,7 +7,7 @@ import { resolve, join } from 'node:path'
 import desm from 'desm'
 import process from 'node:process'
 
-import { build } from './lib/builder.js'
+import { SiteUp } from './index.js'
 
 const __dirname = desm(import.meta.url)
 
@@ -67,15 +67,35 @@ async function run () {
     clopts.print()
     process.exit(0)
   }
+  const cwd = process.cwd()
+  const src = resolve(join(cwd, argv.src))
+  const dest = resolve(join(cwd, argv.dest))
 
-  const src = resolve(join(process.cwd(), argv.src))
-  const dest = resolve(join(process.cwd(), argv.dest))
+  // TODO validate input a little better
 
-  // TODO validate input a little
+  const siteup = new SiteUp(src, dest, cwd)
 
-  const results = await build(src, dest)
-  console.log(results)
-  console.log('done')
+  process.once('SIGINT', quit)
+  process.once('SIGTERM', quit)
+
+  async function quit () {
+    if (siteup.watching) {
+      const results = await siteup.stopWatching()
+      console.log(results)
+      console.log('watching stopped')
+    }
+    console.log('quitting cleanly')
+    process.exit(0)
+  }
+
+  if (!argv.watch) {
+    const results = await siteup.build()
+    console.log(results)
+    console.log('done')
+  } else {
+    const initialResults = await siteup.watch()
+    console.log(initialResults)
+  }
 }
 
 run().catch(e => {

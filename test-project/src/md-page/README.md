@@ -8,3 +8,5 @@ array:
 # Hello Title
 
 This is a markdown page
+
+Testing watching
