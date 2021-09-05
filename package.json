@@ -1,5 +1,5 @@
 {
-  "name": "site-up",
+  "name": "@bret/siteup",
   "description": "WIP - nothing to see here",
   "version": "0.0.9",
   "type": "module",
@@ -7,11 +7,11 @@
     "import": "./index.js"
   },
   "bin": {
-    "site-up": "./bin.js"
+    "siteup": "./bin.js"
   },
   "author": "Bret Comnes <bcomnes@gmail.com> (https://bret.io)",
   "bugs": {
-    "url": "https://github.com/bcomnes/site-up/issues"
+    "url": "https://github.com/bcomnes/siteup/issues"
   },
   "dependencies": {
     "async-folder-walker": "^2.0.1",
@@ -54,12 +54,12 @@
     "standard": "^16.0.0",
     "tap": "^15.0.1"
   },
-  "homepage": "https://github.com/bcomnes/site-up",
+  "homepage": "https://github.com/bcomnes/siteup",
   "keywords": [],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bcomnes/site-up.git"
+    "url": "https://github.com/bcomnes/siteup.git"
   },
   "scripts": {
     "prepublishOnly": "git push --follow-tags && gh-release -y",

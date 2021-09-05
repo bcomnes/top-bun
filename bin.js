@@ -61,9 +61,9 @@ async function run () {
 
   if (argv.help) {
     const pkg = await getPkg()
-    console.log(`siteUp (v${pkg.version})`)
-    console.log('Usage: siteUp [options]\n')
-    console.log('    Example: siteUp --src website --dest public\n')
+    console.log(`siteup (v${pkg.version})`)
+    console.log('Usage: siteup [options]\n')
+    console.log('    Example: siteup --src website --dest public\n')
     clopts.print()
     process.exit(0)
   }
@@ -73,14 +73,14 @@ async function run () {
 
   // TODO validate input a little better
 
-  const siteUp = new SiteUp(src, dest, cwd)
+  const siteup = new SiteUp(src, dest, cwd)
 
   process.once('SIGINT', quit)
   process.once('SIGTERM', quit)
 
   async function quit () {
-    if (siteUp.watching) {
-      const results = await siteUp.stopWatching()
+    if (siteup.watching) {
+      const results = await siteup.stopWatching()
       console.log(results)
       console.log('watching stopped')
     }
@@ -89,11 +89,11 @@ async function run () {
   }
 
   if (!argv.watch) {
-    const results = await siteUp.build()
+    const results = await siteup.build()
     console.log(results)
     console.log('done')
   } else {
-    const initialResults = await siteUp.watch()
+    const initialResults = await siteup.watch()
     console.log(initialResults)
   }
 }
