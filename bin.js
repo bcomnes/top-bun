@@ -7,7 +7,7 @@ import { resolve, join } from 'node:path'
 import desm from 'desm'
 import process from 'node:process'
 
-import { SiteUp } from './index.js'
+import { Xiteup } from './index.js'
 
 const __dirname = desm(import.meta.url)
 
@@ -61,10 +61,10 @@ async function run () {
 
   if (argv.help) {
     const pkg = await getPkg()
-    console.log(`siteup (v${pkg.version})`)
-    console.log('Usage: siteup [options]\n')
-    console.log('    Example: siteup --src website --dest public\n')
+    console.log('Usage: xiteup [options]\n')
+    console.log('    Example: xiteup --src website --dest public\n')
     clopts.print()
+    console.log(`xiteup (v${pkg.version})`)
     process.exit(0)
   }
   const cwd = process.cwd()
@@ -73,14 +73,14 @@ async function run () {
 
   // TODO validate input a little better
 
-  const siteup = new SiteUp(src, dest, cwd)
+  const xiteup = new Xiteup(src, dest, cwd)
 
   process.once('SIGINT', quit)
   process.once('SIGTERM', quit)
 
   async function quit () {
-    if (siteup.watching) {
-      const results = await siteup.stopWatching()
+    if (xiteup.watching) {
+      const results = await xiteup.stopWatching()
       console.log(results)
       console.log('watching stopped')
     }
@@ -89,11 +89,11 @@ async function run () {
   }
 
   if (!argv.watch) {
-    const results = await siteup.build()
+    const results = await xiteup.build()
     console.log(results)
     console.log('done')
   } else {
-    const initialResults = await siteup.watch()
+    const initialResults = await xiteup.watch()
     console.log(initialResults)
   }
 }
