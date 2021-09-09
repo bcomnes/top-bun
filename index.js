@@ -5,7 +5,7 @@ import chokidar from 'chokidar'
 
 import { build } from './lib/builder.js'
 
-export class Xiteup {
+export class Siteup {
   constructor (src, dest, cwd = process.cwd(), opts = {}) {
     assert(src, 'src is a required argument')
     assert(dest, 'dest is a required argument')
