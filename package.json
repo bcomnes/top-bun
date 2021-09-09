@@ -1,7 +1,7 @@
 {
   "name": "@siteup/cli",
   "description": "WIP - nothing to see here",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "type": "module",
   "exports": {
     "import": "./index.js"
