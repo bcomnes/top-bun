@@ -1,6 +1,6 @@
 {
   "name": "@siteup/cli",
-  "description": "WIP - nothing to see here",
+  "description": "siteup builds websites with html, md, css and js.",
   "version": "0.0.13",
   "type": "module",
   "exports": {

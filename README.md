@@ -1,12 +1,12 @@
 # @siteup/cli
 [![Actions Status](https://github.com/bcomnes/siteup-cli/workflows/tests/badge.svg)](https://github.com/bcomnes/siteup-cli/actions)
 
-`siteup` builds websites with html, md, css and javascript.
+`siteup` builds websites with html, md, css and js.
 
-Still a WIP, but you can look at [test-project](./test-project/) and `siteup` dependents for some examples how `siteup` can work.
+Look at [test-project](./test-project/) and `siteup` [dependents](https://github.com/bcomnes/siteup-cli/network/dependents) for some examples how `siteup` can work.
 
 
-`siteup`, which is sort of like "markup", which is related to "markdown", which inspired the project [`sitedown`](https://ghub.io/sitedown) which is the spiritual successor to this tool. Point `siteup` at a folder of page documents, and get a website.
+`siteup` is sort of like "markup", which is related to "markdown", which inspired the project [`sitedown`](https://ghub.io/sitedown) which is the spiritual successor to this tool. Point `siteup` at a folder of page documents, and get a website.
 
 ```console
 npm install @siteup/cli
@@ -121,7 +121,7 @@ The above src directory would transform into something like this in the `dest` d
 └── style.css
 ```
 
-A folder of markdown, html and js documents in the `src` directory gets transformed into html documents in the `dest` directory, along with page scoped javascript and css bundles, as well as a global stylesheet and global js bundle.
+A folder of markdown, html and js documents in the `src` directory gets transformed into html documents in the `dest` directory, along with page scoped js and css bundles, as well as a global stylesheet and global js bundle.
 
 ### Global Assets
 
@@ -241,7 +241,7 @@ src/page-name/page.js
 
 All pages can have a `client.js` and a `style.css` file inside of their associated folder.
 These are uniquely built and loaded on their associated page.
-The `client.js` page bundles are bundle split with every other client side javascript entry-point.
+The `client.js` page bundles are bundle split with every other client side js entry-point.
 The `style.css` page is not de-duplicated or split with other style files.
 
 Each page can also have a `page.vars.js` file that exports a `default` function that contains page specific variables.
