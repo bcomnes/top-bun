@@ -250,6 +250,17 @@ Each page can also have a `page.vars.js` file that exports a `default` function 
 
 All static assets in the `src` directory are copied 1:1 to the `public` directory.
 
+## Implementation
+
+`siteup` bundles the best tools for every technology in the stack:
+
+- `js` is bundled with [`esbuild`](https://github.com/evanw/esbuild).
+- `css` is processed with [`postcss`](https://github.com/postcss/postcss).
+- `md` is processed with [markdown-it](https://github.com/markdown-it/markdown-it).
+- static files are processed with [cpx2](https://github.com/bcomnes/cpx2).
+
+These tools are treated as implementation details, but they may be exposed more in the future. The idea is that they can be swapped out for better tools in the future if they don't make it. 
+
 ## Roadmap
 
 `siteup` works and has a rudimentary watch command, but hasn't been battle tested yet.
