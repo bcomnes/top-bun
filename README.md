@@ -3,7 +3,7 @@
 
 `siteup` builds websites with html, md, css and javascript.
 
-Still a WIP, but you can look at [test-project](./test-project/) and `siteup` dependents for some examples how `siteup` can work.
+Look at [test-project](./test-project/) and `siteup` [dependents](https://github.com/bcomnes/siteup-cli/network/dependents) for some examples how `siteup` can work.
 
 
 `siteup`, which is sort of like "markup", which is related to "markdown", which inspired the project [`sitedown`](https://ghub.io/sitedown) which is the spiritual successor to this tool. Point `siteup` at a folder of page documents, and get a website.
