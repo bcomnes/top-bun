@@ -31,6 +31,11 @@ const clopts = cliclopts([
     default: 'public'
   },
   {
+    name: 'ignore',
+    abbr: 'i',
+    help: 'comma separated gitignore style ignore string'
+  },
+  {
     name: 'watch',
     abbr: 'w',
     help: 'build and watch the src folder for additional changes',
@@ -73,7 +78,11 @@ async function run () {
 
   // TODO validate input a little better
 
-  const siteup = new Siteup(src, dest, cwd)
+  const opts = {}
+
+  if (argv.ignore) opts.ignore = argv.ignore.split(',')
+
+  const siteup = new Siteup(src, dest, cwd, opts)
 
   process.once('SIGINT', quit)
   process.once('SIGTERM', quit)

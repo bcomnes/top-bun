@@ -24,6 +24,7 @@
     "esbuild": "^0.12.15",
     "js-yaml": "^4.1.0",
     "local-storage-proxy": "^3.0.3",
+    "make-array": "^1.0.5",
     "markdown-it": "^12.2.0",
     "markdown-it-abbr": "^1.0.4",
     "markdown-it-deflist": "^2.1.0",
@@ -34,6 +35,7 @@
     "markdown-it-mark": "^3.0.1",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
+    "mine.css": "^4.6.1",
     "minimist": "^1.2.5",
     "postcss": "^8.3.6",
     "postcss-import": "^14.0.2",
@@ -41,8 +43,7 @@
     "postcss-url": "^10.1.3",
     "pretty": "^2.0.0",
     "uhtml-isomorphic": "^1.0.1",
-    "webassert": "^3.0.2",
-    "mine.css": "^4.6.1"
+    "webassert": "^3.0.2"
   },
   "devDependencies": {
     "auto-changelog": "^2.0.0",

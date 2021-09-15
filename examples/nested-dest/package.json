@@ -1,19 +1,17 @@
 {
-  "name": "basic",
+  "name": "default-layout",
   "version": "0.0.0",
   "description": "",
   "type": "module",
   "scripts": {
-    "build": "siteup --src src --dest public"
+    "build": "siteup --src . --dest public --ignore ignore"
   },
   "keywords": [],
   "author": "Bret Comnes <bcomnes@gmail.com> (https://bret.io/)",
   "license": "MIT",
   "devDependencies": {
-    "@siteup/cli": "../../."
-  },
-  "dependencies": {
-    "uhtml-isomorphic": "^1.0.1",
-    "mine.css": "^4.6.1"
+    "@siteup/cli": "../../.",
+    "mine.css": "^4.6.1",
+    "uhtml-isomorphic": "^1.0.1"
   }
 }
