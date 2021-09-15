@@ -1,0 +1,8 @@
+/*
+  You can keep loose css files anywhere in the src directory, and import them
+  into any page style.css files that need them.
+ */
+
+.a-random-class {
+  background: red;
+}

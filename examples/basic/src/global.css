@@ -1,0 +1,9 @@
+@import 'mine.css';
+@import 'mine.css/dist/layout.css';
+
+/* The global.css in the root directory of the site is loaded on every page. */
+
+/* You can import styles out of node_modules by referencing their bare-name */
+/* You can import styles from a relative path as well, though usually that is
+only used in page scpped style.css files */
+/* See https://github.com/postcss/postcss-import for details */

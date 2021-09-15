@@ -1,0 +1,5 @@
+/* html pages can also have their own style bundles */
+
+.html-page-class {
+  background-color: red;
+}

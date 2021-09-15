@@ -1,0 +1,13 @@
+{
+  "name": "string-layouts",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "siteup"
+  },
+  "author": "Bret Comnes <bcomnes@gmail.com> (https://bret.io/)",
+  "license": "MIT",
+  "devDependencies": {
+    "@siteup/cli": "../../."
+  }
+}

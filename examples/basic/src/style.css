@@ -1,0 +1,5 @@
+/* This style.css bundle only loads on the root page. */
+
+.some-class {
+  color: blue;
+}

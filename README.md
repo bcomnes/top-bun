@@ -276,6 +276,9 @@ If you end up trying it out, please open any issues or ideas that you have, and 
 - [x] Static asset copying.
 - [x] CLI build command
 - [x] CLI watch command
+- [ ] Multiple layout files
+- [ ] More page sourced variables
+- [ ] Git sourced variables (first touched, last update, git shas, github urls etc).
 - [ ] More robust error handling
 - [ ] More efficient watch rebuilding
 - [ ] Pluggable page types
@@ -290,3 +293,5 @@ If you end up trying it out, please open any issues or ideas that you have, and 
 ## License
 
 MIT
+
+[uhtml]: https://github.com/WebReflection/uhtml

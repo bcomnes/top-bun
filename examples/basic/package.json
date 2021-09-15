@@ -1,0 +1,19 @@
+{
+  "name": "basic",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "build": "siteup"
+  },
+  "keywords": [],
+  "author": "Bret Comnes <bcomnes@gmail.com> (https://bret.io/)",
+  "license": "MIT",
+  "devDependencies": {
+    "@siteup/cli": "../../."
+  },
+  "dependencies": {
+    "uhtml-isomorphic": "^1.0.1",
+    "mine.css": "^4.6.1"
+  }
+}
