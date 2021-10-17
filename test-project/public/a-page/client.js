@@ -1,7 +1,7 @@
 import {
   foo
-} from "../chunk-ZPMP4FT5.js";
-import "../chunk-VINEMLUU.js";
+} from "../chunk-WZ7JV6GS.js";
+import "../chunk-HC4Q5QIB.js";
 
 // test-project/src/a-page/client.js
 console.log("a-page client bundle");
