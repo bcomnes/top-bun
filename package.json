@@ -13,6 +13,9 @@
   "bugs": {
     "url": "https://github.com/bcomnes/siteup-cli/issues"
   },
+  "engines": {
+    "node": ">=16"
+  },
   "dependencies": {
     "async-folder-walker": "^2.1.1",
     "autoprefixer": "^10.3.1",
@@ -22,6 +25,7 @@
     "cpx2": "^4.0.0",
     "desm": "^1.1.0",
     "esbuild": "^0.12.15",
+    "ignore": "^5.1.8",
     "js-yaml": "^4.1.0",
     "local-storage-proxy": "^3.0.3",
     "make-array": "^1.0.5",
@@ -47,14 +51,14 @@
   },
   "devDependencies": {
     "auto-changelog": "^2.0.0",
+    "brittle": "^1.5.1",
     "dependency-cruiser": "^10.1.1",
     "gh-release": "^6.0.0",
     "mkdirp": "^1.0.4",
     "npm-run-all2": "^5.0.0",
     "rimraf": "^3.0.2",
     "snazzy": "^9.0.0",
-    "standard": "^16.0.0",
-    "tap": "^15.0.1"
+    "standard": "^16.0.0"
   },
   "homepage": "https://github.com/bcomnes/siteup-cli",
   "keywords": [],
@@ -67,7 +71,7 @@
     "prepublishOnly": "git push --follow-tags && gh-release -y",
     "test": "run-s test:*",
     "test:standard": "standard --verbose | snazzy",
-    "test:tap": "tap",
+    "test:brittle": "brittle './lib/**/*.test.js' -r tap",
     "test:deptree": "depcruise --validate .dependency-cruiser.json bin.js",
     "build-examples": "run-p example:*",
     "example:basic": "cd examples/basic && npm i && npm run build",

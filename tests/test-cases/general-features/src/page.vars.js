@@ -1,3 +1,3 @@
 export default () => ({
-  'testVar': "page.vars"
+  testVar: 'page.vars'
 })
