@@ -2,10 +2,10 @@
 
 import minimist from 'minimist'
 import cliclopts from 'cliclopts'
-import { readFile } from 'node:fs/promises'
-import { resolve, join } from 'node:path'
+import { readFile } from 'fs/promises'
+import { resolve, join } from 'path'
 import desm from 'desm'
-import process from 'node:process'
+import process from 'process'
 
 import { Siteup } from './index.js'
 
