@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../src/md-page/client.js"],
-  "sourcesContent": ["console.log('markdown client bundle')\n"],
-  "mappings": ";;;AAAA,QAAQ,IAAI;",
-  "names": []
-}

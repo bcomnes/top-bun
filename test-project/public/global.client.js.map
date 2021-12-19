@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../src/global.client.js"],
-  "sourcesContent": ["console.log('Hello I run on every page!')\n"],
-  "mappings": ";;;AAAA,QAAQ,IAAI;",
-  "names": []
-}

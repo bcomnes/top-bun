@@ -18,6 +18,6 @@ test('general-features', async (t) => {
 
   const results = await siteUp.build()
 
-  console.log(results)
+  // console.log(results)
   t.ok(results)
 })
