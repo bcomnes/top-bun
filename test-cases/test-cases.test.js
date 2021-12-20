@@ -118,7 +118,6 @@ tap.test('general-features', async (t) => {
         `${filePath} ${assertions.client
             ? 'Includes'
             : 'Does not include'} a page client header`)
-
     } catch (e) {
       console.error(e)
       t.fail(`Assertions failed on ${filePath}`)
