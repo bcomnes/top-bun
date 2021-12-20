@@ -50,15 +50,17 @@
     "webassert": "^3.0.2"
   },
   "devDependencies": {
+    "@istanbuljs/esm-loader-hook": "^0.1.2",
     "auto-changelog": "^2.0.0",
-    "brittle": "^2.0.0",
+    "c8": "^7.10.0",
     "dependency-cruiser": "^11.0.0",
     "gh-release": "^6.0.0",
     "mkdirp": "^1.0.4",
     "npm-run-all2": "^5.0.0",
     "rimraf": "^3.0.2",
     "snazzy": "^9.0.0",
-    "standard": "^16.0.0"
+    "standard": "^16.0.0",
+    "tap": "^15.1.5"
   },
   "homepage": "https://github.com/bcomnes/siteup-cli",
   "keywords": [],
@@ -71,7 +73,7 @@
     "prepublishOnly": "git push --follow-tags && gh-release -y",
     "test": "run-s test:*",
     "test:standard": "standard --verbose | snazzy",
-    "test:brittle": "brittle './lib/**/*.test.js' './tests/**/*.test.js'",
+    "test:tap": "c8 tap --no-coverage",
     "test:deptree": "depcruise --validate .dependency-cruiser.json bin.js",
     "build-examples": "run-p example:*",
     "example:basic": "cd examples/basic && npm i && npm run build",
@@ -89,10 +91,33 @@
     "type": "individual",
     "url": "https://github.com/sponsors/bcomnes"
   },
-  "standard": { "ignore": [] },
+  "standard": {
+    "ignore": []
+  },
   "files": [
     "bin.js",
     "lib/**",
     "index.js"
-  ]
+  ],
+  "c8": {
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "all": true,
+    "exclude":  [
+      "examples/*",
+      "test-cases/*",
+      "coverage/**",
+      "packages/*/test{,s}/**",
+      "**/*.d.ts",
+      "test{,s}/**",
+      "test{,-*}.{js,cjs,mjs,ts,tsx,jsx}",
+      "**/*{.,-}test.{js,cjs,mjs,ts,tsx,jsx}",
+      "**/__tests__/**",
+      "**/{ava,babel,nyc}.config.{js,cjs,mjs}",
+      "**/jest.config.{js,cjs,mjs,ts}",
+      "**/{karma,rollup,webpack}.config.js",
+      "**/.{eslint,mocha}rc.{js,cjs}"]
+  }
 }
