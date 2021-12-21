@@ -17,6 +17,7 @@
     "node": ">=16"
   },
   "dependencies": {
+    "aggregate-error-ponyfill": "^1.1.0",
     "async-folder-walker": "^2.1.1",
     "autoprefixer": "^10.3.1",
     "cheerio": "^1.0.0-rc.10",

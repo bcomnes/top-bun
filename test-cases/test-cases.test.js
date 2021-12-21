@@ -6,6 +6,7 @@ import rimraf from 'rimraf'
 import { promisify } from 'util'
 import { stat, readFile } from 'fs/promises'
 import cheerio from 'cheerio'
+import { allFiles } from 'async-folder-walker'
 
 const __dirname = desm(import.meta.url)
 const rimrafP = promisify(rimraf)
@@ -69,27 +70,39 @@ tap.test('general-features', async (t) => {
     }
   }
 
+  const files = await allFiles(dest, { shaper: fwData => fwData })
+
+  t.ok('All files walked in output')
+
+  const generatedGlobalStyle = files.some(f => f.relname === 'global.client.js')
+  t.equal(generatedGlobalStyle, globalAssets.globalStyle, `${globalAssets.globalStyle
+            ? 'Generated'
+            : 'Did not generate'} a global style`)
+
+  const generatedGlobalClient = files.some(f => f.relname === 'global.css')
+  t.equal(generatedGlobalClient, globalAssets.globalClient, `${globalAssets.globalClient
+            ? 'Generated'
+            : 'Did not generate'} a global client`)
+
   for (const [filePath, assertions] of Object.entries(pages)) {
     try {
       const fullPath = path.join(dest, filePath)
+      const fileDir = path.dirname(filePath)
       const st = await stat(fullPath)
       t.ok(st, `${filePath} exists`)
 
       const contents = await readFile(fullPath, 'utf8')
-
       const doc = cheerio.load(contents)
 
       const headScripts = Array.from(doc('head script[type="module"]'))
-
       const hasGlboalClientHeader = headScripts.map(n => n?.attribs?.src).includes('/global.client.js')
-
       const hasPageClientHeader = headScripts.map(n => n?.attribs?.src).includes('./client.js')
+      const generatedPageClient = files.some(f => f.relname === path.join(fileDir, 'client.js'))
 
       const headLinks = Array.from(doc('head link[rel="stylesheet"]'))
-
       const hasGlobalStyleHeader = headLinks.map(n => n?.attribs?.href).includes('/global.css')
-
       const hasPageStyleHeader = headLinks.map(n => n?.attribs?.href).includes('./style.css')
+      const generatedPageStyle = files.some(f => f.relname === path.join(fileDir, 'style.css'))
 
       t.equal(
         hasGlboalClientHeader,
@@ -112,15 +125,44 @@ tap.test('general-features', async (t) => {
             ? 'Includes'
             : 'Does not include'} a page client header`)
 
+      if (hasPageClientHeader) { // covering for loose files
+        t.equal(
+          generatedPageClient,
+          assertions.client,
+          `${filePath} ${assertions.client
+            ? 'Generated'
+            : 'Did not generate'} a page client file`)
+      }
+
       t.equal(
         hasPageStyleHeader,
         assertions.style,
         `${filePath} ${assertions.client
             ? 'Includes'
-            : 'Does not include'} a page client header`)
+            : 'Does not include'} a page style header`)
+
+      if (hasPageStyleHeader) { // covering for loose files
+        t.equal(
+          generatedPageStyle,
+          assertions.style,
+          `${filePath} ${assertions.client
+            ? 'Generated'
+            : 'Did not generate'} a page style file`)
+      }
     } catch (e) {
       console.error(e)
       t.fail(`Assertions failed on ${filePath}`)
     }
   }
+})
+
+tap.test('conflict-pages', async (t) => {
+  const src = path.join(__dirname, './conflict-pages/src')
+  const dest = path.join(__dirname, './conflict-pages/public')
+  const cwd = path.join(__dirname, './conflict-pages')
+  const siteUp = new Siteup(src, dest, cwd)
+
+  await rimrafP(dest)
+
+  t.rejects(siteUp.build(), /Conflicting page sources/, 'Throws when conflicting page is found on build.')
 })
