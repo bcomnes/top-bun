@@ -166,3 +166,29 @@ tap.test('conflict-pages', async (t) => {
 
   t.rejects(siteUp.build(), /Conflicting page sources/, 'Throws when conflicting page is found on build.')
 })
+
+tap.test('default-layout', async (t) => {
+  const src = path.join(__dirname, './default-layout/src')
+  const dest = path.join(__dirname, './default-layout/public')
+  const cwd = path.join(__dirname, './default-layout')
+  const siteUp = new Siteup(src, dest, cwd)
+
+  await rimrafP(dest)
+
+  await siteUp.build()
+
+  t.ok('built with default layout')
+})
+
+tap.test('nested-dest', async (t) => {
+  const src = path.join(__dirname, './nested-dest')
+  const dest = path.join(__dirname, './nested-dest/public')
+  const cwd = path.join(__dirname, './nested-dest')
+  const siteUp = new Siteup(src, dest, cwd)
+
+  await rimrafP(dest)
+
+  await siteUp.build()
+
+  t.ok('built with default layout')
+})
