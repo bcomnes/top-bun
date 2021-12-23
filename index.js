@@ -52,10 +52,6 @@ export class Siteup {
       console.log(`Remove ${e.path}`)
     })
 
-    this._cpxWatcher.on('copy', (e) => {
-      console.log(`Copy ${e.srcPath} to ${e.dstPath}`)
-    })
-
     this._cpxWatcher.on('watch-ready', () => {
       console.log('Copy watcher ready')
     })
