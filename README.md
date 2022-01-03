@@ -276,19 +276,29 @@ If you end up trying it out, please open any issues or ideas that you have, and 
 - [x] Static asset copying.
 - [x] CLI build command
 - [x] CLI watch command
+- [x] Ignore globbing
+- [x] Nested site dest
+- [x] Default layouts/styles with 0 config starting point
+- [ ] More examples and ideas.
+- [ ] Hardened error handling w/ tests
+- [ ] Build stats reporting
+- [ ] Build dry run/preview
 - [ ] Multiple layout files
+- [ ] Lazy watch server
 - [ ] More page sourced variables
 - [ ] Git sourced variables (first touched, last update, git shas, github urls etc).
-- [ ] More robust error handling
-- [ ] More efficient watch rebuilding
 - [ ] Pluggable page types
-- [ ] Better build and watch output (progress)
-- [ ] Ignore globbing
+- [ ] Progress reporting during build and watching
 - [ ] Website built with `siteup`
-- [ ] More examples and ideas.
 - [ ] Page variable introspection (show the merge cascade)
 - [ ] Page introspection (list pages discovered)
-- [ ] Build stats
+- [ ] Web worker support
+- [ ] Service worker support
+- [ ] Generic Multi-page output pages (for index pages and feeds)
+- [ ] Low effort RSS solution
+- [ ] postcss config file support
+- [ ] Markdownit config support
+- [ ] esbuild config support
 
 ## License
 
