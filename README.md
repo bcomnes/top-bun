@@ -6,7 +6,7 @@
 Look at [examples](./examples/) and `siteup` [dependents](https://github.com/bcomnes/siteup-cli/network/dependents) for some examples how `siteup` can work.
 
 
-`siteup` is sort of like "markup", which is related to "markdown", which inspired the project [`sitedown`](https://ghub.io/sitedown) which is the spiritual successor to this tool. Point `siteup` at a folder of page documents, and get a website.
+`siteup` is sort of like "markup", which is related to "markdown", which inspired the project [`sitedown`](https://ghub.io/sitedown) which is a spiritual successor to this tool. Point `siteup` at a folder of page documents, and get a website.
 
 ```console
 npm install @siteup/cli
