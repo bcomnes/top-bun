@@ -279,7 +279,7 @@ If you end up trying it out, please open any issues or ideas that you have, and 
 - [x] Ignore globbing
 - [x] Nested site dest
 - [x] Default layouts/styles with 0 config starting point
-- [ ] More examples and ideas.
+- [x] More examples and ideas.
 - [ ] Hardened error handling w/ tests
 - [ ] Build stats reporting
 - [ ] Build dry run/preview
