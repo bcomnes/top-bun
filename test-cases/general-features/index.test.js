@@ -1,6 +1,6 @@
 import tap from 'tap'
 import desm from 'desm'
-import { Siteup } from '../index.js'
+import { Siteup } from '../../index.js'
 import * as path from 'path'
 import rimraf from 'rimraf'
 import { promisify } from 'util'
@@ -12,9 +12,9 @@ const __dirname = desm(import.meta.url)
 const rimrafP = promisify(rimraf)
 
 tap.test('general-features', async (t) => {
-  const src = path.join(__dirname, './general-features/src')
-  const dest = path.join(__dirname, './general-features/public')
-  const cwd = path.join(__dirname, './general-features')
+  const src = path.join(__dirname, './src')
+  const dest = path.join(__dirname, './public')
+  const cwd = __dirname
   const siteUp = new Siteup(src, dest, cwd)
 
   await rimrafP(dest)
@@ -154,41 +154,4 @@ tap.test('general-features', async (t) => {
       t.fail(`Assertions failed on ${filePath}`)
     }
   }
-})
-
-tap.test('conflict-pages', async (t) => {
-  const src = path.join(__dirname, './conflict-pages/src')
-  const dest = path.join(__dirname, './conflict-pages/public')
-  const cwd = path.join(__dirname, './conflict-pages')
-  const siteUp = new Siteup(src, dest, cwd)
-
-  await rimrafP(dest)
-
-  t.rejects(siteUp.build(), /Conflicting page sources/, 'Throws when conflicting page is found on build.')
-})
-
-tap.test('default-layout', async (t) => {
-  const src = path.join(__dirname, './default-layout/src')
-  const dest = path.join(__dirname, './default-layout/public')
-  const cwd = path.join(__dirname, './default-layout')
-  const siteUp = new Siteup(src, dest, cwd)
-
-  await rimrafP(dest)
-
-  await siteUp.build()
-
-  t.ok('built with default layout')
-})
-
-tap.test('nested-dest', async (t) => {
-  const src = path.join(__dirname, './nested-dest')
-  const dest = path.join(__dirname, './nested-dest/public')
-  const cwd = path.join(__dirname, './nested-dest')
-  const siteUp = new Siteup(src, dest, cwd)
-
-  await rimrafP(dest)
-
-  await siteUp.build()
-
-  t.ok('built with default layout')
 })

@@ -7,7 +7,7 @@
 - Features sometimes welcome.
   - Please open an issue to discuss the issue prior to spending lots of time on the problem.
   - It may be rejected.
-  - If you don't want to wait around for the discussion to commence, and you really want to jump into the implementation work, be prepared for fork if the idea is respectfully declined.
+  - If you don't want to wait around for the discussion to commence, and you really want to jump into the implementation work, be prepared to fork if the idea is respectfully declined.
 - Try to stay within the style of the existing code.
 - All tests must pass.
 - Additional features or code paths must be tested.
@@ -25,7 +25,7 @@ Changelog, and releasing is automated with npm scripts and actions.  To create a
 - Changelog, Github release and npm publish is hanlded by the action.
 - An in depth review of this system is documented here: [bret.io/projects/package-automation](https://bret.io/projects/package-automation/)
 
-If for some reason that isn't workoing or a local release is preferred, follow these steps:
+If for some reason that isn't working or a local release is preferred, follow these steps:
 
 - Ensure a clean working git workspace.
 - Run `npm version {patch,minor,major}`.
