@@ -78,11 +78,11 @@ export class Siteup {
 
     watcher.on('add', path => {
       console.log(`File ${path} has been added`)
-      build(this._src, this._dest, this.opts)
+      watchBuild(this._src, this._dest, this.opts)
     })
     watcher.on('change', path => {
       console.log(`File ${path} has been changed`)
-      build(this._src, this._dest, this.opts)
+      watchBuild(this._src, this._dest, this.opts)
     })
     watcher.on('unlink', path => {
       console.log(`File ${path} has been removed`)
