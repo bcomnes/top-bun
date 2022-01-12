@@ -98,10 +98,12 @@ async function run () {
   }
 
   if (!argv.watch) {
+    // TODO: handle warning and error output
     const results = await siteup.build()
     console.log(results)
     console.log('done')
   } else {
+    // TODO: handle watch data event or something... maybe like a async iterator?
     const initialResults = await siteup.watch()
     console.log(initialResults)
   }

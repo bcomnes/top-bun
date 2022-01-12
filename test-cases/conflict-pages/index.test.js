@@ -16,5 +16,5 @@ tap.test('conflict-pages', async (t) => {
 
   await rimrafP(dest)
 
-  t.rejects(siteUp.build(), /Conflicting page sources/, 'Throws when conflicting page is found on build.')
+  t.rejects(siteUp.build(), /Build finished but there were errors/, 'Throws when conflicting page is found on build.')
 })
