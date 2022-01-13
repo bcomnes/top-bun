@@ -39,8 +39,18 @@ export class Siteup {
   }
 
   async watch () {
+    // TODO: expose events and stuff to the caller instead.
     if (this.watching) throw new Error('Already watching.')
-    const results = await watchBuild(this._src, this._dest, this.opts)
+
+    let report
+
+    try {
+      report = await watchBuild(this._src, this._dest, this.opts)
+      console.log('Initial JS, CSS and Page Build Complete')
+    } catch (err) {
+      console.error(err)
+      if (err.report) report = err.report
+    }
 
     this._cpxWatcher = cpx.watch(getCopyGlob(this._src), this._dest, { ignore: this.opts.ignore })
 
@@ -60,7 +70,6 @@ export class Siteup {
       console.log(`Copy error: ${err.message}`)
     })
 
-    console.log(this.opts.ignore)
     const ig = ignore().add(this.opts.ignore)
 
     const anymatch = name => ig.ignores(relname(this._src, name))
@@ -70,27 +79,25 @@ export class Siteup {
       persistent: true
     })
 
-    console.log(watcher)
-
     this._watcher = watcher
 
     await once(watcher, 'ready')
 
     watcher.on('add', path => {
       console.log(`File ${path} has been added`)
-      watchBuild(this._src, this._dest, this.opts)
+      watchBuild(this._src, this._dest, this.opts).then(() => console.log('Site Rebuilt')).catch(console.error)
     })
     watcher.on('change', path => {
       console.log(`File ${path} has been changed`)
-      watchBuild(this._src, this._dest, this.opts)
+      watchBuild(this._src, this._dest, this.opts).then(() => console.log('Site Rebuilt')).catch(console.error)
     })
     watcher.on('unlink', path => {
       console.log(`File ${path} has been removed`)
-      // await build(this.src, this.dest)
+      watchBuild(this._src, this._dest, this.opts).then(() => console.log('Site Rebuilt')).catch(console.error)
     })
     watcher.on('error', console.error)
 
-    return results
+    return report
   }
 
   async stopWatching () {
