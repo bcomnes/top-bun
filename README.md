@@ -1,5 +1,6 @@
 # @siteup/cli
 [![Actions Status](https://github.com/bcomnes/siteup-cli/workflows/tests/badge.svg)](https://github.com/bcomnes/siteup-cli/actions)
+[![Coverage Status](https://coveralls.io/repos/github/bcomnes/siteup/badge.svg?branch=master)](https://coveralls.io/github/bcomnes/siteup?branch=master)
 
 `siteup` builds websites with html, md, css and js.
 
@@ -280,7 +281,7 @@ If you end up trying it out, please open any issues or ideas that you have, and 
 - [x] Nested site dest
 - [x] Default layouts/styles with 0 config starting point
 - [x] More examples and ideas.
-- [ ] Hardened error handling w/ tests
+- [x] Hardened error handling w/ tests
 - [ ] Build stats reporting
 - [ ] Build dry run/preview
 - [ ] Multiple layout files
