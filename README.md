@@ -265,7 +265,9 @@ These tools are treated as implementation details, but they may be exposed more 
 ## Roadmap
 
 `siteup` works and has a rudimentary watch command, but hasn't been battle tested yet.
-If you end up trying it out, please open any issues or ideas that you have, and feel free to share what you build. 
+If you end up trying it out, please open any issues or ideas that you have, and feel free to share what you build.
+
+Some noteable features are included below, see the [roadmap](https://github.com/users/bcomnes/projects/3/) for a more in depth view of whats planned.
 
 - [x] `md` pages
 - [x] `js` pages
@@ -282,24 +284,7 @@ If you end up trying it out, please open any issues or ideas that you have, and 
 - [x] Default layouts/styles with 0 config starting point
 - [x] More examples and ideas.
 - [x] Hardened error handling w/ tests
-- [ ] Build stats reporting
-- [ ] Build dry run/preview
-- [ ] Multiple layout files
-- [ ] Lazy watch server
-- [ ] More page sourced variables
-- [ ] Git sourced variables (first touched, last update, git shas, github urls etc).
-- [ ] Pluggable page types
-- [ ] Progress reporting during build and watching
-- [ ] Website built with `siteup`
-- [ ] Page variable introspection (show the merge cascade)
-- [ ] Page introspection (list pages discovered)
-- [ ] Web worker support
-- [ ] Service worker support
-- [ ] Generic Multi-page output pages (for index pages and feeds)
-- [ ] Low effort RSS solution
-- [ ] postcss config file support
-- [ ] Markdownit config support
-- [ ] esbuild config support
+- ...[See roadmap](https://github.com/users/bcomnes/projects/3/)
 
 ## License
 
