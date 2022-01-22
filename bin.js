@@ -159,7 +159,7 @@ async function run () {
         nodes = targetNode.nodes
       }
 
-      targetNode.leaf[srcFile] = destFile
+      targetNode.leaf[basename(srcFile)] = destFile
     }
 
     console.log(tree(cleanDeep(treeStructure)))
