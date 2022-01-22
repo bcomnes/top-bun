@@ -9,6 +9,7 @@ on:
 
 env:
   node_version: 16
+  FORCE_COLOR: 2
 
 jobs:
   version_and_release:
