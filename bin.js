@@ -3,9 +3,11 @@
 import minimist from 'minimist'
 import cliclopts from 'cliclopts'
 import { readFile } from 'fs/promises'
-import { resolve, join } from 'path'
+import { resolve, join, basename, sep } from 'path'
 import desm from 'desm'
 import process from 'process'
+import tree from 'pretty-tree'
+import cleanDeep from 'clean-deep'
 
 import { Siteup } from './index.js'
 
@@ -100,8 +102,47 @@ async function run () {
   if (!argv.watch) {
     // TODO: handle warning and error output
     const results = await siteup.build()
-    console.log(results)
-    console.log('done')
+    // console.dir(results, { color: true, depth: 999 })
+
+    const cwdDir = basename(cwd)
+    const srcDir = basename(src)
+    const destDir = basename(dest)
+
+    const treeStructure = {
+      label: `${join(cwdDir, srcDir)} => ${join(cwdDir, destDir)}`,
+      leaf: {
+        globalStyle: results?.siteData?.globalStyle?.basename,
+        globalClient: results?.siteData?.globalClient?.basename,
+        globalVars: results?.siteData?.globalVars?.basename,
+        rootLayout: results?.siteData?.rootLayout?.basename
+      },
+      nodes: []
+    }
+
+    for (const page of results?.siteData?.pages) {
+      const segments = page.page.relname.split(sep)
+      segments.pop()
+
+      let nodes = treeStructure.nodes
+      let targetNode = treeStructure
+
+      for (const segment of segments) {
+        targetNode = nodes.find(node => segment === node.label)
+        if (!targetNode) {
+          targetNode = { label: segment, leaf: {}, nodes: [] }
+          nodes.push(targetNode)
+        }
+        nodes = targetNode.nodes
+      }
+
+      targetNode.leaf[page.page.basename] = join(page.path, page.outputName)
+      if (page.pageStyle) targetNode.leaf[page.pageStyle.basename] = join(page.path, page.pageStyle.basename)
+      if (page.clientBundle) targetNode.leaf[page.clientBundle.basename] = join(page.path, page.clientBundle.basename)
+      if (page.pageVars) targetNode.leaf[page.pageVars.basename] = join(page.path, page.pageVars.basename)
+    }
+
+    console.log(tree(cleanDeep(treeStructure)))
+    console.log('Build Success!\n\n')
   } else {
     // TODO: handle watch data event or something... maybe like a async iterator?
     const initialResults = await siteup.watch()
