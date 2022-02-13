@@ -8,6 +8,7 @@ import desm from 'desm'
 import process from 'process'
 import tree from 'pretty-tree'
 import cleanDeep from 'clean-deep'
+import { inspect } from 'util'
 
 import { Siteup } from './index.js'
 
@@ -101,69 +102,25 @@ async function run () {
 
   if (!argv.watch) {
     // TODO: handle warning and error output
-    const results = await siteup.build()
-    // console.dir(results, { color: true, depth: 999 })
-
-    const cwdDir = basename(cwd)
-    const srcDir = basename(relative(cwd, src))
-    const destDir = basename(relative(cwd, dest))
-
-    const treeStructure = {
-      label: `${join(cwdDir, srcDir)} => ${join(cwdDir, destDir)}`,
-      leaf: {
-        globalStyle: results?.siteData?.globalStyle?.basename,
-        globalClient: results?.siteData?.globalClient?.basename,
-        globalVars: results?.siteData?.globalVars?.basename,
-        rootLayout: results?.siteData?.rootLayout?.basename
-      },
-      nodes: []
-    }
-
-    for (const page of results?.siteData?.pages) {
-      const segments = page.page.relname.split(sep)
-      segments.pop()
-
-      let nodes = treeStructure.nodes
-      let targetNode = treeStructure
-
-      for (const segment of segments) {
-        targetNode = nodes.find(node => segment === node.label)
-        if (!targetNode) {
-          targetNode = { label: segment, leaf: {}, nodes: [] }
-          nodes.push(targetNode)
-        }
-        nodes = targetNode.nodes
+    try {
+      const results = await siteup.build()
+      console.log(tree(generateTreeData(cwd, src, dest, results)))
+      if (results?.warnings) {
+        console.log(
+          '\nThere were build warnings:\n'
+        )
       }
-
-      targetNode.leaf[page.page.basename] = join(page.path, page.outputName)
-      if (page.pageStyle) targetNode.leaf[page.pageStyle.basename] = join(page.path, page.pageStyle.basename)
-      if (page.clientBundle) targetNode.leaf[page.clientBundle.basename] = join(page.path, page.clientBundle.basename)
-      if (page.pageVars) targetNode.leaf[page.pageVars.basename] = join(page.path, page.pageVars.basename)
-    }
-
-    for (const file of results?.static?.report?.copied) {
-      const srcFile = relative(srcDir, file.source)
-      const destFile = relative(destDir, file.output)
-      const segments = srcFile.split(sep)
-      segments.pop()
-
-      let nodes = treeStructure.nodes
-      let targetNode = treeStructure
-
-      for (const segment of segments) {
-        targetNode = nodes.find(node => segment === node.label)
-        if (!targetNode) {
-          targetNode = { label: segment, leaf: {}, nodes: [] }
-          nodes.push(targetNode)
-        }
-        nodes = targetNode.nodes
+      for (const warning of results?.warnings) {
+        console.log(`  ${warning.message}`)
       }
-
-      targetNode.leaf[basename(srcFile)] = destFile
+      console.log('\nBuild Success!\n\n')
+    } catch (err) {
+      if (err.results) {
+        console.log(tree(generateTreeData(cwd, src, dest, err.results)))
+      }
+      console.error(inspect(err, { depth: 999, colors: true }))
+      console.log('\nBuild Failed!\n\n')
     }
-
-    console.log(tree(cleanDeep(treeStructure)))
-    console.log('Build Success!\n\n')
   } else {
     // TODO: handle watch data event or something... maybe like a async iterator?
     const initialResults = await siteup.watch()
@@ -171,7 +128,69 @@ async function run () {
   }
 }
 
-run().catch(e => {
-  console.error(e)
+function generateTreeData (cwd, src, dest, results) {
+  const cwdDir = basename(cwd)
+  const srcDir = basename(relative(cwd, src))
+  const destDir = basename(relative(cwd, dest))
+
+  const treeStructure = {
+    label: `${join(cwdDir, srcDir)} => ${join(cwdDir, destDir)}`,
+    leaf: {
+      globalStyle: results?.siteData?.globalStyle?.basename,
+      globalClient: results?.siteData?.globalClient?.basename,
+      globalVars: results?.siteData?.globalVars?.basename,
+      rootLayout: results?.siteData?.rootLayout?.basename
+    },
+    nodes: []
+  }
+
+  for (const page of results?.siteData?.pages) {
+    const segments = page.page.relname.split(sep)
+    segments.pop()
+
+    let nodes = treeStructure.nodes
+    let targetNode = treeStructure
+
+    for (const segment of segments) {
+      targetNode = nodes.find(node => segment === node.label)
+      if (!targetNode) {
+        targetNode = { label: segment, leaf: {}, nodes: [] }
+        nodes.push(targetNode)
+      }
+      nodes = targetNode.nodes
+    }
+
+    targetNode.leaf[page.page.basename] = join(page.path, page.outputName)
+    if (page.pageStyle) targetNode.leaf[page.pageStyle.basename] = join(page.path, page.pageStyle.basename)
+    if (page.clientBundle) targetNode.leaf[page.clientBundle.basename] = join(page.path, page.clientBundle.basename)
+    if (page.pageVars) targetNode.leaf[page.pageVars.basename] = join(page.path, page.pageVars.basename)
+  }
+
+  for (const file of results?.static?.report?.copied) {
+    const srcFile = relative(srcDir, file.source)
+    const destFile = relative(destDir, file.output)
+    const segments = srcFile.split(sep)
+    segments.pop()
+
+    let nodes = treeStructure.nodes
+    let targetNode = treeStructure
+
+    for (const segment of segments) {
+      targetNode = nodes.find(node => segment === node.label)
+      if (!targetNode) {
+        targetNode = { label: segment, leaf: {}, nodes: [] }
+        nodes.push(targetNode)
+      }
+      nodes = targetNode.nodes
+    }
+
+    targetNode.leaf[basename(srcFile)] = destFile
+  }
+
+  return cleanDeep(treeStructure)
+}
+
+run().catch(err => {
+  console.error(new Error('Unhandled siteup error', { cause: err }))
   process.exit(1)
 })
