@@ -54,7 +54,6 @@
     "webassert": "^3.0.2"
   },
   "devDependencies": {
-    "@istanbuljs/esm-loader-hook": "^0.1.2",
     "auto-changelog": "^2.0.0",
     "c8": "^7.10.0",
     "dependency-cruiser": "^11.0.0",
