@@ -29,7 +29,6 @@
     "esbuild": "^0.14.5",
     "ignore": "^5.1.8",
     "js-yaml": "^4.1.0",
-    "local-storage-proxy": "^3.0.3",
     "lodash.keyby": "^4.6.0",
     "make-array": "^1.0.5",
     "markdown-it": "^12.2.0",
