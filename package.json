@@ -58,7 +58,7 @@
     "dependency-cruiser": "^11.0.0",
     "gh-release": "^6.0.0",
     "mkdirp": "^1.0.4",
-    "npm-run-all2": "^5.0.0",
+    "npm-run-all2": "^6.0.0",
     "rimraf": "^3.0.2",
     "snazzy": "^9.0.0",
     "standard": "^17.0.0",
