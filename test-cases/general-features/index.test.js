@@ -74,12 +74,12 @@ tap.test('general-features', async (t) => {
 
   t.ok('All files walked in output')
 
-  const generatedGlobalStyle = files.some(f => f.relname === 'global.client.js')
+  const generatedGlobalStyle = files.some(f => f.relname === 'global.css')
   t.equal(generatedGlobalStyle, globalAssets.globalStyle, `${globalAssets.globalStyle
             ? 'Generated'
             : 'Did not generate'} a global style`)
 
-  const generatedGlobalClient = files.some(f => f.relname === 'global.css')
+  const generatedGlobalClient = files.some(f => f.relname.match(/global.client-([A-Z])\w+.js/g))
   t.equal(generatedGlobalClient, globalAssets.globalClient, `${globalAssets.globalClient
             ? 'Generated'
             : 'Did not generate'} a global client`)
@@ -95,9 +95,10 @@ tap.test('general-features', async (t) => {
       const doc = cheerio.load(contents)
 
       const headScripts = Array.from(doc('head script[type="module"]'))
-      const hasGlboalClientHeader = headScripts.map(n => n?.attribs?.src).includes('/global.client.js')
-      const hasPageClientHeader = headScripts.map(n => n?.attribs?.src).includes('./client.js')
-      const generatedPageClient = files.some(f => f.relname === path.join(fileDir, 'client.js'))
+
+      const hasGlboalClientHeader = headScripts.map(n => n?.attribs?.src).some(src => src.match(/global.client-([A-Z])\w+.js/g))
+      const hasPageClientHeader = headScripts.map(n => n?.attribs?.src).some(src => src.match(/\.\/client-([A-Z])\w+.js/g))
+      const generatedPageClient = files.some(f => f.relname.match(/client-([A-Z])\w+.js/g))
 
       const headLinks = Array.from(doc('head link[rel="stylesheet"]'))
       const hasGlobalStyleHeader = headLinks.map(n => n?.attribs?.href).includes('/global.css')
