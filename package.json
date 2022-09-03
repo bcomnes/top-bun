@@ -95,7 +95,8 @@
   },
   "standard": {
     "ignore": [
-      "test-cases/build-errors/src/**/*.js"
+      "test-cases/build-errors/src/**/*.js",
+      "test-cases/page-build-errors/src/**/*.js"
     ]
   },
   "files": [
