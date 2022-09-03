@@ -115,7 +115,7 @@ async function run () {
       }
       console.log('\nBuild Success!\n\n')
     } catch (err) {
-      if (err.results) {
+      if (err.results?.siteData?.pages) {
         console.log(tree(generateTreeData(cwd, src, dest, err.results)))
       }
       console.error(inspect(err, { depth: 999, colors: true }))
