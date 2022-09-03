@@ -75,7 +75,7 @@
     "prepublishOnly": "git push --follow-tags && gh-release -y",
     "test": "run-s test:*",
     "test:standard": "standard --verbose | snazzy",
-    "test:tap": "c8 tap --no-coverage",
+    "test:tap": "c8 tap --no-coverage --color",
     "test:deptree": "depcruise --validate .dependency-cruiser.json bin.js",
     "build-examples": "run-p example:*",
     "example:basic": "cd examples/basic && npm i && npm run build",
@@ -95,7 +95,8 @@
   },
   "standard": {
     "ignore": [
-      "test-cases/build-errors/src/**/*.js"
+      "test-cases/build-errors/src/**/*.js",
+      "test-cases/page-build-errors/src/**/*.js"
     ]
   },
   "files": [
