@@ -6,6 +6,7 @@ import { basename, relative } from 'path'
 import makeArray from 'make-array'
 import ignore from 'ignore'
 import cpx from 'cpx2'
+import { inspect } from 'util'
 
 import { getCopyGlob } from './lib/build-static/index.js'
 import { build, watchBuild } from './lib/builder.js'
@@ -48,7 +49,7 @@ export class Siteup {
       report = await watchBuild(this._src, this._dest, this.opts)
       console.log('Initial JS, CSS and Page Build Complete')
     } catch (err) {
-      console.error(err)
+      errorLogger(err)
       if (err.report) report = err.report
     }
 
@@ -85,17 +86,17 @@ export class Siteup {
 
     watcher.on('add', path => {
       console.log(`File ${path} has been added`)
-      watchBuild(this._src, this._dest, this.opts).then(() => console.log('Site Rebuilt')).catch(console.error)
+      watchBuild(this._src, this._dest, this.opts).then(() => console.log('Site Rebuilt')).catch(errorLogger)
     })
     watcher.on('change', path => {
       console.log(`File ${path} has been changed`)
-      watchBuild(this._src, this._dest, this.opts).then(() => console.log('Site Rebuilt')).catch(console.error)
+      watchBuild(this._src, this._dest, this.opts).then(() => console.log('Site Rebuilt')).catch(errorLogger)
     })
     watcher.on('unlink', path => {
       console.log(`File ${path} has been removed`)
-      watchBuild(this._src, this._dest, this.opts).then(() => console.log('Site Rebuilt')).catch(console.error)
+      watchBuild(this._src, this._dest, this.opts).then(() => console.log('Site Rebuilt')).catch(errorLogger)
     })
-    watcher.on('error', console.error)
+    watcher.on('error', errorLogger)
 
     return report
   }
@@ -111,4 +112,12 @@ export class Siteup {
 
 function relname (root, name) {
   return root === name ? basename(name) : relative(root, name)
+}
+
+function errorLogger (err) {
+  console.error(err)
+
+  if (err.errors) {
+    console.error(inspect(err.errors, { depth: 5, colors: true }))
+  }
 }

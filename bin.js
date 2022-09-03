@@ -119,6 +119,11 @@ async function run () {
         console.log(tree(generateTreeData(cwd, src, dest, err.results)))
       }
       console.error(inspect(err, { depth: 999, colors: true }))
+
+      if (err.errors) {
+        console.error(inspect(err.errors, { depth: 5, colors: true }))
+      }
+
       console.log('\nBuild Failed!\n\n')
     }
   } else {
