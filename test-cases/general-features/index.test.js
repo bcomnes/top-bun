@@ -2,14 +2,11 @@ import tap from 'tap'
 import desm from 'desm'
 import { Siteup } from '../../index.js'
 import * as path from 'path'
-import rimraf from 'rimraf'
-import { promisify } from 'util'
-import { stat, readFile } from 'fs/promises'
+import { rm, stat, readFile } from 'fs/promises'
 import cheerio from 'cheerio'
 import { allFiles } from 'async-folder-walker'
 
 const __dirname = desm(import.meta.url)
-const rimrafP = promisify(rimraf)
 
 tap.test('general-features', async (t) => {
   const src = path.join(__dirname, './src')
@@ -17,7 +14,7 @@ tap.test('general-features', async (t) => {
   const cwd = __dirname
   const siteUp = new Siteup(src, dest, cwd)
 
-  await rimrafP(dest)
+  await rm(dest, { recursive: true })
 
   const results = await siteUp.build()
   t.ok(results, 'Siteup built site and returned build results')
