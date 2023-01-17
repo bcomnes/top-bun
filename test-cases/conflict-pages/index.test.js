@@ -12,7 +12,7 @@ tap.test('conflict-pages', async (t) => {
   const cwd = __dirname
   const siteUp = new Siteup(src, dest, cwd)
 
-  await rm(dest, { recursive: true })
+  await rm(dest, { recursive: true, force: true })
 
   t.rejects(siteUp.build(), /Build finished but there were errors/, 'Throws when conflicting page is found on build.')
 })

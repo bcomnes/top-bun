@@ -12,7 +12,7 @@ tap.test('default-layout', async (t) => {
   const cwd = __dirname
   const siteUp = new Siteup(src, dest, cwd)
 
-  await rm(dest, { recursive: true })
+  await rm(dest, { recursive: true, force: true })
 
   await siteUp.build()
 

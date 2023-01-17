@@ -14,7 +14,7 @@ tap.test('general-features', async (t) => {
   const cwd = __dirname
   const siteUp = new Siteup(src, dest, cwd)
 
-  await rm(dest, { recursive: true })
+  await rm(dest, { recursive: true, force: true })
 
   const results = await siteUp.build()
   t.ok(results, 'Siteup built site and returned build results')
