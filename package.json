@@ -41,7 +41,7 @@
     "markdown-it-mark": "^3.0.1",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
-    "mine.css": "^7.0.0",
+    "mine.css": "^9.0.1",
     "minimist": "^1.2.5",
     "postcss": "^8.3.6",
     "postcss-import": "^15.0.0",

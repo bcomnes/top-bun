@@ -14,6 +14,6 @@
   },
   "dependencies": {
     "uhtml-isomorphic": "^1.0.1",
-    "mine.css": "^4.6.1"
+    "mine.css": "^9.0.1"
   }
 }

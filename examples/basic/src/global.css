@@ -1,4 +1,4 @@
-@import 'mine.css';
+@import 'mine.css/dist/mine.css';
 @import 'mine.css/dist/layout.css';
 
 /* The global.css in the root directory of the site is loaded on every page. */

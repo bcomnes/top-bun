@@ -10,6 +10,22 @@ updates:
     # Check the npm registry for updates every day (weekdays)
     schedule:
       interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/examples/basic"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/examples/default-layout/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/examples/nested-dest/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/examples/string-layouts/"
+    schedule:
+      interval: "daily"
   # Enable updates to github actions
   - package-ecosystem: "github-actions"
     directory: "/"
