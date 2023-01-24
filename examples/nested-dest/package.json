@@ -11,7 +11,7 @@
   "license": "MIT",
   "devDependencies": {
     "@siteup/cli": "../../.",
-    "mine.css": "^4.6.1",
+    "mine.css": "^9.0.1",
     "uhtml-isomorphic": "^1.0.1"
   }
 }
