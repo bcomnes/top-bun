@@ -45,7 +45,7 @@
     "minimist": "^1.2.5",
     "postcss": "^8.3.6",
     "postcss-import": "^15.0.0",
-    "postcss-nesting": "^10.0.3",
+    "postcss-nesting": "^11.0.0",
     "postcss-url": "^10.1.3",
     "pretty": "^2.0.0",
     "pretty-tree": "^1.0.0",
