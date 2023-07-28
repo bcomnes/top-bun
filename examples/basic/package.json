@@ -4,15 +4,22 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "build": "siteup --src src --dest public"
+    "start": "npm run watch",
+    "build": "npm run clean && siteup",
+    "clean": "rm -rf public && mkdir -p public",
+    "watch": "npm run clean && run-p watch:*",
+    "watch:serve": "browser-sync start --server 'public' --files 'public'",
+    "watch:siteup": "npm run build -- --watch"
   },
   "keywords": [],
   "author": "Bret Comnes <bcomnes@gmail.com> (https://bret.io/)",
   "license": "MIT",
   "devDependencies": {
-    "@siteup/cli": "../../."
+    "browser-sync": "^2.26.7",
+    "npm-run-all2": "^6.0.0"
   },
   "dependencies": {
+    "@siteup/cli": "../../.",
     "uhtml-isomorphic": "^2.1.0",
     "mine.css": "^9.0.1"
   }

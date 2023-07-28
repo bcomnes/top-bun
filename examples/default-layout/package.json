@@ -4,10 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "siteup"
+    "start": "npm run watch",
+    "build": "npm run clean && siteup",
+    "clean": "rm -rf public && mkdir -p public",
+    "watch": "npm run clean && run-p watch:*",
+    "watch:serve": "browser-sync start --server 'public' --files 'public'",
+    "watch:siteup": "npm run build -- --watch"
+  },
+  "dependencies": {
+    "@siteup/cli": "../../."
   },
   "devDependencies": {
-    "@siteup/cli": "../../."
+    "browser-sync": "^2.26.7",
+    "npm-run-all2": "^6.0.0"
   },
   "keywords": [],
   "author": "Bret Comnes <bcomnes@gmail.com> (https://bret.io/)",
