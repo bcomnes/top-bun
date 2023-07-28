@@ -6,7 +6,8 @@ export default async function RootLayout ({
   siteName,
   scripts,
   styles,
-  children
+  children,
+  head
 }) {
   return /* html */`
     <!DOCTYPE html>
@@ -21,6 +22,7 @@ export default async function RootLayout ({
       ${styles
         ? styles.map(style => /* html */`<link rel="stylesheet" href=${style} />`).join('\n')
         : ''}
+      ${head || ''}
     </head>
     <body>
       <parent-component>
