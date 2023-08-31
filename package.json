@@ -60,7 +60,8 @@
     "npm-run-all2": "^6.0.0",
     "snazzy": "^9.0.0",
     "standard": "^17.0.0",
-    "tap": "^16.0.1"
+    "tap": "^16.0.1",
+    "browser-sync": "^2.26.7"
   },
   "homepage": "https://github.com/bcomnes/siteup-cli",
   "keywords": [],
@@ -76,6 +77,12 @@
     "test:tap": "c8 tap --no-coverage --color",
     "test:deptree": "depcruise --validate .dependency-cruiser.json bin.js",
     "build-examples": "run-p example:*",
+    "clean": "rm -rf public && mkdir -p public",
+    "build": "npm run clean && run-p build:*",
+    "build:siteup": "./bin.js --src . --ignore examples,test-cases,coverage",
+    "watch": "npm run clean && run-p watch:*",
+    "watch:serve": "browser-sync start --server 'public' --files 'public'",
+    "watch:siteup": "npm run build:siteup -- --watch",
     "example:basic": "cd examples/basic && npm i && npm run build",
     "example:string-layouts": "cd examples/string-layouts && npm i --production && npm run build",
     "example:default-layout": "cd examples/default-layout && npm i --production && npm run build",
@@ -86,7 +93,8 @@
     "version:changelog": "auto-changelog -p --template keepachangelog auto-changelog --breaking-pattern 'BREAKING CHANGE:'",
     "version:git": "git add CHANGELOG.md",
     "deps": "depcruise --exclude '^node_modules|^[a-zA-Z0-9\\_]+$' --output-type dot . | dot -T svg > dependencygraph.svg",
-    "deps3d": "depcruise --exclude '^node_modules' --output-type plugin:dependency-cruiser/sample-3d-reporter-plugin --output-to 3d-dependency-graph.html ."
+    "deps3d": "depcruise --exclude '^node_modules' --output-type plugin:dependency-cruiser/sample-3d-reporter-plugin --output-to 3d-dependency-graph.html .",
+    "start": "npm run watch"
   },
   "funding": {
     "type": "individual",
