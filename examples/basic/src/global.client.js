@@ -1,4 +1,7 @@
 import { toggleTheme } from 'mine.css'
+import { foo } from './shared.js'
+
+console.log(foo)
 
 window.toggleTheme = toggleTheme
 

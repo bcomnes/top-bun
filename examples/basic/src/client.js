@@ -1,3 +1,5 @@
+import { foo } from './shared.js'
+console.log(foo)
 console.log('This client bundle only loads in the root page.')
 
 // Each page folder can have a client.js file in it.
