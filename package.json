@@ -54,13 +54,12 @@
   },
   "devDependencies": {
     "auto-changelog": "^2.0.0",
-    "c8": "^8.0.0",
     "dependency-cruiser": "^14.0.0",
     "gh-release": "^7.0.0",
     "npm-run-all2": "^6.0.0",
     "snazzy": "^9.0.0",
     "standard": "^17.0.0",
-    "tap": "^16.0.1",
+    "tap": "^18.4.0",
     "browser-sync": "^2.26.7"
   },
   "homepage": "https://github.com/bcomnes/siteup-cli",
@@ -74,7 +73,7 @@
     "prepublishOnly": "git push --follow-tags && gh-release -y",
     "test": "run-s test:*",
     "test:standard": "standard --verbose | snazzy",
-    "test:tap": "c8 tap --no-coverage --color",
+    "test:tap": "tap",
     "test:deptree": "depcruise --validate .dependency-cruiser.json bin.js",
     "build-examples": "run-p example:*",
     "clean": "rm -rf public && mkdir -p public",
@@ -111,26 +110,13 @@
     "lib/**",
     "index.js"
   ],
-  "c8": {
-    "reporter": [
-      "lcov",
-      "text"
-    ],
-    "all": true,
-    "exclude": [
-      "examples/*",
-      "test-cases/*",
-      "coverage/**",
-      "packages/*/test{,s}/**",
-      "**/*.d.ts",
-      "test{,s}/**",
-      "test{,-*}.{js,cjs,mjs,ts,tsx,jsx}",
-      "**/*{.,-}test.{js,cjs,mjs,ts,tsx,jsx}",
-      "**/__tests__/**",
-      "**/{ava,babel,nyc}.config.{js,cjs,mjs}",
-      "**/jest.config.{js,cjs,mjs,ts}",
-      "**/{karma,rollup,webpack}.config.js",
-      "**/.{eslint,mocha}rc.{js,cjs}"
+  "tap": {
+    "serial": [],
+    "typecheck": false,
+    "allow-incomplete-coverage": true,
+    "coverage-report": [
+      "text",
+      "lcovonly"
     ]
   }
 }
