@@ -21,12 +21,9 @@ tap.test('build-errors', async (t) => {
     t.match(err.message, /Prebuild finished but there were errors/, 'Should have an error message about a filed build.')
     t.ok(Array.isArray(err.errors), 'Should have an array of errors')
 
-    const cssError = err.errors.find(err => err.message.includes('Error building css'))
-    const jsError = err.errors.find(err => err.message.includes('Error building JS clients'))
+    const esbuildErrors = err.errors.find(err => err.message.includes('Error building JS+CSS with esbuild'))
 
-    t.ok(cssError, 'Should include a css build error')
-    t.ok(cssError.cause, 'Should include an error cause')
-    t.ok(jsError, 'Should include a js client build error')
-    t.ok(jsError.cause, 'Should include an error cause')
+    t.ok(esbuildErrors, 'Should include a js client build error')
+    t.ok(esbuildErrors.cause, 'Should include an error cause')
   }
 })

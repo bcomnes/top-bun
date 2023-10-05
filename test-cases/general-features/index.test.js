@@ -71,12 +71,12 @@ tap.test('general-features', async (t) => {
 
   t.ok('All files walked in output')
 
-  const generatedGlobalStyle = files.some(f => f.relname === 'global.css')
+  const generatedGlobalStyle = files.some(f => f.relname.match(/global-([A-Z0-9])\w+.css/g))
   t.equal(generatedGlobalStyle, globalAssets.globalStyle, `${globalAssets.globalStyle
             ? 'Generated'
             : 'Did not generate'} a global style`)
 
-  const generatedGlobalClient = files.some(f => f.relname.match(/global.client-([A-Z])\w+.js/g))
+  const generatedGlobalClient = files.some(f => f.relname.match(/global.client-([A-Z0-9])\w+.js/g))
   t.equal(generatedGlobalClient, globalAssets.globalClient, `${globalAssets.globalClient
             ? 'Generated'
             : 'Did not generate'} a global client`)
@@ -84,7 +84,6 @@ tap.test('general-features', async (t) => {
   for (const [filePath, assertions] of Object.entries(pages)) {
     try {
       const fullPath = path.join(dest, filePath)
-      const fileDir = path.dirname(filePath)
       const st = await stat(fullPath)
       t.ok(st, `${filePath} exists`)
 
@@ -93,14 +92,14 @@ tap.test('general-features', async (t) => {
 
       const headScripts = Array.from(doc('head script[type="module"]'))
 
-      const hasGlboalClientHeader = headScripts.map(n => n?.attribs?.src).some(src => src.match(/global.client-([A-Z])\w+.js/g))
-      const hasPageClientHeader = headScripts.map(n => n?.attribs?.src).some(src => src.match(/\.\/client-([A-Z])\w+.js/g))
-      const generatedPageClient = files.some(f => f.relname.match(/client-([A-Z])\w+.js/g))
+      const hasGlboalClientHeader = headScripts.map(n => n?.attribs?.src).some(src => src.match(/global.client-([A-Z0-9])\w+.js/g))
+      const hasPageClientHeader = headScripts.map(n => n?.attribs?.src).some(src => src.match(/\.\/client-([A-Z0-9])\w+.js/g))
+      const generatedPageClient = files.some(f => f.relname.match(/client-([A-Z0-9])\w+.js/g))
 
       const headLinks = Array.from(doc('head link[rel="stylesheet"]'))
-      const hasGlobalStyleHeader = headLinks.map(n => n?.attribs?.href).includes('/global.css')
-      const hasPageStyleHeader = headLinks.map(n => n?.attribs?.href).includes('./style.css')
-      const generatedPageStyle = files.some(f => f.relname === path.join(fileDir, 'style.css'))
+      const hasGlobalStyleHeader = headLinks.map(n => n?.attribs?.href).some(href => href.match(/global-([A-Z0-9])\w+.css/g))
+      const hasPageStyleHeader = headLinks.map(n => n?.attribs?.href).some(href => href.match(/\.\/style-([A-Z0-9])\w+.css/g))
+      const generatedPageStyle = files.some(f => f.relname.match(/style-([A-Z0-9])\w+.css/g))
 
       t.equal(
         hasGlboalClientHeader,

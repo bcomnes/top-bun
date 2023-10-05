@@ -141,8 +141,8 @@ function generateTreeData (cwd, src, dest, results) {
   const treeStructure = {
     label: `${join(cwdDir, srcDir)} => ${join(cwdDir, destDir)}`,
     leaf: {
-      globalStyle: results?.siteData?.globalStyle?.basename,
-      globalClient: results?.siteData?.outputMaps?.js?.['global.client.js'],
+      globalStyle: results?.siteData?.globalStyle?.outputRelname,
+      globalClient: results?.siteData?.outputMaps?.outputRelname,
       globalVars: results?.siteData?.globalVars?.basename,
       rootLayout: results?.siteData?.rootLayout?.basename
     },
@@ -166,8 +166,8 @@ function generateTreeData (cwd, src, dest, results) {
     }
 
     targetNode.leaf[page.page.basename] = join(page.path, page.outputName)
-    if (page.pageStyle) targetNode.leaf[page.pageStyle.basename] = join(page.path, page.pageStyle.basename)
-    if (page.clientBundle) targetNode.leaf[page.clientBundle.basename] = join(page.path, basename(results?.siteData?.outputMaps?.js?.[page.clientBundle.relname]))
+    if (page.pageStyle) targetNode.leaf[page.pageStyle.basename] = join(page.path, page.pageStyle.outputName ?? page.pageStyle.basename)
+    if (page.clientBundle) targetNode.leaf[page.clientBundle.basename] = join(page.path, page.clientBundle.outputName ?? page.clientBundle.basename)
     if (page.pageVars) targetNode.leaf[page.pageVars.basename] = join(page.path, page.pageVars.basename)
   }
 

@@ -60,7 +60,8 @@
     "snazzy": "^9.0.0",
     "standard": "^17.0.0",
     "tap": "^18.4.0",
-    "browser-sync": "^2.26.7"
+    "browser-sync": "^2.26.7",
+    "typescript": "^5.1.6"
   },
   "homepage": "https://github.com/bcomnes/siteup-cli",
   "keywords": [],
@@ -111,7 +112,7 @@
     "index.js"
   ],
   "tap": {
-    "serial": [],
+    "serial": ["*"],
     "typecheck": false,
     "allow-incomplete-coverage": true,
     "coverage-report": [
