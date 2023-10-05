@@ -1,7 +1,7 @@
 {
   "name": "@siteup/cli",
   "description": "siteup builds websites with html, md, css and js.",
-  "version": "2.2.11",
+  "version": "3.0.0",
   "type": "module",
   "exports": {
     "import": "./index.js"
@@ -112,7 +112,9 @@
     "index.js"
   ],
   "tap": {
-    "serial": ["*"],
+    "serial": [
+      "*"
+    ],
     "typecheck": false,
     "allow-incomplete-coverage": true,
     "coverage-report": [
