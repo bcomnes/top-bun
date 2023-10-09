@@ -105,7 +105,7 @@ async function run () {
     try {
       const results = await siteup.build()
       console.log(tree(generateTreeData(cwd, src, dest, results)))
-      if (results?.warnings) {
+      if (results?.warnings?.length > 0) {
         console.log(
           '\nThere were build warnings:\n'
         )

@@ -1,0 +1,5 @@
+@import "./root.layout.css";
+
+.some-blog-class {
+  color: purple;
+}
