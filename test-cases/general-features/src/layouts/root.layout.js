@@ -1,11 +1,14 @@
 import { html, render } from 'uhtml-isomorphic'
 
 export default function defaultRootLayout ({
-  title,
-  siteName = 'Siteup',
+  vars: {
+    title,
+    siteName = 'Siteup'
+  },
   scripts,
   styles,
   children
+  /* pages */
 }) {
   return render(String, html`
     <!DOCTYPE html>
@@ -14,6 +17,8 @@ export default function defaultRootLayout ({
       <meta charset="utf-8">
       <title>${title ? `${title}` : ''}${title && siteName ? ' | ' : ''}${siteName}</title>
       <meta name="viewport" content="width=device-width, user-scalable=no" />
+      <meta itemprop="publisher" content="${siteName}">
+      <meta property="og:site_name" content="${siteName}">
       ${scripts
         ? scripts.map(script => html`<script type='module' src="${script}"></script>`)
         : null}

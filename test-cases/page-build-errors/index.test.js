@@ -21,9 +21,9 @@ tap.test('build-errors', async (t) => {
     t.match(err.message, /Build finished but there were errors/, 'Should have an error message about a filed build.')
     t.ok(Array.isArray(err.errors), 'Should have an array of errors')
 
-    const pageError = err.errors.find(err => err.message.includes('Error building page'))
+    const pageResolveError = err.errors.find(err => err.message.includes('Error resolving page vars'))
 
-    t.ok(pageError, 'Should include a page build error')
-    t.ok(pageError.cause, 'Should include an error cause')
+    t.ok(pageResolveError, 'Should include a page resolve build error')
+    t.ok(pageResolveError.cause, 'Should include an error cause')
   }
 })

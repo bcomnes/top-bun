@@ -3,9 +3,7 @@
   "description": "siteup builds websites with html, md, css and js.",
   "version": "3.1.0",
   "type": "module",
-  "exports": {
-    "import": "./index.js"
-  },
+  "main": "./index.js",
   "bin": {
     "siteup": "./bin.js"
   },
@@ -14,7 +12,8 @@
     "url": "https://github.com/bcomnes/siteup-cli/issues"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18",
+    "npm": ">=9"
   },
   "dependencies": {
     "aggregate-error-ponyfill": "^1.1.0",
@@ -28,6 +27,7 @@
     "esbuild": "^0.19.0",
     "ignore": "^5.1.8",
     "js-yaml": "^4.1.0",
+    "jsonfeed-to-atom": "^1.2.4",
     "lodash.keyby": "^4.6.0",
     "make-array": "^1.0.5",
     "markdown-it": "^13.0.0",
@@ -42,20 +42,22 @@
     "markdown-it-sup": "^1.0.0",
     "mine.css": "^9.0.1",
     "minimist": "^1.2.5",
+    "p-map": "^6.0.0",
     "pretty": "^2.0.0",
     "pretty-tree": "^1.0.0",
     "uhtml-isomorphic": "^2.0.0",
     "webassert": "^3.0.2"
   },
   "devDependencies": {
+    "@types/node": "^20.8.4",
     "auto-changelog": "^2.0.0",
+    "browser-sync": "^2.26.7",
     "dependency-cruiser": "^14.0.0",
     "gh-release": "^7.0.0",
     "npm-run-all2": "^6.0.0",
     "snazzy": "^9.0.0",
     "standard": "^17.0.0",
     "tap": "^18.4.0",
-    "browser-sync": "^2.26.7",
     "typescript": "^5.1.6"
   },
   "homepage": "https://github.com/bcomnes/siteup-cli",
