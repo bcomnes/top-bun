@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "aggregate-error-ponyfill": "^1.1.0",
-    "async-folder-walker": "^2.1.1",
+    "async-folder-walker": "^3.0.1",
     "cheerio": "^1.0.0-rc.10",
     "chokidar": "^3.5.2",
     "clean-deep": "^3.4.0",
