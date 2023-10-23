@@ -1,6 +1,6 @@
 import process from 'process'
 import { once } from 'events'
-import assert from 'webassert'
+import assert from 'node:assert'
 import chokidar from 'chokidar'
 import { basename, relative } from 'path'
 import makeArray from 'make-array'

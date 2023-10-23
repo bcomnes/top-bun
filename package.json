@@ -22,7 +22,7 @@
     "chokidar": "^3.5.2",
     "clean-deep": "^3.4.0",
     "cliclopts": "^1.1.1",
-    "cpx2": "^5.0.0",
+    "cpx2": "^6.0.0",
     "desm": "^1.1.0",
     "esbuild": "^0.19.0",
     "ignore": "^5.1.8",
@@ -45,14 +45,13 @@
     "p-map": "^6.0.0",
     "pretty": "^2.0.0",
     "pretty-tree": "^1.0.0",
-    "uhtml-isomorphic": "^2.0.0",
-    "webassert": "^3.0.2"
+    "uhtml-isomorphic": "^2.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.8.4",
     "auto-changelog": "^2.0.0",
     "browser-sync": "^2.26.7",
-    "dependency-cruiser": "^14.0.0",
+    "dependency-cruiser": "^15.0.0",
     "gh-release": "^7.0.0",
     "npm-run-all2": "^6.0.0",
     "snazzy": "^9.0.0",
