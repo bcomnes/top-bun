@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "auto-changelog": "^2.0.0",
-    "dependency-cruiser": "^14.0.0",
+    "dependency-cruiser": "^15.0.0",
     "gh-release": "^7.0.0",
     "npm-run-all2": "^6.0.0",
     "snazzy": "^9.0.0",
