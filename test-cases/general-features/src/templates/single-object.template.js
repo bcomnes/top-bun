@@ -1,5 +1,15 @@
-export default ({
-  foo
+/**
+ * @template T
+ * @typedef {import('../../../../index.js').TemplateFunction<T>} TemplateFunction
+ */
+
+/**
+ * @type {TemplateFunction<{
+ * foo: string,
+ * }>}
+ */
+export default async ({
+  vars: { foo }
 }) => ({
   content: `Hello world
 

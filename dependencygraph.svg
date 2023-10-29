@@ -1,1 +1,1172 @@
-<svg height="3188pt" viewBox="0 0 911.12 3187.87" width="911pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g transform="translate(4 3183.87)"><path d="m-4 4v-3187.87h911.12v3187.87z" fill="#fff"/><path d="m17-196h304.38c6 0 12-6 12-12v-2354c0-6-6-12-12-12h-304.38c-6 0-12 6-12 12v2354c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="169.19" y="-2561.45">test-cases</text><path d="m57.75-2012h114c6 0 12-6 12-12v-238c0-6-6-12-12-12h-114c-6 0-12 6-12 12v238c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-2261.45">page-build-errors</text><path d="m68.75-2196h92c6 0 12-6 12-12v-28c0-6-6-12-12-12h-92c-6 0-12 6-12 12v28c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-2235.45">public</text><path d="m65.75-2046h98c6 0 12-6 12-12v-118c0-6-6-12-12-12h-98c-6 0-12 6-12 12v118c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-2175.45">src</text><path d="m73.75-2110h82c6 0 12-6 12-12v-28c0-6-6-12-12-12h-82c-6 0-12 6-12 12v28c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-2149.45">another-broken-page</text><path d="m55.75-2282h118c6 0 12-6 12-12v-242c0-6-6-12-12-12h-118c-6 0-12 6-12 12v242c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-2535.45">nested-dest</text><path d="m63.75-2436h102c6 0 12-6 12-12v-62c0-6-6-12-12-12h-102c-6 0-12 6-12 12v62c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-2509.45">public</text><path d="m71.75-2444h86c6 0 12-6 12-12v-28c0-6-6-12-12-12h-86c-6 0-12 6-12 12v28c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-2483.45">md-page</text><path d="m86-2346h57.5c6 0 12-6 12-12v-58c0-6-6-12-12-12h-57.5c-6 0-12 6-12 12v58c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-2415.45">md-page</text><path d="m57.75-1832h114c6 0 12-6 12-12v-148c0-6-6-12-12-12h-114c-6 0-12 6-12 12v148c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-1991.45">build-errors</text><path d="m65.75-1866h98c6 0 12-6 12-12v-88c0-6-6-12-12-12h-98c-6 0-12 6-12 12v88c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-1965.45">src</text><path d="m73.75-1900h82c6 0 12-6 12-12v-28c0-6-6-12-12-12h-82c-6 0-12 6-12 12v28c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-1939.45">another-broken-page</text><path d="m78-1682h73.5c6 0 12-6 12-12v-118c0-6-6-12-12-12h-73.5c-6 0-12 6-12 12v118c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-1811.45">conflict-pages</text><path d="m86-1716h57.5c6 0 12-6 12-12v-58c0-6-6-12-12-12h-57.5c-6 0-12 6-12 12v58c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-1785.45">src</text><path d="m75.75-1562h78c6 0 12-6 12-12v-88c0-6-6-12-12-12h-78c-6 0-12 6-12 12v88c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-1661.45">default-layout</text><path d="m83.75-1596h62c6 0 12-6 12-12v-28c0-6-6-12-12-12h-62c-6 0-12 6-12 12v28c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-1635.45">src</text><path d="m25-204h288.38c6 0 12-6 12-12v-1326c0-6-6-12-12-12h-288.38c-6 0-12 6-12 12v1326c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="169.19" y="-1541.45">general-features</text><path d="m36-1206h157.5c6 0 12-6 12-12v-298c0-6-6-12-12-12h-157.5c-6 0-12 6-12 12v298c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-1515.45">public</text><path d="m70.62-1450h88.26c6 0 12-6 12-12v-28c0-6-6-12-12-12h-88.26c-6 0-12 6-12 12v28c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-1489.45">html-page</text><path d="m68.75-1390h92c6 0 12-6 12-12v-28c0-6-6-12-12-12h-92c-6 0-12 6-12 12v28c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-1429.45">js-page</text><path d="m44-1330h141.5c6 0 12-6 12-12v-28c0-6-6-12-12-12h-141.5c-6 0-12 6-12 12v28c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-1369.45">layouts</text><path d="m69.88-1270h89.74c6 0 12-6 12-12v-28c0-6-6-12-12-12h-89.74c-6 0-12 6-12 12v28c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-1309.45">md-page</text><path d="m33-212h272.38c6 0 12-6 12-12v-936c0-6-6-12-12-12h-272.38c-6 0-12 6-12 12v936c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="169.19" y="-1159.45">src</text><path d="m41-1026h147.5c6 0 12-6 12-12v-96c0-6-6-12-12-12h-147.5c-6 0-12 6-12 12v96c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-1133.45">blog</text><path d="m49-1034h131.5c6 0 12-6 12-12v-62c0-6-6-12-12-12h-131.5c-6 0-12 6-12 12v62c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-1107.45">2023</text><path d="m57-1042h115.5c6 0 12-6 12-12v-28c0-6-6-12-12-12h-115.5c-6 0-12 6-12 12v28c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-1081.45">the-first-blog-post-from-2023</text><path d="m86-936h57.5c6 0 12-6 12-12v-58c0-6-6-12-12-12h-57.5c-6 0-12 6-12 12v58c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-1005.45">html-page</text><path d="m70.75-696h89c6 0 12-6 12-12v-208c0-6-6-12-12-12h-89c-6 0-12 6-12 12v208c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="115.25" y="-915.45">js-page</text><path d="m78.75-850h73c6 0 12-6 12-12v-28c0-6-6-12-12-12h-73c-6 0-12 6-12 12v28c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="115.25" y="-889.45">js-no-async-export</text><path d="m83.75-790h63c6 0 12-6 12-12v-28c0-6-6-12-12-12h-63c-6 0-12 6-12 12v28c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="115.25" y="-829.45">js-no-style-client</text><path d="m71.75-606h225.63c6 0 12-6 12-12v-58c0-6-6-12-12-12h-225.63c-6 0-12 6-12 12v58c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="184.56" y="-675.45">layouts</text><path d="m244.5-332h46c6 0 12-6 12-12v-28c0-6-6-12-12-12h-46c-6 0-12 6-12 12v28c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="267.5" y="-371.45">libs</text><path d="m86-516h57.5c6 0 12-6 12-12v-58c0-6-6-12-12-12h-57.5c-6 0-12 6-12 12v58c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-585.45">md-page</text><path d="m59.75-366h110c6 0 12-6 12-12v-118c0-6-6-12-12-12h-110c-6 0-12 6-12 12v118c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-495.45">templates</text><path d="m837.12-2654h46c6 0 12-6 12-12v-28c0-6-6-12-12-12h-46c-6 0-12 6-12 12v28c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="860.12" y="-2693.45">fs</text><path d="m353.38-2678h451.74c6 0 12-6 12-12v-448c0-6-6-12-12-12h-451.74c-6 0-12 6-12 12v448c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="579.25" y="-3137.45">lib</text><path d="m434.75-2686h46c6 0 12-6 12-12v-28c0-6-6-12-12-12h-46c-6 0-12 6-12 12v28c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="457.75" y="-2725.45">build-esbuild</text><path d="m434.75-3072h46c6 0 12-6 12-12v-28c0-6-6-12-12-12h-46c-6 0-12 6-12 12v28c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="457.75" y="-3111.45">build-static</text><path d="m434.75-2746h362.37c6 0 12-6 12-12v-268c0-6-6-12-12-12h-362.37c-6 0-12 6-12 12v268c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="615.94" y="-3025.45">build-pages</text><path d="m614.88-2780h174.24c6 0 12-6 12-12v-208c0-6-6-12-12-12h-174.24c-6 0-12 6-12 12v208c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="702" y="-2999.45">page-builders</text><path d="m724.25-2934h46c6 0 12-6 12-12v-28c0-6-6-12-12-12h-46c-6 0-12 6-12 12v28c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="747.25" y="-2973.45">html</text><path d="m724.25-2814h46c6 0 12-6 12-12v-28c0-6-6-12-12-12h-46c-6 0-12 6-12 12v28c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="747.25" y="-2853.45">js</text><path d="m724.25-2874h46c6 0 12-6 12-12v-28c0-6-6-12-12-12h-46c-6 0-12 6-12 12v28c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="747.25" y="-2913.45">md</text><path d="m56.5-8h116.5c6 0 12-6 12-12v-156c0-6-6-12-12-12h-116.5c-6 0-12 6-12 12v156c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-175.45">.tap</text><path d="m64.5-16h100.5c6 0 12-6 12-12v-122c0-6-6-12-12-12h-100.5c-6 0-12 6-12 12v122c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-149.45">report</text><path d="m72.5-24h84.5c6 0 12-6 12-12v-88c0-6-6-12-12-12h-84.5c-6 0-12 6-12 12v88c0 6 6 12 12 12" fill="#fff" stroke="#000" stroke-width="2"/><text font-family="Helvetica,sans-Serif" font-size="9" font-weight="bold" text-anchor="middle" x="114.75" y="-123.45">lcov-report</text><a xlink:href=".tap/report/lcov-report/block-navigation.js" xlink:title="block&#45;navigation.js"><path d="m155.08-109.88h-80.66c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h80.66c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="76.5" y="-97.33">block-navigation.js</text></a><a xlink:href=".tap/report/lcov-report/prettify.js" xlink:title="prettify.js"><path d="m135.83-79.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="96.75" y="-67.33">prettify.js</text></a><a xlink:href=".tap/report/lcov-report/sorter.js" xlink:title="sorter.js"><path d="m135.83-49.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="98.62" y="-37.33">sorter.js</text></a><a xlink:href="bin.js" xlink:title="bin.js"><path d="m135.83-2886.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" text-anchor="middle" x="114.75" y="-2874.32">bin.js</text></a><a xlink:href="index.js" xlink:title="index.js"><path d="m288.58-2599.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" text-anchor="middle" x="267.5" y="-2587.32">index.js</text></a><path d="m120.59-2868.78c21.49 40.9 108.33 206.24 136.81 260.46" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m259.26-2609.3.93 6.29-4.65-4.34z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><a xlink:title="promises"><path d="m881.21-2679.88h-42.17c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.17c2.96 0 5.91-2.96 5.91-5.92v-5.92c0-2.96-2.95-5.92-5.91-5.92" fill="#ffc" stroke="#808080"/><text fill="#808080" font-family="Helvetica,sans-Serif" font-size="9" x="841.38" y="-2667.32">promises</text></a><path d="m118.78-2887.22c16.77-49.13 103.07-277.78 256.6-277.78h275.24c74.2 0 113.65-40.07 166.5 12 33.85 33.34 40.68 384.17 41.81 465.31" fill="none" stroke="#000" stroke-dasharray="5 2" stroke-opacity=".2"/><path d="m861.02-2687.84-2.02 6.02-2.18-5.97z" fill-opacity=".2" stroke="#000" stroke-opacity=".2"/><a xlink:href="lib/build-static/index.js" xlink:title="index.js"><path d="m478.83-3097.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" text-anchor="middle" x="457.75" y="-3085.32">index.js</text></a><path d="m269.18-2600.29c3.31-42.12 19.85-218.99 72.2-352.71 23.33-59.62 24.7-83.37 75-123 1.95-1.54 4.09-2.9 6.33-4.1" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m421.51-3081.86 6.34-.51-4.64 4.35z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><a xlink:href="lib/builder.js" xlink:title="builder.js"><path d="m397.46-2765.88h-42.17c-2.96 0-5.91 2.96-5.91 5.92v5.92c0 2.96 2.95 5.92 5.91 5.92h42.17c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="357.62" y="-2753.32">builder.js</text></a><path d="m274.25-2599.92c17.18-26.69 68.33-106.15 90.59-140.71" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m362.95-2741.58 5.01-3.91-1.48 6.19z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m379.23-2747.83c3.82 16.19 14.17 49.55 37.15 64.83 50.57 33.63 75.39 12 136.12 12h98.12 174.84" fill="none" stroke="#000" stroke-dasharray="5 2" stroke-opacity=".2"/><path d="m825.28-2673.1 6 2.1-6 2.1z" fill-opacity=".2" stroke="#000" stroke-opacity=".2"/><path d="m378.65-2766.02c3.92-27.92 16.06-115.36 24.73-187.98 3.22-27.07-4.21-100.85 13-122 1.81-2.23 4-4.08 6.43-5.62" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m421.54-3083.34 6.32-.7-4.5 4.49z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><a xlink:href="lib/build-esbuild/index.js" xlink:title="index.js"><path d="m478.83-2711.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" text-anchor="middle" x="457.75" y="-2699.32">index.js</text></a><path d="m390.84-2747.84c12.32 8.38 30.73 20.91 44.96 30.59" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m436.94-2719.02 3.78 5.11-6.15-1.64z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><a xlink:href="lib/build-pages/index.js" xlink:title="index.js"><path d="m478.83-2819.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" text-anchor="middle" x="457.75" y="-2807.32">index.js</text></a><path d="m390.84-2766.16c12.32-8.38 30.73-20.91 44.96-30.59" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m434.57-2798.45 6.15-1.64-3.78 5.11z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><a xlink:href="lib/identify-pages.js" xlink:title="identify&#45;pages.js"><path d="m493.21-3063.88h-70.92c-2.96 0-5.91 2.96-5.91 5.92v5.92c0 2.96 2.95 5.92 5.91 5.92h70.92c2.96 0 5.91-2.96 5.91-5.92v-5.92c0-2.96-2.95-5.92-5.91-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="424.38" y="-3051.32">identify-pages.js</text></a><path d="m378.59-2766.35c5.72-43.92 29.95-229.19 40.15-271.18" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m416.67-3037.95 3.92-5 .05 6.35z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><a xlink:href="lib/build-pages/resolve-vars.js" xlink:title="resolve&#45;vars.js"><path d="m681.33-2771.88h-63.41c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h63.41c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="620" y="-2759.32">resolve-vars.js</text></a><path d="m485.15-2711.34c32.55-10.29 88.1-27.84 125.3-39.6" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m609.78-2752.93 6.35.2-5.09 3.81z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m474.59-2801.75c10.36 5.65 24.37 12.58 37.53 16.75 29.51 9.34 63.92 14.85 90.8 18.02" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m603-2769.08 5.73 2.75-6.2 1.42z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><a xlink:href="lib/build-pages/page-builders/index.js" xlink:title="index.js"><path d="m670.71-2836.88h-42.17c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.17c2.96 0 5.91-2.96 5.91-5.92v-5.92c0-2.96-2.95-5.92-5.91-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" text-anchor="middle" x="649.62" y="-2824.32">index.js</text></a><path d="m485.15-2813.36c33.35-2.99 90.86-8.14 128.01-11.46" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m612.96-2826.92 6.17 1.56-5.79 2.63z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><a xlink:href="lib/build-pages/page-builders/page-builder.js" xlink:title="page&#45;builder.js"><path d="m682.46-2930.88h-65.67c-2.96 0-5.91 2.96-5.91 5.92v5.92c0 2.96 2.95 5.92 5.91 5.92h65.67c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="618.88" y="-2918.32">page-builder.js</text></a><path d="m485.09-2816.94c38.92-8.81 107.5-24.49 109.79-26.06 22.44-15.42 38.2-43.55 46.62-61.74" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m639.48-2905.36 4.34-4.65-.5 6.34z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><a xlink:href="lib/build-pages/page-data.js" xlink:title="page&#45;data.js"><path d="m581.08-2808.88h-55.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h55.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="528" y="-2796.32">page-data.js</text></a><path d="m484.86-2807.94c8.13.96 17.3 2.03 26.21 3.08" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m511.11-2806.97 5.72 2.78-6.21 1.39z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><a xlink:href="lib/build-pages/resolve-layout.js" xlink:title="resolve&#45;layout.js"><path d="m588.96-2866.88h-70.92c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h70.92c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="520.12" y="-2854.32">resolve-layout.js</text></a><path d="m484.98-2817.01c4.94-1.79 9.89-4.08 14.14-6.99 7.57-5.17 5.73-10.43 13-16 2.2-1.68 4.57-3.24 7.03-4.69" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m517.74-2846.32 6.29-.95-4.32 4.66z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><a xlink:href="lib/build-pages/page-builders/html/index.js" xlink:title="index.js"><path d="m768.33-2959.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" text-anchor="middle" x="747.25" y="-2947.32">index.js</text></a><path d="m654.85-2837.24c10.86-23.58 39.34-84.65 46.53-91.76 3.23-3.2 7.01-6.01 11-8.46" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m711.25-2939.24 6.27-1.03-4.25 4.72z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><a xlink:href="lib/build-pages/page-builders/js/index.js" xlink:title="index.js"><path d="m768.33-2839.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" text-anchor="middle" x="747.25" y="-2827.32">index.js</text></a><path d="m677.01-2828.83c10.55-.33 22.87-.72 34.16-1.07" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m710.86-2831.99 6.07 1.91-5.93 2.29z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><a xlink:href="lib/build-pages/page-builders/md/index.js" xlink:title="index.js"><path d="m768.33-2899.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" text-anchor="middle" x="747.25" y="-2887.32">index.js</text></a><path d="m660.61-2837.19c9.88-8.83 25.68-22.19 40.77-31.81 4.8-3.06 10.08-6 15.29-8.68" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m715.69-2879.53 6.31-.78-4.45 4.54z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><a xlink:href="lib/build-pages/page-builders/template-builder.js" xlink:title="template&#45;builder.js"><path d="m787.21-2805.88h-79.92c-2.96 0-5.91 2.96-5.91 5.92v5.92c0 2.96 2.95 5.92 5.91 5.92h79.92c2.96 0 5.91-2.96 5.91-5.92v-5.92c0-2.96-2.95-5.92-5.91-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="709.38" y="-2793.32">template-builder.js</text></a><g stroke="#000" stroke-opacity=".2"><path d="m676.93-2819.07c7.85 2.63 16.49 5.5 24.45 8.07 2.1.68 4.27 1.38 6.45 2.07" fill="none" stroke-width="2"/><path d="m708.32-2810.98 5.08 3.82-6.35.19z" fill-opacity=".2" stroke-width="2"/><path d="m684.01-2931.15c1.59-1.14 3.06-2.41 4.37-3.85 16.6-18.27-6.4-38.72 13-54 20.2-15.92 96.4-16.96 115.74 0 22.95 20.11 37.39 238.85 41.07 301.39" fill="none" stroke-dasharray="5 2"/><path d="m860.28-2687.79-1.75 6.11-2.44-5.86z" fill-opacity=".2"/><path d="m572.14-2790.84c9.05 4.49 20.33 9.8 30.74 13.84 1.56.61 3.17 1.21 4.8 1.8" fill="none" stroke-width="2"/><path d="m608.08-2777.28 4.99 3.93-6.36.04z" fill-opacity=".2" stroke-width="2"/><path d="m584.14-2809.31c6.18-1.91 12.67-3.89 18.74-5.69 3.56-1.06 7.28-2.15 11-3.22" fill="none" stroke-width="2"/><path d="m613.21-2820.21 6.35.36-5.19 3.67z" fill-opacity=".2" stroke-width="2"/><path d="m774.48-2949.18c14.67 2.43 32.07 7.92 42.64 20.18 31.51 36.54 39.65 190.36 41.51 241.44" fill="none" stroke-dasharray="5 2"/><path d="m860.72-2687.86-1.9 6.07-2.3-5.93z" fill-opacity=".2"/><path d="m774.6-2888.94c14.53 2.52 31.75 8.02 42.52 19.94 24.37 26.93 36.77 139.43 40.64 181.78" fill="none" stroke-dasharray="5 2"/><path d="m859.83-2687.61-1.56 6.16-2.62-5.79z" fill-opacity=".2"/><path d="m756.22-2787.94c18.93 21.51 66.71 75.81 89.89 102.15" fill="none" stroke-dasharray="5 2"/><path d="m847.54-2687.35 2.38 5.89-5.54-3.11z" fill-opacity=".2"/><path d="m497.33-3064.35c73.53-15.28 234.03-35.98 319.79 49.35 23.52 23.4 37.69 261.84 41.17 327.4" fill="none" stroke-dasharray="5 2"/><path d="m860.38-2687.78-1.79 6.1-2.41-5.88z" fill-opacity=".2"/></g><a xlink:href="test-cases/build-errors/index.test.js" xlink:title="index.test.js"><path d="m140.83-1857.88h-52.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h52.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="90.75" y="-1845.33">index.test.js</text></a><path d="m147.22-1844.98c19.61.6 43.77-2.44 58.28-18.02 49.93-53.61 59.42-603.45 60.8-710.13" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m264.2-2573.03 2.17-5.98 2.03 6.03z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m146.82-1841.22c20.5 6.92 45.86 19.27 58.68 40.22 42.68 69.77-5.37 1396.89 27 1472 35.19 81.64 53.97 140 142.88 140h275.24c131.75 0 201.63-2249.98 208.02-2465.47" fill="none" stroke="#000" stroke-dasharray="5 2" stroke-opacity=".2"/><path d="m856.54-2654.32 2.27-5.93 1.93 6.06z" fill-opacity=".2" stroke="#000" stroke-opacity=".2"/><a xlink:href="test-cases/build-errors/src/another-broken-page/page.js" xlink:title="page.js"><path d="m135.83-1925.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="99.75" y="-1913.33">page.js</text></a><a xlink:href="test-cases/build-errors/src/client.js" xlink:title="client.js"><path d="m135.83-1891.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="99.38" y="-1879.33">client.js</text></a><a xlink:href="test-cases/conflict-pages/index.test.js" xlink:title="index.test.js"><path d="m140.83-1707.88h-52.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h52.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="90.75" y="-1695.33">index.test.js</text></a><path d="m146.86-1694.93c19.71.69 44.14-2.27 58.64-18.07 60.24-65.62 61.35-740.23 61.07-859.9" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m264.47-2572.62 2.08-6 2.12 5.99z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m146.82-1691.21c20.5 6.91 45.86 19.26 58.68 40.21 42.28 69.1-24.64 1395.58 27 1458 41.36 49.99 77.99 30 142.88 30h275.24c84.03 0 145.73-104.08 166.5-156 46.12-115.23 42.53-2133.04 42.05-2335.64" fill="none" stroke="#000" stroke-dasharray="5 2" stroke-opacity=".2"/><path d="m857.07-2654.49 2.08-6 2.12 5.99z" fill-opacity=".2" stroke="#000" stroke-opacity=".2"/><a xlink:href="test-cases/conflict-pages/src/page.js" xlink:title="page.js"><path d="m135.83-1771.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="99.75" y="-1759.33">page.js</text></a><a xlink:href="test-cases/conflict-pages/src/page.vars.js" xlink:title="page.vars.js"><path d="m141.58-1741.88h-53.66c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h53.66c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="90" y="-1729.33">page.vars.js</text></a><a xlink:href="test-cases/default-layout/index.test.js" xlink:title="index.test.js"><path d="m140.83-1587.88h-52.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h52.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="90.75" y="-1575.33">index.test.js</text></a><path d="m146.91-1574.89c19.72.71 44.15-2.25 58.59-18.11 34.35-37.73 57.06-848.03 60.53-979.93" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m263.93-2572.86 2.26-5.94 1.94 6.05z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m134.65-1569.81c21.63 11.68 55.98 34.09 70.85 64.81 32.62 67.43-22.72 1291.98 27 1348 42.56 47.96 78.76 20 142.88 20h275.24c75.81 0 118.58 21.73 166.5-37 41.74-51.15 42.08-2266.23 42.01-2480.4" fill="none" stroke="#000" stroke-dasharray="5 2" stroke-opacity=".2"/><path d="m857.03-2654.14 2.1-6 2.1 5.99z" fill-opacity=".2" stroke="#000" stroke-opacity=".2"/><a xlink:href="test-cases/default-layout/src/global.vars.js" xlink:title="global.vars.js"><path d="m143.83-1621.88h-58.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h58.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="87.75" y="-1609.33">global.vars.js</text></a><a xlink:href="test-cases/general-features/index.test.js" xlink:title="index.test.js"><path d="m140.83-1197.88h-52.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h52.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="90.75" y="-1185.33">index.test.js</text></a><path d="m147-1184.81c19.76.74 44.2-2.21 58.5-18.19 47.95-53.59 59.5-1212.11 60.86-1370.19" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m264.25-2572.78 2.15-5.98 2.05 6.02z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m129.94-1179.76c21.05 14.64 59.73 45.36 75.56 82.76 21.04 49.7-9.67 931.4 27 971 43.38 46.85 79.03 15 142.88 15h275.24c74.54 0 116.59 35.35 166.5-20 45-49.89 42.39-2307.34 42.03-2523.43" fill="none" stroke="#000" stroke-dasharray="5 2" stroke-opacity=".2"/><path d="m857.06-2654.22 2.09-6.01 2.11 6z" fill-opacity=".2" stroke="#000" stroke-opacity=".2"/><a xlink:href="test-cases/general-features/public/client-XA44T36G.js" xlink:title="client&#45;XA44T36G.js"><path d="m156.21-1261.88h-82.92c-2.96 0-5.91 2.96-5.91 5.92v5.92c0 2.96 2.95 5.92 5.91 5.92h82.92c2.96 0 5.91-2.96 5.91-5.92v-5.92c0-2.96-2.95-5.92-5.91-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="75.38" y="-1249.33">client-XA44T36G.js</text></a><a xlink:href="test-cases/general-features/public/global.client-HGEKZZSE.js" xlink:title="global.client&#45;HGEKZZSE.js"><path d="m171.58-1231.88h-113.66c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h113.66c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="60" y="-1219.33">global.client-HGEKZZSE.js</text></a><a xlink:href="test-cases/general-features/public/html-page/client-P33YF4QG.js" xlink:title="client&#45;P33YF4QG.js"><path d="m156.96-1475.88h-84.42c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h84.42c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="74.62" y="-1463.33">client-P33YF4QG.js</text></a><a xlink:href="test-cases/general-features/public/js-page/client-GDCZFMOL.js" xlink:title="client&#45;GDCZFMOL.js"><path d="m158.83-1415.88h-88.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h88.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="72.75" y="-1403.33">client-GDCZFMOL.js</text></a><a xlink:href="test-cases/general-features/public/layouts/blog.layout.client-GHS6BWW7.js" xlink:title="blog.layout.client&#45;GHS6BWW7.js"><path d="m183.58-1355.88h-137.66c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h137.66c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="48" y="-1343.33">blog.layout.client-GHS6BWW7.js</text></a><a xlink:href="test-cases/general-features/public/md-page/client-R4ZZXMTO.js" xlink:title="client&#45;R4ZZXMTO.js"><path d="m157.71-1295.88h-85.92c-2.96 0-5.91 2.96-5.91 5.92v5.92c0 2.96 2.95 5.92 5.91 5.92h85.92c2.96 0 5.91-2.96 5.91-5.92v-5.92c0-2.96-2.95-5.92-5.91-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="73.88" y="-1283.33">client-R4ZZXMTO.js</text></a><a xlink:href="test-cases/general-features/src/blog/2023/the-first-blog-post-from-2023/page.vars.js" xlink:title="page.vars.js"><path d="m141.58-1067.88h-53.66c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h53.66c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="90" y="-1055.33">page.vars.js</text></a><a xlink:href="test-cases/general-features/src/client.js" xlink:title="client.js"><path d="m135.83-357.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="99.38" y="-345.32">client.js</text></a><a xlink:href="test-cases/general-features/src/libs/a-lib.js" xlink:title="a&#45;lib.js"><path d="m288.58-357.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="254" y="-345.32">a-lib.js</text></a><path d="m142.01-349h89.18" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m231.01-351.1 6 2.1-6 2.1z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><a xlink:href="test-cases/general-features/src/feeds.template.js" xlink:title="feeds.template.js"><path d="m151.33-327.88h-73.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h73.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="80.25" y="-315.32">feeds.template.js</text></a><a xlink:href="test-cases/general-features/src/global.client.js" xlink:title="global.client.js"><path d="m146.08-297.88h-62.66c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h62.66c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="85.5" y="-285.32">global.client.js</text></a><a xlink:href="test-cases/general-features/src/global.vars.js" xlink:title="global.vars.js"><path d="m143.83-267.88h-58.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h58.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="87.75" y="-255.32">global.vars.js</text></a><a xlink:href="test-cases/general-features/src/html-page/client.js" xlink:title="client.js"><path d="m135.83-991.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="99.38" y="-979.33">client.js</text></a><a xlink:href="test-cases/general-features/src/html-page/page.vars.js" xlink:title="page.vars.js"><path d="m141.58-961.88h-53.66c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h53.66c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="90" y="-949.33">page.vars.js</text></a><a xlink:href="test-cases/general-features/src/js-page/client.js" xlink:title="client.js"><path d="m135.83-781.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="99.38" y="-769.33">client.js</text></a><a xlink:href="test-cases/general-features/src/js-page/js-no-async-export/page.js" xlink:title="page.js"><path d="m135.83-875.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="99.75" y="-863.33">page.js</text></a><a xlink:href="test-cases/general-features/src/js-page/js-no-style-client/page.js" xlink:title="page.js"><path d="m135.83-815.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="99.75" y="-803.33">page.js</text></a><a xlink:href="test-cases/general-features/src/js-page/page.js" xlink:title="page.js"><path d="m135.83-751.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="99.75" y="-739.33">page.js</text></a><a xlink:href="test-cases/general-features/src/js-page/page.vars.js" xlink:title="page.vars.js"><path d="m141.58-721.88h-53.66c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h53.66c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="90" y="-709.33">page.vars.js</text></a><a xlink:href="test-cases/general-features/src/layouts/blog.layout.client.js" xlink:title="blog.layout.client.js"><path d="m155.83-661.88h-82.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h82.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="75.75" y="-649.33">blog.layout.client.js</text></a><a xlink:href="test-cases/general-features/src/layouts/blog.layout.js" xlink:title="blog.layout.js"><path d="m143.83-631.88h-58.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h58.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="87.75" y="-619.33">blog.layout.js</text></a><a xlink:href="test-cases/general-features/src/layouts/root.layout.js" xlink:title="root.layout.js"><path d="m295.46-631.88h-55.92c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h55.92c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="241.62" y="-619.33">root.layout.js</text></a><path d="m149.96-623h74.53" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m224.18-625.1 6 2.1-6 2.1z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><a xlink:href="test-cases/general-features/src/md-page/client.js" xlink:title="client.js"><path d="m135.83-571.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="99.38" y="-559.33">client.js</text></a><a xlink:href="test-cases/general-features/src/md-page/page.vars.js" xlink:title="page.vars.js"><path d="m141.58-541.88h-53.66c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h53.66c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="90" y="-529.33">page.vars.js</text></a><a xlink:href="test-cases/general-features/src/page.vars.js" xlink:title="page.vars.js"><path d="m141.58-237.88h-53.66c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h53.66c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="90" y="-225.32">page.vars.js</text></a><a xlink:href="test-cases/general-features/src/templates/async-iterator.template.js" xlink:title="async&#45;iterator.template.js"><path d="m167.83-481.88h-106.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h106.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="63.75" y="-469.32">async-iterator.template.js</text></a><a xlink:href="test-cases/general-features/src/templates/object-array.template.js" xlink:title="object&#45;array.template.js"><path d="m164.46-451.88h-99.42c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h99.42c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="67.12" y="-439.32">object-array.template.js</text></a><a xlink:href="test-cases/general-features/src/templates/simple.txt.template.js" xlink:title="simple.txt.template.js"><path d="m159.21-421.88h-88.92c-2.96 0-5.91 2.96-5.91 5.92v5.92c0 2.96 2.95 5.92 5.91 5.92h88.92c2.96 0 5.91-2.96 5.91-5.92v-5.92c0-2.96-2.95-5.92-5.91-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="72.38" y="-409.32">simple.txt.template.js</text></a><a xlink:href="test-cases/general-features/src/templates/single-object.template.js" xlink:title="single&#45;object.template.js"><path d="m166.33-391.88h-103.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h103.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="65.25" y="-379.32">single-object.template.js</text></a><a xlink:href="test-cases/nested-dest/global.vars.js" xlink:title="global.vars.js"><path d="m143.83-2337.88h-58.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h58.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="87.75" y="-2325.32">global.vars.js</text></a><a xlink:href="test-cases/nested-dest/index.test.js" xlink:title="index.test.js"><path d="m140.83-2307.88h-52.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h52.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="90.75" y="-2295.32">index.test.js</text></a><path d="m147.02-2296.04c19.26.05 43.13-3.38 58.48-17.96 37.97-36.08 54.96-203.47 59.62-259.02" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m263-2572.94 2.58-5.81 1.61 6.15z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m146.82-2295.39c19.69.42 44.11-2.82 58.68-18.61 47.65-51.63-22.03-264.68 27-315 44.59-45.77 78.98-16 142.88-16h275.24c62.16 0 133.95-11.52 175.01-19.22" fill="none" stroke="#000" stroke-dasharray="5 2" stroke-opacity=".2"/><path d="m825.15-2666.27 6.29.94-5.5 3.19z" fill-opacity=".2" stroke="#000" stroke-opacity=".2"/><a xlink:href="test-cases/nested-dest/md-page/client.js" xlink:title="client.js"><path d="m135.83-2401.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="99.38" y="-2389.32">client.js</text></a><a xlink:href="test-cases/nested-dest/md-page/page.vars.js" xlink:title="page.vars.js"><path d="m141.58-2371.88h-53.66c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h53.66c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="90" y="-2359.32">page.vars.js</text></a><a xlink:href="test-cases/nested-dest/public/md-page/client-BI3TWBFA.js" xlink:title="client&#45;BI3TWBFA.js"><path d="m155.83-2469.88h-82.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h82.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="75.75" y="-2457.32">client-BI3TWBFA.js</text></a><a xlink:href="test-cases/page-build-errors/index.test.js" xlink:title="index.test.js"><path d="m140.83-2037.88h-52.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h52.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#ffc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="90.75" y="-2025.33">index.test.js</text></a><path d="m147.08-2025.12c19.55.55 43.7-2.5 58.42-17.88 37.56-39.25 56.47-439.74 60.27-530" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m263.67-2572.87 2.34-5.91 1.85 6.08z" fill-opacity=".2" stroke="#000" stroke-opacity=".2" stroke-width="2"/><path d="m146.97-2024.83c19.76.74 44.2-2.22 58.53-18.17 41.86-46.59-16.33-517.78 27-563 22.06-23.02 110.99-13 142.88-13h275.24c74.83 0 96.48 1.37 166.5-25 8.75-3.29 17.58-8.6 24.87-13.64" fill="none" stroke="#000" stroke-dasharray="5 2" stroke-opacity=".2"/><path d="m840.39-2659.08 6.1-1.8-3.64 5.21z" fill-opacity=".2" stroke="#000" stroke-opacity=".2"/><a xlink:href="test-cases/page-build-errors/public/client-MPACHZ4G.js" xlink:title="client&#45;MPACHZ4G.js"><path d="m158.83-2221.88h-88.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h88.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="72.75" y="-2209.32">client-MPACHZ4G.js</text></a><a xlink:href="test-cases/page-build-errors/src/another-broken-page/page.js" xlink:title="page.js"><path d="m135.83-2135.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="99.75" y="-2123.32">page.js</text></a><a xlink:href="test-cases/page-build-errors/src/client.js" xlink:title="client.js"><path d="m135.83-2101.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="99.38" y="-2089.32">client.js</text></a><a xlink:href="test-cases/page-build-errors/src/page.js" xlink:title="page.js"><path d="m135.83-2071.88h-42.16c-2.96 0-5.92 2.96-5.92 5.92v5.92c0 2.96 2.96 5.92 5.92 5.92h42.16c2.96 0 5.92-2.96 5.92-5.92v-5.92c0-2.96-2.96-5.92-5.92-5.92" fill="#cfc" stroke="#000"/><text font-family="Helvetica,sans-Serif" font-size="9" x="99.75" y="-2059.32">page.js</text></a></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 9.0.0 (20230911.1827)
+ -->
+<!-- Title: dependency&#45;cruiser output Pages: 1 -->
+<svg width="948pt" height="3038pt"
+ viewBox="0.00 0.00 947.50 3037.88" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 3033.88)">
+<title>dependency&#45;cruiser output</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-3033.88 943.5,-3033.88 943.5,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>cluster_fs</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M873.5,-2470.88C873.5,-2470.88 919.5,-2470.88 919.5,-2470.88 925.5,-2470.88 931.5,-2476.88 931.5,-2482.88 931.5,-2482.88 931.5,-2510.88 931.5,-2510.88 931.5,-2516.88 925.5,-2522.88 919.5,-2522.88 919.5,-2522.88 873.5,-2522.88 873.5,-2522.88 867.5,-2522.88 861.5,-2516.88 861.5,-2510.88 861.5,-2510.88 861.5,-2482.88 861.5,-2482.88 861.5,-2476.88 867.5,-2470.88 873.5,-2470.88"/>
+<text text-anchor="middle" x="896.5" y="-2510.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">fs</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_lib</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M244.5,-2515.88C244.5,-2515.88 841.5,-2515.88 841.5,-2515.88 847.5,-2515.88 853.5,-2521.88 853.5,-2527.88 853.5,-2527.88 853.5,-3009.88 853.5,-3009.88 853.5,-3015.88 847.5,-3021.88 841.5,-3021.88 841.5,-3021.88 244.5,-3021.88 244.5,-3021.88 238.5,-3021.88 232.5,-3015.88 232.5,-3009.88 232.5,-3009.88 232.5,-2527.88 232.5,-2527.88 232.5,-2521.88 238.5,-2515.88 244.5,-2515.88"/>
+<text text-anchor="middle" x="543" y="-3009.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">lib</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_lib/build&#45;esbuild</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M359.75,-2583.88C359.75,-2583.88 405.75,-2583.88 405.75,-2583.88 411.75,-2583.88 417.75,-2589.88 417.75,-2595.88 417.75,-2595.88 417.75,-2623.88 417.75,-2623.88 417.75,-2629.88 411.75,-2635.88 405.75,-2635.88 405.75,-2635.88 359.75,-2635.88 359.75,-2635.88 353.75,-2635.88 347.75,-2629.88 347.75,-2623.88 347.75,-2623.88 347.75,-2595.88 347.75,-2595.88 347.75,-2589.88 353.75,-2583.88 359.75,-2583.88"/>
+<text text-anchor="middle" x="382.75" y="-2623.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">build&#45;esbuild</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_lib/build&#45;pages</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M444.12,-2523.88C444.12,-2523.88 833.5,-2523.88 833.5,-2523.88 839.5,-2523.88 845.5,-2529.88 845.5,-2535.88 845.5,-2535.88 845.5,-2803.88 845.5,-2803.88 845.5,-2809.88 839.5,-2815.88 833.5,-2815.88 833.5,-2815.88 444.12,-2815.88 444.12,-2815.88 438.12,-2815.88 432.12,-2809.88 432.12,-2803.88 432.12,-2803.88 432.12,-2535.88 432.12,-2535.88 432.12,-2529.88 438.12,-2523.88 444.12,-2523.88"/>
+<text text-anchor="middle" x="638.81" y="-2803.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">build&#45;pages</text>
+</g>
+<g id="clust5" class="cluster">
+<title>cluster_lib/build&#45;pages/page&#45;builders</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M655.38,-2557.88C655.38,-2557.88 825.5,-2557.88 825.5,-2557.88 831.5,-2557.88 837.5,-2563.88 837.5,-2569.88 837.5,-2569.88 837.5,-2777.88 837.5,-2777.88 837.5,-2783.88 831.5,-2789.88 825.5,-2789.88 825.5,-2789.88 655.38,-2789.88 655.38,-2789.88 649.38,-2789.88 643.38,-2783.88 643.38,-2777.88 643.38,-2777.88 643.38,-2569.88 643.38,-2569.88 643.38,-2563.88 649.38,-2557.88 655.38,-2557.88"/>
+<text text-anchor="middle" x="740.44" y="-2777.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">page&#45;builders</text>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_lib/build&#45;pages/page&#45;builders/html</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M760.62,-2711.88C760.62,-2711.88 806.62,-2711.88 806.62,-2711.88 812.62,-2711.88 818.62,-2717.88 818.62,-2723.88 818.62,-2723.88 818.62,-2751.88 818.62,-2751.88 818.62,-2757.88 812.62,-2763.88 806.62,-2763.88 806.62,-2763.88 760.62,-2763.88 760.62,-2763.88 754.62,-2763.88 748.62,-2757.88 748.62,-2751.88 748.62,-2751.88 748.62,-2723.88 748.62,-2723.88 748.62,-2717.88 754.62,-2711.88 760.62,-2711.88"/>
+<text text-anchor="middle" x="783.62" y="-2751.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">html</text>
+</g>
+<g id="clust7" class="cluster">
+<title>cluster_lib/build&#45;pages/page&#45;builders/js</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M760.62,-2591.88C760.62,-2591.88 806.62,-2591.88 806.62,-2591.88 812.62,-2591.88 818.62,-2597.88 818.62,-2603.88 818.62,-2603.88 818.62,-2631.88 818.62,-2631.88 818.62,-2637.88 812.62,-2643.88 806.62,-2643.88 806.62,-2643.88 760.62,-2643.88 760.62,-2643.88 754.62,-2643.88 748.62,-2637.88 748.62,-2631.88 748.62,-2631.88 748.62,-2603.88 748.62,-2603.88 748.62,-2597.88 754.62,-2591.88 760.62,-2591.88"/>
+<text text-anchor="middle" x="783.62" y="-2631.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">js</text>
+</g>
+<g id="clust8" class="cluster">
+<title>cluster_lib/build&#45;pages/page&#45;builders/md</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M760.62,-2651.88C760.62,-2651.88 806.62,-2651.88 806.62,-2651.88 812.62,-2651.88 818.62,-2657.88 818.62,-2663.88 818.62,-2663.88 818.62,-2691.88 818.62,-2691.88 818.62,-2697.88 812.62,-2703.88 806.62,-2703.88 806.62,-2703.88 760.62,-2703.88 760.62,-2703.88 754.62,-2703.88 748.62,-2697.88 748.62,-2691.88 748.62,-2691.88 748.62,-2663.88 748.62,-2663.88 748.62,-2657.88 754.62,-2651.88 760.62,-2651.88"/>
+<text text-anchor="middle" x="783.62" y="-2691.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">md</text>
+</g>
+<g id="clust9" class="cluster">
+<title>cluster_lib/build&#45;static</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M359.75,-2523.88C359.75,-2523.88 405.75,-2523.88 405.75,-2523.88 411.75,-2523.88 417.75,-2529.88 417.75,-2535.88 417.75,-2535.88 417.75,-2563.88 417.75,-2563.88 417.75,-2569.88 411.75,-2575.88 405.75,-2575.88 405.75,-2575.88 359.75,-2575.88 359.75,-2575.88 353.75,-2575.88 347.75,-2569.88 347.75,-2563.88 347.75,-2563.88 347.75,-2535.88 347.75,-2535.88 347.75,-2529.88 353.75,-2523.88 359.75,-2523.88"/>
+<text text-anchor="middle" x="382.75" y="-2563.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">build&#45;static</text>
+</g>
+<g id="clust10" class="cluster">
+<title>cluster_lib/helpers</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M514.12,-2823.88C514.12,-2823.88 623.38,-2823.88 623.38,-2823.88 629.38,-2823.88 635.38,-2829.88 635.38,-2835.88 635.38,-2835.88 635.38,-2983.88 635.38,-2983.88 635.38,-2989.88 629.38,-2995.88 623.38,-2995.88 623.38,-2995.88 514.12,-2995.88 514.12,-2995.88 508.12,-2995.88 502.12,-2989.88 502.12,-2983.88 502.12,-2983.88 502.12,-2835.88 502.12,-2835.88 502.12,-2829.88 508.12,-2823.88 514.12,-2823.88"/>
+<text text-anchor="middle" x="568.75" y="-2983.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">helpers</text>
+</g>
+<g id="clust11" class="cluster">
+<title>cluster_test&#45;cases</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M17,-25.88C17,-25.88 321.38,-25.88 321.38,-25.88 327.38,-25.88 333.38,-31.88 333.38,-37.88 333.38,-37.88 333.38,-2417.88 333.38,-2417.88 333.38,-2423.88 327.38,-2429.88 321.38,-2429.88 321.38,-2429.88 17,-2429.88 17,-2429.88 11,-2429.88 5,-2423.88 5,-2417.88 5,-2417.88 5,-37.87 5,-37.87 5,-31.87 11,-25.88 17,-25.88"/>
+<text text-anchor="middle" x="169.19" y="-2417.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">test&#45;cases</text>
+</g>
+<g id="clust12" class="cluster">
+<title>cluster_test&#45;cases/build&#45;errors</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M57.75,-1961.88C57.75,-1961.88 171.75,-1961.88 171.75,-1961.88 177.75,-1961.88 183.75,-1967.88 183.75,-1973.88 183.75,-1973.88 183.75,-2121.88 183.75,-2121.88 183.75,-2127.88 177.75,-2133.88 171.75,-2133.88 171.75,-2133.88 57.75,-2133.88 57.75,-2133.88 51.75,-2133.88 45.75,-2127.88 45.75,-2121.88 45.75,-2121.88 45.75,-1973.88 45.75,-1973.88 45.75,-1967.88 51.75,-1961.88 57.75,-1961.88"/>
+<text text-anchor="middle" x="114.75" y="-2121.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">build&#45;errors</text>
+</g>
+<g id="clust13" class="cluster">
+<title>cluster_test&#45;cases/build&#45;errors/src</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M65.75,-1995.88C65.75,-1995.88 163.75,-1995.88 163.75,-1995.88 169.75,-1995.88 175.75,-2001.88 175.75,-2007.88 175.75,-2007.88 175.75,-2095.88 175.75,-2095.88 175.75,-2101.88 169.75,-2107.88 163.75,-2107.88 163.75,-2107.88 65.75,-2107.88 65.75,-2107.88 59.75,-2107.88 53.75,-2101.88 53.75,-2095.88 53.75,-2095.88 53.75,-2007.88 53.75,-2007.88 53.75,-2001.88 59.75,-1995.88 65.75,-1995.88"/>
+<text text-anchor="middle" x="114.75" y="-2095.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">src</text>
+</g>
+<g id="clust14" class="cluster">
+<title>cluster_test&#45;cases/build&#45;errors/src/another&#45;broken&#45;page</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M73.75,-2029.88C73.75,-2029.88 155.75,-2029.88 155.75,-2029.88 161.75,-2029.88 167.75,-2035.88 167.75,-2041.88 167.75,-2041.88 167.75,-2069.88 167.75,-2069.88 167.75,-2075.88 161.75,-2081.88 155.75,-2081.88 155.75,-2081.88 73.75,-2081.88 73.75,-2081.88 67.75,-2081.88 61.75,-2075.88 61.75,-2069.88 61.75,-2069.88 61.75,-2041.88 61.75,-2041.88 61.75,-2035.88 67.75,-2029.88 73.75,-2029.88"/>
+<text text-anchor="middle" x="114.75" y="-2069.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">another&#45;broken&#45;page</text>
+</g>
+<g id="clust15" class="cluster">
+<title>cluster_test&#45;cases/conflict&#45;pages</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M78,-1811.88C78,-1811.88 151.5,-1811.88 151.5,-1811.88 157.5,-1811.88 163.5,-1817.88 163.5,-1823.88 163.5,-1823.88 163.5,-1941.88 163.5,-1941.88 163.5,-1947.88 157.5,-1953.88 151.5,-1953.88 151.5,-1953.88 78,-1953.88 78,-1953.88 72,-1953.88 66,-1947.88 66,-1941.88 66,-1941.88 66,-1823.88 66,-1823.88 66,-1817.88 72,-1811.88 78,-1811.88"/>
+<text text-anchor="middle" x="114.75" y="-1941.33" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">conflict&#45;pages</text>
+</g>
+<g id="clust16" class="cluster">
+<title>cluster_test&#45;cases/conflict&#45;pages/src</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M86,-1845.88C86,-1845.88 143.5,-1845.88 143.5,-1845.88 149.5,-1845.88 155.5,-1851.88 155.5,-1857.88 155.5,-1857.88 155.5,-1915.88 155.5,-1915.88 155.5,-1921.88 149.5,-1927.88 143.5,-1927.88 143.5,-1927.88 86,-1927.88 86,-1927.88 80,-1927.88 74,-1921.88 74,-1915.88 74,-1915.88 74,-1857.88 74,-1857.88 74,-1851.88 80,-1845.88 86,-1845.88"/>
+<text text-anchor="middle" x="114.75" y="-1915.33" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">src</text>
+</g>
+<g id="clust17" class="cluster">
+<title>cluster_test&#45;cases/default&#45;layout</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M75.75,-1691.88C75.75,-1691.88 153.75,-1691.88 153.75,-1691.88 159.75,-1691.88 165.75,-1697.88 165.75,-1703.88 165.75,-1703.88 165.75,-1791.88 165.75,-1791.88 165.75,-1797.88 159.75,-1803.88 153.75,-1803.88 153.75,-1803.88 75.75,-1803.88 75.75,-1803.88 69.75,-1803.88 63.75,-1797.88 63.75,-1791.88 63.75,-1791.88 63.75,-1703.88 63.75,-1703.88 63.75,-1697.88 69.75,-1691.88 75.75,-1691.88"/>
+<text text-anchor="middle" x="114.75" y="-1791.33" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">default&#45;layout</text>
+</g>
+<g id="clust18" class="cluster">
+<title>cluster_test&#45;cases/default&#45;layout/src</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M83.75,-1725.88C83.75,-1725.88 145.75,-1725.88 145.75,-1725.88 151.75,-1725.88 157.75,-1731.88 157.75,-1737.88 157.75,-1737.88 157.75,-1765.88 157.75,-1765.88 157.75,-1771.88 151.75,-1777.88 145.75,-1777.88 145.75,-1777.88 83.75,-1777.88 83.75,-1777.88 77.75,-1777.88 71.75,-1771.88 71.75,-1765.88 71.75,-1765.88 71.75,-1737.88 71.75,-1737.88 71.75,-1731.88 77.75,-1725.88 83.75,-1725.88"/>
+<text text-anchor="middle" x="114.75" y="-1765.33" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">src</text>
+</g>
+<g id="clust19" class="cluster">
+<title>cluster_test&#45;cases/general&#45;features</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M25,-307.88C25,-307.88 313.38,-307.88 313.38,-307.88 319.38,-307.88 325.38,-313.88 325.38,-319.88 325.38,-319.88 325.38,-1671.88 325.38,-1671.88 325.38,-1677.88 319.38,-1683.88 313.38,-1683.88 313.38,-1683.88 25,-1683.88 25,-1683.88 19,-1683.88 13,-1677.88 13,-1671.88 13,-1671.88 13,-319.88 13,-319.88 13,-313.88 19,-307.88 25,-307.88"/>
+<text text-anchor="middle" x="169.19" y="-1671.33" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">general&#45;features</text>
+</g>
+<g id="clust20" class="cluster">
+<title>cluster_test&#45;cases/general&#45;features/public</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M36,-1335.88C36,-1335.88 193.5,-1335.88 193.5,-1335.88 199.5,-1335.88 205.5,-1341.88 205.5,-1347.88 205.5,-1347.88 205.5,-1645.88 205.5,-1645.88 205.5,-1651.88 199.5,-1657.88 193.5,-1657.88 193.5,-1657.88 36,-1657.88 36,-1657.88 30,-1657.88 24,-1651.88 24,-1645.88 24,-1645.88 24,-1347.88 24,-1347.88 24,-1341.88 30,-1335.88 36,-1335.88"/>
+<text text-anchor="middle" x="114.75" y="-1645.33" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">public</text>
+</g>
+<g id="clust21" class="cluster">
+<title>cluster_test&#45;cases/general&#45;features/public/html&#45;page</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M70.62,-1579.88C70.62,-1579.88 158.88,-1579.88 158.88,-1579.88 164.88,-1579.88 170.88,-1585.88 170.88,-1591.88 170.88,-1591.88 170.88,-1619.88 170.88,-1619.88 170.88,-1625.88 164.88,-1631.88 158.88,-1631.88 158.88,-1631.88 70.62,-1631.88 70.62,-1631.88 64.62,-1631.88 58.62,-1625.88 58.62,-1619.88 58.62,-1619.88 58.62,-1591.88 58.62,-1591.88 58.62,-1585.88 64.62,-1579.88 70.62,-1579.88"/>
+<text text-anchor="middle" x="114.75" y="-1619.33" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">html&#45;page</text>
+</g>
+<g id="clust22" class="cluster">
+<title>cluster_test&#45;cases/general&#45;features/public/js&#45;page</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M68.75,-1519.88C68.75,-1519.88 160.75,-1519.88 160.75,-1519.88 166.75,-1519.88 172.75,-1525.88 172.75,-1531.88 172.75,-1531.88 172.75,-1559.88 172.75,-1559.88 172.75,-1565.88 166.75,-1571.88 160.75,-1571.88 160.75,-1571.88 68.75,-1571.88 68.75,-1571.88 62.75,-1571.88 56.75,-1565.88 56.75,-1559.88 56.75,-1559.88 56.75,-1531.88 56.75,-1531.88 56.75,-1525.88 62.75,-1519.88 68.75,-1519.88"/>
+<text text-anchor="middle" x="114.75" y="-1559.33" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">js&#45;page</text>
+</g>
+<g id="clust23" class="cluster">
+<title>cluster_test&#45;cases/general&#45;features/public/layouts</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M44,-1459.88C44,-1459.88 185.5,-1459.88 185.5,-1459.88 191.5,-1459.88 197.5,-1465.88 197.5,-1471.88 197.5,-1471.88 197.5,-1499.88 197.5,-1499.88 197.5,-1505.88 191.5,-1511.88 185.5,-1511.88 185.5,-1511.88 44,-1511.88 44,-1511.88 38,-1511.88 32,-1505.88 32,-1499.88 32,-1499.88 32,-1471.88 32,-1471.88 32,-1465.88 38,-1459.88 44,-1459.88"/>
+<text text-anchor="middle" x="114.75" y="-1499.33" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">layouts</text>
+</g>
+<g id="clust24" class="cluster">
+<title>cluster_test&#45;cases/general&#45;features/public/md&#45;page</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M69.88,-1399.88C69.88,-1399.88 159.62,-1399.88 159.62,-1399.88 165.62,-1399.88 171.62,-1405.88 171.62,-1411.88 171.62,-1411.88 171.62,-1439.88 171.62,-1439.88 171.62,-1445.88 165.62,-1451.88 159.62,-1451.88 159.62,-1451.88 69.88,-1451.88 69.88,-1451.88 63.88,-1451.88 57.88,-1445.88 57.88,-1439.88 57.88,-1439.88 57.88,-1411.88 57.88,-1411.88 57.88,-1405.88 63.88,-1399.88 69.88,-1399.88"/>
+<text text-anchor="middle" x="114.75" y="-1439.33" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">md&#45;page</text>
+</g>
+<g id="clust25" class="cluster">
+<title>cluster_test&#45;cases/general&#45;features/src</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M33,-315.88C33,-315.88 305.38,-315.88 305.38,-315.88 311.38,-315.88 317.38,-321.88 317.38,-327.88 317.38,-327.88 317.38,-1289.88 317.38,-1289.88 317.38,-1295.88 311.38,-1301.88 305.38,-1301.88 305.38,-1301.88 33,-1301.88 33,-1301.88 27,-1301.88 21,-1295.88 21,-1289.88 21,-1289.88 21,-327.88 21,-327.88 21,-321.88 27,-315.88 33,-315.88"/>
+<text text-anchor="middle" x="169.19" y="-1289.33" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">src</text>
+</g>
+<g id="clust26" class="cluster">
+<title>cluster_test&#45;cases/general&#45;features/src/blog</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M41,-1129.88C41,-1129.88 188.5,-1129.88 188.5,-1129.88 194.5,-1129.88 200.5,-1135.88 200.5,-1141.88 200.5,-1141.88 200.5,-1263.88 200.5,-1263.88 200.5,-1269.88 194.5,-1275.88 188.5,-1275.88 188.5,-1275.88 41,-1275.88 41,-1275.88 35,-1275.88 29,-1269.88 29,-1263.88 29,-1263.88 29,-1141.88 29,-1141.88 29,-1135.88 35,-1129.88 41,-1129.88"/>
+<text text-anchor="middle" x="114.75" y="-1263.33" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">blog</text>
+</g>
+<g id="clust27" class="cluster">
+<title>cluster_test&#45;cases/general&#45;features/src/blog/2023</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M49,-1163.88C49,-1163.88 180.5,-1163.88 180.5,-1163.88 186.5,-1163.88 192.5,-1169.88 192.5,-1175.88 192.5,-1175.88 192.5,-1237.88 192.5,-1237.88 192.5,-1243.88 186.5,-1249.88 180.5,-1249.88 180.5,-1249.88 49,-1249.88 49,-1249.88 43,-1249.88 37,-1243.88 37,-1237.88 37,-1237.88 37,-1175.88 37,-1175.88 37,-1169.88 43,-1163.88 49,-1163.88"/>
+<text text-anchor="middle" x="114.75" y="-1237.33" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">2023</text>
+</g>
+<g id="clust28" class="cluster">
+<title>cluster_test&#45;cases/general&#45;features/src/blog/2023/the&#45;first&#45;blog&#45;post&#45;from&#45;2023</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M57,-1171.88C57,-1171.88 172.5,-1171.88 172.5,-1171.88 178.5,-1171.88 184.5,-1177.88 184.5,-1183.88 184.5,-1183.88 184.5,-1211.88 184.5,-1211.88 184.5,-1217.88 178.5,-1223.88 172.5,-1223.88 172.5,-1223.88 57,-1223.88 57,-1223.88 51,-1223.88 45,-1217.88 45,-1211.88 45,-1211.88 45,-1183.88 45,-1183.88 45,-1177.88 51,-1171.88 57,-1171.88"/>
+<text text-anchor="middle" x="114.75" y="-1211.33" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">the&#45;first&#45;blog&#45;post&#45;from&#45;2023</text>
+</g>
+<g id="clust29" class="cluster">
+<title>cluster_test&#45;cases/general&#45;features/src/html&#45;page</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M86,-1039.88C86,-1039.88 143.5,-1039.88 143.5,-1039.88 149.5,-1039.88 155.5,-1045.88 155.5,-1051.88 155.5,-1051.88 155.5,-1109.88 155.5,-1109.88 155.5,-1115.88 149.5,-1121.88 143.5,-1121.88 143.5,-1121.88 86,-1121.88 86,-1121.88 80,-1121.88 74,-1115.88 74,-1109.88 74,-1109.88 74,-1051.88 74,-1051.88 74,-1045.88 80,-1039.88 86,-1039.88"/>
+<text text-anchor="middle" x="114.75" y="-1109.33" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">html&#45;page</text>
+</g>
+<g id="clust30" class="cluster">
+<title>cluster_test&#45;cases/general&#45;features/src/js&#45;page</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M70.75,-799.88C70.75,-799.88 159.75,-799.88 159.75,-799.88 165.75,-799.88 171.75,-805.88 171.75,-811.88 171.75,-811.88 171.75,-1019.88 171.75,-1019.88 171.75,-1025.88 165.75,-1031.88 159.75,-1031.88 159.75,-1031.88 70.75,-1031.88 70.75,-1031.88 64.75,-1031.88 58.75,-1025.88 58.75,-1019.88 58.75,-1019.88 58.75,-811.88 58.75,-811.88 58.75,-805.88 64.75,-799.88 70.75,-799.88"/>
+<text text-anchor="middle" x="115.25" y="-1019.33" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">js&#45;page</text>
+</g>
+<g id="clust31" class="cluster">
+<title>cluster_test&#45;cases/general&#45;features/src/js&#45;page/js&#45;no&#45;async&#45;export</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M78.75,-953.88C78.75,-953.88 151.75,-953.88 151.75,-953.88 157.75,-953.88 163.75,-959.88 163.75,-965.88 163.75,-965.88 163.75,-993.88 163.75,-993.88 163.75,-999.88 157.75,-1005.88 151.75,-1005.88 151.75,-1005.88 78.75,-1005.88 78.75,-1005.88 72.75,-1005.88 66.75,-999.88 66.75,-993.88 66.75,-993.88 66.75,-965.88 66.75,-965.88 66.75,-959.88 72.75,-953.88 78.75,-953.88"/>
+<text text-anchor="middle" x="115.25" y="-993.33" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">js&#45;no&#45;async&#45;export</text>
+</g>
+<g id="clust32" class="cluster">
+<title>cluster_test&#45;cases/general&#45;features/src/js&#45;page/js&#45;no&#45;style&#45;client</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M83.75,-893.88C83.75,-893.88 146.75,-893.88 146.75,-893.88 152.75,-893.88 158.75,-899.88 158.75,-905.88 158.75,-905.88 158.75,-933.88 158.75,-933.88 158.75,-939.88 152.75,-945.88 146.75,-945.88 146.75,-945.88 83.75,-945.88 83.75,-945.88 77.75,-945.88 71.75,-939.88 71.75,-933.88 71.75,-933.88 71.75,-905.88 71.75,-905.88 71.75,-899.88 77.75,-893.88 83.75,-893.88"/>
+<text text-anchor="middle" x="115.25" y="-933.33" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">js&#45;no&#45;style&#45;client</text>
+</g>
+<g id="clust33" class="cluster">
+<title>cluster_test&#45;cases/general&#45;features/src/layouts</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M71.75,-709.88C71.75,-709.88 297.38,-709.88 297.38,-709.88 303.38,-709.88 309.38,-715.88 309.38,-721.88 309.38,-721.88 309.38,-779.88 309.38,-779.88 309.38,-785.88 303.38,-791.88 297.38,-791.88 297.38,-791.88 71.75,-791.88 71.75,-791.88 65.75,-791.88 59.75,-785.88 59.75,-779.88 59.75,-779.88 59.75,-721.88 59.75,-721.88 59.75,-715.88 65.75,-709.88 71.75,-709.88"/>
+<text text-anchor="middle" x="184.56" y="-779.33" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">layouts</text>
+</g>
+<g id="clust34" class="cluster">
+<title>cluster_test&#45;cases/general&#45;features/src/libs</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M244.5,-435.88C244.5,-435.88 290.5,-435.88 290.5,-435.88 296.5,-435.88 302.5,-441.88 302.5,-447.88 302.5,-447.88 302.5,-475.88 302.5,-475.88 302.5,-481.88 296.5,-487.88 290.5,-487.88 290.5,-487.88 244.5,-487.88 244.5,-487.88 238.5,-487.88 232.5,-481.88 232.5,-475.88 232.5,-475.88 232.5,-447.88 232.5,-447.88 232.5,-441.88 238.5,-435.88 244.5,-435.88"/>
+<text text-anchor="middle" x="267.5" y="-475.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">libs</text>
+</g>
+<g id="clust35" class="cluster">
+<title>cluster_test&#45;cases/general&#45;features/src/md&#45;page</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M86,-619.88C86,-619.88 143.5,-619.88 143.5,-619.88 149.5,-619.88 155.5,-625.88 155.5,-631.88 155.5,-631.88 155.5,-689.88 155.5,-689.88 155.5,-695.88 149.5,-701.88 143.5,-701.88 143.5,-701.88 86,-701.88 86,-701.88 80,-701.88 74,-695.88 74,-689.88 74,-689.88 74,-631.88 74,-631.88 74,-625.88 80,-619.88 86,-619.88"/>
+<text text-anchor="middle" x="114.75" y="-689.33" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">md&#45;page</text>
+</g>
+<g id="clust36" class="cluster">
+<title>cluster_test&#45;cases/general&#45;features/src/templates</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M59.75,-469.88C59.75,-469.88 169.75,-469.88 169.75,-469.88 175.75,-469.88 181.75,-475.88 181.75,-481.88 181.75,-481.88 181.75,-599.88 181.75,-599.88 181.75,-605.88 175.75,-611.88 169.75,-611.88 169.75,-611.88 59.75,-611.88 59.75,-611.88 53.75,-611.88 47.75,-605.88 47.75,-599.88 47.75,-599.88 47.75,-481.88 47.75,-481.88 47.75,-475.88 53.75,-469.88 59.75,-469.88"/>
+<text text-anchor="middle" x="114.75" y="-599.33" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">templates</text>
+</g>
+<g id="clust37" class="cluster">
+<title>cluster_test&#45;cases/nested&#45;dest</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M55.75,-33.88C55.75,-33.88 173.75,-33.88 173.75,-33.88 179.75,-33.88 185.75,-39.88 185.75,-45.88 185.75,-45.88 185.75,-287.88 185.75,-287.88 185.75,-293.88 179.75,-299.88 173.75,-299.88 173.75,-299.88 55.75,-299.88 55.75,-299.88 49.75,-299.88 43.75,-293.88 43.75,-287.88 43.75,-287.88 43.75,-45.88 43.75,-45.88 43.75,-39.87 49.75,-33.88 55.75,-33.88"/>
+<text text-anchor="middle" x="114.75" y="-287.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">nested&#45;dest</text>
+</g>
+<g id="clust38" class="cluster">
+<title>cluster_test&#45;cases/nested&#45;dest/md&#45;page</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M86,-191.88C86,-191.88 143.5,-191.88 143.5,-191.88 149.5,-191.88 155.5,-197.88 155.5,-203.88 155.5,-203.88 155.5,-261.88 155.5,-261.88 155.5,-267.88 149.5,-273.88 143.5,-273.88 143.5,-273.88 86,-273.88 86,-273.88 80,-273.88 74,-267.88 74,-261.88 74,-261.88 74,-203.88 74,-203.88 74,-197.88 80,-191.88 86,-191.88"/>
+<text text-anchor="middle" x="114.75" y="-261.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">md&#45;page</text>
+</g>
+<g id="clust39" class="cluster">
+<title>cluster_test&#45;cases/nested&#45;dest/public</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M63.75,-97.88C63.75,-97.88 165.75,-97.88 165.75,-97.88 171.75,-97.88 177.75,-103.88 177.75,-109.88 177.75,-109.88 177.75,-171.88 177.75,-171.88 177.75,-177.88 171.75,-183.88 165.75,-183.88 165.75,-183.88 63.75,-183.88 63.75,-183.88 57.75,-183.88 51.75,-177.88 51.75,-171.88 51.75,-171.88 51.75,-109.88 51.75,-109.88 51.75,-103.88 57.75,-97.88 63.75,-97.88"/>
+<text text-anchor="middle" x="114.75" y="-171.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">public</text>
+</g>
+<g id="clust40" class="cluster">
+<title>cluster_test&#45;cases/nested&#45;dest/public/md&#45;page</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M71.75,-105.88C71.75,-105.88 157.75,-105.88 157.75,-105.88 163.75,-105.88 169.75,-111.88 169.75,-117.88 169.75,-117.88 169.75,-145.88 169.75,-145.88 169.75,-151.88 163.75,-157.88 157.75,-157.88 157.75,-157.88 71.75,-157.88 71.75,-157.88 65.75,-157.88 59.75,-151.88 59.75,-145.88 59.75,-145.88 59.75,-117.88 59.75,-117.88 59.75,-111.88 65.75,-105.88 71.75,-105.88"/>
+<text text-anchor="middle" x="114.75" y="-145.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">md&#45;page</text>
+</g>
+<g id="clust41" class="cluster">
+<title>cluster_test&#45;cases/page&#45;build&#45;errors</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M57.75,-2141.88C57.75,-2141.88 171.75,-2141.88 171.75,-2141.88 177.75,-2141.88 183.75,-2147.88 183.75,-2153.88 183.75,-2153.88 183.75,-2391.88 183.75,-2391.88 183.75,-2397.88 177.75,-2403.88 171.75,-2403.88 171.75,-2403.88 57.75,-2403.88 57.75,-2403.88 51.75,-2403.88 45.75,-2397.88 45.75,-2391.88 45.75,-2391.88 45.75,-2153.88 45.75,-2153.88 45.75,-2147.88 51.75,-2141.88 57.75,-2141.88"/>
+<text text-anchor="middle" x="114.75" y="-2391.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">page&#45;build&#45;errors</text>
+</g>
+<g id="clust42" class="cluster">
+<title>cluster_test&#45;cases/page&#45;build&#45;errors/public</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M68.75,-2325.88C68.75,-2325.88 160.75,-2325.88 160.75,-2325.88 166.75,-2325.88 172.75,-2331.88 172.75,-2337.88 172.75,-2337.88 172.75,-2365.88 172.75,-2365.88 172.75,-2371.88 166.75,-2377.88 160.75,-2377.88 160.75,-2377.88 68.75,-2377.88 68.75,-2377.88 62.75,-2377.88 56.75,-2371.88 56.75,-2365.88 56.75,-2365.88 56.75,-2337.88 56.75,-2337.88 56.75,-2331.88 62.75,-2325.88 68.75,-2325.88"/>
+<text text-anchor="middle" x="114.75" y="-2365.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">public</text>
+</g>
+<g id="clust43" class="cluster">
+<title>cluster_test&#45;cases/page&#45;build&#45;errors/src</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M65.75,-2175.88C65.75,-2175.88 163.75,-2175.88 163.75,-2175.88 169.75,-2175.88 175.75,-2181.88 175.75,-2187.88 175.75,-2187.88 175.75,-2305.88 175.75,-2305.88 175.75,-2311.88 169.75,-2317.88 163.75,-2317.88 163.75,-2317.88 65.75,-2317.88 65.75,-2317.88 59.75,-2317.88 53.75,-2311.88 53.75,-2305.88 53.75,-2305.88 53.75,-2187.88 53.75,-2187.88 53.75,-2181.88 59.75,-2175.88 65.75,-2175.88"/>
+<text text-anchor="middle" x="114.75" y="-2305.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">src</text>
+</g>
+<g id="clust44" class="cluster">
+<title>cluster_test&#45;cases/page&#45;build&#45;errors/src/another&#45;broken&#45;page</title>
+<path fill="#ffffff" stroke="black" stroke-width="2" d="M73.75,-2239.88C73.75,-2239.88 155.75,-2239.88 155.75,-2239.88 161.75,-2239.88 167.75,-2245.88 167.75,-2251.88 167.75,-2251.88 167.75,-2279.88 167.75,-2279.88 167.75,-2285.88 161.75,-2291.88 155.75,-2291.88 155.75,-2291.88 73.75,-2291.88 73.75,-2291.88 67.75,-2291.88 61.75,-2285.88 61.75,-2279.88 61.75,-2279.88 61.75,-2251.88 61.75,-2251.88 61.75,-2245.88 67.75,-2239.88 73.75,-2239.88"/>
+<text text-anchor="middle" x="114.75" y="-2279.32" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="9.00">another&#45;broken&#45;page</text>
+</g>
+<!-- bin.d.ts -->
+<g id="node1" class="node">
+<title>bin.d.ts</title>
+<g id="a_node1"><a xlink:href="bin.d.ts" xlink:title="bin.d.ts">
+<path fill="#ccffcc" stroke="black" d="M135.83,-17.75C135.83,-17.75 93.67,-17.75 93.67,-17.75 90.71,-17.75 87.75,-14.79 87.75,-11.83 87.75,-11.83 87.75,-5.92 87.75,-5.92 87.75,-2.96 90.71,0 93.67,0 93.67,0 135.83,0 135.83,0 138.79,0 141.75,-2.96 141.75,-5.92 141.75,-5.92 141.75,-11.83 141.75,-11.83 141.75,-14.79 138.79,-17.75 135.83,-17.75"/>
+<text text-anchor="middle" x="114.75" y="-5.2" font-family="Helvetica,sans-Serif" font-size="9.00">bin.d.ts</text>
+</a>
+</g>
+</g>
+<!-- bin.js -->
+<g id="node2" class="node">
+<title>bin.js</title>
+<g id="a_node2"><a xlink:href="bin.js" xlink:title="bin.js">
+<path fill="#ffffcc" stroke="black" d="M135.83,-2695.75C135.83,-2695.75 93.67,-2695.75 93.67,-2695.75 90.71,-2695.75 87.75,-2692.79 87.75,-2689.83 87.75,-2689.83 87.75,-2683.92 87.75,-2683.92 87.75,-2680.96 90.71,-2678 93.67,-2678 93.67,-2678 135.83,-2678 135.83,-2678 138.79,-2678 141.75,-2680.96 141.75,-2683.92 141.75,-2683.92 141.75,-2689.83 141.75,-2689.83 141.75,-2692.79 138.79,-2695.75 135.83,-2695.75"/>
+<text text-anchor="middle" x="114.75" y="-2683.2" font-family="Helvetica,sans-Serif" font-size="9.00">bin.js</text>
+</a>
+</g>
+</g>
+<!-- index.js -->
+<g id="node3" class="node">
+<title>index.js</title>
+<g id="a_node3"><a xlink:href="index.js" xlink:title="index.js">
+<path fill="#ffffcc" stroke="black" d="M288.58,-2455.75C288.58,-2455.75 246.42,-2455.75 246.42,-2455.75 243.46,-2455.75 240.5,-2452.79 240.5,-2449.83 240.5,-2449.83 240.5,-2443.92 240.5,-2443.92 240.5,-2440.96 243.46,-2438 246.42,-2438 246.42,-2438 288.58,-2438 288.58,-2438 291.54,-2438 294.5,-2440.96 294.5,-2443.92 294.5,-2443.92 294.5,-2449.83 294.5,-2449.83 294.5,-2452.79 291.54,-2455.75 288.58,-2455.75"/>
+<text text-anchor="middle" x="267.5" y="-2443.2" font-family="Helvetica,sans-Serif" font-size="9.00">index.js</text>
+</a>
+</g>
+</g>
+<!-- bin.js&#45;&gt;index.js -->
+<g id="edge1" class="edge">
+<title>bin.js&#45;&gt;index.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M120.72,-2677.65C136.19,-2649.15 185.26,-2560.29 232.5,-2490.88 238.99,-2481.34 246.82,-2471.13 253.33,-2462.94"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="254.84,-2464.42 256.97,-2458.43 251.57,-2461.79 254.84,-2464.42"/>
+</g>
+<!-- lib/helpers/generate&#45;tree&#45;data.js -->
+<g id="node4" class="node">
+<title>lib/helpers/generate&#45;tree&#45;data.js</title>
+<g id="a_node4"><a xlink:href="lib/helpers/generate-tree-data.js" xlink:title="generate&#45;tree&#45;data.js">
+<path fill="#ffffcc" stroke="black" d="M613.58,-2969.75C613.58,-2969.75 523.92,-2969.75 523.92,-2969.75 520.96,-2969.75 518,-2966.79 518,-2963.83 518,-2963.83 518,-2957.92 518,-2957.92 518,-2954.96 520.96,-2952 523.92,-2952 523.92,-2952 613.58,-2952 613.58,-2952 616.54,-2952 619.5,-2954.96 619.5,-2957.92 619.5,-2957.92 619.5,-2963.83 619.5,-2963.83 619.5,-2966.79 616.54,-2969.75 613.58,-2969.75"/>
+<text text-anchor="start" x="526" y="-2957.2" font-family="Helvetica,sans-Serif" font-size="9.00">generate&#45;tree&#45;data.js</text>
+</a>
+</g>
+</g>
+<!-- bin.js&#45;&gt;lib/helpers/generate&#45;tree&#45;data.js -->
+<g id="edge2" class="edge">
+<title>bin.js&#45;&gt;lib/helpers/generate&#45;tree&#45;data.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M142.18,-2683.78C162.28,-2682.99 189.18,-2685.58 205.5,-2701.88 256.53,-2752.83 182.73,-2809.68 232.5,-2861.88 264.17,-2895.08 289.32,-2871.04 333.38,-2883.88 410.09,-2906.22 425.52,-2923.15 502.12,-2945.88 506.29,-2947.11 510.63,-2948.3 515,-2949.44"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="514.16,-2951.39 520.49,-2950.82 515.18,-2947.32 514.16,-2951.39"/>
+</g>
+<!-- lib/helpers/siteup&#45;aggregate&#45;error.js -->
+<g id="node5" class="node">
+<title>lib/helpers/siteup&#45;aggregate&#45;error.js</title>
+<g id="a_node5"><a xlink:href="lib/helpers/siteup-aggregate-error.js" xlink:title="siteup&#45;aggregate&#45;error.js">
+<path fill="#ffffcc" stroke="black" d="M621.46,-2909.75C621.46,-2909.75 516.04,-2909.75 516.04,-2909.75 513.08,-2909.75 510.12,-2906.79 510.12,-2903.83 510.12,-2903.83 510.12,-2897.92 510.12,-2897.92 510.12,-2894.96 513.08,-2892 516.04,-2892 516.04,-2892 621.46,-2892 621.46,-2892 624.42,-2892 627.38,-2894.96 627.38,-2897.92 627.38,-2897.92 627.38,-2903.83 627.38,-2903.83 627.38,-2906.79 624.42,-2909.75 621.46,-2909.75"/>
+<text text-anchor="start" x="518.12" y="-2897.2" font-family="Helvetica,sans-Serif" font-size="9.00">siteup&#45;aggregate&#45;error.js</text>
+</a>
+</g>
+</g>
+<!-- bin.js&#45;&gt;lib/helpers/siteup&#45;aggregate&#45;error.js -->
+<g id="edge3" class="edge">
+<title>bin.js&#45;&gt;lib/helpers/siteup&#45;aggregate&#45;error.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M141.85,-2683.71C162.05,-2682.82 189.22,-2685.31 205.5,-2701.88 262.51,-2759.89 172.38,-2828.1 232.5,-2882.88 270.37,-2917.38 414.29,-2912.98 500.78,-2906.84"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="500.89,-2908.94 506.72,-2906.41 500.58,-2904.75 500.89,-2908.94"/>
+</g>
+<!-- fs/promises -->
+<g id="node6" class="node">
+<title>fs/promises</title>
+<g id="a_node6"><a xlink:href="https://nodejs.org/api/fs.html" xlink:title="promises">
+<path fill="#ffffcc" stroke="grey" d="M917.58,-2496.75C917.58,-2496.75 875.42,-2496.75 875.42,-2496.75 872.46,-2496.75 869.5,-2493.79 869.5,-2490.83 869.5,-2490.83 869.5,-2484.92 869.5,-2484.92 869.5,-2481.96 872.46,-2479 875.42,-2479 875.42,-2479 917.58,-2479 917.58,-2479 920.54,-2479 923.5,-2481.96 923.5,-2484.92 923.5,-2484.92 923.5,-2490.83 923.5,-2490.83 923.5,-2493.79 920.54,-2496.75 917.58,-2496.75"/>
+<text text-anchor="start" x="877.75" y="-2484.2" font-family="Helvetica,sans-Serif" font-size="9.00" fill="grey">promises</text>
+</a>
+</g>
+</g>
+<!-- bin.js&#45;&gt;fs/promises -->
+<g id="edge4" class="edge">
+<title>bin.js&#45;&gt;fs/promises</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" stroke-opacity="0.200000" d="M118.72,-2677.54C128.88,-2647.38 165.33,-2552.23 232.5,-2512.88 289.92,-2479.23 315.2,-2500.88 381.75,-2500.88 381.75,-2500.88 381.75,-2500.88 688.12,-2500.88 749.42,-2500.88 820.71,-2495.15 861.72,-2491.3"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-opacity="0.200000" points="861.74,-2493.4 867.51,-2490.74 861.34,-2489.22 861.74,-2493.4"/>
+</g>
+<!-- index.js&#45;&gt;lib/helpers/siteup&#45;aggregate&#45;error.js -->
+<g id="edge7" class="edge">
+<title>index.js&#45;&gt;lib/helpers/siteup&#45;aggregate&#45;error.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M294.64,-2446.43C343.4,-2447.19 447.45,-2456.69 494.12,-2520.88 506.05,-2537.28 489.31,-2870.15 502.12,-2885.88 502.54,-2886.38 502.97,-2886.88 503.41,-2887.36"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="501.56,-2888.54 507.49,-2890.84 504.29,-2885.35 501.56,-2888.54"/>
+</g>
+<!-- lib/build&#45;static/index.js -->
+<g id="node8" class="node">
+<title>lib/build&#45;static/index.js</title>
+<g id="a_node8"><a xlink:href="lib/build-static/index.js" xlink:title="index.js">
+<path fill="#ffffcc" stroke="black" d="M403.83,-2549.75C403.83,-2549.75 361.67,-2549.75 361.67,-2549.75 358.71,-2549.75 355.75,-2546.79 355.75,-2543.83 355.75,-2543.83 355.75,-2537.92 355.75,-2537.92 355.75,-2534.96 358.71,-2532 361.67,-2532 361.67,-2532 403.83,-2532 403.83,-2532 406.79,-2532 409.75,-2534.96 409.75,-2537.92 409.75,-2537.92 409.75,-2543.83 409.75,-2543.83 409.75,-2546.79 406.79,-2549.75 403.83,-2549.75"/>
+<text text-anchor="middle" x="382.75" y="-2537.2" font-family="Helvetica,sans-Serif" font-size="9.00">index.js</text>
+</a>
+</g>
+</g>
+<!-- index.js&#45;&gt;lib/build&#45;static/index.js -->
+<g id="edge5" class="edge">
+<title>index.js&#45;&gt;lib/build&#45;static/index.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M279.77,-2456.23C299.45,-2472.56 340.19,-2506.38 363.79,-2525.97"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="362.24,-2527.41 368.19,-2529.62 364.92,-2524.17 362.24,-2527.41"/>
+</g>
+<!-- lib/builder.js -->
+<g id="node9" class="node">
+<title>lib/builder.js</title>
+<g id="a_node9"><a xlink:href="lib/builder.js" xlink:title="builder.js">
+<path fill="#ffffcc" stroke="black" d="M288.58,-2653.75C288.58,-2653.75 246.42,-2653.75 246.42,-2653.75 243.46,-2653.75 240.5,-2650.79 240.5,-2647.83 240.5,-2647.83 240.5,-2641.92 240.5,-2641.92 240.5,-2638.96 243.46,-2636 246.42,-2636 246.42,-2636 288.58,-2636 288.58,-2636 291.54,-2636 294.5,-2638.96 294.5,-2641.92 294.5,-2641.92 294.5,-2647.83 294.5,-2647.83 294.5,-2650.79 291.54,-2653.75 288.58,-2653.75"/>
+<text text-anchor="start" x="248.75" y="-2641.2" font-family="Helvetica,sans-Serif" font-size="9.00">builder.js</text>
+</a>
+</g>
+</g>
+<!-- index.js&#45;&gt;lib/builder.js -->
+<g id="edge6" class="edge">
+<title>index.js&#45;&gt;lib/builder.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M267.5,-2456.16C267.5,-2513.07 267.5,-2569.98 267.5,-2626.9"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="265.4,-2626.63 267.5,-2632.63 269.6,-2626.63 265.4,-2626.63"/>
+</g>
+<!-- index.d.ts -->
+<g id="node7" class="node">
+<title>index.d.ts</title>
+<g id="a_node7"><a xlink:href="index.d.ts" xlink:title="index.d.ts">
+<path fill="#ccffcc" stroke="black" d="M136.33,-2725.75C136.33,-2725.75 93.17,-2725.75 93.17,-2725.75 90.21,-2725.75 87.25,-2722.79 87.25,-2719.83 87.25,-2719.83 87.25,-2713.92 87.25,-2713.92 87.25,-2710.96 90.21,-2708 93.17,-2708 93.17,-2708 136.33,-2708 136.33,-2708 139.29,-2708 142.25,-2710.96 142.25,-2713.92 142.25,-2713.92 142.25,-2719.83 142.25,-2719.83 142.25,-2722.79 139.29,-2725.75 136.33,-2725.75"/>
+<text text-anchor="middle" x="114.75" y="-2713.2" font-family="Helvetica,sans-Serif" font-size="9.00">index.d.ts</text>
+</a>
+</g>
+</g>
+<!-- lib/builder.js&#45;&gt;lib/helpers/siteup&#45;aggregate&#45;error.js -->
+<g id="edge29" class="edge">
+<title>lib/builder.js&#45;&gt;lib/helpers/siteup&#45;aggregate&#45;error.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M273.74,-2653.84C291.71,-2683.8 354.07,-2781.29 432.12,-2830.88 456.34,-2846.26 474.55,-2827.89 494.12,-2848.88 505.6,-2861.18 490.3,-2873.91 502.12,-2885.88 502.41,-2886.17 502.7,-2886.45 503,-2886.73"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="501.33,-2888.1 507.38,-2890.08 503.88,-2884.76 501.33,-2888.1"/>
+</g>
+<!-- lib/builder.js&#45;&gt;lib/build&#45;static/index.js -->
+<g id="edge27" class="edge">
+<title>lib/builder.js&#45;&gt;lib/build&#45;static/index.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M278.55,-2635.65C298.06,-2617.73 341.24,-2578.07 365.1,-2556.16"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="366.33,-2557.89 369.33,-2552.28 363.49,-2554.79 366.33,-2557.89"/>
+</g>
+<!-- lib/build&#45;esbuild/index.js -->
+<g id="node10" class="node">
+<title>lib/build&#45;esbuild/index.js</title>
+<g id="a_node10"><a xlink:href="lib/build-esbuild/index.js" xlink:title="index.js">
+<path fill="#ffffcc" stroke="black" d="M403.83,-2609.75C403.83,-2609.75 361.67,-2609.75 361.67,-2609.75 358.71,-2609.75 355.75,-2606.79 355.75,-2603.83 355.75,-2603.83 355.75,-2597.92 355.75,-2597.92 355.75,-2594.96 358.71,-2592 361.67,-2592 361.67,-2592 403.83,-2592 403.83,-2592 406.79,-2592 409.75,-2594.96 409.75,-2597.92 409.75,-2597.92 409.75,-2603.83 409.75,-2603.83 409.75,-2606.79 406.79,-2609.75 403.83,-2609.75"/>
+<text text-anchor="middle" x="382.75" y="-2597.2" font-family="Helvetica,sans-Serif" font-size="9.00">index.js</text>
+</a>
+</g>
+</g>
+<!-- lib/builder.js&#45;&gt;lib/build&#45;esbuild/index.js -->
+<g id="edge25" class="edge">
+<title>lib/builder.js&#45;&gt;lib/build&#45;esbuild/index.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M289.03,-2635.55C303.52,-2629.12 323.47,-2620.55 341.38,-2613.88 343.23,-2613.19 345.13,-2612.5 347.06,-2611.82"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="347.7,-2613.82 352.7,-2609.9 346.35,-2609.84 347.7,-2613.82"/>
+</g>
+<!-- lib/build&#45;pages/index.js -->
+<g id="node12" class="node">
+<title>lib/build&#45;pages/index.js</title>
+<g id="a_node12"><a xlink:href="lib/build-pages/index.js" xlink:title="index.js">
+<path fill="#ffffcc" stroke="black" d="M488.21,-2649.75C488.21,-2649.75 446.04,-2649.75 446.04,-2649.75 443.08,-2649.75 440.12,-2646.79 440.12,-2643.83 440.12,-2643.83 440.12,-2637.92 440.12,-2637.92 440.12,-2634.96 443.08,-2632 446.04,-2632 446.04,-2632 488.21,-2632 488.21,-2632 491.17,-2632 494.12,-2634.96 494.12,-2637.92 494.12,-2637.92 494.12,-2643.83 494.12,-2643.83 494.12,-2646.79 491.17,-2649.75 488.21,-2649.75"/>
+<text text-anchor="middle" x="467.12" y="-2637.2" font-family="Helvetica,sans-Serif" font-size="9.00">index.js</text>
+</a>
+</g>
+</g>
+<!-- lib/builder.js&#45;&gt;lib/build&#45;pages/index.js -->
+<g id="edge26" class="edge">
+<title>lib/builder.js&#45;&gt;lib/build&#45;pages/index.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M294.74,-2644.34C329.74,-2643.64 391.79,-2642.38 430.85,-2641.59"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="430.79,-2643.69 436.75,-2641.47 430.71,-2639.49 430.79,-2643.69"/>
+</g>
+<!-- lib/helpers/ensure&#45;dest.js -->
+<g id="node22" class="node">
+<title>lib/helpers/ensure&#45;dest.js</title>
+<g id="a_node22"><a xlink:href="lib/helpers/ensure-dest.js" xlink:title="ensure&#45;dest.js">
+<path fill="#ffffcc" stroke="black" d="M599.71,-2939.75C599.71,-2939.75 537.79,-2939.75 537.79,-2939.75 534.83,-2939.75 531.88,-2936.79 531.88,-2933.83 531.88,-2933.83 531.88,-2927.92 531.88,-2927.92 531.88,-2924.96 534.83,-2922 537.79,-2922 537.79,-2922 599.71,-2922 599.71,-2922 602.67,-2922 605.62,-2924.96 605.62,-2927.92 605.62,-2927.92 605.62,-2933.83 605.62,-2933.83 605.62,-2936.79 602.67,-2939.75 599.71,-2939.75"/>
+<text text-anchor="start" x="539.88" y="-2927.2" font-family="Helvetica,sans-Serif" font-size="9.00">ensure&#45;dest.js</text>
+</a>
+</g>
+</g>
+<!-- lib/builder.js&#45;&gt;lib/helpers/ensure&#45;dest.js -->
+<g id="edge28" class="edge">
+<title>lib/builder.js&#45;&gt;lib/helpers/ensure&#45;dest.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M271.12,-2654.09C278.51,-2678.73 301.63,-2747.2 341.38,-2789.88 373.36,-2824.22 389.21,-2824.86 432.12,-2843.88 458.47,-2855.55 475.3,-2841.05 494.12,-2862.88 509.68,-2880.92 485.92,-2898.41 502.12,-2915.88 507.67,-2921.85 515.07,-2925.69 522.89,-2928.1"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="522.22,-2930.1 528.55,-2929.48 523.22,-2926.02 522.22,-2930.1"/>
+</g>
+<!-- lib/identify&#45;pages.js -->
+<g id="node23" class="node">
+<title>lib/identify&#45;pages.js</title>
+<g id="a_node23"><a xlink:href="lib/identify-pages.js" xlink:title="identify&#45;pages.js">
+<path fill="#ffffcc" stroke="black" d="M418.21,-2675.75C418.21,-2675.75 347.29,-2675.75 347.29,-2675.75 344.33,-2675.75 341.38,-2672.79 341.38,-2669.83 341.38,-2669.83 341.38,-2663.92 341.38,-2663.92 341.38,-2660.96 344.33,-2658 347.29,-2658 347.29,-2658 418.21,-2658 418.21,-2658 421.17,-2658 424.12,-2660.96 424.12,-2663.92 424.12,-2663.92 424.12,-2669.83 424.12,-2669.83 424.12,-2672.79 421.17,-2675.75 418.21,-2675.75"/>
+<text text-anchor="start" x="349.38" y="-2663.2" font-family="Helvetica,sans-Serif" font-size="9.00">identify&#45;pages.js</text>
+</a>
+</g>
+</g>
+<!-- lib/builder.js&#45;&gt;lib/identify&#45;pages.js -->
+<g id="edge30" class="edge">
+<title>lib/builder.js&#45;&gt;lib/identify&#45;pages.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M294.77,-2649.98C305.92,-2652.14 319.29,-2654.74 332.18,-2657.24"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="331.72,-2659.3 338.01,-2658.38 332.52,-2655.17 331.72,-2659.3"/>
+</g>
+<!-- lib/build&#45;pages/resolve&#45;vars.js -->
+<g id="node11" class="node">
+<title>lib/build&#45;pages/resolve&#45;vars.js</title>
+<g id="a_node11"><a xlink:href="lib/build-pages/resolve-vars.js" xlink:title="resolve&#45;vars.js">
+<path fill="#ffffcc" stroke="black" d="M718.83,-2549.75C718.83,-2549.75 655.42,-2549.75 655.42,-2549.75 652.46,-2549.75 649.5,-2546.79 649.5,-2543.83 649.5,-2543.83 649.5,-2537.92 649.5,-2537.92 649.5,-2534.96 652.46,-2532 655.42,-2532 655.42,-2532 718.83,-2532 718.83,-2532 721.79,-2532 724.75,-2534.96 724.75,-2537.92 724.75,-2537.92 724.75,-2543.83 724.75,-2543.83 724.75,-2546.79 721.79,-2549.75 718.83,-2549.75"/>
+<text text-anchor="start" x="657.5" y="-2537.2" font-family="Helvetica,sans-Serif" font-size="9.00">resolve&#45;vars.js</text>
+</a>
+</g>
+</g>
+<!-- lib/build&#45;esbuild/index.js&#45;&gt;lib/build&#45;pages/resolve&#45;vars.js -->
+<g id="edge8" class="edge">
+<title>lib/build&#45;esbuild/index.js&#45;&gt;lib/build&#45;pages/resolve&#45;vars.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M402.92,-2591.65C425.9,-2581.05 465.88,-2564.07 502.12,-2555.88 548.43,-2545.41 602.75,-2542.03 640.31,-2541.04"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="640.03,-2543.15 645.98,-2540.92 639.94,-2538.95 640.03,-2543.15"/>
+</g>
+<!-- lib/build&#45;pages/index.js&#45;&gt;lib/build&#45;pages/resolve&#45;vars.js -->
+<g id="edge14" class="edge">
+<title>lib/build&#45;pages/index.js&#45;&gt;lib/build&#45;pages/resolve&#45;vars.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M472.96,-2631.57C478.56,-2621.85 488.76,-2607.03 502.12,-2599.88 528.37,-2585.82 612.82,-2605.32 635.38,-2585.88 644.47,-2578.04 636.98,-2568.74 643.73,-2556.92"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="645.18,-2558.47 647.26,-2552.46 641.89,-2555.86 645.18,-2558.47"/>
+</g>
+<!-- lib/helpers/key&#45;by.js -->
+<g id="node13" class="node">
+<title>lib/helpers/key&#45;by.js</title>
+<g id="a_node13"><a xlink:href="lib/helpers/key-by.js" xlink:title="key&#45;by.js">
+<path fill="#ffffcc" stroke="black" d="M589.83,-2849.75C589.83,-2849.75 547.67,-2849.75 547.67,-2849.75 544.71,-2849.75 541.75,-2846.79 541.75,-2843.83 541.75,-2843.83 541.75,-2837.92 541.75,-2837.92 541.75,-2834.96 544.71,-2832 547.67,-2832 547.67,-2832 589.83,-2832 589.83,-2832 592.79,-2832 595.75,-2834.96 595.75,-2837.92 595.75,-2837.92 595.75,-2843.83 595.75,-2843.83 595.75,-2846.79 592.79,-2849.75 589.83,-2849.75"/>
+<text text-anchor="start" x="550.75" y="-2837.2" font-family="Helvetica,sans-Serif" font-size="9.00">key&#45;by.js</text>
+</a>
+</g>
+</g>
+<!-- lib/build&#45;pages/index.js&#45;&gt;lib/helpers/key&#45;by.js -->
+<g id="edge9" class="edge">
+<title>lib/build&#45;pages/index.js&#45;&gt;lib/helpers/key&#45;by.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M490.98,-2650.21C492.18,-2651.3 493.24,-2652.52 494.12,-2653.88 514.18,-2684.63 479.97,-2789.6 502.12,-2818.88 509.46,-2828.57 521.26,-2834.04 532.83,-2837.11"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="532.3,-2839.14 538.61,-2838.37 533.2,-2835.04 532.3,-2839.14"/>
+</g>
+<!-- lib/build&#45;pages/page&#45;builders/index.js -->
+<g id="node14" class="node">
+<title>lib/build&#45;pages/page&#45;builders/index.js</title>
+<g id="a_node14"><a xlink:href="lib/build-pages/page-builders/index.js" xlink:title="index.js">
+<path fill="#ffffcc" stroke="black" d="M708.21,-2624.75C708.21,-2624.75 666.04,-2624.75 666.04,-2624.75 663.08,-2624.75 660.12,-2621.79 660.12,-2618.83 660.12,-2618.83 660.12,-2612.92 660.12,-2612.92 660.12,-2609.96 663.08,-2607 666.04,-2607 666.04,-2607 708.21,-2607 708.21,-2607 711.17,-2607 714.12,-2609.96 714.12,-2612.92 714.12,-2612.92 714.12,-2618.83 714.12,-2618.83 714.12,-2621.79 711.17,-2624.75 708.21,-2624.75"/>
+<text text-anchor="middle" x="687.12" y="-2612.2" font-family="Helvetica,sans-Serif" font-size="9.00">index.js</text>
+</a>
+</g>
+</g>
+<!-- lib/build&#45;pages/index.js&#45;&gt;lib/build&#45;pages/page&#45;builders/index.js -->
+<g id="edge10" class="edge">
+<title>lib/build&#45;pages/index.js&#45;&gt;lib/build&#45;pages/page&#45;builders/index.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M494.62,-2644.53C527.96,-2648.31 586.73,-2652.21 635.38,-2640.88 645.23,-2638.58 655.38,-2634.08 663.98,-2629.52"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="664.85,-2631.45 669.06,-2626.68 662.8,-2627.78 664.85,-2631.45"/>
+</g>
+<!-- lib/build&#45;pages/page&#45;builders/page&#45;writer.js -->
+<g id="node15" class="node">
+<title>lib/build&#45;pages/page&#45;builders/page&#45;writer.js</title>
+<g id="a_node15"><a xlink:href="lib/build-pages/page-builders/page-writer.js" xlink:title="page&#45;writer.js">
+<path fill="#ffffcc" stroke="black" d="M716.96,-2592.75C716.96,-2592.75 657.29,-2592.75 657.29,-2592.75 654.33,-2592.75 651.38,-2589.79 651.38,-2586.83 651.38,-2586.83 651.38,-2580.92 651.38,-2580.92 651.38,-2577.96 654.33,-2575 657.29,-2575 657.29,-2575 716.96,-2575 716.96,-2575 719.92,-2575 722.88,-2577.96 722.88,-2580.92 722.88,-2580.92 722.88,-2586.83 722.88,-2586.83 722.88,-2589.79 719.92,-2592.75 716.96,-2592.75"/>
+<text text-anchor="start" x="659.38" y="-2580.2" font-family="Helvetica,sans-Serif" font-size="9.00">page&#45;writer.js</text>
+</a>
+</g>
+</g>
+<!-- lib/build&#45;pages/index.js&#45;&gt;lib/build&#45;pages/page&#45;builders/page&#45;writer.js -->
+<g id="edge11" class="edge">
+<title>lib/build&#45;pages/index.js&#45;&gt;lib/build&#45;pages/page&#45;builders/page&#45;writer.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M494.31,-2640.79C538.63,-2640.42 624.72,-2638.56 635.38,-2629.88 645.74,-2621.43 634.45,-2610.83 643.38,-2600.88 644.24,-2599.91 645.17,-2599 646.15,-2598.14"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="647.05,-2600.07 650.75,-2594.9 644.64,-2596.63 647.05,-2600.07"/>
+</g>
+<!-- lib/build&#45;pages/page&#45;data.js -->
+<g id="node16" class="node">
+<title>lib/build&#45;pages/page&#45;data.js</title>
+<g id="a_node16"><a xlink:href="lib/build-pages/page-data.js" xlink:title="page&#45;data.js">
+<path fill="#ffffcc" stroke="black" d="M596.33,-2623.75C596.33,-2623.75 541.17,-2623.75 541.17,-2623.75 538.21,-2623.75 535.25,-2620.79 535.25,-2617.83 535.25,-2617.83 535.25,-2611.92 535.25,-2611.92 535.25,-2608.96 538.21,-2606 541.17,-2606 541.17,-2606 596.33,-2606 596.33,-2606 599.29,-2606 602.25,-2608.96 602.25,-2611.92 602.25,-2611.92 602.25,-2617.83 602.25,-2617.83 602.25,-2620.79 599.29,-2623.75 596.33,-2623.75"/>
+<text text-anchor="start" x="543.25" y="-2611.2" font-family="Helvetica,sans-Serif" font-size="9.00">page&#45;data.js</text>
+</a>
+</g>
+</g>
+<!-- lib/build&#45;pages/index.js&#45;&gt;lib/build&#45;pages/page&#45;data.js -->
+<g id="edge12" class="edge">
+<title>lib/build&#45;pages/index.js&#45;&gt;lib/build&#45;pages/page&#45;data.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M494.56,-2633.98C504.3,-2631.44 515.57,-2628.49 526.31,-2625.69"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="526.56,-2627.79 531.84,-2624.25 525.5,-2623.73 526.56,-2627.79"/>
+</g>
+<!-- lib/build&#45;pages/resolve&#45;layout.js -->
+<g id="node17" class="node">
+<title>lib/build&#45;pages/resolve&#45;layout.js</title>
+<g id="a_node17"><a xlink:href="lib/build-pages/resolve-layout.js" xlink:title="resolve&#45;layout.js">
+<path fill="#ffffcc" stroke="black" d="M604.21,-2579.75C604.21,-2579.75 533.29,-2579.75 533.29,-2579.75 530.33,-2579.75 527.38,-2576.79 527.38,-2573.83 527.38,-2573.83 527.38,-2567.92 527.38,-2567.92 527.38,-2564.96 530.33,-2562 533.29,-2562 533.29,-2562 604.21,-2562 604.21,-2562 607.17,-2562 610.12,-2564.96 610.12,-2567.92 610.12,-2567.92 610.12,-2573.83 610.12,-2573.83 610.12,-2576.79 607.17,-2579.75 604.21,-2579.75"/>
+<text text-anchor="start" x="535.38" y="-2567.2" font-family="Helvetica,sans-Serif" font-size="9.00">resolve&#45;layout.js</text>
+</a>
+</g>
+</g>
+<!-- lib/build&#45;pages/index.js&#45;&gt;lib/build&#45;pages/resolve&#45;layout.js -->
+<g id="edge13" class="edge">
+<title>lib/build&#45;pages/index.js&#45;&gt;lib/build&#45;pages/resolve&#45;layout.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M471.69,-2631.69C476.7,-2619.98 486.96,-2599.93 502.12,-2588.88 507.18,-2585.19 512.95,-2582.26 518.92,-2579.93"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="519.29,-2582.03 524.28,-2578.09 517.93,-2578.05 519.29,-2582.03"/>
+</g>
+<!-- lib/build&#45;pages/page&#45;builders/html/index.js -->
+<g id="node18" class="node">
+<title>lib/build&#45;pages/page&#45;builders/html/index.js</title>
+<g id="a_node18"><a xlink:href="lib/build-pages/page-builders/html/index.js" xlink:title="index.js">
+<path fill="#ffffcc" stroke="black" d="M804.71,-2737.75C804.71,-2737.75 762.54,-2737.75 762.54,-2737.75 759.58,-2737.75 756.62,-2734.79 756.62,-2731.83 756.62,-2731.83 756.62,-2725.92 756.62,-2725.92 756.62,-2722.96 759.58,-2720 762.54,-2720 762.54,-2720 804.71,-2720 804.71,-2720 807.67,-2720 810.62,-2722.96 810.62,-2725.92 810.62,-2725.92 810.62,-2731.83 810.62,-2731.83 810.62,-2734.79 807.67,-2737.75 804.71,-2737.75"/>
+<text text-anchor="middle" x="783.62" y="-2725.2" font-family="Helvetica,sans-Serif" font-size="9.00">index.js</text>
+</a>
+</g>
+</g>
+<!-- lib/build&#45;pages/page&#45;builders/index.js&#45;&gt;lib/build&#45;pages/page&#45;builders/html/index.js -->
+<g id="edge16" class="edge">
+<title>lib/build&#45;pages/page&#45;builders/index.js&#45;&gt;lib/build&#45;pages/page&#45;builders/html/index.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M691.01,-2625.05C697.04,-2642.92 712.53,-2682.73 737.75,-2706.88 741.2,-2710.18 745.23,-2713.07 749.45,-2715.59"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="748.19,-2717.3 754.47,-2718.28 750.17,-2713.59 748.19,-2717.3"/>
+</g>
+<!-- lib/build&#45;pages/page&#45;builders/js/index.js -->
+<g id="node19" class="node">
+<title>lib/build&#45;pages/page&#45;builders/js/index.js</title>
+<g id="a_node19"><a xlink:href="lib/build-pages/page-builders/js/index.js" xlink:title="index.js">
+<path fill="#ffffcc" stroke="black" d="M804.71,-2617.75C804.71,-2617.75 762.54,-2617.75 762.54,-2617.75 759.58,-2617.75 756.62,-2614.79 756.62,-2611.83 756.62,-2611.83 756.62,-2605.92 756.62,-2605.92 756.62,-2602.96 759.58,-2600 762.54,-2600 762.54,-2600 804.71,-2600 804.71,-2600 807.67,-2600 810.62,-2602.96 810.62,-2605.92 810.62,-2605.92 810.62,-2611.83 810.62,-2611.83 810.62,-2614.79 807.67,-2617.75 804.71,-2617.75"/>
+<text text-anchor="middle" x="783.62" y="-2605.2" font-family="Helvetica,sans-Serif" font-size="9.00">index.js</text>
+</a>
+</g>
+</g>
+<!-- lib/build&#45;pages/page&#45;builders/index.js&#45;&gt;lib/build&#45;pages/page&#45;builders/js/index.js -->
+<g id="edge17" class="edge">
+<title>lib/build&#45;pages/page&#45;builders/index.js&#45;&gt;lib/build&#45;pages/page&#45;builders/js/index.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M714.45,-2613.93C724.69,-2613.17 736.57,-2612.29 747.52,-2611.48"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="747.6,-2613.58 753.42,-2611.04 747.29,-2609.39 747.6,-2613.58"/>
+</g>
+<!-- lib/build&#45;pages/page&#45;builders/md/index.js -->
+<g id="node20" class="node">
+<title>lib/build&#45;pages/page&#45;builders/md/index.js</title>
+<g id="a_node20"><a xlink:href="lib/build-pages/page-builders/md/index.js" xlink:title="index.js">
+<path fill="#ffffcc" stroke="black" d="M804.71,-2677.75C804.71,-2677.75 762.54,-2677.75 762.54,-2677.75 759.58,-2677.75 756.62,-2674.79 756.62,-2671.83 756.62,-2671.83 756.62,-2665.92 756.62,-2665.92 756.62,-2662.96 759.58,-2660 762.54,-2660 762.54,-2660 804.71,-2660 804.71,-2660 807.67,-2660 810.62,-2662.96 810.62,-2665.92 810.62,-2665.92 810.62,-2671.83 810.62,-2671.83 810.62,-2674.79 807.67,-2677.75 804.71,-2677.75"/>
+<text text-anchor="middle" x="783.62" y="-2665.2" font-family="Helvetica,sans-Serif" font-size="9.00">index.js</text>
+</a>
+</g>
+</g>
+<!-- lib/build&#45;pages/page&#45;builders/index.js&#45;&gt;lib/build&#45;pages/page&#45;builders/md/index.js -->
+<g id="edge18" class="edge">
+<title>lib/build&#45;pages/page&#45;builders/index.js&#45;&gt;lib/build&#45;pages/page&#45;builders/md/index.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M702.22,-2625.22C712.03,-2631.59 725.5,-2640.07 737.75,-2646.88 743.15,-2649.88 749.02,-2652.91 754.68,-2655.73"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="753.71,-2657.59 760.02,-2658.34 755.55,-2653.82 753.71,-2657.59"/>
+</g>
+<!-- lib/build&#45;pages/page&#45;builders/template&#45;builder.js -->
+<g id="node21" class="node">
+<title>lib/build&#45;pages/page&#45;builders/template&#45;builder.js</title>
+<g id="a_node21"><a xlink:href="lib/build-pages/page-builders/template-builder.js" xlink:title="template&#45;builder.js">
+<path fill="#ffffcc" stroke="black" d="M823.58,-2583.75C823.58,-2583.75 743.67,-2583.75 743.67,-2583.75 740.71,-2583.75 737.75,-2580.79 737.75,-2577.83 737.75,-2577.83 737.75,-2571.92 737.75,-2571.92 737.75,-2568.96 740.71,-2566 743.67,-2566 743.67,-2566 823.58,-2566 823.58,-2566 826.54,-2566 829.5,-2568.96 829.5,-2571.92 829.5,-2571.92 829.5,-2577.83 829.5,-2577.83 829.5,-2580.79 826.54,-2583.75 823.58,-2583.75"/>
+<text text-anchor="start" x="745.75" y="-2571.2" font-family="Helvetica,sans-Serif" font-size="9.00">template&#45;builder.js</text>
+</a>
+</g>
+</g>
+<!-- lib/build&#45;pages/page&#45;builders/index.js&#45;&gt;lib/build&#45;pages/page&#45;builders/template&#45;builder.js -->
+<g id="edge19" class="edge">
+<title>lib/build&#45;pages/page&#45;builders/index.js&#45;&gt;lib/build&#45;pages/page&#45;builders/template&#45;builder.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M710.23,-2606.58C715.12,-2604.26 720.19,-2601.64 724.75,-2598.88 730.98,-2595.1 731.28,-2592.23 737.75,-2588.88 738.58,-2588.44 739.43,-2588.02 740.29,-2587.61"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="740.82,-2589.67 745.52,-2585.38 739.18,-2585.8 740.82,-2589.67"/>
+</g>
+<!-- lib/build&#45;pages/page&#45;builders/page&#45;writer.js&#45;&gt;fs/promises -->
+<g id="edge21" class="edge">
+<title>lib/build&#45;pages/page&#45;builders/page&#45;writer.js&#45;&gt;fs/promises</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" stroke-opacity="0.200000" d="M717.35,-2574.6C719.91,-2573.46 722.41,-2572.22 724.75,-2570.88 731.31,-2567.1 731.3,-2563.84 737.75,-2559.88 785.34,-2530.61 803.22,-2535.21 853.5,-2510.88 859.87,-2507.79 866.66,-2504.21 872.87,-2500.81"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-opacity="0.200000" points="873.79,-2502.7 878.02,-2497.95 871.75,-2499.03 873.79,-2502.7"/>
+</g>
+<!-- lib/build&#45;pages/page&#45;data.js&#45;&gt;lib/build&#45;pages/resolve&#45;vars.js -->
+<g id="edge24" class="edge">
+<title>lib/build&#45;pages/page&#45;data.js&#45;&gt;lib/build&#45;pages/resolve&#45;vars.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M602.53,-2612.99C614.41,-2610.65 626.96,-2605.99 635.38,-2596.88 646.66,-2584.66 634.71,-2572.59 643.73,-2556.91"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="645.22,-2558.42 647.17,-2552.37 641.87,-2555.88 645.22,-2558.42"/>
+</g>
+<!-- lib/build&#45;pages/page&#45;data.js&#45;&gt;lib/build&#45;pages/page&#45;builders/index.js -->
+<g id="edge23" class="edge">
+<title>lib/build&#45;pages/page&#45;data.js&#45;&gt;lib/build&#45;pages/page&#45;builders/index.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M602.48,-2615.16C617.65,-2615.29 635.7,-2615.44 651.14,-2615.57"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="650.85,-2617.67 656.87,-2615.62 650.89,-2613.47 650.85,-2617.67"/>
+</g>
+<!-- lib/build&#45;pages/page&#45;builders/html/index.js&#45;&gt;fs/promises -->
+<g id="edge15" class="edge">
+<title>lib/build&#45;pages/page&#45;builders/html/index.js&#45;&gt;fs/promises</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" stroke-opacity="0.200000" d="M811.07,-2726.89C825.62,-2724.4 842.84,-2718.9 853.5,-2706.88 880.28,-2676.68 891.3,-2550.42 894.46,-2504.59"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-opacity="0.200000" points="896.55,-2504.88 894.85,-2498.75 892.36,-2504.6 896.55,-2504.88"/>
+</g>
+<!-- lib/build&#45;pages/page&#45;builders/md/index.js&#45;&gt;fs/promises -->
+<g id="edge20" class="edge">
+<title>lib/build&#45;pages/page&#45;builders/md/index.js&#45;&gt;fs/promises</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" stroke-opacity="0.200000" d="M811.1,-2666.55C825.48,-2663.94 842.52,-2658.43 853.5,-2646.88 891.58,-2606.81 896.08,-2536.41 896.02,-2504.47"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-opacity="0.200000" points="898.12,-2504.71 895.94,-2498.73 893.92,-2504.76 898.12,-2504.71"/>
+</g>
+<!-- lib/build&#45;pages/page&#45;builders/template&#45;builder.js&#45;&gt;fs/promises -->
+<g id="edge22" class="edge">
+<title>lib/build&#45;pages/page&#45;builders/template&#45;builder.js&#45;&gt;fs/promises</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" stroke-opacity="0.200000" d="M818.2,-2565.53C830.14,-2561.15 843.17,-2555.04 853.5,-2546.88 868.45,-2535.05 880.42,-2516.55 887.7,-2503.42"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-opacity="0.200000" points="889.38,-2504.72 890.36,-2498.44 885.68,-2502.74 889.38,-2504.72"/>
+</g>
+<!-- lib/helpers/ensure&#45;dest.js&#45;&gt;fs/promises -->
+<g id="edge31" class="edge">
+<title>lib/helpers/ensure&#45;dest.js&#45;&gt;fs/promises</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" stroke-opacity="0.200000" d="M605.95,-2925.14C615.74,-2922.91 626.17,-2919.9 635.38,-2915.88 742.95,-2868.86 791.09,-2866.32 853.5,-2766.88 881.36,-2722.48 891.99,-2557.32 894.73,-2504.35"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-opacity="0.200000" points="896.81,-2504.71 895.01,-2498.62 892.62,-2504.5 896.81,-2504.71"/>
+</g>
+<!-- lib/identify&#45;pages.js&#45;&gt;lib/build&#45;pages/index.js -->
+<g id="edge32" class="edge">
+<title>lib/identify&#45;pages.js&#45;&gt;lib/build&#45;pages/index.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M413.02,-2657.64C419,-2655.75 425.34,-2653.75 431.49,-2651.81"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="431.71,-2653.94 436.8,-2650.13 430.45,-2649.93 431.71,-2653.94"/>
+</g>
+<!-- lib/helpers/siteup&#45;error.js -->
+<g id="node24" class="node">
+<title>lib/helpers/siteup&#45;error.js</title>
+<g id="a_node24"><a xlink:href="lib/helpers/siteup-error.js" xlink:title="siteup&#45;error.js">
+<path fill="#ffffcc" stroke="black" d="M598.96,-2879.75C598.96,-2879.75 538.54,-2879.75 538.54,-2879.75 535.58,-2879.75 532.62,-2876.79 532.62,-2873.83 532.62,-2873.83 532.62,-2867.92 532.62,-2867.92 532.62,-2864.96 535.58,-2862 538.54,-2862 538.54,-2862 598.96,-2862 598.96,-2862 601.92,-2862 604.88,-2864.96 604.88,-2867.92 604.88,-2867.92 604.88,-2873.83 604.88,-2873.83 604.88,-2876.79 601.92,-2879.75 598.96,-2879.75"/>
+<text text-anchor="start" x="540.62" y="-2867.2" font-family="Helvetica,sans-Serif" font-size="9.00">siteup&#45;error.js</text>
+</a>
+</g>
+</g>
+<!-- lib/identify&#45;pages.js&#45;&gt;lib/helpers/siteup&#45;error.js -->
+<g id="edge33" class="edge">
+<title>lib/identify&#45;pages.js&#45;&gt;lib/helpers/siteup&#45;error.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M383.78,-2675.96C384.39,-2702.23 389.88,-2778.91 432.12,-2818.88 452.8,-2838.43 472.91,-2815.9 494.12,-2834.88 501.57,-2841.53 494.59,-2849.32 502.12,-2855.88 508.21,-2861.17 515.79,-2864.7 523.61,-2867.03"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="522.86,-2869.01 529.19,-2868.4 523.86,-2864.93 522.86,-2869.01"/>
+</g>
+<!-- test&#45;cases/build&#45;errors/index.test.js -->
+<g id="node25" class="node">
+<title>test&#45;cases/build&#45;errors/index.test.js</title>
+<g id="a_node25"><a xlink:href="test-cases/build-errors/index.test.js" xlink:title="index.test.js">
+<path fill="#ffffcc" stroke="black" d="M140.83,-1987.75C140.83,-1987.75 88.67,-1987.75 88.67,-1987.75 85.71,-1987.75 82.75,-1984.79 82.75,-1981.83 82.75,-1981.83 82.75,-1975.92 82.75,-1975.92 82.75,-1972.96 85.71,-1970 88.67,-1970 88.67,-1970 140.83,-1970 140.83,-1970 143.79,-1970 146.75,-1972.96 146.75,-1975.92 146.75,-1975.92 146.75,-1981.83 146.75,-1981.83 146.75,-1984.79 143.79,-1987.75 140.83,-1987.75"/>
+<text text-anchor="start" x="90.75" y="-1975.2" font-family="Helvetica,sans-Serif" font-size="9.00">index.test.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/build&#45;errors/index.test.js&#45;&gt;index.js -->
+<g id="edge34" class="edge">
+<title>test&#45;cases/build&#45;errors/index.test.js&#45;&gt;index.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M146.97,-1975.11C166.46,-1974.6 190.61,-1977.66 205.5,-1992.88 267.4,-2056.1 267.78,-2352.4 266.82,-2428.84"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="264.72,-2428.71 266.73,-2434.74 268.92,-2428.78 264.72,-2428.71"/>
+</g>
+<!-- test&#45;cases/build&#45;errors/index.test.js&#45;&gt;fs/promises -->
+<g id="edge35" class="edge">
+<title>test&#45;cases/build&#45;errors/index.test.js&#45;&gt;fs/promises</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" stroke-opacity="0.200000" d="M146.82,-1971.09C167.33,-1964.18 192.69,-1951.83 205.5,-1930.88 248.92,-1859.86 198.74,-508.95 232.5,-432.88 269.39,-349.75 290.8,-292.88 381.75,-292.88 381.75,-292.88 381.75,-292.88 688.12,-292.88 804.34,-292.88 886.7,-2268.71 894.84,-2471.18"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-opacity="0.200000" points="892.73,-2471.14 895.07,-2477.05 896.93,-2470.97 892.73,-2471.14"/>
+</g>
+<!-- test&#45;cases/build&#45;errors/src/another&#45;broken&#45;page/page.js -->
+<g id="node26" class="node">
+<title>test&#45;cases/build&#45;errors/src/another&#45;broken&#45;page/page.js</title>
+<g id="a_node26"><a xlink:href="test-cases/build-errors/src/another-broken-page/page.js" xlink:title="page.js">
+<path fill="#ccffcc" stroke="black" d="M135.83,-2055.75C135.83,-2055.75 93.67,-2055.75 93.67,-2055.75 90.71,-2055.75 87.75,-2052.79 87.75,-2049.83 87.75,-2049.83 87.75,-2043.92 87.75,-2043.92 87.75,-2040.96 90.71,-2038 93.67,-2038 93.67,-2038 135.83,-2038 135.83,-2038 138.79,-2038 141.75,-2040.96 141.75,-2043.92 141.75,-2043.92 141.75,-2049.83 141.75,-2049.83 141.75,-2052.79 138.79,-2055.75 135.83,-2055.75"/>
+<text text-anchor="start" x="99.75" y="-2043.2" font-family="Helvetica,sans-Serif" font-size="9.00">page.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/build&#45;errors/src/client.js -->
+<g id="node27" class="node">
+<title>test&#45;cases/build&#45;errors/src/client.js</title>
+<g id="a_node27"><a xlink:href="test-cases/build-errors/src/client.js" xlink:title="client.js">
+<path fill="#ccffcc" stroke="black" d="M135.83,-2021.75C135.83,-2021.75 93.67,-2021.75 93.67,-2021.75 90.71,-2021.75 87.75,-2018.79 87.75,-2015.83 87.75,-2015.83 87.75,-2009.92 87.75,-2009.92 87.75,-2006.96 90.71,-2004 93.67,-2004 93.67,-2004 135.83,-2004 135.83,-2004 138.79,-2004 141.75,-2006.96 141.75,-2009.92 141.75,-2009.92 141.75,-2015.83 141.75,-2015.83 141.75,-2018.79 138.79,-2021.75 135.83,-2021.75"/>
+<text text-anchor="start" x="99.38" y="-2009.2" font-family="Helvetica,sans-Serif" font-size="9.00">client.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/conflict&#45;pages/index.test.js -->
+<g id="node28" class="node">
+<title>test&#45;cases/conflict&#45;pages/index.test.js</title>
+<g id="a_node28"><a xlink:href="test-cases/conflict-pages/index.test.js" xlink:title="index.test.js">
+<path fill="#ffffcc" stroke="black" d="M140.83,-1837.75C140.83,-1837.75 88.67,-1837.75 88.67,-1837.75 85.71,-1837.75 82.75,-1834.79 82.75,-1831.83 82.75,-1831.83 82.75,-1825.92 82.75,-1825.92 82.75,-1822.96 85.71,-1820 88.67,-1820 88.67,-1820 140.83,-1820 140.83,-1820 143.79,-1820 146.75,-1822.96 146.75,-1825.92 146.75,-1825.92 146.75,-1831.83 146.75,-1831.83 146.75,-1834.79 143.79,-1837.75 140.83,-1837.75"/>
+<text text-anchor="start" x="90.75" y="-1825.2" font-family="Helvetica,sans-Serif" font-size="9.00">index.test.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/conflict&#45;pages/index.test.js&#45;&gt;index.js -->
+<g id="edge36" class="edge">
+<title>test&#45;cases/conflict&#45;pages/index.test.js&#45;&gt;index.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M147.13,-1824.94C166.7,-1824.37 190.86,-1827.42 205.5,-1842.88 246.89,-1886.57 262.98,-2333.14 265.97,-2428.87"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="263.86,-2428.72 266.15,-2434.66 268.06,-2428.6 263.86,-2428.72"/>
+</g>
+<!-- test&#45;cases/conflict&#45;pages/index.test.js&#45;&gt;fs/promises -->
+<g id="edge37" class="edge">
+<title>test&#45;cases/conflict&#45;pages/index.test.js&#45;&gt;fs/promises</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" stroke-opacity="0.200000" d="M146.82,-1821.09C167.33,-1814.18 192.68,-1801.83 205.5,-1780.88 248.53,-1710.53 179.68,-360.19 232.5,-296.88 275.84,-244.92 314.09,-266.88 381.75,-266.88 381.75,-266.88 381.75,-266.88 688.12,-266.88 778.64,-266.88 828.09,-371.04 853.5,-439.88 890.78,-540.86 895.11,-2283.2 895.47,-2471.43"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-opacity="0.200000" points="893.37,-2471.27 895.48,-2477.27 897.57,-2471.26 893.37,-2471.27"/>
+</g>
+<!-- test&#45;cases/conflict&#45;pages/src/page.js -->
+<g id="node29" class="node">
+<title>test&#45;cases/conflict&#45;pages/src/page.js</title>
+<g id="a_node29"><a xlink:href="test-cases/conflict-pages/src/page.js" xlink:title="page.js">
+<path fill="#ccffcc" stroke="black" d="M135.83,-1901.75C135.83,-1901.75 93.67,-1901.75 93.67,-1901.75 90.71,-1901.75 87.75,-1898.79 87.75,-1895.83 87.75,-1895.83 87.75,-1889.92 87.75,-1889.92 87.75,-1886.96 90.71,-1884 93.67,-1884 93.67,-1884 135.83,-1884 135.83,-1884 138.79,-1884 141.75,-1886.96 141.75,-1889.92 141.75,-1889.92 141.75,-1895.83 141.75,-1895.83 141.75,-1898.79 138.79,-1901.75 135.83,-1901.75"/>
+<text text-anchor="start" x="99.75" y="-1889.2" font-family="Helvetica,sans-Serif" font-size="9.00">page.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/conflict&#45;pages/src/page.vars.js -->
+<g id="node30" class="node">
+<title>test&#45;cases/conflict&#45;pages/src/page.vars.js</title>
+<g id="a_node30"><a xlink:href="test-cases/conflict-pages/src/page.vars.js" xlink:title="page.vars.js">
+<path fill="#ccffcc" stroke="black" d="M141.58,-1871.75C141.58,-1871.75 87.92,-1871.75 87.92,-1871.75 84.96,-1871.75 82,-1868.79 82,-1865.83 82,-1865.83 82,-1859.92 82,-1859.92 82,-1856.96 84.96,-1854 87.92,-1854 87.92,-1854 141.58,-1854 141.58,-1854 144.54,-1854 147.5,-1856.96 147.5,-1859.92 147.5,-1859.92 147.5,-1865.83 147.5,-1865.83 147.5,-1868.79 144.54,-1871.75 141.58,-1871.75"/>
+<text text-anchor="start" x="90" y="-1859.2" font-family="Helvetica,sans-Serif" font-size="9.00">page.vars.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/default&#45;layout/index.test.js -->
+<g id="node31" class="node">
+<title>test&#45;cases/default&#45;layout/index.test.js</title>
+<g id="a_node31"><a xlink:href="test-cases/default-layout/index.test.js" xlink:title="index.test.js">
+<path fill="#ffffcc" stroke="black" d="M140.83,-1717.75C140.83,-1717.75 88.67,-1717.75 88.67,-1717.75 85.71,-1717.75 82.75,-1714.79 82.75,-1711.83 82.75,-1711.83 82.75,-1705.92 82.75,-1705.92 82.75,-1702.96 85.71,-1700 88.67,-1700 88.67,-1700 140.83,-1700 140.83,-1700 143.79,-1700 146.75,-1702.96 146.75,-1705.92 146.75,-1705.92 146.75,-1711.83 146.75,-1711.83 146.75,-1714.79 143.79,-1717.75 140.83,-1717.75"/>
+<text text-anchor="start" x="90.75" y="-1705.2" font-family="Helvetica,sans-Serif" font-size="9.00">index.test.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/default&#45;layout/index.test.js&#45;&gt;index.js -->
+<g id="edge38" class="edge">
+<title>test&#45;cases/default&#45;layout/index.test.js&#45;&gt;index.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M147.22,-1704.86C166.82,-1704.26 190.99,-1707.3 205.5,-1722.88 255.17,-1776.18 264.87,-2323 266.29,-2429.1"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="264.19,-2428.96 266.36,-2434.93 268.39,-2428.91 264.19,-2428.96"/>
+</g>
+<!-- test&#45;cases/default&#45;layout/index.test.js&#45;&gt;fs/promises -->
+<g id="edge39" class="edge">
+<title>test&#45;cases/default&#45;layout/index.test.js&#45;&gt;fs/promises</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" stroke-opacity="0.200000" d="M134.65,-1699.69C156.29,-1688.01 190.64,-1665.6 205.5,-1634.88 238.79,-1566.04 181.22,-315.58 232.5,-258.88 277.31,-209.32 314.94,-240.88 381.75,-240.88 381.75,-240.88 381.75,-240.88 688.12,-240.88 763.35,-240.88 805.75,-218.75 853.5,-276.88 890.5,-321.91 895.1,-2271.72 895.47,-2471.41"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-opacity="0.200000" points="893.37,-2471.19 895.48,-2477.18 897.57,-2471.18 893.37,-2471.19"/>
+</g>
+<!-- test&#45;cases/default&#45;layout/src/global.vars.js -->
+<g id="node32" class="node">
+<title>test&#45;cases/default&#45;layout/src/global.vars.js</title>
+<g id="a_node32"><a xlink:href="test-cases/default-layout/src/global.vars.js" xlink:title="global.vars.js">
+<path fill="#ccffcc" stroke="black" d="M143.83,-1751.75C143.83,-1751.75 85.67,-1751.75 85.67,-1751.75 82.71,-1751.75 79.75,-1748.79 79.75,-1745.83 79.75,-1745.83 79.75,-1739.92 79.75,-1739.92 79.75,-1736.96 82.71,-1734 85.67,-1734 85.67,-1734 143.83,-1734 143.83,-1734 146.79,-1734 149.75,-1736.96 149.75,-1739.92 149.75,-1739.92 149.75,-1745.83 149.75,-1745.83 149.75,-1748.79 146.79,-1751.75 143.83,-1751.75"/>
+<text text-anchor="start" x="87.75" y="-1739.2" font-family="Helvetica,sans-Serif" font-size="9.00">global.vars.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/index.test.js -->
+<g id="node33" class="node">
+<title>test&#45;cases/general&#45;features/index.test.js</title>
+<g id="a_node33"><a xlink:href="test-cases/general-features/index.test.js" xlink:title="index.test.js">
+<path fill="#ffffcc" stroke="black" d="M140.83,-1327.75C140.83,-1327.75 88.67,-1327.75 88.67,-1327.75 85.71,-1327.75 82.75,-1324.79 82.75,-1321.83 82.75,-1321.83 82.75,-1315.92 82.75,-1315.92 82.75,-1312.96 85.71,-1310 88.67,-1310 88.67,-1310 140.83,-1310 140.83,-1310 143.79,-1310 146.75,-1312.96 146.75,-1315.92 146.75,-1315.92 146.75,-1321.83 146.75,-1321.83 146.75,-1324.79 143.79,-1327.75 140.83,-1327.75"/>
+<text text-anchor="start" x="90.75" y="-1315.2" font-family="Helvetica,sans-Serif" font-size="9.00">index.test.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/index.test.js&#45;&gt;index.js -->
+<g id="edge40" class="edge">
+<title>test&#45;cases/general&#45;features/index.test.js&#45;&gt;index.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M146.94,-1314.74C166.68,-1314.01 191.11,-1316.97 205.5,-1332.88 243.89,-1375.31 263.38,-2288.77 266.15,-2428.9"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="264.05,-2428.65 266.27,-2434.61 268.25,-2428.57 264.05,-2428.65"/>
+</g>
+<!-- test&#45;cases/general&#45;features/index.test.js&#45;&gt;fs/promises -->
+<g id="edge41" class="edge">
+<title>test&#45;cases/general&#45;features/index.test.js&#45;&gt;fs/promises</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" stroke-opacity="0.200000" d="M129.95,-1309.63C150.99,-1295 189.68,-1264.28 205.5,-1226.88 227.12,-1175.74 194.43,-268.29 232.5,-227.88 278.15,-179.4 315.17,-214.88 381.75,-214.88 381.75,-214.88 381.75,-214.88 688.12,-214.88 762.06,-214.88 803.62,-178.3 853.5,-232.88 893.6,-276.75 895.42,-2267.21 895.5,-2471.07"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-opacity="0.200000" points="893.4,-2470.99 895.5,-2476.99 897.6,-2470.99 893.4,-2470.99"/>
+</g>
+<!-- test&#45;cases/general&#45;features/public/client&#45;XA44T36G.js -->
+<g id="node34" class="node">
+<title>test&#45;cases/general&#45;features/public/client&#45;XA44T36G.js</title>
+<g id="a_node34"><a xlink:href="test-cases/general-features/public/client-XA44T36G.js" xlink:title="client&#45;XA44T36G.js">
+<path fill="#ccffcc" stroke="black" d="M156.21,-1391.75C156.21,-1391.75 73.29,-1391.75 73.29,-1391.75 70.33,-1391.75 67.38,-1388.79 67.38,-1385.83 67.38,-1385.83 67.38,-1379.92 67.38,-1379.92 67.38,-1376.96 70.33,-1374 73.29,-1374 73.29,-1374 156.21,-1374 156.21,-1374 159.17,-1374 162.12,-1376.96 162.12,-1379.92 162.12,-1379.92 162.12,-1385.83 162.12,-1385.83 162.12,-1388.79 159.17,-1391.75 156.21,-1391.75"/>
+<text text-anchor="start" x="75.38" y="-1379.2" font-family="Helvetica,sans-Serif" font-size="9.00">client&#45;XA44T36G.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/public/global.client&#45;SNE6B7J5.js -->
+<g id="node35" class="node">
+<title>test&#45;cases/general&#45;features/public/global.client&#45;SNE6B7J5.js</title>
+<g id="a_node35"><a xlink:href="test-cases/general-features/public/global.client-SNE6B7J5.js" xlink:title="global.client&#45;SNE6B7J5.js">
+<path fill="#ccffcc" stroke="black" d="M170.08,-1361.75C170.08,-1361.75 59.42,-1361.75 59.42,-1361.75 56.46,-1361.75 53.5,-1358.79 53.5,-1355.83 53.5,-1355.83 53.5,-1349.92 53.5,-1349.92 53.5,-1346.96 56.46,-1344 59.42,-1344 59.42,-1344 170.08,-1344 170.08,-1344 173.04,-1344 176,-1346.96 176,-1349.92 176,-1349.92 176,-1355.83 176,-1355.83 176,-1358.79 173.04,-1361.75 170.08,-1361.75"/>
+<text text-anchor="start" x="61.5" y="-1349.2" font-family="Helvetica,sans-Serif" font-size="9.00">global.client&#45;SNE6B7J5.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/public/html&#45;page/client&#45;P33YF4QG.js -->
+<g id="node36" class="node">
+<title>test&#45;cases/general&#45;features/public/html&#45;page/client&#45;P33YF4QG.js</title>
+<g id="a_node36"><a xlink:href="test-cases/general-features/public/html-page/client-P33YF4QG.js" xlink:title="client&#45;P33YF4QG.js">
+<path fill="#ccffcc" stroke="black" d="M156.96,-1605.75C156.96,-1605.75 72.54,-1605.75 72.54,-1605.75 69.58,-1605.75 66.62,-1602.79 66.62,-1599.83 66.62,-1599.83 66.62,-1593.92 66.62,-1593.92 66.62,-1590.96 69.58,-1588 72.54,-1588 72.54,-1588 156.96,-1588 156.96,-1588 159.92,-1588 162.88,-1590.96 162.88,-1593.92 162.88,-1593.92 162.88,-1599.83 162.88,-1599.83 162.88,-1602.79 159.92,-1605.75 156.96,-1605.75"/>
+<text text-anchor="start" x="74.62" y="-1593.2" font-family="Helvetica,sans-Serif" font-size="9.00">client&#45;P33YF4QG.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/public/js&#45;page/client&#45;GDCZFMOL.js -->
+<g id="node37" class="node">
+<title>test&#45;cases/general&#45;features/public/js&#45;page/client&#45;GDCZFMOL.js</title>
+<g id="a_node37"><a xlink:href="test-cases/general-features/public/js-page/client-GDCZFMOL.js" xlink:title="client&#45;GDCZFMOL.js">
+<path fill="#ccffcc" stroke="black" d="M158.83,-1545.75C158.83,-1545.75 70.67,-1545.75 70.67,-1545.75 67.71,-1545.75 64.75,-1542.79 64.75,-1539.83 64.75,-1539.83 64.75,-1533.92 64.75,-1533.92 64.75,-1530.96 67.71,-1528 70.67,-1528 70.67,-1528 158.83,-1528 158.83,-1528 161.79,-1528 164.75,-1530.96 164.75,-1533.92 164.75,-1533.92 164.75,-1539.83 164.75,-1539.83 164.75,-1542.79 161.79,-1545.75 158.83,-1545.75"/>
+<text text-anchor="start" x="72.75" y="-1533.2" font-family="Helvetica,sans-Serif" font-size="9.00">client&#45;GDCZFMOL.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/public/layouts/blog.layout.client&#45;GHS6BWW7.js -->
+<g id="node38" class="node">
+<title>test&#45;cases/general&#45;features/public/layouts/blog.layout.client&#45;GHS6BWW7.js</title>
+<g id="a_node38"><a xlink:href="test-cases/general-features/public/layouts/blog.layout.client-GHS6BWW7.js" xlink:title="blog.layout.client&#45;GHS6BWW7.js">
+<path fill="#ccffcc" stroke="black" d="M183.58,-1485.75C183.58,-1485.75 45.92,-1485.75 45.92,-1485.75 42.96,-1485.75 40,-1482.79 40,-1479.83 40,-1479.83 40,-1473.92 40,-1473.92 40,-1470.96 42.96,-1468 45.92,-1468 45.92,-1468 183.58,-1468 183.58,-1468 186.54,-1468 189.5,-1470.96 189.5,-1473.92 189.5,-1473.92 189.5,-1479.83 189.5,-1479.83 189.5,-1482.79 186.54,-1485.75 183.58,-1485.75"/>
+<text text-anchor="start" x="48" y="-1473.2" font-family="Helvetica,sans-Serif" font-size="9.00">blog.layout.client&#45;GHS6BWW7.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/public/md&#45;page/client&#45;R4ZZXMTO.js -->
+<g id="node39" class="node">
+<title>test&#45;cases/general&#45;features/public/md&#45;page/client&#45;R4ZZXMTO.js</title>
+<g id="a_node39"><a xlink:href="test-cases/general-features/public/md-page/client-R4ZZXMTO.js" xlink:title="client&#45;R4ZZXMTO.js">
+<path fill="#ccffcc" stroke="black" d="M157.71,-1425.75C157.71,-1425.75 71.79,-1425.75 71.79,-1425.75 68.83,-1425.75 65.88,-1422.79 65.88,-1419.83 65.88,-1419.83 65.88,-1413.92 65.88,-1413.92 65.88,-1410.96 68.83,-1408 71.79,-1408 71.79,-1408 157.71,-1408 157.71,-1408 160.67,-1408 163.62,-1410.96 163.62,-1413.92 163.62,-1413.92 163.62,-1419.83 163.62,-1419.83 163.62,-1422.79 160.67,-1425.75 157.71,-1425.75"/>
+<text text-anchor="start" x="73.88" y="-1413.2" font-family="Helvetica,sans-Serif" font-size="9.00">client&#45;R4ZZXMTO.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/blog/2023/the&#45;first&#45;blog&#45;post&#45;from&#45;2023/page.vars.js -->
+<g id="node40" class="node">
+<title>test&#45;cases/general&#45;features/src/blog/2023/the&#45;first&#45;blog&#45;post&#45;from&#45;2023/page.vars.js</title>
+<g id="a_node40"><a xlink:href="test-cases/general-features/src/blog/2023/the-first-blog-post-from-2023/page.vars.js" xlink:title="page.vars.js">
+<path fill="#ccffcc" stroke="black" d="M141.58,-1197.75C141.58,-1197.75 87.92,-1197.75 87.92,-1197.75 84.96,-1197.75 82,-1194.79 82,-1191.83 82,-1191.83 82,-1185.92 82,-1185.92 82,-1182.96 84.96,-1180 87.92,-1180 87.92,-1180 141.58,-1180 141.58,-1180 144.54,-1180 147.5,-1182.96 147.5,-1185.92 147.5,-1185.92 147.5,-1191.83 147.5,-1191.83 147.5,-1194.79 144.54,-1197.75 141.58,-1197.75"/>
+<text text-anchor="start" x="90" y="-1185.2" font-family="Helvetica,sans-Serif" font-size="9.00">page.vars.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/blog/page.js -->
+<g id="node41" class="node">
+<title>test&#45;cases/general&#45;features/src/blog/page.js</title>
+<g id="a_node41"><a xlink:href="test-cases/general-features/src/blog/page.js" xlink:title="page.js">
+<path fill="#ccffcc" stroke="black" d="M135.83,-1155.75C135.83,-1155.75 93.67,-1155.75 93.67,-1155.75 90.71,-1155.75 87.75,-1152.79 87.75,-1149.83 87.75,-1149.83 87.75,-1143.92 87.75,-1143.92 87.75,-1140.96 90.71,-1138 93.67,-1138 93.67,-1138 135.83,-1138 135.83,-1138 138.79,-1138 141.75,-1140.96 141.75,-1143.92 141.75,-1143.92 141.75,-1149.83 141.75,-1149.83 141.75,-1152.79 138.79,-1155.75 135.83,-1155.75"/>
+<text text-anchor="start" x="99.75" y="-1143.2" font-family="Helvetica,sans-Serif" font-size="9.00">page.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/client.js -->
+<g id="node42" class="node">
+<title>test&#45;cases/general&#45;features/src/client.js</title>
+<g id="a_node42"><a xlink:href="test-cases/general-features/src/client.js" xlink:title="client.js">
+<path fill="#ffffcc" stroke="black" d="M135.83,-461.75C135.83,-461.75 93.67,-461.75 93.67,-461.75 90.71,-461.75 87.75,-458.79 87.75,-455.83 87.75,-455.83 87.75,-449.92 87.75,-449.92 87.75,-446.96 90.71,-444 93.67,-444 93.67,-444 135.83,-444 135.83,-444 138.79,-444 141.75,-446.96 141.75,-449.92 141.75,-449.92 141.75,-455.83 141.75,-455.83 141.75,-458.79 138.79,-461.75 135.83,-461.75"/>
+<text text-anchor="start" x="99.38" y="-449.2" font-family="Helvetica,sans-Serif" font-size="9.00">client.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/libs/a&#45;lib.js -->
+<g id="node43" class="node">
+<title>test&#45;cases/general&#45;features/src/libs/a&#45;lib.js</title>
+<g id="a_node43"><a xlink:href="test-cases/general-features/src/libs/a-lib.js" xlink:title="a&#45;lib.js">
+<path fill="#ffffcc" stroke="black" d="M288.58,-461.75C288.58,-461.75 246.42,-461.75 246.42,-461.75 243.46,-461.75 240.5,-458.79 240.5,-455.83 240.5,-455.83 240.5,-449.92 240.5,-449.92 240.5,-446.96 243.46,-444 246.42,-444 246.42,-444 288.58,-444 288.58,-444 291.54,-444 294.5,-446.96 294.5,-449.92 294.5,-449.92 294.5,-455.83 294.5,-455.83 294.5,-458.79 291.54,-461.75 288.58,-461.75"/>
+<text text-anchor="start" x="254" y="-449.2" font-family="Helvetica,sans-Serif" font-size="9.00">a&#45;lib.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/client.js&#45;&gt;test&#45;cases/general&#45;features/src/libs/a&#45;lib.js -->
+<g id="edge42" class="edge">
+<title>test&#45;cases/general&#45;features/src/client.js&#45;&gt;test&#45;cases/general&#45;features/src/libs/a&#45;lib.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M142.01,-452.88C166.72,-452.88 203.89,-452.88 231.19,-452.88"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="231.01,-454.98 237.01,-452.88 231.01,-450.78 231.01,-454.98"/>
+</g>
+<!-- test&#45;cases/general&#45;features/src/feeds.template.js -->
+<g id="node44" class="node">
+<title>test&#45;cases/general&#45;features/src/feeds.template.js</title>
+<g id="a_node44"><a xlink:href="test-cases/general-features/src/feeds.template.js" xlink:title="feeds.template.js">
+<path fill="#ccffcc" stroke="black" d="M151.33,-431.75C151.33,-431.75 78.17,-431.75 78.17,-431.75 75.21,-431.75 72.25,-428.79 72.25,-425.83 72.25,-425.83 72.25,-419.92 72.25,-419.92 72.25,-416.96 75.21,-414 78.17,-414 78.17,-414 151.33,-414 151.33,-414 154.29,-414 157.25,-416.96 157.25,-419.92 157.25,-419.92 157.25,-425.83 157.25,-425.83 157.25,-428.79 154.29,-431.75 151.33,-431.75"/>
+<text text-anchor="start" x="80.25" y="-419.2" font-family="Helvetica,sans-Serif" font-size="9.00">feeds.template.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/global.client.js -->
+<g id="node45" class="node">
+<title>test&#45;cases/general&#45;features/src/global.client.js</title>
+<g id="a_node45"><a xlink:href="test-cases/general-features/src/global.client.js" xlink:title="global.client.js">
+<path fill="#ccffcc" stroke="black" d="M146.08,-401.75C146.08,-401.75 83.42,-401.75 83.42,-401.75 80.46,-401.75 77.5,-398.79 77.5,-395.83 77.5,-395.83 77.5,-389.92 77.5,-389.92 77.5,-386.96 80.46,-384 83.42,-384 83.42,-384 146.08,-384 146.08,-384 149.04,-384 152,-386.96 152,-389.92 152,-389.92 152,-395.83 152,-395.83 152,-398.79 149.04,-401.75 146.08,-401.75"/>
+<text text-anchor="start" x="85.5" y="-389.2" font-family="Helvetica,sans-Serif" font-size="9.00">global.client.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/global.vars.js -->
+<g id="node46" class="node">
+<title>test&#45;cases/general&#45;features/src/global.vars.js</title>
+<g id="a_node46"><a xlink:href="test-cases/general-features/src/global.vars.js" xlink:title="global.vars.js">
+<path fill="#ccffcc" stroke="black" d="M143.83,-371.75C143.83,-371.75 85.67,-371.75 85.67,-371.75 82.71,-371.75 79.75,-368.79 79.75,-365.83 79.75,-365.83 79.75,-359.92 79.75,-359.92 79.75,-356.96 82.71,-354 85.67,-354 85.67,-354 143.83,-354 143.83,-354 146.79,-354 149.75,-356.96 149.75,-359.92 149.75,-359.92 149.75,-365.83 149.75,-365.83 149.75,-368.79 146.79,-371.75 143.83,-371.75"/>
+<text text-anchor="start" x="87.75" y="-359.2" font-family="Helvetica,sans-Serif" font-size="9.00">global.vars.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/html&#45;page/client.js -->
+<g id="node47" class="node">
+<title>test&#45;cases/general&#45;features/src/html&#45;page/client.js</title>
+<g id="a_node47"><a xlink:href="test-cases/general-features/src/html-page/client.js" xlink:title="client.js">
+<path fill="#ccffcc" stroke="black" d="M135.83,-1095.75C135.83,-1095.75 93.67,-1095.75 93.67,-1095.75 90.71,-1095.75 87.75,-1092.79 87.75,-1089.83 87.75,-1089.83 87.75,-1083.92 87.75,-1083.92 87.75,-1080.96 90.71,-1078 93.67,-1078 93.67,-1078 135.83,-1078 135.83,-1078 138.79,-1078 141.75,-1080.96 141.75,-1083.92 141.75,-1083.92 141.75,-1089.83 141.75,-1089.83 141.75,-1092.79 138.79,-1095.75 135.83,-1095.75"/>
+<text text-anchor="start" x="99.38" y="-1083.2" font-family="Helvetica,sans-Serif" font-size="9.00">client.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/html&#45;page/page.vars.js -->
+<g id="node48" class="node">
+<title>test&#45;cases/general&#45;features/src/html&#45;page/page.vars.js</title>
+<g id="a_node48"><a xlink:href="test-cases/general-features/src/html-page/page.vars.js" xlink:title="page.vars.js">
+<path fill="#ccffcc" stroke="black" d="M141.58,-1065.75C141.58,-1065.75 87.92,-1065.75 87.92,-1065.75 84.96,-1065.75 82,-1062.79 82,-1059.83 82,-1059.83 82,-1053.92 82,-1053.92 82,-1050.96 84.96,-1048 87.92,-1048 87.92,-1048 141.58,-1048 141.58,-1048 144.54,-1048 147.5,-1050.96 147.5,-1053.92 147.5,-1053.92 147.5,-1059.83 147.5,-1059.83 147.5,-1062.79 144.54,-1065.75 141.58,-1065.75"/>
+<text text-anchor="start" x="90" y="-1053.2" font-family="Helvetica,sans-Serif" font-size="9.00">page.vars.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/js&#45;page/client.js -->
+<g id="node49" class="node">
+<title>test&#45;cases/general&#45;features/src/js&#45;page/client.js</title>
+<g id="a_node49"><a xlink:href="test-cases/general-features/src/js-page/client.js" xlink:title="client.js">
+<path fill="#ccffcc" stroke="black" d="M135.83,-885.75C135.83,-885.75 93.67,-885.75 93.67,-885.75 90.71,-885.75 87.75,-882.79 87.75,-879.83 87.75,-879.83 87.75,-873.92 87.75,-873.92 87.75,-870.96 90.71,-868 93.67,-868 93.67,-868 135.83,-868 135.83,-868 138.79,-868 141.75,-870.96 141.75,-873.92 141.75,-873.92 141.75,-879.83 141.75,-879.83 141.75,-882.79 138.79,-885.75 135.83,-885.75"/>
+<text text-anchor="start" x="99.38" y="-873.2" font-family="Helvetica,sans-Serif" font-size="9.00">client.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/js&#45;page/js&#45;no&#45;async&#45;export/page.js -->
+<g id="node50" class="node">
+<title>test&#45;cases/general&#45;features/src/js&#45;page/js&#45;no&#45;async&#45;export/page.js</title>
+<g id="a_node50"><a xlink:href="test-cases/general-features/src/js-page/js-no-async-export/page.js" xlink:title="page.js">
+<path fill="#ccffcc" stroke="black" d="M135.83,-979.75C135.83,-979.75 93.67,-979.75 93.67,-979.75 90.71,-979.75 87.75,-976.79 87.75,-973.83 87.75,-973.83 87.75,-967.92 87.75,-967.92 87.75,-964.96 90.71,-962 93.67,-962 93.67,-962 135.83,-962 135.83,-962 138.79,-962 141.75,-964.96 141.75,-967.92 141.75,-967.92 141.75,-973.83 141.75,-973.83 141.75,-976.79 138.79,-979.75 135.83,-979.75"/>
+<text text-anchor="start" x="99.75" y="-967.2" font-family="Helvetica,sans-Serif" font-size="9.00">page.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/js&#45;page/js&#45;no&#45;style&#45;client/page.js -->
+<g id="node51" class="node">
+<title>test&#45;cases/general&#45;features/src/js&#45;page/js&#45;no&#45;style&#45;client/page.js</title>
+<g id="a_node51"><a xlink:href="test-cases/general-features/src/js-page/js-no-style-client/page.js" xlink:title="page.js">
+<path fill="#ccffcc" stroke="black" d="M135.83,-919.75C135.83,-919.75 93.67,-919.75 93.67,-919.75 90.71,-919.75 87.75,-916.79 87.75,-913.83 87.75,-913.83 87.75,-907.92 87.75,-907.92 87.75,-904.96 90.71,-902 93.67,-902 93.67,-902 135.83,-902 135.83,-902 138.79,-902 141.75,-904.96 141.75,-907.92 141.75,-907.92 141.75,-913.83 141.75,-913.83 141.75,-916.79 138.79,-919.75 135.83,-919.75"/>
+<text text-anchor="start" x="99.75" y="-907.2" font-family="Helvetica,sans-Serif" font-size="9.00">page.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/js&#45;page/page.js -->
+<g id="node52" class="node">
+<title>test&#45;cases/general&#45;features/src/js&#45;page/page.js</title>
+<g id="a_node52"><a xlink:href="test-cases/general-features/src/js-page/page.js" xlink:title="page.js">
+<path fill="#ccffcc" stroke="black" d="M135.83,-855.75C135.83,-855.75 93.67,-855.75 93.67,-855.75 90.71,-855.75 87.75,-852.79 87.75,-849.83 87.75,-849.83 87.75,-843.92 87.75,-843.92 87.75,-840.96 90.71,-838 93.67,-838 93.67,-838 135.83,-838 135.83,-838 138.79,-838 141.75,-840.96 141.75,-843.92 141.75,-843.92 141.75,-849.83 141.75,-849.83 141.75,-852.79 138.79,-855.75 135.83,-855.75"/>
+<text text-anchor="start" x="99.75" y="-843.2" font-family="Helvetica,sans-Serif" font-size="9.00">page.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/js&#45;page/page.vars.js -->
+<g id="node53" class="node">
+<title>test&#45;cases/general&#45;features/src/js&#45;page/page.vars.js</title>
+<g id="a_node53"><a xlink:href="test-cases/general-features/src/js-page/page.vars.js" xlink:title="page.vars.js">
+<path fill="#ccffcc" stroke="black" d="M141.58,-825.75C141.58,-825.75 87.92,-825.75 87.92,-825.75 84.96,-825.75 82,-822.79 82,-819.83 82,-819.83 82,-813.92 82,-813.92 82,-810.96 84.96,-808 87.92,-808 87.92,-808 141.58,-808 141.58,-808 144.54,-808 147.5,-810.96 147.5,-813.92 147.5,-813.92 147.5,-819.83 147.5,-819.83 147.5,-822.79 144.54,-825.75 141.58,-825.75"/>
+<text text-anchor="start" x="90" y="-813.2" font-family="Helvetica,sans-Serif" font-size="9.00">page.vars.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/layouts/blog.layout.client.js -->
+<g id="node54" class="node">
+<title>test&#45;cases/general&#45;features/src/layouts/blog.layout.client.js</title>
+<g id="a_node54"><a xlink:href="test-cases/general-features/src/layouts/blog.layout.client.js" xlink:title="blog.layout.client.js">
+<path fill="#ccffcc" stroke="black" d="M155.83,-765.75C155.83,-765.75 73.67,-765.75 73.67,-765.75 70.71,-765.75 67.75,-762.79 67.75,-759.83 67.75,-759.83 67.75,-753.92 67.75,-753.92 67.75,-750.96 70.71,-748 73.67,-748 73.67,-748 155.83,-748 155.83,-748 158.79,-748 161.75,-750.96 161.75,-753.92 161.75,-753.92 161.75,-759.83 161.75,-759.83 161.75,-762.79 158.79,-765.75 155.83,-765.75"/>
+<text text-anchor="start" x="75.75" y="-753.2" font-family="Helvetica,sans-Serif" font-size="9.00">blog.layout.client.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/layouts/blog.layout.js -->
+<g id="node55" class="node">
+<title>test&#45;cases/general&#45;features/src/layouts/blog.layout.js</title>
+<g id="a_node55"><a xlink:href="test-cases/general-features/src/layouts/blog.layout.js" xlink:title="blog.layout.js">
+<path fill="#ffffcc" stroke="black" d="M143.83,-735.75C143.83,-735.75 85.67,-735.75 85.67,-735.75 82.71,-735.75 79.75,-732.79 79.75,-729.83 79.75,-729.83 79.75,-723.92 79.75,-723.92 79.75,-720.96 82.71,-718 85.67,-718 85.67,-718 143.83,-718 143.83,-718 146.79,-718 149.75,-720.96 149.75,-723.92 149.75,-723.92 149.75,-729.83 149.75,-729.83 149.75,-732.79 146.79,-735.75 143.83,-735.75"/>
+<text text-anchor="start" x="87.75" y="-723.2" font-family="Helvetica,sans-Serif" font-size="9.00">blog.layout.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/layouts/root.layout.js -->
+<g id="node56" class="node">
+<title>test&#45;cases/general&#45;features/src/layouts/root.layout.js</title>
+<g id="a_node56"><a xlink:href="test-cases/general-features/src/layouts/root.layout.js" xlink:title="root.layout.js">
+<path fill="#ffffcc" stroke="black" d="M295.46,-735.75C295.46,-735.75 239.54,-735.75 239.54,-735.75 236.58,-735.75 233.62,-732.79 233.62,-729.83 233.62,-729.83 233.62,-723.92 233.62,-723.92 233.62,-720.96 236.58,-718 239.54,-718 239.54,-718 295.46,-718 295.46,-718 298.42,-718 301.38,-720.96 301.38,-723.92 301.38,-723.92 301.38,-729.83 301.38,-729.83 301.38,-732.79 298.42,-735.75 295.46,-735.75"/>
+<text text-anchor="start" x="241.62" y="-723.2" font-family="Helvetica,sans-Serif" font-size="9.00">root.layout.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/layouts/blog.layout.js&#45;&gt;test&#45;cases/general&#45;features/src/layouts/root.layout.js -->
+<g id="edge43" class="edge">
+<title>test&#45;cases/general&#45;features/src/layouts/blog.layout.js&#45;&gt;test&#45;cases/general&#45;features/src/layouts/root.layout.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M149.96,-726.88C172.06,-726.88 200.99,-726.88 224.49,-726.88"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="224.18,-728.98 230.18,-726.88 224.18,-724.78 224.18,-728.98"/>
+</g>
+<!-- test&#45;cases/general&#45;features/src/md&#45;page/client.js -->
+<g id="node57" class="node">
+<title>test&#45;cases/general&#45;features/src/md&#45;page/client.js</title>
+<g id="a_node57"><a xlink:href="test-cases/general-features/src/md-page/client.js" xlink:title="client.js">
+<path fill="#ccffcc" stroke="black" d="M135.83,-675.75C135.83,-675.75 93.67,-675.75 93.67,-675.75 90.71,-675.75 87.75,-672.79 87.75,-669.83 87.75,-669.83 87.75,-663.92 87.75,-663.92 87.75,-660.96 90.71,-658 93.67,-658 93.67,-658 135.83,-658 135.83,-658 138.79,-658 141.75,-660.96 141.75,-663.92 141.75,-663.92 141.75,-669.83 141.75,-669.83 141.75,-672.79 138.79,-675.75 135.83,-675.75"/>
+<text text-anchor="start" x="99.38" y="-663.2" font-family="Helvetica,sans-Serif" font-size="9.00">client.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/md&#45;page/page.vars.js -->
+<g id="node58" class="node">
+<title>test&#45;cases/general&#45;features/src/md&#45;page/page.vars.js</title>
+<g id="a_node58"><a xlink:href="test-cases/general-features/src/md-page/page.vars.js" xlink:title="page.vars.js">
+<path fill="#ccffcc" stroke="black" d="M141.58,-645.75C141.58,-645.75 87.92,-645.75 87.92,-645.75 84.96,-645.75 82,-642.79 82,-639.83 82,-639.83 82,-633.92 82,-633.92 82,-630.96 84.96,-628 87.92,-628 87.92,-628 141.58,-628 141.58,-628 144.54,-628 147.5,-630.96 147.5,-633.92 147.5,-633.92 147.5,-639.83 147.5,-639.83 147.5,-642.79 144.54,-645.75 141.58,-645.75"/>
+<text text-anchor="start" x="90" y="-633.2" font-family="Helvetica,sans-Serif" font-size="9.00">page.vars.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/page.vars.js -->
+<g id="node59" class="node">
+<title>test&#45;cases/general&#45;features/src/page.vars.js</title>
+<g id="a_node59"><a xlink:href="test-cases/general-features/src/page.vars.js" xlink:title="page.vars.js">
+<path fill="#ccffcc" stroke="black" d="M141.58,-341.75C141.58,-341.75 87.92,-341.75 87.92,-341.75 84.96,-341.75 82,-338.79 82,-335.83 82,-335.83 82,-329.92 82,-329.92 82,-326.96 84.96,-324 87.92,-324 87.92,-324 141.58,-324 141.58,-324 144.54,-324 147.5,-326.96 147.5,-329.92 147.5,-329.92 147.5,-335.83 147.5,-335.83 147.5,-338.79 144.54,-341.75 141.58,-341.75"/>
+<text text-anchor="start" x="90" y="-329.2" font-family="Helvetica,sans-Serif" font-size="9.00">page.vars.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/templates/async&#45;iterator.template.js -->
+<g id="node60" class="node">
+<title>test&#45;cases/general&#45;features/src/templates/async&#45;iterator.template.js</title>
+<g id="a_node60"><a xlink:href="test-cases/general-features/src/templates/async-iterator.template.js" xlink:title="async&#45;iterator.template.js">
+<path fill="#ccffcc" stroke="black" d="M167.83,-585.75C167.83,-585.75 61.67,-585.75 61.67,-585.75 58.71,-585.75 55.75,-582.79 55.75,-579.83 55.75,-579.83 55.75,-573.92 55.75,-573.92 55.75,-570.96 58.71,-568 61.67,-568 61.67,-568 167.83,-568 167.83,-568 170.79,-568 173.75,-570.96 173.75,-573.92 173.75,-573.92 173.75,-579.83 173.75,-579.83 173.75,-582.79 170.79,-585.75 167.83,-585.75"/>
+<text text-anchor="start" x="63.75" y="-573.2" font-family="Helvetica,sans-Serif" font-size="9.00">async&#45;iterator.template.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/templates/object&#45;array.template.js -->
+<g id="node61" class="node">
+<title>test&#45;cases/general&#45;features/src/templates/object&#45;array.template.js</title>
+<g id="a_node61"><a xlink:href="test-cases/general-features/src/templates/object-array.template.js" xlink:title="object&#45;array.template.js">
+<path fill="#ccffcc" stroke="black" d="M164.46,-555.75C164.46,-555.75 65.04,-555.75 65.04,-555.75 62.08,-555.75 59.12,-552.79 59.12,-549.83 59.12,-549.83 59.12,-543.92 59.12,-543.92 59.12,-540.96 62.08,-538 65.04,-538 65.04,-538 164.46,-538 164.46,-538 167.42,-538 170.38,-540.96 170.38,-543.92 170.38,-543.92 170.38,-549.83 170.38,-549.83 170.38,-552.79 167.42,-555.75 164.46,-555.75"/>
+<text text-anchor="start" x="67.12" y="-543.2" font-family="Helvetica,sans-Serif" font-size="9.00">object&#45;array.template.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/templates/simple.txt.template.js -->
+<g id="node62" class="node">
+<title>test&#45;cases/general&#45;features/src/templates/simple.txt.template.js</title>
+<g id="a_node62"><a xlink:href="test-cases/general-features/src/templates/simple.txt.template.js" xlink:title="simple.txt.template.js">
+<path fill="#ccffcc" stroke="black" d="M159.21,-525.75C159.21,-525.75 70.29,-525.75 70.29,-525.75 67.33,-525.75 64.38,-522.79 64.38,-519.83 64.38,-519.83 64.38,-513.92 64.38,-513.92 64.38,-510.96 67.33,-508 70.29,-508 70.29,-508 159.21,-508 159.21,-508 162.17,-508 165.12,-510.96 165.12,-513.92 165.12,-513.92 165.12,-519.83 165.12,-519.83 165.12,-522.79 162.17,-525.75 159.21,-525.75"/>
+<text text-anchor="start" x="72.38" y="-513.2" font-family="Helvetica,sans-Serif" font-size="9.00">simple.txt.template.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/general&#45;features/src/templates/single&#45;object.template.js -->
+<g id="node63" class="node">
+<title>test&#45;cases/general&#45;features/src/templates/single&#45;object.template.js</title>
+<g id="a_node63"><a xlink:href="test-cases/general-features/src/templates/single-object.template.js" xlink:title="single&#45;object.template.js">
+<path fill="#ccffcc" stroke="black" d="M166.33,-495.75C166.33,-495.75 63.17,-495.75 63.17,-495.75 60.21,-495.75 57.25,-492.79 57.25,-489.83 57.25,-489.83 57.25,-483.92 57.25,-483.92 57.25,-480.96 60.21,-478 63.17,-478 63.17,-478 166.33,-478 166.33,-478 169.29,-478 172.25,-480.96 172.25,-483.92 172.25,-483.92 172.25,-489.83 172.25,-489.83 172.25,-492.79 169.29,-495.75 166.33,-495.75"/>
+<text text-anchor="start" x="65.25" y="-483.2" font-family="Helvetica,sans-Serif" font-size="9.00">single&#45;object.template.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/nested&#45;dest/global.vars.js -->
+<g id="node64" class="node">
+<title>test&#45;cases/nested&#45;dest/global.vars.js</title>
+<g id="a_node64"><a xlink:href="test-cases/nested-dest/global.vars.js" xlink:title="global.vars.js">
+<path fill="#ccffcc" stroke="black" d="M143.83,-89.75C143.83,-89.75 85.67,-89.75 85.67,-89.75 82.71,-89.75 79.75,-86.79 79.75,-83.83 79.75,-83.83 79.75,-77.92 79.75,-77.92 79.75,-74.96 82.71,-72 85.67,-72 85.67,-72 143.83,-72 143.83,-72 146.79,-72 149.75,-74.96 149.75,-77.92 149.75,-77.92 149.75,-83.83 149.75,-83.83 149.75,-86.79 146.79,-89.75 143.83,-89.75"/>
+<text text-anchor="start" x="87.75" y="-77.2" font-family="Helvetica,sans-Serif" font-size="9.00">global.vars.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/nested&#45;dest/index.test.js -->
+<g id="node65" class="node">
+<title>test&#45;cases/nested&#45;dest/index.test.js</title>
+<g id="a_node65"><a xlink:href="test-cases/nested-dest/index.test.js" xlink:title="index.test.js">
+<path fill="#ffffcc" stroke="black" d="M140.83,-59.75C140.83,-59.75 88.67,-59.75 88.67,-59.75 85.71,-59.75 82.75,-56.79 82.75,-53.83 82.75,-53.83 82.75,-47.92 82.75,-47.92 82.75,-44.96 85.71,-42 88.67,-42 88.67,-42 140.83,-42 140.83,-42 143.79,-42 146.75,-44.96 146.75,-47.92 146.75,-47.92 146.75,-53.83 146.75,-53.83 146.75,-56.79 143.79,-59.75 140.83,-59.75"/>
+<text text-anchor="start" x="90.75" y="-47.2" font-family="Helvetica,sans-Serif" font-size="9.00">index.test.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/nested&#45;dest/index.test.js&#45;&gt;index.js -->
+<g id="edge44" class="edge">
+<title>test&#45;cases/nested&#45;dest/index.test.js&#45;&gt;index.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M147.13,-46.98C166.96,-46.44 191.41,-49.66 205.5,-65.88 215.79,-77.72 261.47,-2210.55 266.12,-2428.89"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="264.02,-2428.84 266.24,-2434.79 268.22,-2428.75 264.02,-2428.84"/>
+</g>
+<!-- test&#45;cases/nested&#45;dest/index.test.js&#45;&gt;fs/promises -->
+<g id="edge45" class="edge">
+<title>test&#45;cases/nested&#45;dest/index.test.js&#45;&gt;fs/promises</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" stroke-opacity="0.200000" d="M147.1,-55.08C164.43,-57.66 186.28,-61.35 205.5,-65.88 285.24,-84.67 299.82,-119.88 381.75,-119.88 381.75,-119.88 381.75,-119.88 688.12,-119.88 769.77,-119.88 809.49,-131.1 853.5,-199.88 886.04,-250.72 894.66,-2268.72 895.44,-2471.49"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-opacity="0.200000" points="893.34,-2471.36 895.46,-2477.36 897.54,-2471.35 893.34,-2471.36"/>
+</g>
+<!-- test&#45;cases/nested&#45;dest/md&#45;page/client.js -->
+<g id="node66" class="node">
+<title>test&#45;cases/nested&#45;dest/md&#45;page/client.js</title>
+<g id="a_node66"><a xlink:href="test-cases/nested-dest/md-page/client.js" xlink:title="client.js">
+<path fill="#ccffcc" stroke="black" d="M135.83,-247.75C135.83,-247.75 93.67,-247.75 93.67,-247.75 90.71,-247.75 87.75,-244.79 87.75,-241.83 87.75,-241.83 87.75,-235.92 87.75,-235.92 87.75,-232.96 90.71,-230 93.67,-230 93.67,-230 135.83,-230 135.83,-230 138.79,-230 141.75,-232.96 141.75,-235.92 141.75,-235.92 141.75,-241.83 141.75,-241.83 141.75,-244.79 138.79,-247.75 135.83,-247.75"/>
+<text text-anchor="start" x="99.38" y="-235.2" font-family="Helvetica,sans-Serif" font-size="9.00">client.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/nested&#45;dest/md&#45;page/page.vars.js -->
+<g id="node67" class="node">
+<title>test&#45;cases/nested&#45;dest/md&#45;page/page.vars.js</title>
+<g id="a_node67"><a xlink:href="test-cases/nested-dest/md-page/page.vars.js" xlink:title="page.vars.js">
+<path fill="#ccffcc" stroke="black" d="M141.58,-217.75C141.58,-217.75 87.92,-217.75 87.92,-217.75 84.96,-217.75 82,-214.79 82,-211.83 82,-211.83 82,-205.92 82,-205.92 82,-202.96 84.96,-200 87.92,-200 87.92,-200 141.58,-200 141.58,-200 144.54,-200 147.5,-202.96 147.5,-205.92 147.5,-205.92 147.5,-211.83 147.5,-211.83 147.5,-214.79 144.54,-217.75 141.58,-217.75"/>
+<text text-anchor="start" x="90" y="-205.2" font-family="Helvetica,sans-Serif" font-size="9.00">page.vars.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/nested&#45;dest/public/md&#45;page/client&#45;BI3TWBFA.js -->
+<g id="node68" class="node">
+<title>test&#45;cases/nested&#45;dest/public/md&#45;page/client&#45;BI3TWBFA.js</title>
+<g id="a_node68"><a xlink:href="test-cases/nested-dest/public/md-page/client-BI3TWBFA.js" xlink:title="client&#45;BI3TWBFA.js">
+<path fill="#ccffcc" stroke="black" d="M155.83,-131.75C155.83,-131.75 73.67,-131.75 73.67,-131.75 70.71,-131.75 67.75,-128.79 67.75,-125.83 67.75,-125.83 67.75,-119.92 67.75,-119.92 67.75,-116.96 70.71,-114 73.67,-114 73.67,-114 155.83,-114 155.83,-114 158.79,-114 161.75,-116.96 161.75,-119.92 161.75,-119.92 161.75,-125.83 161.75,-125.83 161.75,-128.79 158.79,-131.75 155.83,-131.75"/>
+<text text-anchor="start" x="75.75" y="-119.2" font-family="Helvetica,sans-Serif" font-size="9.00">client&#45;BI3TWBFA.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/page&#45;build&#45;errors/index.test.js -->
+<g id="node69" class="node">
+<title>test&#45;cases/page&#45;build&#45;errors/index.test.js</title>
+<g id="a_node69"><a xlink:href="test-cases/page-build-errors/index.test.js" xlink:title="index.test.js">
+<path fill="#ffffcc" stroke="black" d="M140.83,-2167.75C140.83,-2167.75 88.67,-2167.75 88.67,-2167.75 85.71,-2167.75 82.75,-2164.79 82.75,-2161.83 82.75,-2161.83 82.75,-2155.92 82.75,-2155.92 82.75,-2152.96 85.71,-2150 88.67,-2150 88.67,-2150 140.83,-2150 140.83,-2150 143.79,-2150 146.75,-2152.96 146.75,-2155.92 146.75,-2155.92 146.75,-2161.83 146.75,-2161.83 146.75,-2164.79 143.79,-2167.75 140.83,-2167.75"/>
+<text text-anchor="start" x="90.75" y="-2155.2" font-family="Helvetica,sans-Serif" font-size="9.00">index.test.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/page&#45;build&#45;errors/index.test.js&#45;&gt;index.js -->
+<g id="edge46" class="edge">
+<title>test&#45;cases/page&#45;build&#45;errors/index.test.js&#45;&gt;index.js</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M146.97,-2155.53C166.22,-2155.26 190.08,-2158.42 205.5,-2172.88 243.31,-2208.33 260.4,-2374.06 265.1,-2429.07"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="262.98,-2428.91 265.57,-2434.72 267.17,-2428.57 262.98,-2428.91"/>
+</g>
+<!-- test&#45;cases/page&#45;build&#45;errors/index.test.js&#45;&gt;fs/promises -->
+<g id="edge47" class="edge">
+<title>test&#45;cases/page&#45;build&#45;errors/index.test.js&#45;&gt;fs/promises</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" stroke-opacity="0.200000" d="M147.17,-2154.91C166.76,-2154.32 190.92,-2157.36 205.5,-2172.88 249.68,-2219.87 186.75,-2416.41 232.5,-2461.88 279.73,-2508.81 315.17,-2474.88 381.75,-2474.88 381.75,-2474.88 381.75,-2474.88 688.12,-2474.88 749.42,-2474.88 820.71,-2480.6 861.72,-2484.45"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-opacity="0.200000" points="861.34,-2486.53 867.51,-2485.01 861.74,-2482.35 861.34,-2486.53"/>
+</g>
+<!-- test&#45;cases/page&#45;build&#45;errors/public/client&#45;MPACHZ4G.js -->
+<g id="node70" class="node">
+<title>test&#45;cases/page&#45;build&#45;errors/public/client&#45;MPACHZ4G.js</title>
+<g id="a_node70"><a xlink:href="test-cases/page-build-errors/public/client-MPACHZ4G.js" xlink:title="client&#45;MPACHZ4G.js">
+<path fill="#ccffcc" stroke="black" d="M158.83,-2351.75C158.83,-2351.75 70.67,-2351.75 70.67,-2351.75 67.71,-2351.75 64.75,-2348.79 64.75,-2345.83 64.75,-2345.83 64.75,-2339.92 64.75,-2339.92 64.75,-2336.96 67.71,-2334 70.67,-2334 70.67,-2334 158.83,-2334 158.83,-2334 161.79,-2334 164.75,-2336.96 164.75,-2339.92 164.75,-2339.92 164.75,-2345.83 164.75,-2345.83 164.75,-2348.79 161.79,-2351.75 158.83,-2351.75"/>
+<text text-anchor="start" x="72.75" y="-2339.2" font-family="Helvetica,sans-Serif" font-size="9.00">client&#45;MPACHZ4G.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/page&#45;build&#45;errors/src/another&#45;broken&#45;page/page.js -->
+<g id="node71" class="node">
+<title>test&#45;cases/page&#45;build&#45;errors/src/another&#45;broken&#45;page/page.js</title>
+<g id="a_node71"><a xlink:href="test-cases/page-build-errors/src/another-broken-page/page.js" xlink:title="page.js">
+<path fill="#ccffcc" stroke="black" d="M135.83,-2265.75C135.83,-2265.75 93.67,-2265.75 93.67,-2265.75 90.71,-2265.75 87.75,-2262.79 87.75,-2259.83 87.75,-2259.83 87.75,-2253.92 87.75,-2253.92 87.75,-2250.96 90.71,-2248 93.67,-2248 93.67,-2248 135.83,-2248 135.83,-2248 138.79,-2248 141.75,-2250.96 141.75,-2253.92 141.75,-2253.92 141.75,-2259.83 141.75,-2259.83 141.75,-2262.79 138.79,-2265.75 135.83,-2265.75"/>
+<text text-anchor="start" x="99.75" y="-2253.2" font-family="Helvetica,sans-Serif" font-size="9.00">page.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/page&#45;build&#45;errors/src/client.js -->
+<g id="node72" class="node">
+<title>test&#45;cases/page&#45;build&#45;errors/src/client.js</title>
+<g id="a_node72"><a xlink:href="test-cases/page-build-errors/src/client.js" xlink:title="client.js">
+<path fill="#ccffcc" stroke="black" d="M135.83,-2231.75C135.83,-2231.75 93.67,-2231.75 93.67,-2231.75 90.71,-2231.75 87.75,-2228.79 87.75,-2225.83 87.75,-2225.83 87.75,-2219.92 87.75,-2219.92 87.75,-2216.96 90.71,-2214 93.67,-2214 93.67,-2214 135.83,-2214 135.83,-2214 138.79,-2214 141.75,-2216.96 141.75,-2219.92 141.75,-2219.92 141.75,-2225.83 141.75,-2225.83 141.75,-2228.79 138.79,-2231.75 135.83,-2231.75"/>
+<text text-anchor="start" x="99.38" y="-2219.2" font-family="Helvetica,sans-Serif" font-size="9.00">client.js</text>
+</a>
+</g>
+</g>
+<!-- test&#45;cases/page&#45;build&#45;errors/src/page.js -->
+<g id="node73" class="node">
+<title>test&#45;cases/page&#45;build&#45;errors/src/page.js</title>
+<g id="a_node73"><a xlink:href="test-cases/page-build-errors/src/page.js" xlink:title="page.js">
+<path fill="#ccffcc" stroke="black" d="M135.83,-2201.75C135.83,-2201.75 93.67,-2201.75 93.67,-2201.75 90.71,-2201.75 87.75,-2198.79 87.75,-2195.83 87.75,-2195.83 87.75,-2189.92 87.75,-2189.92 87.75,-2186.96 90.71,-2184 93.67,-2184 93.67,-2184 135.83,-2184 135.83,-2184 138.79,-2184 141.75,-2186.96 141.75,-2189.92 141.75,-2189.92 141.75,-2195.83 141.75,-2195.83 141.75,-2198.79 138.79,-2201.75 135.83,-2201.75"/>
+<text text-anchor="start" x="99.75" y="-2189.2" font-family="Helvetica,sans-Serif" font-size="9.00">page.js</text>
+</a>
+</g>
+</g>
+</g>
+</svg>

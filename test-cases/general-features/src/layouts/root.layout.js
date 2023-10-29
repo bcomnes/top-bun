@@ -1,5 +1,25 @@
+// @ts-ignore
 import { html, render } from 'uhtml-isomorphic'
 
+/**
+ * @template T extends object
+ * @typedef {import('../../../../index.js').LayoutFunction<T>} LayoutFunction
+ */
+
+/**
+ * @typedef {{
+ * title: string
+ * siteName: string,
+ * authorImgUrl: string
+ * authorName: string,
+ * authorUrl: string,
+ * authorImgAlt: string,
+ * publishDate: string,
+ * updatedDate?: string
+ * }} SiteVars
+ */
+
+/** @type {LayoutFunction<SiteVars>} */
 export default function defaultRootLayout ({
   vars: {
     title,

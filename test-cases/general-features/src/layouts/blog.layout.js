@@ -1,6 +1,17 @@
 import defaultRootLayout from './root.layout.js'
+// @ts-ignore
 import { html } from 'uhtml-isomorphic'
 
+/**
+ * @template T extends object
+ * @typedef {import('../../../../index.js').LayoutFunction<T>} LayoutFunction
+ */
+
+/**
+ * @typedef {import('./root.layout.js').SiteVars} SiteVars
+ */
+
+/** @type {LayoutFunction<SiteVars>} */
 export default function blogLayout (layoutVars) {
   const { children: innerChildren, ...rest } = layoutVars
   const vars = layoutVars.vars
@@ -12,7 +23,7 @@ export default function blogLayout (layoutVars) {
         <div class="metadata">
           <address class="author-info" itemprop="author" itemscope itemtype="http://schema.org/Person">
             ${vars.authorImgUrl
-              ? html`<img height="40" width="40"  src="${vars.authoImgUrl}" alt="${vars.authorImgAlt}" class="u-photo" itemprop="image">`
+              ? html`<img height="40" width="40"  src="${vars.authorImgUrl}" alt="${vars.authorImgAlt}" class="u-photo" itemprop="image">`
               : null
             }
             ${vars.authorName && vars.authorUrl
@@ -53,5 +64,7 @@ export default function blogLayout (layoutVars) {
       -->
     </article>
   `
-  return defaultRootLayout({ ...rest, children })
+
+  const rootArgs = { ...rest, children }
+  return defaultRootLayout(rootArgs)
 }

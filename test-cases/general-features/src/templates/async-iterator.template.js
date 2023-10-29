@@ -1,6 +1,17 @@
+/**
+ * @template T
+ * @typedef {import('../../../../index.js').TemplateAsyncIterator<T>} TemplateAsyncIterator
+ */
+
+/** @type {TemplateAsyncIterator<{
+ * foo: string,
+ * testVar: string
+ * }>} */
 export default async function * ({
-  foo,
-  testVar
+  vars: {
+    foo,
+    testVar
+  }
 }) {
   // First item
   yield {

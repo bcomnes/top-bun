@@ -1,19 +1,38 @@
+/* eslint-disable dot-notation */
 import pMap from 'p-map'
+// @ts-ignore
 import jsonfeedToAtom from 'jsonfeed-to-atom'
 
-export default async function * feedsTemplate (args) {
-  const {
-    vars: {
-      siteName,
-      homePageUrl,
-      authorName,
-      authorUrl,
-      authorImgUrl
-    },
-    pages
-  } = args
+/**
+ * @template T
+ * @typedef {import('../../../index.js').TemplateAsyncIterator<T>} TemplateAsyncIterator
+ */
+
+/** @type {TemplateAsyncIterator<{
+  *  title: string,
+  *  layout: string,
+  *  siteName: string,
+  *  homePageUrl: string,
+  *  authorName: string,
+  *  authorUrl: string,
+  *  authorImgUrl: string,
+  *  publishDate: string
+  * }>}
+*/
+export default async function * feedsTemplate ({
+  vars: {
+    siteName,
+    homePageUrl,
+    authorName,
+    authorUrl,
+    authorImgUrl
+  },
+  pages
+}) {
   const blogPosts = pages
-    .filter(page => page.page.path.startsWith('blog/') && page.vars.layout === 'blog')
+    // @ts-ignore
+    .filter(page => page.pageInfo.path.startsWith('blog/') && page.vars['layout'] === 'blog')
+    // @ts-ignore
     .sort((a, b) => new Date(b.vars.publishDate) - new Date(a.vars.publishDate))
     .slice(0, 10)
 
@@ -30,10 +49,11 @@ export default async function * feedsTemplate (args) {
     },
     items: await pMap(blogPosts, async (page) => {
       return {
-        date_published: page.vars.publishDate,
-        title: page.vars.title,
-        url: `${homePageUrl}/${page.page.path}/`,
-        id: `${homePageUrl}/${page.page.path}/#${page.vars.publishDate}`,
+        // eslint-disable-next-line dot-notation
+        date_published: page.vars['publishDate'],
+        title: page.vars['title'],
+        url: `${homePageUrl}/${page.pageInfo.path}/`,
+        id: `${homePageUrl}/${page.pageInfo.path}/#${page.vars['publishDate']}`,
         content_html: await page.renderInnerPage({ pages })
       }
     }, { concurrency: 4 })

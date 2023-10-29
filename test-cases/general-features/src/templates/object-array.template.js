@@ -1,7 +1,20 @@
-export default ({
-  foo,
-  testVar
-}) => {
+/**
+ * @template T
+ * @typedef {import('../../../../index.js').TemplateFunction<T>} TemplateFunction
+ */
+
+/**
+ * @type {TemplateFunction<{
+ * foo: string,
+ * testVar: string
+ * }>}
+ */
+export default async function objectArrayTemplate ({
+  vars: {
+    foo,
+    testVar
+  }
+}) {
   return [
     {
       content: `Hello world

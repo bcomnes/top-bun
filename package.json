@@ -4,6 +4,7 @@
   "version": "4.0.0-beta.2",
   "type": "module",
   "main": "./index.js",
+  "types": "index.d.ts",
   "bin": {
     "siteup": "./bin.js"
   },
@@ -16,7 +17,6 @@
     "npm": ">=9"
   },
   "dependencies": {
-    "aggregate-error-ponyfill": "^1.1.0",
     "async-folder-walker": "^3.0.1",
     "cheerio": "^1.0.0-rc.10",
     "chokidar": "^3.5.2",
@@ -27,8 +27,6 @@
     "esbuild": "^0.19.0",
     "ignore": "^5.1.8",
     "js-yaml": "^4.1.0",
-    "jsonfeed-to-atom": "^1.2.4",
-    "lodash.keyby": "^4.6.0",
     "make-array": "^1.0.5",
     "markdown-it": "^13.0.0",
     "markdown-it-abbr": "^1.0.4",
@@ -48,16 +46,23 @@
     "uhtml-isomorphic": "^2.0.0"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.8",
+    "@types/markdown-it": "^13.0.5",
+    "@types/markdown-it-emoji": "^2.0.3",
+    "@types/markdown-it-footnote": "^3.0.2",
+    "@types/minimist": "^1.2.4",
     "@types/node": "^20.8.4",
+    "@voxpelli/tsconfig": "^9.0.0",
     "auto-changelog": "^2.0.0",
     "browser-sync": "^2.26.7",
     "dependency-cruiser": "^15.0.0",
     "gh-release": "^7.0.0",
+    "jsonfeed-to-atom": "^1.2.4",
     "npm-run-all2": "^6.0.0",
     "snazzy": "^9.0.0",
     "standard": "^17.0.0",
     "tap": "^18.4.0",
-    "typescript": "^5.1.6"
+    "typescript": "~5.2.2"
   },
   "homepage": "https://github.com/bcomnes/siteup-cli",
   "keywords": [],
@@ -67,15 +72,24 @@
     "url": "https://github.com/bcomnes/siteup-cli.git"
   },
   "scripts": {
-    "prepublishOnly": "git push --follow-tags && gh-release -y",
-    "test": "run-s test:*",
+    "prepublishOnly": "npm run build && git push --follow-tags && gh-release -y",
+    "postpublish": "npm run clean",
+    "version": "run-s version:*",
+    "version:changelog": "auto-changelog -p --template keepachangelog auto-changelog --breaking-pattern 'BREAKING CHANGE:'",
+    "version:git": "git add CHANGELOG.md",
+    "test": "npm run clean && run-s test:*",
     "test:standard": "standard --verbose | snazzy",
     "test:tap": "tap",
+    "test:tsc": "tsc",
     "test:deptree": "depcruise --validate .dependency-cruiser.json bin.js",
     "build-examples": "run-p example:*",
-    "clean": "rm -rf public && mkdir -p public",
+    "clean": "run-p clean:*",
+    "clean:public": "rm -rf public && mkdir -p public",
+    "clean:declarations-top": "rm -rf $(find . -maxdepth 1 -type f -name '*.d.ts*')",
+    "clean:declarations-lib": "rm -rf $(find lib -type f -name '*.d.ts*' ! -name '*-types.d.ts')",
     "build": "npm run clean && run-p build:*",
     "build:siteup": "./bin.js --src . --ignore examples,test-cases,coverage",
+    "build:declaration": "tsc -p declaration.tsconfig.json",
     "watch": "npm run clean && run-p watch:*",
     "watch:serve": "browser-sync start --server 'public' --files 'public'",
     "watch:siteup": "npm run build:siteup -- --watch",
@@ -83,11 +97,7 @@
     "example:string-layouts": "cd examples/string-layouts && npm i --production && npm run build",
     "example:default-layout": "cd examples/default-layout && npm i --production && npm run build",
     "example:nested-dest": "cd examples/nested-dest && npm i --production && npm run build",
-    "example:tonic-components-dest": "cd examples/tonic-components && npm i --production && npm run build",
     "example-skip:uhtml-isomorphic": "cd examples/nested-dest && npm i --production && npm run build",
-    "version": "run-s version:*",
-    "version:changelog": "auto-changelog -p --template keepachangelog auto-changelog --breaking-pattern 'BREAKING CHANGE:'",
-    "version:git": "git add CHANGELOG.md",
     "deps": "depcruise --exclude '^node_modules|^[a-zA-Z0-9\\_]+$' --output-type dot . | dot -T svg > dependencygraph.svg",
     "deps3d": "depcruise --exclude '^node_modules|^[a-zA-Z0-9\\_]+$' --output-type plugin:dependency-cruiser/sample-3d-reporter-plugin --output-to 3d-dependency-graph.html .",
     "start": "npm run watch"
@@ -104,8 +114,13 @@
   },
   "files": [
     "bin.js",
+    "bin.d.ts",
+    "bin.d.ts.map",
+    "index.js",
+    "index.d.ts",
+    "index.d.ts.map",
     "lib/**",
-    "index.js"
+    "!*.test.js"
   ],
   "tap": {
     "typecheck": false,
