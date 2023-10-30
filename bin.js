@@ -136,6 +136,7 @@ async function run () {
       console.error(inspect(err, { depth: 999, colors: true }))
 
       console.log('\nBuild Failed!\n\n')
+      process.exit(1)
     }
   } else {
     const initialResults = await siteup.watch()
