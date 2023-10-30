@@ -1,6 +1,7 @@
 # @siteup/cli
 [![Actions Status](https://github.com/bcomnes/siteup-cli/workflows/tests/badge.svg)](https://github.com/bcomnes/siteup-cli/actions)
 [![Coverage Status](https://coveralls.io/repos/github/bcomnes/siteup/badge.svg?branch=master)](https://coveralls.io/github/bcomnes/siteup?branch=master)
+[![Types in JS](https://img.shields.io/badge/types_in_js-yes-brightgreen)](https://github.com/voxpelli/types-in-js)
 [![Neocities][neocities-img]](https://siteup.neocities.org)
 
 `siteup` builds websites with html, md, css and js.
@@ -37,90 +38,42 @@ siteup (v0.0.11)
 Siteup builds a website from "pages" in a `src` directory, 1:1 into a `dest` directory.
 A `src` directory tree might look something like this:
 
-```
+```console
 src % tree
 .
 ├── a-page
-│        ├── README.md
-│        ├── client.js
-│        ├── libs
-│        │      └── a-lib.js
-│        ├── nested-page
-│        │      ├── client.js
-│        │      ├── page.js
-│        │      └── style.css
-│        ├── page.js
-│        └── style.css
-├── client.js
-├── conflict-page
-│        ├── README.md
-│        ├── page.html
-│        └── page.js
-├── favicon-16x16.png
-├── global.client.js
-├── global.css
-├── global.vars.js
+│        ├── README.md # folders with README.md in them turn into /a-page/index.htnl
+│        ├── client.js # Every page can define its own client.js script that loads only with it.
+│        ├── style.css # Every page can define its own style.css style that loads only with it.
+│        └── nested-js-page # pages are built in place and can nest. This page is accessed at /a-page/nested-js-page/
+│               ├── client.js
+│               ├── page.js # You can build a page with a js function too.
+│               └── style.css
 ├── html-page
 │        ├── client.js
-│        ├── page.html
-│        ├── page.vars.js
+│        ├── page.html # Raw html pages are also supported
+│        ├── page.vars.js # pages can define page variables in a page.vars.js. Markdown also supports frontmatter vars
 │        └── style.css
 ├── md-page
 │        ├── README.md
 │        ├── client.js
-│        ├── loose-md-page.md
+│        ├── loose-md-page.md # loose markdown get built in place, but lacks some page features.
 │        └── style.css
-├── md-two
-│        └── README.md
-├── nav.js
-├── page.js
-├── root.layout.js
-├── some-css.css
-└── style.css
-
-7 directories, 30 files
-```
-
-The above src directory would transform into something like this in the `dest` dir:
-
-```
-.
-├── a-page
-│        ├── client.js
-│        ├── client.js.map
-│        ├── index.html
-│        ├── nested-page
-│        │             ├── client.js
-│        │             ├── client.js.map
-│        │             ├── index.html
-│        │             └── style.css
-│        └── style.css
-├── chunk-HC4Q5QIB.js
-├── chunk-HC4Q5QIB.js.map
-├── chunk-WZ7JV6GS.js
-├── chunk-WZ7JV6GS.js.map
-├── client.js
-├── client.js.map
-├── favicon-16x16.png
-├── global.client.js
-├── global.client.js.map
-├── global.css
-├── global.css.map
-├── html-page
-│           ├── client.js
-│           ├── client.js.map
-│           ├── index.html
-│           └── style.css
-├── index.html
-├── md-page
-│          ├── client.js
-│          ├── client.js.map
-│          ├── index.html
-│          ├── loose-md-page.html
-│          └── style.css
-├── md-two
-│        └── index.html
-└── style.css
+├── feeds
+│        └── feeds.template.js # Templates let you generate any file you want from variables and page data
+├── layouts # layouts can live anywhere. The inner content of your page is slotted into your layout
+│        ├── blog.layout.js # pages specify which layout they want by setting a layout page variable
+│        ├── blog.layout.css # layouts can define an additional layout style
+│        ├── blog.layout.client.js # layouts can also define a layout client
+│        ├── article.layout.js # layouts can extend other layouts, since they are just functions.
+│        └── root.layout.js # the defult layout is called root
+├── global.client.js # you can define a global js client that loads on every page.
+├── global.css # you can define a global css file
+├── global.vars.js # site wide variables get defined in global.vars.js
+├── README.md # This is just a top level page built from a README.md file
+├── client.js # the top level page can define a page scoped js client
+├── style.js # the top level page can define a page scoped Css style
+└── favicon-16x16.png # static assets can live anywhere. Anything other than JS, CSS and HTML get copied over automatically
 ```
 
 A folder of markdown, html and js documents in the `src` directory gets transformed into html documents in the `dest` directory, along with page scoped js and css bundles, as well as a global stylesheet and global js bundle.
@@ -135,41 +88,61 @@ The root layout is a js file that `export default` an async function that implem
 
 It is always passed the following variables:
 
+- `vars`: An object of global and page variables merged together.
 - `scripts`: array of paths that should be included onto the page in a script tag src with type `module`.
 - `styles`: array of paths that should be included onto the page in a `link rel="stylesheet"` tag with the href pointing to the paths in the array.
 - `children`: A string of the inner content of the page, or whatever type your js page functions returns.
+- `pages`: An array of page data that you can use to generate index pages with.
 
 The default `root.layout.js` is featured below, and is implemented with [`uhtml`][uhtml], though it could just be done with a template literal.
 
-All other variables set in the page being rendered and `global.vars.js` are passed in as well.
 Variables are primarily consumed in the page layout, and you can implement many features with this simple concept.
+
+`root.layout.js` can live anywhere.
 
 ```js
 import { html, render } from 'uhtml-isomorphic'
 
-export default async function RootLayout ({
-  title,
-  siteName,
+export default function defaultRootLayout ({
+  vars: {
+    title,
+    siteName = 'Siteup',
+    defaultStyle = true
+  },
   scripts,
   styles,
   children
+  /* pages */
 }) {
   return render(String, html`
     <!DOCTYPE html>
     <html>
     <head>
       <meta charset="utf-8">
-      <title>${siteName}${title ? ` | ${title}` : ''}</title>
+      <title>${title ? `${title}` : ''}${title && siteName ? ' | ' : ''}${siteName}</title>
       <meta name="viewport" content="width=device-width, user-scalable=no" />
       ${scripts
-        ? scripts.map(script => html`<script src="${script}" type='module'></script>`)
+        ? scripts.map(script => html`<script type='module' src="${script}"></script>`)
         : null}
       ${styles
         ? styles.map(style => html`<link rel="stylesheet" href=${style} />`)
         : null}
+      ${defaultStyle
+        ? html`
+            <link rel="stylesheet" href="https://unpkg.com/mine.css/dist/mine.css" />
+            <link rel="stylesheet" href="https://unpkg.com/mine.css/dist/layout.css" />
+            <link rel="stylesheet" href="https://unpkg.com/highlight.js/styles/github-dark-dimmed.css" />
+            <script type="module">
+              import { toggleTheme } from 'https://unpkg.com/mine.css?module';
+              window.toggleTheme = toggleTheme
+            </script>
+            `
+        : null}
     </head>
-    <body>
-      ${typeof children === 'string' ? html([children]) : children /* Support both uhtml and string children. Optional. */}
+    <body class="safe-area-inset">
+      <main class="mine-layout">
+        ${typeof children === 'string' ? html([children]) : children /* Support both uhtml and string children. Optional. */}
+      </main>
     </body>
     </html>
 `)
@@ -248,6 +221,8 @@ The `style.css` page is not de-duplicated or split with other style files.
 
 Each page can also have a `page.vars.js` file that exports a `default` function that contains page specific variables.
 
+Pages can define which layout they are built with by defining a `layout` page variable and referencing one of the defined layouts anywhere in the `src` tree.
+
 ### Static assets
 
 All static assets in the `src` directory are copied 1:1 to the `public` directory.
@@ -256,8 +231,7 @@ All static assets in the `src` directory are copied 1:1 to the `public` director
 
 `siteup` bundles the best tools for every technology in the stack:
 
-- `js` is bundled with [`esbuild`](https://github.com/evanw/esbuild).
-- `css` is processed with [`postcss`](https://github.com/postcss/postcss).
+- `js` and `css` is bundled with [`esbuild`](https://github.com/evanw/esbuild).
 - `md` is processed with [markdown-it](https://github.com/markdown-it/markdown-it).
 - static files are processed with [cpx2](https://github.com/bcomnes/cpx2).
 
@@ -285,6 +259,12 @@ Some noteable features are included below, see the [roadmap](https://github.com/
 - [x] Default layouts/styles with 0 config starting point
 - [x] More examples and ideas.
 - [x] Hardened error handling w/ tests
+- [x] Multiple layout files
+- [x] Nested layout files
+- [x] Layout styles
+- [x] Layout scripts
+- [x] Template files
+- [x] Page data available to pages, layouts and template files.
 - ...[See roadmap](https://github.com/users/bcomnes/projects/3/)
 
 ## License

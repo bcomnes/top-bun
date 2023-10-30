@@ -1,36 +1,18 @@
 {
+  "extends": "@voxpelli/tsconfig/node18.json",
+  "compilerOptions": {
+    "skipLibCheck": true
+  },
   "include": [
-    "lib/**/**/**/*.js",
-    "test-cases/**/**/**/*.js",
-    "examples/**/**/**/*.js",
+    "lib/**/*",
+    "test-cases/**/*",
     "index.js",
     "bin.js"
   ],
   "exclude": [
     "node_modules",
-    "types",
-    "build"
-  ],
-  "compilerOptions": {
-    "moduleResolution": "nodenext",
-    "target": "esnext",
-    "module": "NodeNext",
-    "lib": ["ESNext", "dom"],
-
-    "removeComments": false,
-
-    "checkJs": true,
-    "allowJs": true,
-    "noEmit": true,
-
-    "alwaysStrict": true,
-    "strictNullChecks": true,
-
-    "allowSyntheticDefaultImports": true,
-
-    "declaration": true,
-    "declarationMap": true,
-
-    "baseUrl": "."
-  }
+    "test-cases/build-errors",
+    "test-cases/page-build-errors",
+    "test-cases/**/public"
+  ]
 }

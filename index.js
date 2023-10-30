@@ -1,81 +1,117 @@
-import process from 'process'
 import { once } from 'events'
-import assert from 'webassert'
+import assert from 'node:assert'
 import chokidar from 'chokidar'
 import { basename, relative } from 'path'
+// @ts-ignore
 import makeArray from 'make-array'
-import ignore from 'ignore'
+import ignoreExport from 'ignore'
+// @ts-ignore
 import cpx from 'cpx2'
 import { inspect } from 'util'
 
 import { getCopyGlob } from './lib/build-static/index.js'
-import { build, watchBuild } from './lib/builder.js'
+import { builder } from './lib/builder.js'
+import { SiteupAggregateError } from './lib/helpers/siteup-aggregate-error.js'
+
+const ignore = ignoreExport.default
+
+/**
+ * @typedef {import('./lib/builder.js').SiteupOpts} SiteupOpts
+ * @typedef {import('./lib/builder.js').Results} Results
+*/
+
+/**
+ * @template T extends Object.<string, any>
+ * @typedef {import('./lib/build-pages/page-builders/template-builder.js').TemplateFunction<T>} TemplateFunction
+ */
+
+/**
+ * @template T extends Object.<string, any>
+ * @typedef {import('./lib/build-pages/page-builders/template-builder.js').TemplateAsyncIterator<T>} TemplateAsyncIterator
+ */
+
+/**
+ * @typedef {import('./lib/build-pages/page-builders/template-builder.js').TemplateOutputOverride} TemplateOutputOverride
+ */
+
+/**
+ * @template T extends Object.<string, any>
+ * @typedef {import('./lib/build-pages/resolve-layout.js').LayoutFunction<T>} LayoutFunction
+ */
 
 export class Siteup {
-  constructor (src, dest, cwd = process.cwd(), opts = {}) {
+  /** @type {string} */ #src = ''
+  /** @type {string} */ #dest = ''
+  /** @type {SiteupOpts} */ opts = {}
+  /** @type {chokidar.FSWatcher?} */ #watcher = null
+  /** @type {any?} */ #cpxWatcher = null
+
+  /**
+   *
+   * @param {string} src - The src path of the page build
+   * @param {string} dest - The dest path of the page build
+   * @param {SiteupOpts} [opts] - The options for the site build
+   */
+  constructor (src, dest, opts = {}) {
     assert(src, 'src is a required argument')
     assert(dest, 'dest is a required argument')
 
-    const defaultIgnore = ['.*', 'node_modules', basename(dest)]
+    const defaultIgnore = ['.*', 'node_modules', basename(dest), 'package.json', 'pacakge-lock.json']
 
     opts.ignore = defaultIgnore.concat(makeArray(opts.ignore))
 
-    this._src = src
-    this._dest = dest
-    this._cwd = cwd
+    this.#src = src
+    this.#dest = dest
 
     this.opts = opts
-
-    this._watcher = null
-    this._cpxWatcher = null
-    this._building = false
   }
 
   get watching () {
-    return Boolean(this._watcher)
+    return Boolean(this.#watcher)
   }
 
   build () {
-    return build(this._src, this._dest, this.opts)
+    return builder(this.#src, this.#dest, { static: true, ...this.opts })
   }
 
   async watch () {
-    // TODO: expose events and stuff to the caller instead.
     if (this.watching) throw new Error('Already watching.')
 
+    /** @type Results */
     let report
 
     try {
-      report = await watchBuild(this._src, this._dest, this.opts)
+      report = await builder(this.#src, this.#dest, { ...this.opts, static: false })
       console.log('Initial JS, CSS and Page Build Complete')
     } catch (err) {
       errorLogger(err)
-      if (err.report) report = err.report
+      if (!(err instanceof SiteupAggregateError)) throw new Error('Non-aggregate error thrown', { cause: err })
+      report = err.results
     }
 
-    this._cpxWatcher = cpx.watch(getCopyGlob(this._src), this._dest, { ignore: this.opts.ignore })
+    this.#cpxWatcher = cpx.watch(getCopyGlob(this.#src), this.#dest, { ignore: this.opts.ignore })
 
-    this._cpxWatcher.on('copy', (e) => {
+    this.#cpxWatcher.on('copy', (/** @type{{ srcPath: string, dstPath: string }} */e) => {
       console.log(`Copy ${e.srcPath} to ${e.dstPath}`)
     })
 
-    this._cpxWatcher.on('remove', (e) => {
+    this.#cpxWatcher.on('remove', (/** @type{{ path: string }} */e) => {
       console.log(`Remove ${e.path}`)
     })
 
-    this._cpxWatcher.on('watch-ready', () => {
+    this.#cpxWatcher.on('watch-ready', () => {
       console.log('Copy watcher ready')
     })
 
-    this._cpxWatcher.on('watch-error', (err) => {
+    this.#cpxWatcher.on('watch-error', (/** @type{Error} */err) => {
       console.log(`Copy error: ${err.message}`)
     })
 
-    const ig = ignore().add(this.opts.ignore)
+    const ig = ignore().add(this.opts.ignore ?? [])
 
-    const anymatch = name => ig.ignores(relname(this._src, name))
+    const anymatch = (/** @type {string} */name) => ig.ignores(relname(this.#src, name))
 
-    const watcher = chokidar.watch(`${this._src}/**/*.+(js|css|html|md)`, {
+    const watcher = chokidar.watch(`${this.#src}/**/*.+(js|css|html|md)`, {
       ignored: anymatch,
       persistent: true
     })
@@ -86,15 +122,23 @@ export class Siteup {
 
     watcher.on('add', path => {
       console.log(`File ${path} has been added`)
-      watchBuild(this._src, this._dest, this.opts).then(() => console.log('Site Rebuilt')).catch(errorLogger)
+      builder(this.#src, this.#dest, { ...this.opts, static: false })
+        .then(buildLogger)
+        .catch(errorLogger)
     })
     watcher.on('change', path => {
+      assert(this.#src)
+      assert(this.#dest)
       console.log(`File ${path} has been changed`)
-      watchBuild(this._src, this._dest, this.opts).then(() => console.log('Site Rebuilt')).catch(errorLogger)
+      builder(this.#src, this.#dest, { ...this.opts, static: false })
+        .then(buildLogger)
+        .catch(errorLogger)
     })
     watcher.on('unlink', path => {
       console.log(`File ${path} has been removed`)
-      watchBuild(this._src, this._dest, this.opts).then(() => console.log('Site Rebuilt')).catch(errorLogger)
+      builder(this.#src, this.#dest, { ...this.opts, static: false })
+        .then(buildLogger)
+        .catch(errorLogger)
     })
     watcher.on('error', errorLogger)
 
@@ -102,22 +146,55 @@ export class Siteup {
   }
 
   async stopWatching () {
-    if (!this.watching || !this._cpxWatcher) throw new Error('Not watching')
-    await this._watcher.close()
-    this._cpxWatcher.close()
-    this._watcher = null
-    this._cpxWatcher = null
+    if ((!this.watching || !this.#cpxWatcher)) throw new Error('Not watching')
+    if (this.#watcher) await this.#watcher.close()
+    this.#cpxWatcher.close()
+    this.#watcher = null
+    this.#cpxWatcher = null
   }
 }
 
+/**
+ * relanem is the bsaename if (root === name), otherwise relative(root, name)
+ * @param  {string} root The root path string
+ * @param  {string} name The name string
+ * @return {string}      the relname
+ */
 function relname (root, name) {
   return root === name ? basename(name) : relative(root, name)
 }
 
+/**
+ * An error logger
+ * @param  {Error | AggregateError | any } err The error to log
+ */
 function errorLogger (err) {
-  console.error(err)
+  if (!(err instanceof Error || err instanceof AggregateError)) throw new Error('Non-error thrown', { cause: err })
+  if ('results' in err) delete err.results
+  console.error(inspect(err, { depth: 999, colors: true }))
 
-  if (err.errors) {
-    console.error(inspect(err.errors, { depth: 5, colors: true }))
+  console.log('\nBuild Failed!\n\n')
+  console.error(err)
+}
+
+/**
+ * An build logger
+ * @param  {Results} results
+ */
+function buildLogger (results) {
+  if (results?.warnings?.length > 0) {
+    console.log(
+      '\nThere were build warnings:\n'
+    )
   }
+  for (const warning of results?.warnings) {
+    if ('message' in warning) {
+      console.log(`  ${warning.message}`)
+    } else {
+      console.warn(warning)
+    }
+  }
+
+  console.log(`Pages: ${results.siteData.pages.length} Layouts: ${Object.keys(results.siteData.layouts).length} Templates: ${results.siteData.templates.length}`)
+  console.log('\nBuild Success!\n\n')
 }

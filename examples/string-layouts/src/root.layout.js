@@ -2,8 +2,10 @@
 // libraries like uhtml-isomorphic for better DX.
 
 export default async function RootLayout ({
-  title,
-  siteName,
+  vars: {
+    title,
+    siteName
+  },
   scripts,
   styles,
   children

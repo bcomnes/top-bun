@@ -1,3 +1,4 @@
+/* eslint-disable dot-notation */
 import tap from 'tap'
 import desm from 'desm'
 import { Siteup } from '../../index.js'
@@ -11,8 +12,7 @@ const __dirname = desm(import.meta.url)
 tap.test('general-features', async (t) => {
   const src = path.join(__dirname, './src')
   const dest = path.join(__dirname, './public')
-  const cwd = __dirname
-  const siteUp = new Siteup(src, dest, cwd)
+  const siteUp = new Siteup(src, dest)
 
   await rm(dest, { recursive: true, force: true })
 
@@ -92,13 +92,13 @@ tap.test('general-features', async (t) => {
 
       const headScripts = Array.from(doc('head script[type="module"]'))
 
-      const hasGlboalClientHeader = headScripts.map(n => n?.attribs?.src).some(src => src.match(/global.client-([A-Z0-9])\w+.js/g))
-      const hasPageClientHeader = headScripts.map(n => n?.attribs?.src).some(src => src.match(/\.\/client-([A-Z0-9])\w+.js/g))
+      const hasGlboalClientHeader = headScripts.map(n => n?.attribs?.['src'])?.some(src => src && src.match(/global.client-([A-Z0-9])\w+.js/g))
+      const hasPageClientHeader = headScripts.map(n => n?.attribs?.['src']).some(src => src && src.match(/\.\/client-([A-Z0-9])\w+.js/g))
       const generatedPageClient = files.some(f => f.relname.match(/client-([A-Z0-9])\w+.js/g))
 
       const headLinks = Array.from(doc('head link[rel="stylesheet"]'))
-      const hasGlobalStyleHeader = headLinks.map(n => n?.attribs?.href).some(href => href.match(/global-([A-Z0-9])\w+.css/g))
-      const hasPageStyleHeader = headLinks.map(n => n?.attribs?.href).some(href => href.match(/\.\/style-([A-Z0-9])\w+.css/g))
+      const hasGlobalStyleHeader = headLinks.map(n => n?.attribs?.['href']).some(href => href && href.match(/global-([A-Z0-9])\w+.css/g))
+      const hasPageStyleHeader = headLinks.map(n => n?.attribs?.['href']).some(href => href && href.match(/\.\/style-([A-Z0-9])\w+.css/g))
       const generatedPageStyle = files.some(f => f.relname.match(/style-([A-Z0-9])\w+.css/g))
 
       t.equal(

@@ -1,11 +1,11 @@
 {
-  "name": "default-layout",
+  "name": "nested-dest",
   "version": "0.0.0",
   "description": "",
   "type": "module",
   "scripts": {
     "start": "npm run watch",
-    "build": "npm run clean && siteup",
+    "build": "npm run clean && siteup --src . --ignore ignore",
     "clean": "rm -rf public && mkdir -p public",
     "watch": "npm run clean && run-p watch:*",
     "watch:serve": "browser-sync start --server 'public' --files 'public'",
