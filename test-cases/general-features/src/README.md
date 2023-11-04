@@ -5,3 +5,4 @@ testVar: frontmatter var
 
 This is a README.md in the root of the site.
 
+{{{ vars.blogPostsHtml }}}

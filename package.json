@@ -25,6 +25,8 @@
     "cpx2": "^6.0.0",
     "desm": "^1.1.0",
     "esbuild": "^0.19.0",
+    "handlebars": "^4.7.8",
+    "highlight.js": "^11.9.0",
     "ignore": "^5.1.8",
     "js-yaml": "^4.1.0",
     "make-array": "^1.0.5",

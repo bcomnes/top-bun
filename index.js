@@ -22,6 +22,21 @@ const ignore = ignoreExport.default
 
 /**
  * @template T extends Object.<string, any>
+ * @typedef {import('./lib/build-pages/resolve-layout.js').LayoutFunction<T>} LayoutFunction
+ */
+
+/**
+ * @template T extends Object.<string, any>
+ * @typedef {import('./lib/build-pages/resolve-vars.js').PostVarsFunction<T>} PostVarsFunction
+ */
+
+/**
+ * @template T extends Object.<string, any>
+ * @typedef {import('./lib/build-pages/page-builders/page-writer.js').PageFunction<T>} PageFunction
+ */
+
+/**
+ * @template T extends Object.<string, any>
  * @typedef {import('./lib/build-pages/page-builders/template-builder.js').TemplateFunction<T>} TemplateFunction
  */
 
@@ -32,11 +47,6 @@ const ignore = ignoreExport.default
 
 /**
  * @typedef {import('./lib/build-pages/page-builders/template-builder.js').TemplateOutputOverride} TemplateOutputOverride
- */
-
-/**
- * @template T extends Object.<string, any>
- * @typedef {import('./lib/build-pages/resolve-layout.js').LayoutFunction<T>} LayoutFunction
  */
 
 export class Siteup {
@@ -91,16 +101,16 @@ export class Siteup {
 
     this.#cpxWatcher = cpx.watch(getCopyGlob(this.#src), this.#dest, { ignore: this.opts.ignore })
 
-    this.#cpxWatcher.on('copy', (/** @type{{ srcPath: string, dstPath: string }} */e) => {
-      console.log(`Copy ${e.srcPath} to ${e.dstPath}`)
-    })
-
-    this.#cpxWatcher.on('remove', (/** @type{{ path: string }} */e) => {
-      console.log(`Remove ${e.path}`)
-    })
-
     this.#cpxWatcher.on('watch-ready', () => {
       console.log('Copy watcher ready')
+
+      this.#cpxWatcher.on('copy', (/** @type{{ srcPath: string, dstPath: string }} */e) => {
+        console.log(`Copy ${e.srcPath} to ${e.dstPath}`)
+      })
+
+      this.#cpxWatcher.on('remove', (/** @type{{ path: string }} */e) => {
+        console.log(`Remove ${e.path}`)
+      })
     })
 
     this.#cpxWatcher.on('watch-error', (/** @type{Error} */err) => {

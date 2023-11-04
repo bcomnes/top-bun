@@ -38,7 +38,7 @@ siteup (v0.0.11)
 Siteup builds a website from "pages" in a `src` directory, 1:1 into a `dest` directory.
 A `src` directory tree might look something like this:
 
-```console
+```bash
 src % tree
 .
 ├── a-page
