@@ -1,7 +1,7 @@
 {
   "name": "@siteup/cli",
   "description": "siteup builds websites with html, md, css and js.",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "type": "module",
   "main": "./index.js",
   "types": "index.d.ts",
