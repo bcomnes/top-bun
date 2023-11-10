@@ -1,4 +1,4 @@
 export default {
   defaultStyle: false,
-  siteName: 'nested siteup example'
+  siteName: 'nested top-bun example'
 }

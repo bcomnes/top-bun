@@ -4,16 +4,16 @@
   "type": "module",
   "scripts": {
     "start": "npm run watch",
-    "build": "npm run clean && siteup",
+    "build": "npm run clean && top-bun",
     "clean": "rm -rf public && mkdir -p public",
     "watch": "npm run clean && run-p watch:*",
     "watch:serve": "browser-sync start --server 'public' --files 'public'",
-    "watch:siteup": "npm run build -- --watch"
+    "watch:top-bun": "npm run build -- --watch"
   },
   "author": "Bret Comnes <bcomnes@gmail.com> (https://bret.io/)",
   "license": "MIT",
   "dependencies": {
-    "@siteup/cli": "../../.",
+    "top-bun": "../../.",
     "@socketsupply/tonic": "^15.1.1",
     "jsdom": "^22.1.0",
     "mine.css": "^9.0.1",

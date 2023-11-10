@@ -1,16 +1,17 @@
 {
-  "name": "@siteup/cli",
-  "description": "siteup builds websites with html, md, css and js.",
+  "name": "top-bun",
+  "description": "top-bun: a traditional web bakery made with html, md, css and js.",
   "version": "6.0.0",
   "type": "module",
   "main": "./index.js",
   "types": "index.d.ts",
   "bin": {
-    "siteup": "./bin.js"
+    "top-bun": "./bin.js",
+    "tb": "./bin.js"
   },
   "author": "Bret Comnes <bcomnes@gmail.com> (https://bret.io)",
   "bugs": {
-    "url": "https://github.com/bcomnes/siteup-cli/issues"
+    "url": "https://github.com/bcomnes/top-bun-cli/issues"
   },
   "engines": {
     "node": ">=18",
@@ -67,12 +68,12 @@
     "tap": "^18.4.0",
     "typescript": "~5.2.2"
   },
-  "homepage": "https://github.com/bcomnes/siteup-cli",
+  "homepage": "https://github.com/bcomnes/top-bun-cli",
   "keywords": [],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bcomnes/siteup-cli.git"
+    "url": "https://github.com/bcomnes/top-bun-cli.git"
   },
   "scripts": {
     "prepublishOnly": "npm run build && git push --follow-tags && gh-release -y",
@@ -91,10 +92,10 @@
     "clean:declarations-top": "rm -rf $(find . -maxdepth 1 -type f -name '*.d.ts*')",
     "clean:declarations-lib": "rm -rf $(find lib -type f -name '*.d.ts*' ! -name '*-types.d.ts')",
     "build": "npm run clean && run-p build:*",
-    "build:siteup": "./bin.js --src . --ignore examples,test-cases,coverage",
+    "build:top-bun": "./bin.js --src . --ignore examples,test-cases,coverage",
     "build:declaration": "tsc -p declaration.tsconfig.json",
     "watch": "npm run clean && run-p watch:*",
-    "watch:siteup": "npm run build:siteup -- --watch",
+    "watch:top-bun": "npm run build:top-bun -- --watch",
     "example:basic": "cd examples/basic && npm i && npm run build",
     "example:string-layouts": "cd examples/string-layouts && npm i --production && npm run build",
     "example:default-layout": "cd examples/default-layout && npm i --production && npm run build",

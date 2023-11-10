@@ -5,14 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run watch",
-    "build": "npm run clean && siteup",
+    "build": "npm run clean && top-bun",
     "clean": "rm -rf public && mkdir -p public",
     "watch": "npm run clean && run-p watch:*",
     "watch:serve": "browser-sync start --server 'public' --files 'public'",
-    "watch:siteup": "npm run build -- --watch"
+    "watch:top-bun": "npm run build -- --watch"
   },
   "dependencies": {
-    "@siteup/cli": "../../."
+    "top-bun": "../../."
   },
   "devDependencies": {
     "browser-sync": "^2.26.7",

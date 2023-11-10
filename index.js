@@ -12,12 +12,12 @@ import browserSync from 'browser-sync'
 
 import { getCopyGlob } from './lib/build-static/index.js'
 import { builder } from './lib/builder.js'
-import { SiteupAggregateError } from './lib/helpers/siteup-aggregate-error.js'
+import { TopBunAggregateError } from './lib/helpers/top-bun-aggregate-error.js'
 
 const ignore = ignoreExport.default
 
 /**
- * @typedef {import('./lib/builder.js').SiteupOpts} SiteupOpts
+ * @typedef {import('./lib/builder.js').TopBunOpts} TopBunOpts
  * @typedef {import('./lib/builder.js').Results} Results
 */
 
@@ -50,10 +50,10 @@ const ignore = ignoreExport.default
  * @typedef {import('./lib/build-pages/page-builders/template-builder.js').TemplateOutputOverride} TemplateOutputOverride
  */
 
-export class Siteup {
+export class TopBun {
   /** @type {string} */ #src = ''
   /** @type {string} */ #dest = ''
-  /** @type {SiteupOpts} */ opts = {}
+  /** @type {TopBunOpts} */ opts = {}
   /** @type {chokidar.FSWatcher?} */ #watcher = null
   /** @type {any?} */ #cpxWatcher = null
   /** @type {browserSync.BrowserSyncInstance?} */ #browserSyncServer = null
@@ -62,7 +62,7 @@ export class Siteup {
    *
    * @param {string} src - The src path of the page build
    * @param {string} dest - The dest path of the page build
-   * @param {SiteupOpts} [opts] - The options for the site build
+   * @param {TopBunOpts} [opts] - The options for the site build
    */
   constructor (src, dest, opts = {}) {
     assert(src, 'src is a required argument')
@@ -87,7 +87,7 @@ export class Siteup {
   }
 
   /**
-   * Build and watch a siteup build
+   * Build and watch a top-bun build
    * @param  {object} [params]
    * @param  {boolean} params.serve
    * @return {Promise<Results>}
@@ -107,7 +107,7 @@ export class Siteup {
       console.log('Initial JS, CSS and Page Build Complete')
     } catch (err) {
       errorLogger(err)
-      if (!(err instanceof SiteupAggregateError)) throw new Error('Non-aggregate error thrown', { cause: err })
+      if (!(err instanceof TopBunAggregateError)) throw new Error('Non-aggregate error thrown', { cause: err })
       report = err.results
     }
 

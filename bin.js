@@ -12,12 +12,12 @@ import process from 'process'
 import tree from 'pretty-tree'
 import { inspect } from 'util'
 
-import { Siteup } from './index.js'
-import { SiteupAggregateError } from './lib/helpers/siteup-aggregate-error.js'
+import { TopBun } from './index.js'
+import { TopBunAggregateError } from './lib/helpers/top-bun-aggregate-error.js'
 import { generateTreeData } from './lib/helpers/generate-tree-data.js'
 
 /**
- * @typedef {import('./lib/builder.js').SiteupOpts} SiteupOpts
+ * @typedef {import('./lib/builder.js').TopBunOpts} TopBunOpts
  * @typedef {import('./lib/builder.js').Results} Results
  */
 
@@ -83,29 +83,29 @@ async function run () {
 
   if (argv['help']) {
     const pkg = await getPkg()
-    console.log('Usage: siteup [options]\n')
-    console.log('    Example: siteup --src website --dest public\n')
+    console.log('Usage: top-bun [options]\n')
+    console.log('    Example: top-bun --src website --dest public\n')
     clopts.print()
-    console.log(`siteup (v${pkg.version})`)
+    console.log(`top-bun (v${pkg.version})`)
     process.exit(0)
   }
   const cwd = process.cwd()
   const src = resolve(join(cwd, argv['src']))
   const dest = resolve(join(cwd, argv['dest']))
 
-  /** @type {SiteupOpts} */
+  /** @type {TopBunOpts} */
   const opts = {}
 
   if (argv['ignore']) opts.ignore = argv['ignore'].split(',')
 
-  const siteup = new Siteup(src, dest, opts)
+  const topBun = new TopBun(src, dest, opts)
 
   process.once('SIGINT', quit)
   process.once('SIGTERM', quit)
 
   async function quit () {
-    if (siteup.watching) {
-      const results = await siteup.stopWatching()
+    if (topBun.watching) {
+      const results = await topBun.stopWatching()
       console.log(results)
       console.log('watching stopped')
     }
@@ -115,7 +115,7 @@ async function run () {
 
   if (!argv['watch'] && !argv['watch-only']) {
     try {
-      const results = await siteup.build()
+      const results = await topBun.build()
       console.log(tree(generateTreeData(cwd, src, dest, results)))
       if (results?.warnings?.length > 0) {
         console.log(
@@ -132,7 +132,7 @@ async function run () {
       console.log('\nBuild Success!\n\n')
     } catch (err) {
       if (!(err instanceof Error || err instanceof AggregateError)) throw new Error('Non-error thrown', { cause: err })
-      if (err instanceof SiteupAggregateError) {
+      if (err instanceof TopBunAggregateError) {
         if (err?.results?.siteData?.pages) {
           console.log(tree(generateTreeData(cwd, src, dest, err.results)))
         }
@@ -144,7 +144,7 @@ async function run () {
       process.exit(1)
     }
   } else {
-    const initialResults = await siteup.watch({
+    const initialResults = await topBun.watch({
       serve: !argv['watch-only']
     })
     console.log(tree(generateTreeData(cwd, src, dest, initialResults)))
@@ -164,6 +164,6 @@ async function run () {
 }
 
 run().catch(err => {
-  console.error(new Error('Unhandled siteup error', { cause: err }))
+  console.error(new Error('Unhandled top-bun error', { cause: err }))
   process.exit(1)
 })

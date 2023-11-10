@@ -5,6 +5,6 @@
 
 export default async function () {
   return {
-    siteName: 'siteup basic'
+    siteName: 'top-bun basic'
   }
 }

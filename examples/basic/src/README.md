@@ -1,7 +1,7 @@
 ---
 md-files: support yaml frontmatter!
 ---
-# Minimal siteup example
+# Minimal top-bun example
 
 This example demonstrates a example of a minimal website, no customization.
 
