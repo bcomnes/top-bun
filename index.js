@@ -8,6 +8,7 @@ import ignoreExport from 'ignore'
 // @ts-ignore
 import cpx from 'cpx2'
 import { inspect } from 'util'
+import browserSync from 'browser-sync'
 
 import { getCopyGlob } from './lib/build-static/index.js'
 import { builder } from './lib/builder.js'
@@ -55,6 +56,7 @@ export class Siteup {
   /** @type {SiteupOpts} */ opts = {}
   /** @type {chokidar.FSWatcher?} */ #watcher = null
   /** @type {any?} */ #cpxWatcher = null
+  /** @type {browserSync.BrowserSyncInstance?} */ #browserSyncServer = null
 
   /**
    *
@@ -84,7 +86,17 @@ export class Siteup {
     return builder(this.#src, this.#dest, { static: true, ...this.opts })
   }
 
-  async watch () {
+  /**
+   * Build and watch a siteup build
+   * @param  {object} [params]
+   * @param  {boolean} params.serve
+   * @return {Promise<Results>}
+   */
+  async watch ({
+    serve
+  } = {
+    serve: true
+  }) {
     if (this.watching) throw new Error('Already watching.')
 
     /** @type Results */
@@ -100,6 +112,14 @@ export class Siteup {
     }
 
     this.#cpxWatcher = cpx.watch(getCopyGlob(this.#src), this.#dest, { ignore: this.opts.ignore })
+    if (serve) {
+      const bs = browserSync.create()
+      this.#browserSyncServer = bs
+      bs.watch('*').on('change', bs.reload)
+      bs.init({
+        server: this.#dest
+      })
+    }
 
     this.#cpxWatcher.on('watch-ready', () => {
       console.log('Copy watcher ready')
@@ -161,6 +181,8 @@ export class Siteup {
     this.#cpxWatcher.close()
     this.#watcher = null
     this.#cpxWatcher = null
+    this.#browserSyncServer?.exit() // This will kill the process
+    this.#browserSyncServer = null
   }
 }
 

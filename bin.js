@@ -50,8 +50,13 @@ const clopts = cliclopts([
   {
     name: 'watch',
     abbr: 'w',
-    help: 'build and watch the src folder for additional changes',
+    help: 'build, watch and serve the site build',
     Boolean: true
+  },
+  {
+    name: 'watch-only',
+    help: 'watch and build the src folder without serving',
+    Boolean: false
   },
   {
     name: 'help',
@@ -104,11 +109,11 @@ async function run () {
       console.log(results)
       console.log('watching stopped')
     }
-    console.log('quitting cleanly')
+    console.log('\nquitting cleanly')
     process.exit(0)
   }
 
-  if (!argv['watch']) {
+  if (!argv['watch'] && !argv['watch-only']) {
     try {
       const results = await siteup.build()
       console.log(tree(generateTreeData(cwd, src, dest, results)))
@@ -139,7 +144,9 @@ async function run () {
       process.exit(1)
     }
   } else {
-    const initialResults = await siteup.watch()
+    const initialResults = await siteup.watch({
+      serve: !argv['watch-only']
+    })
     console.log(tree(generateTreeData(cwd, src, dest, initialResults)))
     if (initialResults?.warnings?.length > 0) {
       console.log(

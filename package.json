@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "async-folder-walker": "^3.0.1",
+    "browser-sync": "^2.26.7",
     "cheerio": "^1.0.0-rc.10",
     "chokidar": "^3.5.2",
     "clean-deep": "^3.4.0",
@@ -48,6 +49,7 @@
     "uhtml-isomorphic": "^2.0.0"
   },
   "devDependencies": {
+    "@types/browser-sync": "^2.27.3",
     "@types/js-yaml": "^4.0.8",
     "@types/markdown-it": "^13.0.5",
     "@types/markdown-it-emoji": "^2.0.3",
@@ -56,7 +58,6 @@
     "@types/node": "^20.8.4",
     "@voxpelli/tsconfig": "^9.0.0",
     "auto-changelog": "^2.0.0",
-    "browser-sync": "^2.26.7",
     "dependency-cruiser": "^15.0.0",
     "gh-release": "^7.0.0",
     "jsonfeed-to-atom": "^1.2.4",
@@ -93,7 +94,6 @@
     "build:siteup": "./bin.js --src . --ignore examples,test-cases,coverage",
     "build:declaration": "tsc -p declaration.tsconfig.json",
     "watch": "npm run clean && run-p watch:*",
-    "watch:serve": "browser-sync start --server 'public' --files 'public'",
     "watch:siteup": "npm run build:siteup -- --watch",
     "example:basic": "cd examples/basic && npm i && npm run build",
     "example:string-layouts": "cd examples/string-layouts && npm i --production && npm run build",

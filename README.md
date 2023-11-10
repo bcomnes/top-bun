@@ -25,10 +25,12 @@ Usage: siteup [options]
 
     --src, -s             path to source directory (default: "src")
     --dest, -d            path to build destination directory (default: "public")
-    --watch, -w           build and watch the src folder for additional changes
+    --ignore, -i          comma separated gitignore style ignore string
+    --watch, -w           build, watch and serve the site build
+    --watch-only          watch and build the src folder without serving
     --help, -h            show help
     --version, -v         show version information
-siteup (v0.0.11)
+siteup (v5.0.0)
 ```
 
 `siteup` builds a `src` directory into a `dest` directory (default: `public`).
