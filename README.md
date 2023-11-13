@@ -1,4 +1,5 @@
 # top-bun
+[![npm version](https://img.shields.io/npm/v/top-bun.svg)](https://npmjs.org/package/top-bun)
 [![Actions Status](https://github.com/bcomnes/top-bun/workflows/tests/badge.svg)](https://github.com/bcomnes/top-bun/actions)
 [![Coverage Status](https://coveralls.io/repos/github/bcomnes/top-bun/badge.svg?branch=master)](https://coveralls.io/github/bcomnes/top-bun?branch=master)
 [![Types in JS](https://img.shields.io/badge/types_in_js-yes-brightgreen)](https://github.com/voxpelli/types-in-js)
@@ -67,9 +68,10 @@ src % tree
 │        ├── blog.layout.client.js # layouts can also define a layout client.
 │        ├── article.layout.js # layouts can extend other layouts, since they are just functions.
 │        └── root.layout.js # the defult layout is called root.
-├── global.client.js # you can define a global js client that loads on every page.
-├── global.css # you can define a global css file that loads on every page.
-├── global.vars.js # site wide variables get defined in global.vars.js.
+├── globals # global assets can live anywhere. Here they are in a folder called globals.
+│        ├── global.client.js # you can define a global js client that loads on every page.
+│        ├── global.css # you can define a global css file that loads on every page.
+│        └── global.vars.js # site wide variables get defined in global.vars.js.
 ├── README.md # This is just a top level page built from a README.md file.
 ├── client.js # the top level page can define a page scoped js client.
 ├── style.js # the top level page can define a page scoped Css style.
@@ -584,9 +586,15 @@ Some noteable features are included below, see the [roadmap](https://github.com/
 
 `top-bun` used to be called `siteup` which is sort of like "markup", which is related to "markdown", which inspired the project [`sitedown`](https://ghub.io/sitedown) to which `top-bun` is a spiritual offshot of. Put a folder of web documents in your `top-bun` oven, and bake a website.
 
+## Links
+
+- [CHANGELOG](CHANGELOG.md)
+- [CONTRIBUTING](CONTRIBUTING.md)
+- [Dependencies](dependencygraph.svg)
+
 ## License
 
-MIT
+[MIT](LICENSE)
 
 [uhtml]: https://github.com/WebReflection/uhtml
 [hb]: https://handlebarsjs.com
