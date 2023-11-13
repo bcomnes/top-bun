@@ -11,7 +11,7 @@
   },
   "author": "Bret Comnes <bcomnes@gmail.com> (https://bret.io)",
   "bugs": {
-    "url": "https://github.com/bcomnes/top-bun-cli/issues"
+    "url": "https://github.com/bcomnes/top-bun/issues"
   },
   "engines": {
     "node": ">=18",
@@ -68,12 +68,12 @@
     "tap": "^18.4.0",
     "typescript": "~5.2.2"
   },
-  "homepage": "https://github.com/bcomnes/top-bun-cli",
+  "homepage": "https://github.com/bcomnes/top-bun",
   "keywords": [],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bcomnes/top-bun-cli.git"
+    "url": "https://github.com/bcomnes/top-bun.git"
   },
   "scripts": {
     "prepublishOnly": "npm run build && git push --follow-tags && gh-release -y",
