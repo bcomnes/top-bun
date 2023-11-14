@@ -115,7 +115,7 @@ export class TopBun {
     if (serve) {
       const bs = browserSync.create()
       this.#browserSyncServer = bs
-      bs.watch('*').on('change', bs.reload)
+      bs.watch(basename(this.#dest), { ignoreInitial: true }).on('change', bs.reload)
       bs.init({
         server: this.#dest
       })

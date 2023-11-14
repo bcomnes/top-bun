@@ -1,4 +1,4 @@
-# top-bun
+# 🥐 top-bun
 [![npm version](https://img.shields.io/npm/v/top-bun.svg)](https://npmjs.org/package/top-bun)
 [![Actions Status](https://github.com/bcomnes/top-bun/workflows/tests/badge.svg)](https://github.com/bcomnes/top-bun/actions)
 [![Coverage Status](https://coveralls.io/repos/github/bcomnes/top-bun/badge.svg?branch=master)](https://coveralls.io/github/bcomnes/top-bun?branch=master)
@@ -12,6 +12,12 @@
 ```console
 npm install top-bun
 ```
+
+🌎 [`top-bun` docs website](https://top-bun.neocities.org)
+
+## Table of Contents
+
+[[toc]]
 
 ## Usage
 
@@ -36,11 +42,11 @@ top-bun (v7.0.0)
 - Running `top-bun` will result in a `build` by default.
 - Running `top-bun --watch` will build the site and start an auto-reloading development web-server that watches for changes.
 
-`top-bun` is primarily a unix `bin` written for the Node.js runtime that is intended to be installed from `npm` as a `devDependency` inside a `package.json` is committed to of a `git` repository. It can be used outside of this context, but it works best within it so your website can easily incorporate anything on the `npm` registry.
+`top-bun` is primarily a unix `bin` written for the Node.js runtime that is intended to be installed from `npm` as a `devDependency` inside a `package.json` is committed to of a `git` repository. It can be used outside of this context, but it works best within it because it's primary job is helping buind a website using dependencies from `npm`.
 
-## Concepts
+## Core Concepts
 
-`top-bun` builds a website from "pages" in a `src` directory, 1:1 into a `dest` directory.
+`top-bun` builds a website from "pages" in a `src` directory, nearly 1:1 into a `dest` directory.
 A `src` directory tree might look something like this:
 
 ```bash
@@ -78,37 +84,36 @@ src % tree
 └── favicon-16x16.png # static assets can live anywhere. Anything other than JS, CSS and HTML get copied over automatically.
 ```
 
-The core idea of `top-bun` is that a `src` directory of markdown, html and js documents will be transformed into html documents in the `dest` directory, along with page scoped js and css bundles, as well as a global stylesheet and global js bundle.
+The core idea of `top-bun` is that a `src` directory of markdown, html and js "inner" documents will be transformed into layout wrapped html documents in the `dest` directory, along with page scoped js and css bundles, as well as a global stylesheet and global js bundle.
 
 It ships with sane defaults, so that you can point `top-bun` at a standard markdown documented repository and have it build a website with near zero preparation.
 
-### Pages
+## Pages
 
 Pages are a named directories inside of `src`, with **one of** the following page files inside of it.
 
 - `md` pages are [CommonMark](https://commonmark.org) markdown pages, with an optional yaml front-matter block.
-- `html` pages are an inner [html](https://developer.mozilla.org/en-US/docs/Web/HTML) fragment that get inserted as-is into the page layout.
-- `js` pages are a [js](https://developer.mozilla.org/en-US/docs/Web/JavaScript) file that exports an async function that resolves into an inner-html fragment that is inserted into the page layout.
+- `html` pages are an inner [html](https://developer.mozilla.org/en-US/docs/Web/HTML) fragment that get inserted into the page layout.
+- `js` pages are a [js](https://developer.mozilla.org/en-US/docs/Web/JavaScript) file that exports a default function that resolves into an inner-html fragment that is inserted into the page layout.
 
-Variables are available in all pages. `md` and `html` pages support variable access via [handlebars][hb] template blocks. `js` pages receive variables as part of the argument passed to them. See the [Variables](#Variables) section for more info.
+Variables are available in all pages. `md` and `html` pages support variable access via [handlebars][hb] template blocks. `js` pages receive variables as part of the argument passed to them. See the [Variables](#variables) section for more info.
 
 A special variable called `layout` determines which layout the page is rendered into.
 
 Because pages are just directories, they nest and structure naturally. Directories in the `src` folder that lack one of these special page files can exist along side page directories and can be used to store co-located code or static assets without conflict.
 
-#### `md` pages
+### `md` pages
 
 A `md` page looks like this:
 
-```
+```bash
 src/page-name/README.md
-
-or
-
+# or
 src/page-name/loose-md.md
 ```
 
 - `md` pages have two types: a `README.md` in a folder, or a loose `whatever-name-you-want.md` file.
+- `README.md` files transform to an `index.html` at the same path, and `whatever-name-you-want.md` loose markdown files transform into `whatever-name-you-want.html` files at the same path in the `dest` dir.
 - `md` pages can have yaml frontmatter, with variables that are accessible to the page layout and handlebars template blocks when building.
 - You can include html in markdown files, so long as you adhere to the allowable markdown syntax around html tags.
 - `md` pages support [handlebars][hb] template placeholders.
@@ -129,11 +134,11 @@ Just writing about baking.
 My favorite bread is \{{ vars.favoriteBread }}.
 ```
 
-#### `html` pages
+### `html` pages
 
 A `html` page looks like this:
 
-```
+```bash
 src/page-name/page.html
 ```
 
@@ -155,18 +160,18 @@ An example `html` page:
 </ul>
 ```
 
-#### `js` pages
+### `js` pages
 
 A `js` page looks like this:
 
-```
+```bash
 src/page-name/page.js
 ```
 
 - `js` pages consist of a named directory with a `page.js` inside of it, that exports a default function that returns the contents of the inner page.
 - a `js` page needs to `export default` a function (async or sync) that accepts a variables argument and returns a string of the inner html of the page, or any other type that your layout can accept.
 - A `js` page can export a `vars` object or function (async or sync) that takes highest variable precedence when rendering the page. `export vars` is similar to a `md` page's front matter.
-- A `js` page receives the standard `top-bun` [Variables](#Variables) set.
+- A `js` page receives the standard `top-bun` [Variables](#variables) set.
 - There is no built in handlebars support in `js` pages, however you are free to use any template library that you can import.
 - `js` pages are run in a Node.js context only.
 
@@ -197,7 +202,7 @@ import { dirname, basename } from 'node:path'
 
 /**
  * @template T
- * @typedef {import('top-bub').LayoutFunction<T>} LayoutFunction
+ * @typedef {import('top-bun').LayoutFunction<T>} LayoutFunction
  */
 
 /**
@@ -229,13 +234,15 @@ export const vars = {
 
 You can create a `style.css` file in any page folder.
 Page styles are loaded on just that one page.
-You can import common use styles into a `style.css` page style to re-use common css.
-You can import library css by referencing the `npm` short name of the module.
+You can import common use styles into a `style.css` page style using css [`@import`](https://developer.mozilla.org/en-US/docs/Web/CSS/@import) statements to re-use common css.
+You can `@import` paths to other css files, or out of `npm` modules you have installed in your projects `node_modues` folder.
+`css` page bundles are bundled using [`esbuild`][esbuild].
 
 An example of a page `style.css` file:
 
 ```css
 /* /some-page/style.css */
+@import "some-npm-module/style.css";
 @import "../common-styles/button.css";
 
 .some-page-class {
@@ -250,10 +257,11 @@ An example of a page `style.css` file:
 ### Page JS Bundles
 
 You can create a `client.js` file in any page folder.
-Page bundles are loaded on that one page.
+Page bundles are client side JS bundles that are loaded on that one page only.
 You can import common code and modules from relative paths, or `npm` modules.
 The `client.js` page bundles are bundle-split with every other client-side js entry-point, so importing common chunks of code are loaded in a maximally efficient way.
-Page bundles are run in a browser context only.
+Page bundles are run in a browser context only, however they can share carefully crafted code that also runs in a Node.js or layout contnex.
+`js` page bundles are bundled using [`esbuild`][esbuild].
 
 An example of a page `client.js` file:
 
@@ -287,21 +295,43 @@ export default async () => {
 }
 ```
 
-### Layouts
+Page variable files have higher precident than `global.vars.js` variables, but lower precident than frontmatter or `vars` page exports.
+
+## Layouts
 
 Layouts are "outer page templates" that pages get rendered into.
 You can define as many as you want, and they can live anywhere in the `src` directory.
-Layouts are named `${layout-name}.layout.js` where '${layout-name}' becomes the name of the layout.
+
+Layouts are named `${layout-name}.layout.js` where `${layout-name}` becomes the name of the layout.
 Layouts should have a unique name, and layouts with duplicate name will result in a build error.
+
+Example layout file names:
+
+```bash
+src/layouts/root.layout.js # this layout is references as 'root'
+src/other-layouts/article.layout.js # this layout is references as 'article'
+```
+
 At a minimum, your site requires a `root` layout (a file named `root.layout.js`), though `top-bun` ships a default `root` layout so defining one in your `src` directory is optional, though recommended.
 
-All pages have a `layout` variable that defaults to `root`. If you set the `layout` variable to a different name, pages will build with a layout matching the name you set to that variable. e.g. If you set a page variable to `article`, then that page will build with the `article.layout.js` file. A page referencing a layout name that doesn't have a matching layout file will result in a build error.
+All pages have a `layout` variable that defaults to `root`. If you set the `layout` variable to a different name, pages will build with a layout matching the name you set to that variable.
 
-The best way to understand layouts is to look at an example.
+The following markdown page would be rendered using the `article` layout.
 
-#### The default `root.layout.js`
+```md
+---
+layout: 'article'
+title: 'My Article Title'
+---
 
-A layout is a js file that `export default`'s an async or sync function that implements an outer-wrapper html template that will house the inner content from the page (`children`) being rendered. Think of the bread in a sandwich. That's a layout.
+Thanks for reading my article
+```
+
+A page referencing a layout name that doesn't have a matching layout file will result in a build error.
+
+### The default `root.layout.js`
+
+A layout is a js file that `export default`'s an async or sync function that implements an outer-wrapper html template that will house the inner content from the page (`children`) being rendered. Think of the bread in a sandwich. That's a layout. 🥪
 
 It is always passed a single object argument with the following entries:
 
@@ -372,9 +402,9 @@ export default function defaultRootLayout ({
 
 If your `src` folder doesn't have a `root.layout.js` file somewhere in it, `top-bun` will use the default [`default.root.layout.js`](./lib/defaults/default.root.layout.js) file it ships. The default `root` layout includes a special boolean variable called `defaultStyle` that lets you disable a default page style (provided by [mine.css](http://github.com/bcomnes/mine.css)) that it ships with.
 
-#### Nested layouts
+### Nested layouts
 
-Since layouts are just functions™️, they nest naturally. If you define the majority of your html page meta detritus in a `root.layout.js`, you can define additional layouts that act as child wrappers, and inherent from the `root.layout.js`.
+Since layouts are just functions™️, they nest naturally. If you define the majority of your html page meta detritus in a `root.layout.js`, you can define additional layouts that act as child wrappers, without having to re-define everything in `root.layout.js`.
 
 For example, you could define a `blog.layout.js` that re-uses the `root.layout.js`:
 
@@ -453,43 +483,291 @@ export default function blogLayout (layoutVars) {
 
 Now the `blog.layout.js` becomes a nested layout of `root.layout.js`. No magic, just functions.
 
-#### Layout styles
+Alternatively, you could compose your layouts from re-usable template functions and string. If you find your layouts nesting more than one or two levels, perhaps composition would be a better strategy.
+
+### Layout styles
 
 You can create a `${layout-name}.layout.css` next to any layout file.
-For example, you can add a layout style to the `root.layout.js` layout by creating a file next to it called `root.layout.css`.
-Layout styles are loaded on all pages that use that layout.
-Layout styles work the exact same way as page styles, except they load on all pages that use that layout.
-You can import library css by referencing the `npm` short name of the module containing css, as well as relative paths to other css files.
-
-#### Layout JS Bundles
-
-You can create a `${layout-name}.layout.client.js` next to any layout file.
-For example, you can add a layout js bundle to the `root.layout.js` layout by creating a file next to it called `root.layout.client.js`.
-Layout js bundles are loaded on all pages that use that layout.
-Layout js bundles work the exact same way as page `client.js` files, except they load on all pages that use that layout.
-
-#### Nested layout JS bundles and styles
-
-If you create a nested layout that imports another layout file, **and** that imported layout has a layout style and/or layout js bundle, there is no magic that will include those layout styles and clients into the importing layout. To include those layout styles and clients into an additional layout, just import them into the additional layout client and style. For example:
 
 ```css
-/* blog.layout.css  */
+/* /layouts/article.layout.css */
+.layout-specific-class {
+  color: blue;
+
+  & .button {
+    color: purple;
+  }
+}
+
+/* This layout style is included in every page rendered with the 'article' layout */
+```
+Layout styles are loaded on all pages that use that layout.
+Layout styles are bundled with [`esbuild`][esbuild] and can bundle relative and `npm` css using css `@import` statements.
+
+### Layout JS Bundles
+
+You can create a `${layout-name}.layout.client.js` next to any layout file.
+
+```js
+/* /layouts/article.layout.client.js */
+
+console.log('I run on every page rendered with the \'article\' layout')
+
+/* This layout client is included in every page rendered with the 'article' layout */
+```
+
+Layout js bundles are loaded on all pages that use that layout.
+Layout js bundles are bundled with [`esbuild`][esbuild] and can bundle relative and `npm` modules using esm `import` statements.
+
+### Nested layout JS bundles and styles
+
+If you create a nested layout that imports another layout file, **and** that imported layout has a layout style and/or layout js bundle, there is no magic that will include those layout styles and clients into the importing layout. To include those layout styles and clients into an additional layout, just import them into the additional layout client and style files. For example:
+
+```css
+/* article.layout.css  */
 @import "./root.layout.css";
 ```
 
+This will include the layout style from the `root` layout in the `article` layout style.
+
 ```js
-/* blog.layout.client.js  */
+/* article.layout.client.js  */
 import './root.layout.client.js'
 ```
 
 These imports will include the `root.layout.js` layout assets into the `blog.layout.js` asset files.
 
+## Static assets
 
-### Global Assets
+All static assets in the `src` directory are copied 1:1 to the `public` directory. Any file in the `src` directory that doesn't end in `.js`, `.css`, `.html`, or `.md` is copied to the `dest` directory.
+
+## Templates
+
+Template files let you write any kind of file type to the `dest` folder while customizing the contents of that file with access to the site [Variables](#variables) object, or inject any other kind of data fetched at build time. Template files can be located anywhere and look like:
+
+```bash
+name-of-template.txt.template.js
+
+${name-portion}.template.js
+```
+
+Template files are a `js` file that default exports one of the following sync/async functions:
+
+### Simple string template
+
+A function that returns a string. The `name-of-template.txt` portion of the template file name becomes the file name of the output file.
+
+```js
+/**
+ * @template T
+ * @typedef {import('top-bun').TemplateFunction<T>} TemplateFunction
+ */
+
+/**
+ * @type {TemplateFunction<{
+ * foo: string,
+ * testVar: string
+ * }>}
+ */
+export default async ({
+  vars: {
+    foo
+  }
+}) => {
+  return `{Hello world
+
+This is just a file with access to global vars: ${foo}
+`
+}
+```
+
+### Object template
+
+A function that returns a single object with a `content` and `outputName` entries. The `outputName` overrides the name portion of the template file name.
+
+```js
+/**
+ * @template T
+ * @typedef {import('top-bun').TemplateFunction<T>} TemplateFunction
+ */
+
+/**
+ * @type {TemplateFunction<{
+ * foo: string,
+ * }>}
+ */
+export default async ({
+  vars: { foo }
+}) => ({
+  content: `Hello world
+
+This is just a file with access to global vars: ${foo}`,
+  outputName: './single-object-override.txt'
+})
+```
+
+### Object array template
+
+A function that returns an array of objects with a `content` and `outputName` entries. This template file generates more than one file from a single template file.
+
+```js
+/**
+ * @template T
+ * @typedef {import('top-bun').TemplateFunction<T>} TemplateFunction
+ */
+
+/**
+ * @type {TemplateFunction<{
+ * foo: string,
+ * testVar: string
+ * }>}
+ */
+export default async function objectArrayTemplate ({
+  vars: {
+    foo,
+    testVar
+  }
+}) {
+  return [
+    {
+      content: `Hello world
+
+This is just a file with access to global vars: ${foo}`,
+      outputName: 'object-array-1.txt'
+    },
+    {
+      content: `Hello world again
+
+This is just a file with access to global vars: ${testVar}`,
+      outputName: 'object-array-2.txt'
+    }
+  ]
+}
+```
+
+### AsyncIterator template
+
+An [AsyncIterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator) that `yields` objects with `content` and `outputName` entries.
+
+```js
+/**
+ * @template T
+ * @typedef {import('top-bun').TemplateAsyncIterator<T>} TemplateAsyncIterator
+ */
+
+/** @type {TemplateAsyncIterator<{
+ * foo: string,
+ * testVar: string
+ * }>} */
+export default async function * ({
+  vars: {
+    foo,
+    testVar
+  }
+}) {
+  // First item
+  yield {
+    content: `Hello world
+
+This is just a file with access to global vars: ${foo}`,
+    outputName: 'async-iterator-1.txt'
+  }
+
+  // Second item
+  yield {
+    content: `Hello world again
+
+This is just a file with access to global vars: ${testVar}`,
+    outputName: 'async-iterator-2.txt'
+  }
+}
+```
+
+### RSS Feed Template Example
+
+Templates receive the standard variables available to pages, so its possible to perform page introspection and generate RSS feeds of website content.
+
+The following example shows how to generate an [RSS](https://www.rssboard.org) and [JSON feed](https://www.jsonfeed.org) of the last 10 date sorted pages with the `blog` layout using the AsyncIterator template type.
+
+```js
+import pMap from 'p-map'
+// @ts-ignore
+import jsonfeedToAtom from 'jsonfeed-to-atom'
+
+/**
+ * @template T
+ * @typedef {import('top-bun').TemplateAsyncIterator<T>} TemplateAsyncIterator
+ */
+
+/** @type {TemplateAsyncIterator<{
+  *  title: string,
+  *  layout: string,
+  *  siteName: string,
+  *  homePageUrl: string,
+  *  authorName: string,
+  *  authorUrl: string,
+  *  authorImgUrl: string,
+  *  publishDate: string,
+  *  siteDescription: string
+  * }>}
+*/
+export default async function * feedsTemplate ({
+  vars: {
+    siteName,
+    homePageUrl,
+    authorName,
+    authorUrl,
+    authorImgUrl,
+    siteDescription
+  },
+  pages
+}) {
+  const blogPosts = pages
+    // @ts-ignore
+    .filter(page => page.pageInfo.path.startsWith('blog/') && page.vars['layout'] === 'blog')
+    // @ts-ignore
+    .sort((a, b) => new Date(b.vars.publishDate) - new Date(a.vars.publishDate))
+    .slice(0, 10)
+
+  const jsonFeed = {
+    version: 'https://jsonfeed.org/version/1',
+    title: siteName,
+    home_page_url: homePageUrl,
+    feed_url: `${homePageUrl}/feed.json`,
+    description: siteDescription,
+    author: {
+      name: authorName,
+      url: authorUrl,
+      avatar: authorImgUrl
+    },
+    items: await pMap(blogPosts, async (page) => {
+      return {
+        date_published: page.vars['publishDate'],
+        title: page.vars['title'],
+        url: `${homePageUrl}/${page.pageInfo.path}/`,
+        id: `${homePageUrl}/${page.pageInfo.path}/#${page.vars['publishDate']}`,
+        content_html: await page.renderInnerPage({ pages })
+      }
+    }, { concurrency: 4 })
+  }
+
+  yield {
+    content: JSON.stringify(jsonFeed, null, '  '),
+    outputName: './feeds/feed.json'
+  }
+
+  yield {
+    content: jsonfeedToAtom(jsonFeed),
+    outputName: './feeds/feed.xml'
+  }
+}
+```
+
+## Global Assets
 
 There are a few important (and optional) global assets that live anywhere in the `src` directory. If duplicate named files that match the global asset file name pattern are found, a build error will occur until the duplicate file is removed.
 
-#### `global.vars.js`
+### `global.vars.js`
 
 The `global.vars.js` file should `export default` a variables object or a (sync or async) function that returns a variable object.
 The variables in this file are available to all pages, unless the page sets a variable with the same key, taking a higher precedence.
@@ -501,7 +779,20 @@ export default {
 }
 ```
 
-#### `global.client.js`
+#### `browser` variable
+
+`global.vars.js` can uniquely export a `browser` object. These object variables are made available in all js bundles. The `browser` export can be an object, or a sync/async function that returns an object.
+
+```js
+export const browser = {
+  'process.env.TRANSPORT': transport,
+  'process.env.HOST': host
+}
+```
+
+The exported object is passed to esbuild's [`define`](https://esbuild.github.io/api/#define) options and is available to every js bundle.
+
+### `global.client.js`
 
 This is a script bundle that is included on every page. It provides an easy way to inject analytics, or other small scripts that every page should have. Try to minimize what you put in here.
 
@@ -509,17 +800,101 @@ This is a script bundle that is included on every page. It provides an easy way 
 console.log('I run on every page in the site!')
 ```
 
-#### `global.css`
+### `global.css`
 
 This is a global stylesheet that every page will use.
 Any styles that need to be on every single page should live here.
 Importing css from `npm` modules work well here.
 
-### Static assets
+## Variables
 
-All static assets in the `src` directory are copied 1:1 to the `public` directory. Any file in the `src` directory that doesn't end in `.js`, `.css`, `.html`, or `.md` is copied to the `dest` directory.
+Pages, Layouts, and `postVars` all receive an object with the following parameters:
 
-### Design constraints
+- `vars`: An object with the variables of `global.vars.js`, `page.vars.js`, and any front-matter,`vars` exports and `postVars` from the page merged together.
+- `pages`: An array of [`PageData`](https://github.com/bcomnes/top-bun/blob/master/lib/build-pages/page-data.js) instances for every page in the site build. Use this array to introspect pages to generate feeds and index pages.
+- `page`: An object of the page being rendered with the following parameters:
+  - `type`: The type of page (`md`, `html`, or `js`)
+  - `path`: The directory path for the page.
+  - `outputName`: The output name of the final file.
+  - `outputRelname`: The relative output name/path of the output file.
+  - `pageFile`: Raw `src` path details of the page file
+  - `pageStyle`: file info if the page has a page style
+  - `clientBundle`: file info if the page has a page js bundle
+  - `pageVars`: file info if the page has a page vars
+
+Template files receive a similar set of variables:
+
+- `vars`: An object with the variables of `global.vars.js`
+- `pages`: An array of [`PageData`](https://github.com/bcomnes/top-bun/blob/master/lib/build-pages/page-data.js) instances for every page in the site build. Use this array to introspect pages to generate feeds and index pages.
+- `template`: An object of the template file data being rendered.
+
+### Variable types
+
+The following types are exported from `top-bun`:
+
+```ts
+LayoutFunction<T>
+PostVarsFunction<T>
+PageFunction<T>
+TemplateFunction<T>
+TemplateAsyncIterator<T>
+```
+
+Where `T` is your set of variables in the `vars` object.
+
+### `postVars` post processing variables (Advanced) {#postVars}
+
+In `page.vars.js` files, you can export a `postVars` sync/async function that returns an object. This function receives the same variable set as pages and layouts. Whatever object is returned from the function is merged into the final `vars` object and is available in the page and layout. This is useful if you want to apply advanced rendering page introspection and insert it into a markdown document (for example, the last few blog posts on a markdown page.)
+
+For example:
+
+```js
+// page.vars.js
+import { html, render } from 'uhtml-isomorphic'
+
+export async function postVars ({
+  pages
+}) {
+  const blogPosts = pages
+    .filter(page => page.vars.layout === 'article')
+    .sort((a, b) => new Date(b.vars.publishDate) - new Date(a.vars.publishDate))
+    .slice(0, 5)
+
+  const blogpostsHtml = render(String, html`<ul class="blog-index-list">
+      ${blogPosts.map(p => {
+        const publishDate = p.vars.publishDate ? new Date(p.vars.publishDate) : null
+        return html`
+          <li class="blog-entry h-entry">
+            <a class="blog-entry-link u-url u-uid p-name" href="/${p.pageInfo.path}/">${p.vars.title}</a>
+            ${
+              publishDate
+                ? html`<time class="blog-entry-date dt-published" datetime="${publishDate.toISOString()}">
+                    ${publishDate.toISOString().split('T')[0]}
+                  </time>`
+                : null
+            }
+          </li>`
+        })}
+    </ul>`)
+
+  const pageVars = {
+    blogPostsHtml: blogpostsHtml
+  }
+
+  return pageVars
+}
+```
+
+This `postVars` renders some html from page introspection of the last 5 blog post titles. In the associated page markdown, this variable is available via a handlebars placeholder.
+
+```md
+<!-- README.md -->
+## [Blog](./blog/)
+
+\{{{ vars.blogPostsHtml }}}
+```
+
+## Design Goals
 
 - Convention over configuration. All configuration should be optional, and at most it should be minimal.
 - Align with the `index.html`/`README.md` pattern.
@@ -537,7 +912,17 @@ All static assets in the `src` directory are copied 1:1 to the `public` director
 - Real Node.js esm from the start.
 - Garbage in, garbage out. Don't over-correct bad input.
 
-### Examples
+## FAQ
+
+Top-**Bun**? Like the JS runtime?
+
+:   No, like the bakery from Wallace and Gromit in ["A Matter of Loaf and Death"](https://www.youtube.com/watch?v=zXBmZLmfQZ4s)
+
+How does `top-bun` relate to [`sitedown`](https://ghub.io/sitedown)
+
+:   `top-bun` used to be called `siteup` which is sort of like "markup", which is related to "markdown", which inspired the project `sitedown` to which `top-bun` is a spiritual offshot of. Put a folder of web documents in your `top-bun` oven, and bake a website.
+
+## Examples
 
 Look at [examples](./examples/) and `top-bun` [dependents](https://github.com/bcomnes/top-bun/network/dependents) for some examples how `top-bun` can work.
 
@@ -584,7 +969,6 @@ Some noteable features are included below, see the [roadmap](https://github.com/
 
 ## History
 
-`top-bun` used to be called `siteup` which is sort of like "markup", which is related to "markdown", which inspired the project [`sitedown`](https://ghub.io/sitedown) to which `top-bun` is a spiritual offshot of. Put a folder of web documents in your `top-bun` oven, and bake a website.
 
 ## Links
 
@@ -598,4 +982,5 @@ Some noteable features are included below, see the [roadmap](https://github.com/
 
 [uhtml]: https://github.com/WebReflection/uhtml
 [hb]: https://handlebarsjs.com
+[esbuild]: http://esbuild.github.io
 [neocities-img]: https://img.shields.io/website/https/top-bun.neocities.org?label=neocities&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAGhlWElmTU0AKgAAAAgABAEGAAMAAAABAAIAAAESAAMAAAABAAEAAAEoAAMAAAABAAIAAIdpAAQAAAABAAAAPgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAAAueefIAAACC2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS40LjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyI+CiAgICAgICAgIDx0aWZmOk9yaWVudGF0aW9uPjE8L3RpZmY6T3JpZW50YXRpb24+CiAgICAgICAgIDx0aWZmOlBob3RvbWV0cmljSW50ZXJwcmV0YXRpb24+MjwvdGlmZjpQaG90b21ldHJpY0ludGVycHJldGF0aW9uPgogICAgICAgICA8dGlmZjpSZXNvbHV0aW9uVW5pdD4yPC90aWZmOlJlc29sdXRpb25Vbml0PgogICAgICAgICA8dGlmZjpDb21wcmVzc2lvbj4xPC90aWZmOkNvbXByZXNzaW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4Kpl32MAAABzBJREFUWAnFVwtwnFUV/v5//31ks5tsE9I8moS0iWETSNKUVpBKDKFQxtrCUIpacHQEGYk16FQHaZ3ajjqjOGWqOKUyMCl2xFoKhQJDBQftpOnAmDZoOyRNjCS1SdO8H5vXPv7rd/7NZvIipQjjmfn23Me555x77rnnv6sppTT8H0n/tG1rmlZIVBG+eW1JBD4t0GA8cYZQcS7ncXL7bFuYPfBJ9mlwtxg3bJoSTvx0tn7LAU48IJNE3GyBj9unrlJC2XRt4vGvLFGGrkXYDxEl03WyDyfRRoiHrxOfiBPU85bovPezi5pHnlmhHq5IsaLAXHhltgPXi+A0VE8X+Dht6lov+uw2rf/8nmIlDjQ+fp1yO/SYnaKYXoOC5QSu8trgddnND7rHv0EvOymwTcbnI867OZ5PLCOKiUIijQgS54nPE3hsfXog2WNY2Z+V5MDXVifjd3/ths/jquL0QyIj9EdC3V6UoLr25KurU73D0ieOEIniKbkc063EduLPRDcR2828/DOpzrbBp0ut3UsEBMe3X2PJuhw2sWHplgjkEViyyBGM93gcf3kkxVP2hNZ1sWfoLg7/jbttJC8jMgiLHHYj4EuIb81I9gQLM92O0iyH+9pUlZSdGDHCJjA0biI/zZ3NxIstsfjKpfFYmROHutYxDwduIo6JAxI6LIq3cSmtpCSg9jF3UsXuix2tHb3L7YZevHRx/FBZvrNzTaEnLTfFQHaSna6CSrghjbVMJzRbtC1KFqC1xT5xAFdnZdxPMcsBS1wpDLHhEoWpiXbj3R8mZ1zoT0Caz677PE4fdDunJYIzd2UtvoKfWwq9+PnRiwgMDd5RX/PGVRIBixLjbNNKpQaP1wO/NzYb47ON0yEzAhUJQjOYJhKFy9DybDcyk+y40DeSdOz5J+5h7CBAxDQdl1k7d5rGHWW74Cz/GdM0gQGSWrMwxTl0VBRSlnSmoblMjIel0zkgN+gKSDFl7G7YMm+C4d8Ix4pvQ4XGPpKC8snQ/vPfvYXiwPuy6tylK3RAFokTpuU/NF8u08dAzbkA/nCylyVeBOanJawJQpcGxjMkB04QdzS0j5ujQVNntZK5BSkwYaIvEEZmQgjm4AeweTOguRah4ZKJdbubeZwKaYl23HptNNQxZeMhE0fqBrDthXZraHTCtKydlF73cFhv67l8FGRnm55sQcGjZ/GTI50IN75kKdMTsywnzMmtj4XmhuDRP13Ag8+2YnA0GrVgWDFmwFld10dN03TXNg2jIMNlKfywn//0BXGyKWBNv904isj5GqjhdmjeJSjMzUDttmUYChpYnS+1ZiY9+IUUrCvxIS/Nic/tbAiOBBkBltoeGn9PRA+c6Jm5Yp5edrIDlWsWw09Ht23IgBrvQ+i9Zy1JcaKE1+zmZTp0c240i7LiwJIPXdPACMnmw9ZriOV2Czu/ES3v7izAdZlx0rw8SQLy/jtu/AEmstfhTP3fcUPRUkS6ziB0eh/M/hZovCkx6ugP4ccvtuO1+gGMMI9IfbGM289j6JSRY/8YEIbmSxM4enoA+2t60MuEm0NyA2xOuL5UDaPgXjQ0NODmW27DgVeOw5a3Dq6Nh2DLWcMnyOjU0v6RME63jloJOjnYZ0VAOozCb8kq4506fG4bOgZCU1fphe/m4osliZNrokwFA3Cs/A7sq6qsgU0bN+LwS9GE9Pv9cLvd8Ofn4Zl7wlC9zXRWSnmUnqvpDVY+1yZ38WgsAjKzX34kNF1DYeQtduLOFT4ceSRvjnFEQrClFMK2/FsIBALYu3evZfw2mxe/Yj1obGzExY4OfPmr98Hu38QCOSGqp+j3tT3RLAZek0SwiMlYxyjIFu6WgX3fzMGNufKonYd49kNGOspLrkdTUxMikQhS4r34tZGDZObEHkccdu3chQ0bNiDc/OoMBQdqe/HOv0aSONhBHJ5yYFLqR+QVoYjyPcT7+mJVLsZ5n988O4gTvHrfX5uKMimjzOJEewhbt25FZ2cnWlpaUF1djdcTR1A6NoH24BiC/E4IKSaiyMuX9OVT/Xh4f5tkn0R+Czc9MOdZzokHLGmuiLPr8qqViqKchqYObcmNvnCeLlajz9+uzGCAOpTiNVabN2+25ETWMAxVV1enzPEBS254X5GqWpsmHwqRkfP4OpdF8y/WmM4psJ3HIVuYMr7n/qwZz6uRp/xq4uQvuSxK4sTBgwfVjh07VH19veInWnW9+j11uDJdlebEj0zqaiC/gSum/gxN3QJOzCA6sIIDv2D0KlhdrWS9Jt2F9aU+FKQ7eeYKi3kaSaur4C29j98lE4P9XWg59z5OnXgDb7/1pvlOY7c5EbYKjug+RFTSeJ90pmi6N/O1KbiKeIqOtJFPhXl6m87OGae8hPoU8SSxaj7dMvahEeCiGUQjcm/LiHLCT8hbUsaGCKk2wqWWNxHykD1LA13kC9JHdmBBLf/D5H8By9d+IkwR5NMAAAAASUVORK5CYII=

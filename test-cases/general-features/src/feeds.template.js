@@ -16,7 +16,8 @@ import jsonfeedToAtom from 'jsonfeed-to-atom'
   *  authorName: string,
   *  authorUrl: string,
   *  authorImgUrl: string,
-  *  publishDate: string
+  *  publishDate: string,
+  *  siteDescription: string
   * }>}
 */
 export default async function * feedsTemplate ({
@@ -25,7 +26,8 @@ export default async function * feedsTemplate ({
     homePageUrl,
     authorName,
     authorUrl,
-    authorImgUrl
+    authorImgUrl,
+    siteDescription
   },
   pages
 }) {
@@ -41,7 +43,7 @@ export default async function * feedsTemplate ({
     title: siteName,
     home_page_url: homePageUrl,
     feed_url: `${homePageUrl}/feed.json`,
-    description: 'A running log of announcements, projects and accomplishments.',
+    description: siteDescription,
     author: {
       name: authorName,
       url: authorUrl,
