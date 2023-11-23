@@ -4,17 +4,23 @@
 import minimist from 'minimist'
 // @ts-ignore
 import cliclopts from 'cliclopts'
-import { readFile } from 'fs/promises'
-import { resolve, join } from 'path'
+import { readFile } from 'node:fs/promises'
+import { resolve, join, relative } from 'node:path'
+import readline from 'node:readline'
 import desm from 'desm'
 import process from 'process'
 // @ts-ignore
 import tree from 'pretty-tree'
 import { inspect } from 'util'
+import { packageDirectory } from 'pkg-dir'
+import { readPackage } from 'read-pkg'
+import { addPackageDependencies } from 'write-package'
 
+import { copyFile } from './lib/helpers/copy-file.js'
 import { TopBun } from './index.js'
 import { TopBunAggregateError } from './lib/helpers/top-bun-aggregate-error.js'
 import { generateTreeData } from './lib/helpers/generate-tree-data.js'
+import { askYesNo } from './lib/helpers/cli-prompt.js'
 
 /**
  * @typedef {import('./lib/builder.js').TopBunOpts} TopBunOpts
@@ -46,6 +52,11 @@ const clopts = cliclopts([
     name: 'ignore',
     abbr: 'i',
     help: 'comma separated gitignore style ignore string'
+  },
+  {
+    name: 'eject',
+    abbr: 'e',
+    help: 'eject the top bun default layout, style and client into the src flag directory'
   },
   {
     name: 'watch',
@@ -92,6 +103,78 @@ async function run () {
   const cwd = process.cwd()
   const src = resolve(join(cwd, argv['src']))
   const dest = resolve(join(cwd, argv['dest']))
+
+  // Eject task
+  if (argv['eject']) {
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout
+    })
+
+    const localPkg = await packageDirectory({ cwd: src })
+
+    if (!localPkg) {
+      console.error('Can\'t locate package.json, exiting without making changes')
+      process.exit(1)
+    }
+
+    const localPkgJson = join(localPkg, 'package.json')
+    const localPkgJsonContents = await readPackage({ cwd: localPkg })
+    const targetIsModule = localPkgJsonContents.type === 'module'
+
+    const relativeSrc = relative(process.cwd(), src)
+    const relativePkg = relative(process.cwd(), localPkgJson)
+
+    const targetLayoutPath = `layouts/root.layout.${targetIsModule ? 'js' : 'mjs'}`
+    const targetGlobalStylePath = 'globals/global.css'
+    const targetGlobalClientPath = `globals/global.client.${targetIsModule ? 'js' : 'mjs'}`
+
+    const tbPkgContents = await readPackage({ cwd: __dirname })
+    const mineVersion = tbPkgContents?.['dependencies']?.['mine.css']
+    const uhtmlVersion = tbPkgContents?.['dependencies']?.['uhtml-isomorphic']
+    const highlightVersion = tbPkgContents?.['dependencies']?.['highlight.js']
+
+    if (!mineVersion || !uhtmlVersion || !highlightVersion) {
+      console.error('Unable to resolve ejected depdeency versions. Exiting...')
+      process.exit(1)
+    }
+
+    console.log(`
+top-bun eject actions:
+  - Write ${join(relativeSrc, targetLayoutPath)}
+  - Write ${join(relativeSrc, targetGlobalStylePath)}
+  - Write ${join(relativeSrc, targetGlobalClientPath)}
+  - Add mine.css@${mineVersion}, uhtml-isomorphic@${uhtmlVersion} and highlight.js@${highlightVersion} to ${relativePkg}
+`)
+    const answer = await askYesNo(rl, 'Continue?')
+    if (answer === false) {
+      console.log('No action taken. Exiting.')
+      process.exit(0)
+    }
+
+    const defaultLayoutPath = join(__dirname, 'lib/defaults/default.root.layout.js')
+    const defaultGlobalStylePath = join(__dirname, 'lib/defaults/default.style.css')
+    const defaultGlobalClientPath = join(__dirname, 'lib/defaults/default.client.js')
+
+    await Promise.all([
+      copyFile(defaultLayoutPath, join(src, targetLayoutPath)),
+      copyFile(defaultGlobalStylePath, join(src, targetGlobalStylePath)),
+      copyFile(defaultGlobalClientPath, join(src, targetGlobalClientPath))
+    ])
+
+    await addPackageDependencies(
+      localPkgJson,
+      {
+        dependencies: {
+          'mine.css': mineVersion,
+          'uhtml-isomorphic': uhtmlVersion,
+          'highlight.js': highlightVersion
+        }
+      })
+
+    console.log('Done ejecting files!')
+    process.exit(0)
+  }
 
   /** @type {TopBunOpts} */
   const opts = {}

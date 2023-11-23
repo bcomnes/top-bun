@@ -49,9 +49,13 @@
     "mine.css": "^9.0.1",
     "minimist": "^1.2.5",
     "p-map": "^6.0.0",
+    "package-json": "^8.1.1",
     "pretty": "^2.0.0",
     "pretty-tree": "^1.0.0",
-    "uhtml-isomorphic": "^2.0.0"
+    "read-pkg": "^9.0.1",
+    "pkg-dir": "^8.0.0",
+    "uhtml-isomorphic": "^2.0.0",
+    "write-package": "^7.0.0"
   },
   "devDependencies": {
     "@types/browser-sync": "^2.27.3",

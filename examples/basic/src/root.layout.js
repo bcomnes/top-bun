@@ -33,7 +33,9 @@ export default async function RootLayout ({
           : null}
       </head>
       <body>
-        ${typeof children === 'string' ? html([children]) : children /* Support both uhtml and string children. Optional. */}
+        <div class="mine-layout">
+          ${typeof children === 'string' ? html([children]) : children /* Support both uhtml and string children. Optional. */}
+        </div>
       </body>
     </html>
 `)
