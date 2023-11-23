@@ -144,7 +144,9 @@ top-bun eject actions:
   - Write ${join(relativeSrc, targetLayoutPath)}
   - Write ${join(relativeSrc, targetGlobalStylePath)}
   - Write ${join(relativeSrc, targetGlobalClientPath)}
-  - Add mine.css@${mineVersion}, uhtml-isomorphic@${uhtmlVersion} and highlight.js@${highlightVersion} to ${relativePkg}
+  - Add mine.css@${mineVersion} to ${relativePkg}
+  - Add uhtml-isomorphic@${uhtmlVersion} to ${relativePkg}
+  - Add highlight.js@${highlightVersion} to ${relativePkg}
 `)
     const answer = await askYesNo(rl, 'Continue?')
     if (answer === false) {

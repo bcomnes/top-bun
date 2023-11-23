@@ -13,7 +13,7 @@
 npm install top-bun
 ```
 
-🌎 [`top-bun` docs website](https://top-bun.neocities.org)
+🌎 [`top-bun` docs website](https://top-bun.org)
 
 ## Table of Contents
 
