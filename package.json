@@ -123,16 +123,6 @@
       "test-cases/page-build-errors/src/**/*.js"
     ]
   },
-  "files": [
-    "bin.js",
-    "bin.d.ts",
-    "bin.d.ts.map",
-    "index.js",
-    "index.d.ts",
-    "index.d.ts.map",
-    "lib/**",
-    "!*.test.js"
-  ],
   "tap": {
     "typecheck": false,
     "allow-incomplete-coverage": true,
