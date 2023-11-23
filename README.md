@@ -3,7 +3,7 @@
 [![Actions Status](https://github.com/bcomnes/top-bun/workflows/tests/badge.svg)](https://github.com/bcomnes/top-bun/actions)
 [![Coverage Status](https://coveralls.io/repos/github/bcomnes/top-bun/badge.svg?branch=master)](https://coveralls.io/github/bcomnes/top-bun?branch=master)
 [![Types in JS](https://img.shields.io/badge/types_in_js-yes-brightgreen)](https://github.com/voxpelli/types-in-js)
-[![Neocities][neocities-img]](https://top-bun.neocities.org)
+[![Neocities][neocities-img]](https://top-bun.org)
 
 `top-bun`: a traditional web bakery made with html, md, css and js.
 
@@ -13,7 +13,8 @@
 npm install top-bun
 ```
 
-🌎 [`top-bun` docs website](https://top-bun.org)
+- 🌎 [`top-bun` docs website](https://top-bun.org)
+- 📢 [v7 Announcement](https://bret.io/blog/2023/reintroducing-top-bun/)
 
 ## Table of Contents
 
@@ -42,7 +43,7 @@ top-bun (v7.0.0)
 - Running `top-bun` will result in a `build` by default.
 - Running `top-bun --watch` will build the site and start an auto-reloading development web-server that watches for changes.
 
-`top-bun` is primarily a unix `bin` written for the Node.js runtime that is intended to be installed from `npm` as a `devDependency` inside a `package.json` is committed to of a `git` repository. It can be used outside of this context, but it works best within it because it's primary job is helping buind a website using dependencies from `npm`.
+`top-bun` is primarily a unix `bin` written for the Node.js runtime that is intended to be installed from `npm` as a `devDependency` inside a `package.json` is committed to of a `git` repository. It can be used outside of this context, but it works best within it because it's primary job is helping build a website using dependencies from `npm`.
 
 ## Core Concepts
 
@@ -73,7 +74,7 @@ src % tree
 │        ├── blog.layout.css # layouts can define an additional layout style.
 │        ├── blog.layout.client.js # layouts can also define a layout client.
 │        ├── article.layout.js # layouts can extend other layouts, since they are just functions.
-│        └── root.layout.js # the defult layout is called root.
+│        └── root.layout.js # the default layout is called root.
 ├── globals # global assets can live anywhere. Here they are in a folder called globals.
 │        ├── global.client.js # you can define a global js client that loads on every page.
 │        ├── global.css # you can define a global css file that loads on every page.
@@ -92,7 +93,7 @@ It ships with sane defaults, so that you can point `top-bun` at a standard markd
 
 Pages are a named directories inside of `src`, with **one of** the following page files inside of it.
 
-- `md` pages are [CommonMark](https://commonmark.org) markdown pages, with an optional yaml front-matter block.
+- `md` pages are [CommonMark](https://commonmark.org) markdown pages, with an optional [YAML](https://yaml.org) front-matter block.
 - `html` pages are an inner [html](https://developer.mozilla.org/en-US/docs/Web/HTML) fragment that get inserted into the page layout.
 - `js` pages are a [js](https://developer.mozilla.org/en-US/docs/Web/JavaScript) file that exports a default function that resolves into an inner-html fragment that is inserted into the page layout.
 
@@ -113,8 +114,8 @@ src/page-name/loose-md.md
 ```
 
 - `md` pages have two types: a `README.md` in a folder, or a loose `whatever-name-you-want.md` file.
-- `README.md` files transform to an `index.html` at the same path, and `whatever-name-you-want.md` loose markdown files transform into `whatever-name-you-want.html` files at the same path in the `dest` dir.
-- `md` pages can have yaml frontmatter, with variables that are accessible to the page layout and handlebars template blocks when building.
+- `README.md` files transform to an `index.html` at the same path, and `whatever-name-you-want.md` loose markdown files transform into `whatever-name-you-want.html` files at the same path in the `dest` directory.
+- `md` pages can have YAML frontmatter, with variables that are accessible to the page layout and handlebars template blocks when building.
 - You can include html in markdown files, so long as you adhere to the allowable markdown syntax around html tags.
 - `md` pages support [handlebars][hb] template placeholders.
 - `md` pages support many [github flavored markdown features](https://github.com/bcomnes/siteup/blob/6481bd01e59e5d8a4bfcb33008f44a1405bf622b/lib/build-pages/page-builders/md/get-md.js#L25-L36).
@@ -260,7 +261,7 @@ You can create a `client.js` file in any page folder.
 Page bundles are client side JS bundles that are loaded on that one page only.
 You can import common code and modules from relative paths, or `npm` modules.
 The `client.js` page bundles are bundle-split with every other client-side js entry-point, so importing common chunks of code are loaded in a maximally efficient way.
-Page bundles are run in a browser context only, however they can share carefully crafted code that also runs in a Node.js or layout contnex.
+Page bundles are run in a browser context only, however they can share carefully crafted code that also runs in a Node.js or layout context.
 `js` page bundles are bundled using [`esbuild`][esbuild].
 
 An example of a page `client.js` file:
@@ -295,7 +296,7 @@ export default async () => {
 }
 ```
 
-Page variable files have higher precident than `global.vars.js` variables, but lower precident than frontmatter or `vars` page exports.
+Page variable files have higher precedent than `global.vars.js` variables, but lower precedent than frontmatter or `vars` page exports.
 
 ## Layouts
 
@@ -337,7 +338,7 @@ It is always passed a single object argument with the following entries:
 
 - `vars`: An object of global, page folder, and page variables merged together. Pages can customize layouts by providing or overriding global defaults.
 - `scripts`: array of paths that should be included onto the page in a script tag src with type `module`.
-- `styles`: array of paths that should be included onto the page in a `link rel="stylesheet"` tag with the href pointing to the paths in the array.
+- `styles`: array of paths that should be included onto the page in a `link rel="stylesheet"` tag with the `href` pointing to the paths in the array.
 - `children`: A string of the inner content of the page, or whatever type your js page functions returns. `md` and `html` page types always return strings.
 - `pages`: An array of page data that you can use to generate index pages with, or any other page-introspection based content that you desire.
 - `page`: An object with metadata and other facts about the current page being rendered into the template. This will also be found somewhere in the `pages` array.
@@ -517,7 +518,7 @@ console.log('I run on every page rendered with the \'article\' layout')
 ```
 
 Layout js bundles are loaded on all pages that use that layout.
-Layout js bundles are bundled with [`esbuild`][esbuild] and can bundle relative and `npm` modules using esm `import` statements.
+Layout js bundles are bundled with [`esbuild`][esbuild] and can bundle relative and `npm` modules using ESM `import` statements.
 
 ### Nested layout JS bundles and styles
 
@@ -904,12 +905,12 @@ This `postVars` renders some html from page introspection of the last 5 blog pos
   - Don't facilitate client side routing. The browser supports routing by default.s
   - Accept the nature of the medium. Browsers browse html documents. Don't facilitate shared state between pages.
 - Library agnostic. Strings are the interchange format.
-- Just a program. `js` pages and layouts are just javascript programs. This provides an escape hatch to do anything. Use any template language want, but probably just use tagged template literals.
+- Just a program. `js` pages and layouts are just JavaScript programs. This provides an escape hatch to do anything. Use any template language want, but probably just use tagged template literals.
 - Steps remain orthogonal. Static file copying, css and js bundling, are mere optimizations on top of the `src` folder. The `src` folder should essentially run in the browser. Each step in a `top-bun` build should work independent of the others. This allows for maximal parallelism when building.
 - Standardized entrypoints. Every page in a `top-bun` site has a natural and obvious entrypoint. There is no magic redirection to learn about.
-- Pages build into `index.html` files inside of named directories. This allows for naturally colocated assets next to the page, pretty urls and full support for relative URLs.
+- Pages build into `index.html` files inside of named directories. This allows for naturally colocated assets next to the page, pretty URLs and full support for relative URLs.
 - Markdown entrypoints are named README.md. This allows for the `src` folder to be fully navigable in GitHub and other git repo hosting providing a natural hosted CMS UI.
-- Real Node.js esm from the start.
+- Real Node.js ESM from the start.
 - Garbage in, garbage out. Don't over-correct bad input.
 
 ## FAQ
@@ -920,7 +921,7 @@ Top-**Bun**? Like the JS runtime?
 
 How does `top-bun` relate to [`sitedown`](https://ghub.io/sitedown)
 
-:   `top-bun` used to be called `siteup` which is sort of like "markup", which is related to "markdown", which inspired the project `sitedown` to which `top-bun` is a spiritual offshot of. Put a folder of web documents in your `top-bun` oven, and bake a website.
+:   `top-bun` used to be called `siteup` which is sort of like "markup", which is related to "markdown", which inspired the project `sitedown` to which `top-bun` is a spiritual off-shot of. Put a folder of web documents in your `top-bun` oven, and bake a website.
 
 ## Examples
 
@@ -941,7 +942,7 @@ These tools are treated as implementation details, but they may be exposed more 
 `top-bun` works and has a rudimentary watch command, but hasn't been battle tested yet.
 If you end up trying it out, please open any issues or ideas that you have, and feel free to share what you build.
 
-Some noteable features are included below, see the [roadmap](https://github.com/users/bcomnes/projects/3/) for a more in depth view of whats planned.
+Some notable features are included below, see the [roadmap](https://github.com/users/bcomnes/projects/3/) for a more in depth view of whats planned.
 
 - [x] `md` pages
 - [x] `js` pages
@@ -965,6 +966,13 @@ Some noteable features are included below, see the [roadmap](https://github.com/
 - [x] Template files
 - [x] Page data available to pages, layouts and template files.
 - [x] Handlebars template support in `md` and `html`
+- [x] `mjs` and `cjs` file extension support
+- [x] Improved watch log output
+- [x] Docs website built with `top-bin`: https://top-bun.org
+- [x] `--eject` cli flag
+- [x] Global assets can live anywhere
+- [x] Built in browsersync dev server
+- [x] Real default layout style builds
 - ...[See roadmap](https://github.com/users/bcomnes/projects/3/)
 
 ## History
