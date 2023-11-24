@@ -38,12 +38,14 @@ Usage: top-bun [options]
 top-bun (v7.0.0)
 ```
 
-`top-bun` builds a `src` directory into a `dest` directory (default: `public`). `top-bun` is also aliased to a `tb` bin.
+`top-bun` builds a `src` directory into a `dest` directory (default: `public`).
+`top-bun` is also aliased to a `tb` bin.
 
 - Running `top-bun` will result in a `build` by default.
 - Running `top-bun --watch` will build the site and start an auto-reloading development web-server that watches for changes.
 
-`top-bun` is primarily a unix `bin` written for the Node.js runtime that is intended to be installed from `npm` as a `devDependency` inside a `package.json` is committed to of a `git` repository. It can be used outside of this context, but it works best within it because it's primary job is helping build a website using dependencies from `npm`.
+`top-bun` is primarily a unix `bin` written for the [Node.js](https://nodejs.org) runtime that is intended to be installed from `npm` as a `devDependency` inside a `package.json` committed to a `git` repository.
+It can be used outside of this context, but it works best within it.
 
 ## Core Concepts
 
@@ -87,7 +89,7 @@ src % tree
 
 The core idea of `top-bun` is that a `src` directory of markdown, html and js "inner" documents will be transformed into layout wrapped html documents in the `dest` directory, along with page scoped js and css bundles, as well as a global stylesheet and global js bundle.
 
-It ships with sane defaults, so that you can point `top-bun` at a standard markdown documented repository and have it build a website with near zero preparation.
+It ships with sane defaults so that you can point `top-bun` at a standard [markdown documented repository](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github) and have it build a website with near-zero preparation.
 
 ## Pages
 
