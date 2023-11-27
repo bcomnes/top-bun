@@ -15,7 +15,7 @@
   "dependencies": {
     "top-bun": "../../.",
     "@socketsupply/tonic": "^15.1.1",
-    "jsdom": "^22.1.0",
+    "jsdom": "^23.0.0",
     "mine.css": "^9.0.1",
     "tonic-ssr": "github:socketsupply/tonic-ssr#f447a8ae2bec27a526ae489fa8510a1c646f4a66"
   },
