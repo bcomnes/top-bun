@@ -120,7 +120,7 @@ src/page-name/loose-md.md
 - `md` pages can have YAML frontmatter, with variables that are accessible to the page layout and handlebars template blocks when building.
 - You can include html in markdown files, so long as you adhere to the allowable markdown syntax around html tags.
 - `md` pages support [handlebars][hb] template placeholders.
-- You can disbale `md` page [handlebars][hb] processing by setting the `handlebars` variable to `false`.
+- You can disable `md` page [handlebars][hb] processing by setting the `handlebars` variable to `false`.
 - `md` pages support many [github flavored markdown features](https://github.com/bcomnes/siteup/blob/6481bd01e59e5d8a4bfcb33008f44a1405bf622b/lib/build-pages/page-builders/md/get-md.js#L25-L36).
 
 An example of a `md` page:
@@ -150,7 +150,7 @@ src/page-name/page.html
 - `html` pages are the simplest page type in `top-bun`. They let you build with raw html for when you don't want that page to have access to markdown features. Some pages are better off with just raw `html`.
 - `html` page variables can only be set in a `page.vars.js` file inside the page directory.
 - `html` pages support [handlebars][hb] template placeholders.
-- You can disbale `html` page [handlebars][hb] processing by setting the `handlebars` variable to `false`.
+- You can disable `html` page [handlebars][hb] processing by setting the `handlebars` variable to `false`.
 
 An example `html` page:
 
