@@ -488,7 +488,7 @@ export default function blogLayout (layoutVars) {
 
 Now the `blog.layout.js` becomes a nested layout of `root.layout.js`. No magic, just functions.
 
-Alternatively, you could compose your layouts from re-usable template functions and string. If you find your layouts nesting more than one or two levels, perhaps composition would be a better strategy.
+Alternatively, you could compose your layouts from re-usable template functions and strings. If you find your layouts nesting more than one or two levels, perhaps composition would be a better strategy.
 
 ### Layout styles
 
