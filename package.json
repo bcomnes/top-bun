@@ -43,7 +43,7 @@
     "markdown-it-ins": "^3.0.1",
     "markdown-it-mark": "^3.0.1",
     "markdown-it-sub": "^1.0.0",
-    "markdown-it-sup": "^1.0.0",
+    "markdown-it-sup": "^2.0.0",
     "markdown-it-table-of-contents": "^0.6.0",
     "markdown-it-task-lists": "^2.1.1",
     "mine.css": "^9.0.1",
