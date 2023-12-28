@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /* eslint-disable dot-notation */
 
-import minimist from 'minimist'
 // @ts-ignore
-import cliclopts from 'cliclopts'
 import { readFile } from 'node:fs/promises'
 import { resolve, join, relative } from 'node:path'
+import { parseArgs } from 'node:util'
+import { printHelpText } from 'argsclopts'
 import readline from 'node:readline'
 import desm from 'desm'
 import process from 'process'
@@ -25,6 +25,7 @@ import { askYesNo } from './lib/helpers/cli-prompt.js'
 /**
  * @typedef {import('./lib/builder.js').TopBunOpts} TopBunOpts
  * @typedef {import('./lib/builder.js').Results} Results
+ * @typedef {import('argsclopts').ArgscloptsParseArgsOptionsConfig} ArgscloptsParseArgsOptionsConfig
  */
 
 const __dirname = desm(import.meta.url)
@@ -35,55 +36,52 @@ async function getPkg () {
   return pkg
 }
 
-const clopts = cliclopts([
-  {
-    name: 'src',
-    abbr: 's',
-    help: 'path to source directory',
-    default: 'src'
+/** @type {ArgscloptsParseArgsOptionsConfig} */
+const options = {
+  src: {
+    type: 'string',
+    short: 's',
+    default: 'src',
+    help: 'path to source directory'
   },
-  {
-    name: 'dest',
-    abbr: 'd',
-    help: 'path to build destination directory',
-    default: 'public'
+  dest: {
+    type: 'string',
+    short: 'd',
+    default: 'public',
+    help: 'path to build destination directory'
   },
-  {
-    name: 'ignore',
-    abbr: 'i',
+  ignore: {
+    type: 'string',
+    short: 'i',
     help: 'comma separated gitignore style ignore string'
   },
-  {
-    name: 'eject',
-    abbr: 'e',
+  eject: {
+    type: 'boolean',
+    short: 'e',
     help: 'eject the top bun default layout, style and client into the src flag directory'
   },
-  {
-    name: 'watch',
-    abbr: 'w',
-    help: 'build, watch and serve the site build',
-    Boolean: true
+  watch: {
+    type: 'boolean',
+    short: 'w',
+    help: 'build, watch and serve the site build'
   },
-  {
-    name: 'watch-only',
-    help: 'watch and build the src folder without serving',
-    Boolean: false
+  'watch-only': {
+    type: 'boolean',
+    help: 'watch and build the src folder without serving'
   },
-  {
-    name: 'help',
-    abbr: 'h',
-    help: 'show help',
-    Boolean: true
+  help: {
+    type: 'boolean',
+    short: 'h',
+    help: 'show help'
   },
-  {
-    name: 'version',
-    abbr: 'v',
-    boolean: true,
+  version: {
+    type: 'boolean',
+    short: 'v',
     help: 'show version information'
   }
-])
+}
 
-const argv = minimist(process.argv.slice(2), clopts.options())
+const { values: argv } = parseArgs({ options })
 
 async function run () {
   if (argv['version']) {
@@ -94,15 +92,23 @@ async function run () {
 
   if (argv['help']) {
     const pkg = await getPkg()
-    console.log('Usage: top-bun [options]\n')
-    console.log('    Example: top-bun --src website --dest public\n')
-    clopts.print()
-    console.log(`top-bun (v${pkg.version})`)
+    await printHelpText({
+      options,
+      name: pkg.name,
+      version: pkg.version,
+      exampleFn: ({ name }) => '    ' + `Example: ${name} --src website --dest public\n`
+    })
+
     process.exit(0)
   }
   const cwd = process.cwd()
-  const src = resolve(join(cwd, argv['src']))
-  const dest = resolve(join(cwd, argv['dest']))
+  const srcFlag = String(argv['src'])
+  const destFlag = String(argv['dest'])
+  if (!srcFlag) throw new Error('The src flag is required')
+  if (!destFlag) throw new Error('The dest flag is required')
+
+  const src = resolve(join(cwd, srcFlag))
+  const dest = resolve(join(cwd, destFlag))
 
   // Eject task
   if (argv['eject']) {
@@ -181,7 +187,7 @@ top-bun eject actions:
   /** @type {TopBunOpts} */
   const opts = {}
 
-  if (argv['ignore']) opts.ignore = argv['ignore'].split(',')
+  if (argv['ignore']) opts.ignore = String(argv['ignore']).split(',')
 
   const topBun = new TopBun(src, dest, opts)
 
