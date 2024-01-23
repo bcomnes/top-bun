@@ -48,7 +48,7 @@
     "markdown-it-task-lists": "^2.1.1",
     "mine.css": "^9.0.1",
     "p-map": "^7.0.0",
-    "package-json": "^8.1.1",
+    "package-json": "^9.0.0",
     "pkg-dir": "^8.0.0",
     "pretty": "^2.0.0",
     "pretty-tree": "^1.0.0",
