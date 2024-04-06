@@ -62,7 +62,7 @@
     "@types/markdown-it": "^13.0.5",
     "@types/markdown-it-footnote": "^3.0.2",
     "@types/node": "^20.8.4",
-    "@voxpelli/tsconfig": "^9.0.0",
+    "@voxpelli/tsconfig": "^11.0.0",
     "auto-changelog": "^2.0.0",
     "dependency-cruiser": "^16.0.0",
     "gh-release": "^7.0.0",
@@ -71,7 +71,7 @@
     "snazzy": "^9.0.0",
     "standard": "^17.0.0",
     "tap": "^18.4.0",
-    "typescript": "~5.2.2"
+    "typescript": "~5.4.4"
   },
   "homepage": "https://github.com/bcomnes/top-bun",
   "keywords": [],
