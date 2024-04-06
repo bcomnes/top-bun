@@ -31,7 +31,7 @@ Usage: top-bun [options]
     --src, -s             path to source directory (default: "src")
     --dest, -d            path to build destination directory (default: "public")
     --ignore, -i          comma separated gitignore style ignore string
-    --watch, -w           build, watch and serve the site build
+    --noEsbuildMeta       skip writing the esbuild metafile to disk
     --watch-only          watch and build the src directory without serving
     --help, -h            show help
     --version, -v         show version information

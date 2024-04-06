@@ -101,6 +101,8 @@ tap.test('general-features', async (t) => {
       const hasPageStyleHeader = headLinks.map(n => n?.attribs?.['href']).some(href => href && href.match(/\.\/style-([A-Z0-9])\w+.css/g))
       const generatedPageStyle = files.some(f => f.relname.match(/style-([A-Z0-9])\w+.css/g))
 
+      const wroteTopBunEsbuildMetaFile = files.find(f => f.relname.match(/top-bun-esbuild-meta.json/g))
+
       t.equal(
         hasGlboalClientHeader,
         globalAssets.globalClient,
@@ -137,6 +139,11 @@ tap.test('general-features', async (t) => {
         `${filePath} ${assertions.client
             ? 'Includes'
             : 'Does not include'} a page style header`)
+
+      t.ok(
+        wroteTopBunEsbuildMetaFile,
+        'wrote out the top-bun-esbuild-meta.json file'
+      )
 
       if (hasPageStyleHeader) { // covering for loose files
         t.equal(
