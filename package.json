@@ -59,7 +59,7 @@
   "devDependencies": {
     "@types/browser-sync": "^2.27.3",
     "@types/js-yaml": "^4.0.8",
-    "@types/markdown-it": "^13.0.5",
+    "@types/markdown-it": "^14.0.0",
     "@types/markdown-it-footnote": "^3.0.2",
     "@types/node": "^20.8.4",
     "@voxpelli/tsconfig": "^11.0.0",
