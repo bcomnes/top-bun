@@ -71,7 +71,7 @@
     "snazzy": "^9.0.0",
     "standard": "^17.0.0",
     "tap": "^19.0.0",
-    "typescript": "~5.4.4"
+    "typescript": "~5.5.0-beta"
   },
   "homepage": "https://github.com/bcomnes/top-bun",
   "keywords": [],

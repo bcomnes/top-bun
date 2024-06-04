@@ -23,9 +23,8 @@ import { generateTreeData } from './lib/helpers/generate-tree-data.js'
 import { askYesNo } from './lib/helpers/cli-prompt.js'
 
 /**
- * @typedef {import('./lib/builder.js').TopBunOpts} TopBunOpts
- * @typedef {import('./lib/builder.js').Results} Results
- * @typedef {import('argsclopts').ArgscloptsParseArgsOptionsConfig} ArgscloptsParseArgsOptionsConfig
+ * @import {TopBunOpts} from './lib/builder.js'
+ * @import { ArgscloptsParseArgsOptionsConfig } from 'argsclopts'
  */
 
 const __dirname = desm(import.meta.url)

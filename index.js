@@ -17,8 +17,7 @@ import { TopBunAggregateError } from './lib/helpers/top-bun-aggregate-error.js'
 const ignore = ignoreExport.default
 
 /**
- * @typedef {import('./lib/builder.js').TopBunOpts} TopBunOpts
- * @typedef {import('./lib/builder.js').Results} Results
+ * @import { TopBunOpts, Results } from './lib/builder.js'
 */
 
 /**
