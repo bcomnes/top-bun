@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable dot-notation */
 
 // @ts-ignore
 import { readFile } from 'node:fs/promises'
@@ -41,47 +40,47 @@ const options = {
     type: 'string',
     short: 's',
     default: 'src',
-    help: 'path to source directory'
+    help: 'path to source directory',
   },
   dest: {
     type: 'string',
     short: 'd',
     default: 'public',
-    help: 'path to build destination directory'
+    help: 'path to build destination directory',
   },
   ignore: {
     type: 'string',
     short: 'i',
-    help: 'comma separated gitignore style ignore string'
+    help: 'comma separated gitignore style ignore string',
   },
   noEsbuildMeta: {
     type: 'boolean',
-    help: 'skip writing the esbuild metafile to disk'
+    help: 'skip writing the esbuild metafile to disk',
   },
   eject: {
     type: 'boolean',
     short: 'e',
-    help: 'eject the top bun default layout, style and client into the src flag directory'
+    help: 'eject the top bun default layout, style and client into the src flag directory',
   },
   watch: {
     type: 'boolean',
     short: 'w',
-    help: 'build, watch and serve the site build'
+    help: 'build, watch and serve the site build',
   },
   'watch-only': {
     type: 'boolean',
-    help: 'watch and build the src folder without serving'
+    help: 'watch and build the src folder without serving',
   },
   help: {
     type: 'boolean',
     short: 'h',
-    help: 'show help'
+    help: 'show help',
   },
   version: {
     type: 'boolean',
     short: 'v',
-    help: 'show version information'
-  }
+    help: 'show version information',
+  },
 }
 
 const { values: argv } = parseArgs({ options })
@@ -99,7 +98,7 @@ async function run () {
       options,
       name: pkg.name,
       version: pkg.version,
-      exampleFn: ({ name }) => '    ' + `Example: ${name} --src website --dest public\n`
+      exampleFn: ({ name }) => '    ' + `Example: ${name} --src website --dest public\n`,
     })
 
     process.exit(0)
@@ -117,7 +116,7 @@ async function run () {
   if (argv['eject']) {
     const rl = readline.createInterface({
       input: process.stdin,
-      output: process.stdout
+      output: process.stdout,
     })
 
     const localPkg = await packageDirectory({ cwd: src })
@@ -170,7 +169,7 @@ top-bun eject actions:
     await Promise.all([
       copyFile(defaultLayoutPath, join(src, targetLayoutPath)),
       copyFile(defaultGlobalStylePath, join(src, targetGlobalStylePath)),
-      copyFile(defaultGlobalClientPath, join(src, targetGlobalClientPath))
+      copyFile(defaultGlobalClientPath, join(src, targetGlobalClientPath)),
     ])
 
     await addPackageDependencies(
@@ -179,8 +178,8 @@ top-bun eject actions:
         dependencies: {
           'mine.css': mineVersion,
           'uhtml-isomorphic': uhtmlVersion,
-          'highlight.js': highlightVersion
-        }
+          'highlight.js': highlightVersion,
+        },
       })
 
     console.log('Done ejecting files!')
@@ -240,7 +239,7 @@ top-bun eject actions:
     }
   } else {
     const initialResults = await topBun.watch({
-      serve: !argv['watch-only']
+      serve: !argv['watch-only'],
     })
     console.log(tree(generateTreeData(cwd, src, dest, initialResults)))
     if (initialResults?.warnings?.length > 0) {

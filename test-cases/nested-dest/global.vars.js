@@ -1,3 +1,3 @@
 export default {
-  siteName: 'Default Layout Test'
+  siteName: 'Default Layout Test',
 }

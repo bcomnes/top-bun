@@ -67,9 +67,9 @@
     "dependency-cruiser": "^16.0.0",
     "gh-release": "^7.0.0",
     "jsonfeed-to-atom": "^1.2.4",
+    "neostandard": "^0.6.0",
     "npm-run-all2": "^6.0.0",
     "snazzy": "^9.0.0",
-    "standard": "^17.0.0",
     "tap": "^19.0.0",
     "typescript": "~5.5.0-beta"
   },
@@ -87,7 +87,7 @@
     "version:changelog": "auto-changelog -p --template keepachangelog auto-changelog --breaking-pattern 'BREAKING CHANGE:'",
     "version:git": "git add CHANGELOG.md",
     "test": "npm run clean && run-s test:*",
-    "test:standard": "standard --verbose | snazzy",
+    "test:neostandard": "eslint . --ignore-pattern 'test-cases/build-errors/src/**/*.js' --ignore-pattern 'test-cases/page-build-errors/src/**/*.js'",
     "test:tap": "tap",
     "test:tsc": "tsc",
     "test:deptree": "depcruise --validate .dependency-cruiser.json bin.js",
@@ -113,12 +113,6 @@
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/bcomnes"
-  },
-  "standard": {
-    "ignore": [
-      "test-cases/build-errors/src/**/*.js",
-      "test-cases/page-build-errors/src/**/*.js"
-    ]
   },
   "tap": {
     "typecheck": false,

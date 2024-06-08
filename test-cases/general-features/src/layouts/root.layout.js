@@ -23,11 +23,11 @@ import { html, render } from 'uhtml-isomorphic'
 export default function defaultRootLayout ({
   vars: {
     title,
-    siteName = 'TopBun'
+    siteName = 'TopBun',
   },
   scripts,
   styles,
-  children
+  children,
   /* pages */
 }) {
   return render(String, html`

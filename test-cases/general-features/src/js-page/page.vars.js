@@ -1,3 +1,3 @@
 export default {
-  somePageVars: 'foo'
+  somePageVars: 'foo',
 }

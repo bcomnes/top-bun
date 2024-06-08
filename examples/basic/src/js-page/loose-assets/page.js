@@ -18,5 +18,5 @@ export default async function JSPage () {
 }
 
 export const vars = {
-  title: 'JS Page with loose assets'
+  title: 'JS Page with loose assets',
 }

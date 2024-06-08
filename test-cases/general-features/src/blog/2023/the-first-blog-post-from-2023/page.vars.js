@@ -1,3 +1,3 @@
 export default {
-  blog: 'page-vars'
+  blog: 'page-vars',
 }

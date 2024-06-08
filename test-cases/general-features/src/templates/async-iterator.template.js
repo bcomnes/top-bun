@@ -10,15 +10,15 @@
 export default async function * ({
   vars: {
     foo,
-    testVar
-  }
+    testVar,
+  },
 }) {
   // First item
   yield {
     content: `Hello world
 
 This is just a file with access to global vars: ${foo}`,
-    outputName: 'async-iterator-1.txt'
+    outputName: 'async-iterator-1.txt',
   }
 
   // Second item
@@ -26,6 +26,6 @@ This is just a file with access to global vars: ${foo}`,
     content: `Hello world again
 
 This is just a file with access to global vars: ${testVar}`,
-    outputName: 'async-iterator-2.txt'
+    outputName: 'async-iterator-2.txt',
   }
 }

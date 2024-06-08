@@ -1,4 +1,3 @@
-/* eslint-disable dot-notation */
 import tap from 'tap'
 import desm from 'desm'
 import { TopBun } from '../../index.js'
@@ -21,50 +20,50 @@ tap.test('general-features', async (t) => {
 
   const globalAssets = {
     globalStyle: true,
-    globalClient: true
+    globalClient: true,
   }
 
   const pages = {
     'index.html': {
       client: true,
-      style: true
+      style: true,
     },
     'md-page/index.html': {
       client: true,
-      style: true
+      style: true,
     },
     'md-page/loose-md.html': {
       client: false,
-      style: false
+      style: false,
     },
     'md-page/md-no-style-client/index.html': {
       client: false,
-      style: false
+      style: false,
     },
     'js-page/index.html': {
       client: true,
-      style: true
+      style: true,
     },
     'js-page/loose-md.html': {
       client: false,
-      style: false
+      style: false,
     },
     'js-page/js-no-style-client/index.html': {
       client: false,
-      style: false
+      style: false,
     },
     'js-page/js-no-async-export/index.html': {
       client: false,
-      style: false
+      style: false,
     },
     'html-page/index.html': {
       client: true,
-      style: true
+      style: true,
     },
     'html-page/html-no-style-client/index.html': {
       client: false,
-      style: false
-    }
+      style: false,
+    },
   }
 
   const files = await allFiles(dest, { shaper: fwData => fwData })

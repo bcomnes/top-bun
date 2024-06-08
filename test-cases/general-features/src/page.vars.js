@@ -7,7 +7,7 @@ import { html, render } from 'uhtml-isomorphic'
  */
 
 export default () => ({
-  testVar: 'page.vars'
+  testVar: 'page.vars',
 })
 
 /**
@@ -19,7 +19,7 @@ export default () => ({
  * }>}
  */
 export async function postVars ({
-  pages
+  pages,
 }) {
   const blogPosts = pages
     .filter(page => page.vars.layout === 'blog' && page.vars.publishDate)
@@ -47,6 +47,6 @@ export async function postVars ({
 `)
 
   return {
-    blogPostsHtml
+    blogPostsHtml,
   }
 }

@@ -1,3 +1,3 @@
 export default {
-  someHtmlvars: 'foo-bar'
+  someHtmlvars: 'foo-bar',
 }

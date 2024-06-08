@@ -1,3 +1,3 @@
 export default async () => ({
-  mdPageVars: true
+  mdPageVars: true,
 })

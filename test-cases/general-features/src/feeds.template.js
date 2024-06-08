@@ -1,4 +1,3 @@
-/* eslint-disable dot-notation */
 import pMap from 'p-map'
 // @ts-ignore
 import jsonfeedToAtom from 'jsonfeed-to-atom'
@@ -27,9 +26,9 @@ export default async function * feedsTemplate ({
     authorName,
     authorUrl,
     authorImgUrl,
-    siteDescription
+    siteDescription,
   },
-  pages
+  pages,
 }) {
   const blogPosts = pages
     // @ts-ignore
@@ -47,27 +46,27 @@ export default async function * feedsTemplate ({
     author: {
       name: authorName,
       url: authorUrl,
-      avatar: authorImgUrl
+      avatar: authorImgUrl,
     },
     items: await pMap(blogPosts, async (page) => {
       return {
-        // eslint-disable-next-line dot-notation
+
         date_published: page.vars['publishDate'],
         title: page.vars['title'],
         url: `${homePageUrl}/${page.pageInfo.path}/`,
         id: `${homePageUrl}/${page.pageInfo.path}/#${page.vars['publishDate']}`,
-        content_html: await page.renderInnerPage({ pages })
+        content_html: await page.renderInnerPage({ pages }),
       }
-    }, { concurrency: 4 })
+    }, { concurrency: 4 }),
   }
 
   yield {
     content: JSON.stringify(jsonFeed, null, '  '),
-    outputName: './feeds/feed.json'
+    outputName: './feeds/feed.json',
   }
 
   yield {
     content: jsonfeedToAtom(jsonFeed),
-    outputName: './feeds/feed.xml'
+    outputName: './feeds/feed.xml',
   }
 }

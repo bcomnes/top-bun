@@ -1,3 +1,3 @@
 export default {
-  handlebars: false
+  handlebars: false,
 }

@@ -12,11 +12,11 @@ import { html, render } from 'uhtml-isomorphic'
 export default async function RootLayout ({
   vars: {
     title,
-    siteName
+    siteName,
   },
   scripts,
   styles,
-  children
+  children,
 }) {
   return render(String, html`
     <!DOCTYPE html>

@@ -92,9 +92,9 @@ export class TopBun {
    * @return {Promise<Results>}
    */
   async watch ({
-    serve
+    serve,
   } = {
-    serve: true
+    serve: true,
   }) {
     if (this.watching) throw new Error('Already watching.')
 
@@ -116,7 +116,7 @@ export class TopBun {
       this.#browserSyncServer = bs
       bs.watch(basename(this.#dest), { ignoreInitial: true }).on('change', bs.reload)
       bs.init({
-        server: this.#dest
+        server: this.#dest,
       })
     }
 
@@ -142,7 +142,7 @@ export class TopBun {
 
     const watcher = chokidar.watch(`${this.#src}/**/*.+(js|css|html|md)`, {
       ignored: anymatch,
-      persistent: true
+      persistent: true,
     })
 
     this._watcher = watcher

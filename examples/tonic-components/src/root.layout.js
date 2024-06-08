@@ -6,10 +6,10 @@ export default async function RootLayout ({
     title,
     siteName,
     scripts,
-    head
+    head,
   },
   styles,
-  children
+  children,
 }) {
   return /* html */`
     <!DOCTYPE html>

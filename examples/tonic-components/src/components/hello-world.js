@@ -23,7 +23,7 @@ export class HelloWorld extends Tonic {
 
     const {
       greetings,
-      lang
+      lang,
     } = this.props
 
     return this.html`

@@ -1,5 +1,5 @@
 export default async function () {
   return {
-    siteName: 'Example site with tonic'
+    siteName: 'Example site with tonic',
   }
 }

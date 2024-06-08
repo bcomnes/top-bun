@@ -12,7 +12,7 @@ import { dirname, basename } from 'node:path'
  */
 export default async function blogIndex ({
   /** vars */
-  pages
+  pages,
 }) {
   const yearPages = pages.filter(page => dirname(page.pageInfo.path) === 'blog')
   return html`<div>
@@ -23,5 +23,5 @@ export default async function blogIndex ({
 }
 
 export const vars = {
-  somePageScopled: 'vars'
+  somePageScopled: 'vars',
 }

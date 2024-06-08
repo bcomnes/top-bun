@@ -11,8 +11,8 @@
  */
 export default async ({
   vars: {
-    foo
-  }
+    foo,
+  },
 }) => {
   return `Hello world
 

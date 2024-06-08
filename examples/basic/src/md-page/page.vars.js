@@ -4,5 +4,5 @@
 // Here we see that the title is overridden from the variables file.
 
 export default {
-  title: 'Nested Markdown Title From Var File'
+  title: 'Nested Markdown Title From Var File',
 }

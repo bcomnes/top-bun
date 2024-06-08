@@ -1,3 +1,3 @@
 export default {
-  someVar: 'value of the var'
+  someVar: 'value of the var',
 }

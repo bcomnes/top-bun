@@ -2,7 +2,7 @@ import { html } from 'uhtml-isomorphic'
 
 export default async function JSPage ({
   siteName,
-  title
+  title,
 }) {
   return html`
   <p>The js page is the only page type that can render the body with the set varibles.</p>
@@ -25,5 +25,5 @@ export default async function JSPage ({
 }
 
 export const vars = {
-  title: 'JS Page'
+  title: 'JS Page',
 }

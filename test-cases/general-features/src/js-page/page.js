@@ -5,5 +5,5 @@ export default async () => {
 }
 
 export const vars = {
-  somePageScopled: 'vars'
+  somePageScopled: 'vars',
 }
