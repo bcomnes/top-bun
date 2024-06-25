@@ -70,7 +70,7 @@
     "neostandard": "^0.7.0",
     "npm-run-all2": "^6.0.0",
     "snazzy": "^9.0.0",
-    "tap": "^19.0.0",
+    "tap": "^20.0.0",
     "typescript": "~5.5.0-beta"
   },
   "homepage": "https://github.com/bcomnes/top-bun",
