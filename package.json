@@ -67,7 +67,7 @@
     "dependency-cruiser": "^16.0.0",
     "gh-release": "^7.0.0",
     "jsonfeed-to-atom": "^1.2.4",
-    "neostandard": "^0.7.0",
+    "neostandard": "^0.8.0",
     "npm-run-all2": "^6.0.0",
     "snazzy": "^9.0.0",
     "tap": "^19.0.0",
