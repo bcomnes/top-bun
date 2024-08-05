@@ -31,6 +31,7 @@ Usage: top-bun [options]
     --src, -s             path to source directory (default: "src")
     --dest, -d            path to build destination directory (default: "public")
     --ignore, -i          comma separated gitignore style ignore string
+    --target, -t          comma separated target strings for esbuild
     --noEsbuildMeta       skip writing the esbuild metafile to disk
     --watch-only          watch and build the src directory without serving
     --help, -h            show help

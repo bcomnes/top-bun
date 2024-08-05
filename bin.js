@@ -53,6 +53,11 @@ const options = {
     short: 'i',
     help: 'comma separated gitignore style ignore string',
   },
+  target: {
+    type: 'string',
+    short: 't',
+    help: 'comma separated target strings for esbuild',
+  },
   noEsbuildMeta: {
     type: 'boolean',
     help: 'skip writing the esbuild metafile to disk',
@@ -190,6 +195,7 @@ top-bun eject actions:
   const opts = {}
 
   if (argv['ignore']) opts.ignore = String(argv['ignore']).split(',')
+  if (argv['target']) opts.target = String(argv['target']).split(',')
   if (argv['noEsbuildMeta']) opts.metafile = false
 
   const topBun = new TopBun(src, dest, opts)
