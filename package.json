@@ -1,7 +1,7 @@
 {
   "name": "top-bun",
   "description": "top-bun: a traditional web bakery made with html, md, css and js.",
-  "version": "7.3.3",
+  "version": "7.3.4",
   "type": "module",
   "main": "./index.js",
   "types": "index.d.ts",
@@ -14,8 +14,8 @@
     "url": "https://github.com/bcomnes/top-bun/issues"
   },
   "engines": {
-    "node": ">=18",
-    "npm": ">=9"
+    "node": ">=21",
+    "npm": ">=10"
   },
   "dependencies": {
     "argsclopts": "^1.0.4",
@@ -66,8 +66,9 @@
     "auto-changelog": "^2.4.0",
     "dependency-cruiser": "^16.3.3",
     "gh-release": "^7.0.2",
+    "installed-check": "^9.3.0",
     "jsonfeed-to-atom": "^1.2.5",
-    "neostandard": "^0.7.2",
+    "neostandard": "^0.11.2",
     "npm-run-all2": "^6.2.0",
     "snazzy": "^9.0.0",
     "tap": "^21.0.0",
@@ -87,6 +88,7 @@
     "version:changelog": "auto-changelog -p --template keepachangelog auto-changelog --breaking-pattern 'BREAKING CHANGE:'",
     "version:git": "git add CHANGELOG.md",
     "test": "npm run clean && run-s test:*",
+    "test:installed-check": "installed-check --ignore-dev",
     "test:neostandard": "eslint . --ignore-pattern 'test-cases/build-errors/src/**/*.js' --ignore-pattern 'test-cases/page-build-errors/src/**/*.js'",
     "test:tap": "tap",
     "test:tsc": "tsc",
