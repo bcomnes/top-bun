@@ -26,10 +26,6 @@ updates:
     directory: "/examples/string-layouts/"
     schedule:
       interval: "daily"
-  - package-ecosystem: "npm"
-    directory: "/examples/tonic-components/"
-    schedule:
-      interval: "daily"
   # Enable updates to github actions
   - package-ecosystem: "github-actions"
     directory: "/"
