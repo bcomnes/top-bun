@@ -3,7 +3,7 @@ import desm from 'desm'
 import { TopBun } from '../../index.js'
 import * as path from 'path'
 import { rm, stat, readFile } from 'fs/promises'
-import cheerio from 'cheerio'
+import * as cheerio from 'cheerio'
 import { allFiles } from 'async-folder-walker'
 
 const __dirname = desm(import.meta.url)
