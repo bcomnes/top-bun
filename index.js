@@ -18,6 +18,7 @@ const ignore = ignoreExport.default
 
 /**
  * @import { TopBunOpts, Results } from './lib/builder.js'
+ * @import { FSWatcher, Stats } from 'node:fs'
 */
 
 /**
@@ -53,7 +54,7 @@ export class TopBun {
   /** @type {string} */ #src = ''
   /** @type {string} */ #dest = ''
   /** @type {TopBunOpts} */ opts = {}
-  /** @type {chokidar.FSWatcher?} */ #watcher = null
+  /** @type {FSWatcher?} */ #watcher = null
   /** @type {any?} */ #cpxWatcher = null
   /** @type {browserSync.BrowserSyncInstance?} */ #browserSyncServer = null
 
@@ -63,7 +64,7 @@ export class TopBun {
    * @param {string} dest - The dest path of the page build
    * @param {TopBunOpts} [opts] - The options for the site build
    */
-  constructor (src, dest, opts = {}) {
+  constructor(src, dest, opts = {}) {
     assert(src, 'src is a required argument')
     assert(dest, 'dest is a required argument')
 
@@ -77,11 +78,11 @@ export class TopBun {
     this.opts = opts
   }
 
-  get watching () {
+  get watching() {
     return Boolean(this.#watcher)
   }
 
-  build () {
+  build() {
     return builder(this.#src, this.#dest, { static: true, ...this.opts })
   }
 
@@ -91,11 +92,11 @@ export class TopBun {
    * @param  {boolean} params.serve
    * @return {Promise<Results>}
    */
-  async watch ({
+  async watch({
     serve,
   } = {
-    serve: true,
-  }) {
+      serve: true,
+    }) {
     if (this.watching) throw new Error('Already watching.')
 
     /** @type Results */
@@ -140,8 +141,21 @@ export class TopBun {
 
     const anymatch = (/** @type {string} */name) => ig.ignores(relname(this.#src, name))
 
-    const watcher = chokidar.watch(`${this.#src}/**/*.+(js|css|html|md)`, {
-      ignored: anymatch,
+    const watcher = chokidar.watch(this.#src, {
+      /**
+     * Determines whether a given path should be ignored by the watcher.
+     *
+     * @param {string} filePath - The path to the file or directory.
+     * @param {Stats} [stats] - The stats object for the path (may be undefined).
+     * @returns {boolean} - Returns true if the path should be ignored.
+     */
+      ignored: (filePath, stats) => {
+        // Combine your existing 'anymatch' function with the new extension check
+        return (
+          anymatch(filePath) ||
+          Boolean((stats?.isFile() && !/\.(js|css|html|md)$/.test(filePath)))
+        )
+      },
       persistent: true,
     })
 
@@ -174,7 +188,7 @@ export class TopBun {
     return report
   }
 
-  async stopWatching () {
+  async stopWatching() {
     if ((!this.watching || !this.#cpxWatcher)) throw new Error('Not watching')
     if (this.#watcher) await this.#watcher.close()
     this.#cpxWatcher.close()
@@ -191,7 +205,7 @@ export class TopBun {
  * @param  {string} name The name string
  * @return {string}      the relname
  */
-function relname (root, name) {
+function relname(root, name) {
   return root === name ? basename(name) : relative(root, name)
 }
 
@@ -199,7 +213,7 @@ function relname (root, name) {
  * An error logger
  * @param  {Error | AggregateError | any } err The error to log
  */
-function errorLogger (err) {
+function errorLogger(err) {
   if (!(err instanceof Error || err instanceof AggregateError)) throw new Error('Non-error thrown', { cause: err })
   if ('results' in err) delete err.results
   console.error(inspect(err, { depth: 999, colors: true }))
@@ -212,7 +226,7 @@ function errorLogger (err) {
  * An build logger
  * @param  {Results} results
  */
-function buildLogger (results) {
+function buildLogger(results) {
   if (results?.warnings?.length > 0) {
     console.log(
       '\nThere were build warnings:\n'
