@@ -53,6 +53,11 @@ const options = {
     short: 'i',
     help: 'comma separated gitignore style ignore string',
   },
+  drafts: {
+    type: 'boolean',
+    help: 'Build draft pages with the `.draft.{md,js,html}` page suffix.',
+    default: false
+  },
   target: {
     type: 'string',
     short: 't',
@@ -197,6 +202,7 @@ top-bun eject actions:
   if (argv['ignore']) opts.ignore = String(argv['ignore']).split(',')
   if (argv['target']) opts.target = String(argv['target']).split(',')
   if (argv['noEsbuildMeta']) opts.metafile = false
+  if (argv['drafts']) opts.buildDrafts = true
 
   const topBun = new TopBun(src, dest, opts)
 

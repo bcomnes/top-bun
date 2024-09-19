@@ -31,6 +31,7 @@ Usage: top-bun [options]
     --src, -s             path to source directory (default: "src")
     --dest, -d            path to build destination directory (default: "public")
     --ignore, -i          comma separated gitignore style ignore string
+    --drafts              Build draft pages with the `.draft.{md,js,html}` page suffix.
     --target, -t          comma separated target strings for esbuild
     --noEsbuildMeta       skip writing the esbuild metafile to disk
     --watch-only          watch and build the src directory without serving
@@ -302,6 +303,19 @@ export default async () => {
 ```
 
 Page variable files have higher precedent than `global.vars.js` variables, but lower precedent than frontmatter or `vars` page exports.
+
+### Draft pages
+
+If you add a `.draft.{md,html,js}` to any of the page types, the page is considered a draft page.
+Draft pages are not built by default.
+If you pass the `--drafts` flag when building or watching, the draft pages will be built.
+When draft pages are omitted, they are completely ignored.
+
+Draft pages can be detected in layouts using the `page.draft === true` or `pages[n].draft === true` variable.
+It is a good idea to display something indicating the page is a draft in your templates so you don't get confused when working with the `--drafts` flag.
+
+Any static assets near draft pages will still be copied because static assets are processed in parallel from page generation (to keep things fast).
+If you have an idea on how to relate static assets to a draft page for omission, please open a discussion issue.
 
 ## Layouts
 
@@ -917,6 +931,7 @@ This `postVars` renders some html from page introspection of the last 5 blog pos
 - Markdown entrypoints are named README.md. This allows for the `src` folder to be fully navigable in GitHub and other git repo hosting providing a natural hosted CMS UI.
 - Real Node.js ESM from the start.
 - Garbage in, garbage out. Don't over-correct bad input.
+- Vanilla file types. Real file types. No weird syntax. Correct file extensions. Language tools should just work because you aren't doing anything weird or out of band.
 
 ## FAQ
 
