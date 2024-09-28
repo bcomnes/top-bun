@@ -23,6 +23,10 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "npm"
+    directory: "/examples/preact/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm"
     directory: "/examples/string-layouts/"
     schedule:
       interval: "daily"
