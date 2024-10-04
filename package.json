@@ -14,7 +14,7 @@
     "url": "https://github.com/bcomnes/top-bun/issues"
   },
   "engines": {
-    "node": ">=21",
+    "node": ">=22.0.0",
     "npm": ">=10"
   },
   "dependencies": {
@@ -24,7 +24,7 @@
     "cheerio": "^1.0.0-rc.10",
     "chokidar": "^4.0.0",
     "clean-deep": "^3.4.0",
-    "cpx2": "^7.0.1",
+    "cpx2": "^8.0.0",
     "desm": "^1.3.1",
     "esbuild": "^0.24.0",
     "handlebars": "^4.7.8",
