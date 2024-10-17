@@ -117,11 +117,13 @@
     "url": "https://github.com/sponsors/bcomnes"
   },
   "tap": {
-    "typecheck": false,
     "allow-incomplete-coverage": true,
     "coverage-report": [
       "text",
       "lcovonly"
+    ],
+    "plugin": [
+      "!@tapjs/typescript"
     ]
   }
 }
