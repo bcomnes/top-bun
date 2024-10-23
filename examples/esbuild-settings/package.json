@@ -1,0 +1,20 @@
+{
+  "name": "@top-bun/preact-example",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "npm run watch",
+    "build": "npm run clean && top-bun",
+    "clean": "rm -rf public && mkdir -p public",
+    "watch": "npm run clean && tb --watch"
+  },
+  "author": "Bret Comnes <bcomnes@gmail.com> (https://bret.io/)",
+  "license": "MIT",
+  "dependencies": {
+    "top-bun": "../../."
+  },
+  "devDependencies": {
+    "esbuild-plugin-polyfill-node": "^0.3.0",
+    "npm-run-all2": "^6.0.0"
+  }
+}
