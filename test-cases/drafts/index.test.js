@@ -1,12 +1,11 @@
 import tap from 'tap'
-import desm from 'desm'
 import { TopBun } from '../../index.js'
 import * as path from 'path'
 import { rm, stat, readFile } from 'fs/promises'
 import * as cheerio from 'cheerio'
 import { allFiles } from 'async-folder-walker'
 
-const __dirname = desm(import.meta.url)
+const __dirname = import.meta.dirname
 
 tap.test('drafts', async (t) => {
   const src = path.join(__dirname, './src')

@@ -6,7 +6,6 @@ import { resolve, join, relative } from 'node:path'
 import { parseArgs } from 'node:util'
 import { printHelpText } from 'argsclopts'
 import readline from 'node:readline'
-import desm from 'desm'
 import process from 'process'
 // @ts-ignore
 import tree from 'pretty-tree'
@@ -26,7 +25,7 @@ import { askYesNo } from './lib/helpers/cli-prompt.js'
  * @import { ArgscloptsParseArgsOptionsConfig } from 'argsclopts'
  */
 
-const __dirname = desm(import.meta.url)
+const __dirname = import.meta.dirname
 
 async function getPkg () {
   const pkgPath = resolve(__dirname, './package.json')
