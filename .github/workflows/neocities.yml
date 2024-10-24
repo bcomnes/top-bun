@@ -24,6 +24,7 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{env.node-version}}
+        check-latest: true
     - run: npm i
     - run: npm run build
 
