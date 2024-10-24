@@ -23,6 +23,7 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ env.node_version }}
+        check-latest: true
         # setting a registry enables the NODE_AUTH_TOKEN env variable where we can set an npm token.  REQUIRED
         registry-url: 'https://registry.npmjs.org'
     - run: npm i
