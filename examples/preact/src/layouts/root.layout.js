@@ -49,7 +49,10 @@ export default function defaultRootLayout ({
       ${render(html`
         <body class="safe-area-inset">
           <main class="mine-layout app-main">
-            ${typeof children === 'string' ? html([children]) : children /* Support both uhtml and string children. Optional. */}
+            ${typeof children === 'string'
+                ? html`<main class="mine-layout app-main" dangerouslySetInnerHTML="${{ __html: children }}"/>`
+                : html`<main class="mine-layout app-main">${children}</main>`
+            }
           </main>
         </body>
       `)}
