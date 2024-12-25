@@ -14,6 +14,7 @@ npm install top-bun
 ```
 
 - 🌎 [`top-bun` docs website](https://top-bun.org)
+- 💬 [Discord Chat](https://discord.gg/AVTsPRGeR9)
 - 📢 [v7 Announcement](https://bret.io/blog/2023/reintroducing-top-bun/)
 
 ## Table of Contents
