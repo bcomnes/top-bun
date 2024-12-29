@@ -113,7 +113,7 @@ $ npm start
 ### Additional examples
 
 Here are some additional external examples of larger top-bun projects.
-If you have an project that uses top-bun and could act as a nice example, please PR it to the list!
+If you have a project that uses top-bun and could act as a nice example, please PR it to the list!
 
 - [Blog Example](https://github.com/bcomnes/bret.io/)
 - [Isomorphic Static/Client App](https://github.com/hifiwi-fi/breadcrum.net/tree/master/packages/web/client)
