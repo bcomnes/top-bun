@@ -1,3 +1,5 @@
 # Preact example
 
-This is a preact example. 
+This is a preact example.
+
+[Isomorphic Component Rendering](./isomorphic/)

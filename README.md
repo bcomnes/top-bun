@@ -23,7 +23,7 @@ npm install top-bun
 
 ## Usage
 
-``` console
+```console
 $ top-bun --help
 Usage: top-bun [options]
 
@@ -94,6 +94,30 @@ src % tree
 The core idea of `top-bun` is that a `src` directory of markdown, html and js "inner" documents will be transformed into layout wrapped html documents in the `dest` directory, along with page scoped js and css bundles, as well as a global stylesheet and global js bundle.
 
 It ships with sane defaults so that you can point `top-bun` at a standard [markdown documented repository](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github) and have it build a website with near-zero preparation.
+
+## Examples
+
+A collection of examples can be found in the [`./examples`](./examples) folder.
+
+To run examples:
+
+```console
+$ git clone git@github.com:bcomnes/top-bun.git
+$ cd top-bun
+$ npm i
+$ npm run example:{example-name}
+$ npm i
+$ npm start
+```
+
+### Additional examples
+
+Here are some additional external examples of larger top-bun projects.
+If you have an project that uses top-bun and could act as a nice example, please PR it to the list!
+
+- [Blog Example](https://github.com/bcomnes/bret.io/)
+- [Isomorphic Static/Client App](https://github.com/hifiwi-fi/breadcrum.net/tree/master/packages/web/client)
+- [Zero-Conf Markdown Docs](https://github.com/bcomnes/deploy-to-neocities/blob/70b264bcb37fca5b21e45d6cba9265f97f6bfa6f/package.json#L38)
 
 ## Pages
 

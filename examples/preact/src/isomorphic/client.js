@@ -44,7 +44,7 @@ class App extends Component {
 }
 
 export const page = () => html`
-    <${App}/>
+    <${App} page="Isomorphic"/>
     <${Footer}>footer content here<//>
     <${Footer}>footer content here<//>
   `
