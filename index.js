@@ -4,7 +4,7 @@ import chokidar from 'chokidar'
 import { basename, relative } from 'path'
 // @ts-ignore
 import makeArray from 'make-array'
-import ignoreExport from 'ignore'
+import ignore from 'ignore'
 // @ts-ignore
 import cpx from 'cpx2'
 import { inspect } from 'util'
@@ -13,8 +13,6 @@ import browserSync from 'browser-sync'
 import { getCopyGlob } from './lib/build-static/index.js'
 import { builder } from './lib/builder.js'
 import { TopBunAggregateError } from './lib/helpers/top-bun-aggregate-error.js'
-
-const ignore = ignoreExport.default
 
 /**
  * @import { TopBunOpts, Results } from './lib/builder.js'
