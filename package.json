@@ -14,8 +14,7 @@
     "url": "https://github.com/bcomnes/top-bun/issues"
   },
   "engines": {
-    "node": ">=22.0.0",
-    "npm": ">=10"
+    "node": ">=22.0.0"
   },
   "dependencies": {
     "argsclopts": "^1.0.4",
