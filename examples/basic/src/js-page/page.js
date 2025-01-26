@@ -1,11 +1,13 @@
 import { html } from 'uhtml-isomorphic'
 
 export default async function JSPage ({
-  siteName,
-  title,
+  vars: {
+    siteName,
+    title,
+  }
 }) {
   return html`
-  <p>The js page is the only page type that can render the body with the set varibles.</p>
+  <p>The js page is the only page type that can render the body with the set variables.</p>
 
   <p>
     All you have to do is export a default function (async or sync) that returns a string, or any
