@@ -1,0 +1,25 @@
+{
+  "name": "@top-bun/preact-example",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "npm run watch",
+    "build": "npm run clean && top-bun",
+    "clean": "rm -rf public && mkdir -p public",
+    "watch": "npm run clean && tb --watch"
+  },
+  "author": "Bret Comnes <bcomnes@gmail.com> (https://bret.io/)",
+  "license": "MIT",
+  "dependencies": {
+    "@preact/signals": "^2.0.0",
+    "highlight.js": "^11.9.0",
+    "htm": "^3.1.1",
+    "mine.css": "^9.0.1",
+    "preact": "^10.24.0",
+    "preact-render-to-string": "^6.5.11",
+    "top-bun": "../../."
+  },
+  "devDependencies": {
+    "npm-run-all2": "^6.0.0"
+  }
+}
