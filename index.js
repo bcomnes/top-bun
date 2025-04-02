@@ -54,6 +54,8 @@ const DEFAULT_IGNORES = /** @type {const} */ ([
   'node_modules',
   'package.json',
   'package-lock.json',
+  'pnpm-lock.yaml',
+  'yarn.lock',
 ])
 
 /**
