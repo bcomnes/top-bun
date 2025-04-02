@@ -64,7 +64,7 @@ const DEFAULT_IGNORES = /** @type {const} */ ([
 export class TopBun {
   /** @type {string} */ #src = ''
   /** @type {string} */ #dest = ''
-  /** @type {CurrentOpts & { ignore: string[] }} */ opts
+  /** @type {Readonly<CurrentOpts & { ignore: string[] }>} */ opts
   /** @type {FSWatcher?} */ #watcher = null
   /** @type {any?} */ #cpxWatcher = null
   /** @type {browserSync.BrowserSyncInstance?} */ #browserSyncServer = null
