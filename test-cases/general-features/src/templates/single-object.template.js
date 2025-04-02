@@ -1,10 +1,5 @@
 /**
- * @template T
- * @typedef {import('../../../../index.js').TemplateFunction<T>} TemplateFunction
- */
-
-/**
- * @type {TemplateFunction<{
+ * @type {import('../../../../index.js').TemplateFunction<{
  * foo: string,
  * }>}
  */

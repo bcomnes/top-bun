@@ -20,27 +20,27 @@ import { TopBunAggregateError } from './lib/helpers/top-bun-aggregate-error.js'
 */
 
 /**
- * @template T extends Object.<string, any>
+ * @template {Record<string, any>} T
  * @typedef {import('./lib/build-pages/resolve-layout.js').LayoutFunction<T>} LayoutFunction
  */
 
 /**
- * @template T extends Object.<string, any>
+ * @template {Record<string, any>} T
  * @typedef {import('./lib/build-pages/resolve-vars.js').PostVarsFunction<T>} PostVarsFunction
  */
 
 /**
- * @template T extends Object.<string, any>
+ * @template {Record<string, any>} T
  * @typedef {import('./lib/build-pages/page-builders/page-writer.js').PageFunction<T>} PageFunction
  */
 
 /**
- * @template T extends Object.<string, any>
+ * @template {Record<string, any>} T
  * @typedef {import('./lib/build-pages/page-builders/template-builder.js').TemplateFunction<T>} TemplateFunction
  */
 
 /**
- * @template T extends Object.<string, any>
+ * @template {Record<string, any>} T
  * @typedef {import('./lib/build-pages/page-builders/template-builder.js').TemplateAsyncIterator<T>} TemplateAsyncIterator
  */
 
@@ -48,10 +48,23 @@ import { TopBunAggregateError } from './lib/helpers/top-bun-aggregate-error.js'
  * @typedef {import('./lib/build-pages/page-builders/template-builder.js').TemplateOutputOverride} TemplateOutputOverride
  */
 
+const DEFAULT_IGNORES = /** @type {const} */ ([
+  '.*',
+  'coverage',
+  'node_modules',
+  'package.json',
+  'package-lock.json',
+  'pnpm-lock.yaml',
+  'yarn.lock',
+])
+
+/**
+ * @template {TopBunOpts} [CurrentOpts=TopBunOpts]
+ */
 export class TopBun {
   /** @type {string} */ #src = ''
   /** @type {string} */ #dest = ''
-  /** @type {TopBunOpts} */ opts = {}
+  /** @type {Readonly<CurrentOpts & { ignore: string[] }>} */ opts
   /** @type {FSWatcher?} */ #watcher = null
   /** @type {any?} */ #cpxWatcher = null
   /** @type {browserSync.BrowserSyncInstance?} */ #browserSyncServer = null
@@ -60,20 +73,24 @@ export class TopBun {
    *
    * @param {string} src - The src path of the page build
    * @param {string} dest - The dest path of the page build
-   * @param {TopBunOpts} [opts] - The options for the site build
+   * @param {CurrentOpts} [opts] - The options for the site build
    */
-  constructor (src, dest, opts = {}) {
-    assert(src, 'src is a required argument')
-    assert(dest, 'dest is a required argument')
-
-    const defaultIgnore = ['.*', 'node_modules', basename(dest), 'package.json', 'pacakge-lock.json']
-
-    opts.ignore = defaultIgnore.concat(makeArray(opts.ignore))
+  constructor (src, dest, opts = /** @type {CurrentOpts} */ ({})) {
+    if (!src || typeof src !== 'string') throw new TypeError('src should be a (non-empty) string')
+    if (!dest || typeof dest !== 'string') throw new TypeError('dest should be a (non-empty) string')
+    if (!opts || typeof opts !== 'object') throw new TypeError('opts should be an object')
 
     this.#src = src
     this.#dest = dest
 
-    this.opts = opts
+    this.opts = {
+      ...opts,
+      ignore: [
+        ...DEFAULT_IGNORES,
+        basename(dest),
+        ...makeArray(opts.ignore),
+      ],
+    }
   }
 
   get watching () {

@@ -3,22 +3,18 @@ import pMap from 'p-map'
 import jsonfeedToAtom from 'jsonfeed-to-atom'
 
 /**
- * @template T
- * @typedef {import('../../../index.js').TemplateAsyncIterator<T>} TemplateAsyncIterator
+ * @type {import('../../../index.js').TemplateAsyncIterator<{
+ *  title: string,
+ *  layout: string,
+ *  siteName: string,
+ *  homePageUrl: string,
+ *  authorName: string,
+ *  authorUrl: string,
+ *  authorImgUrl: string,
+ *  publishDate: string,
+ *  siteDescription: string
+ * }>}
  */
-
-/** @type {TemplateAsyncIterator<{
-  *  title: string,
-  *  layout: string,
-  *  siteName: string,
-  *  homePageUrl: string,
-  *  authorName: string,
-  *  authorUrl: string,
-  *  authorImgUrl: string,
-  *  publishDate: string,
-  *  siteDescription: string
-  * }>}
-*/
 export default async function * feedsTemplate ({
   vars: {
     siteName,

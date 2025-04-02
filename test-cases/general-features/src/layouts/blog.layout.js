@@ -3,7 +3,7 @@ import defaultRootLayout from './root.layout.js'
 import { html } from 'uhtml-isomorphic'
 
 /**
- * @template T extends object
+ * @template {Record<string, any>} T
  * @typedef {import('../../../../index.js').LayoutFunction<T>} LayoutFunction
  */
 

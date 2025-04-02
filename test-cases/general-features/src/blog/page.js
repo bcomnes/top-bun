@@ -3,12 +3,7 @@ import { html } from 'uhtml-isomorphic'
 import { dirname, basename } from 'node:path'
 
 /**
- * @template T
- * @typedef {import('../../../../index.js').LayoutFunction<T>} LayoutFunction
- */
-
-/**
- * @type {LayoutFunction<{}>}
+ * @type {import('../../../../index.js').LayoutFunction<{}>}
  */
 export default async function blogIndex ({
   /** vars */
