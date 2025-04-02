@@ -50,6 +50,7 @@ import { TopBunAggregateError } from './lib/helpers/top-bun-aggregate-error.js'
 
 const DEFAULT_IGNORES = /** @type {const} */ ([
   '.*',
+  'coverage',
   'node_modules',
   'package.json',
   'package-lock.json',
