@@ -20,27 +20,27 @@ import { TopBunAggregateError } from './lib/helpers/top-bun-aggregate-error.js'
 */
 
 /**
- * @template T extends Object.<string, any>
+ * @template {Record<string, any>} T
  * @typedef {import('./lib/build-pages/resolve-layout.js').LayoutFunction<T>} LayoutFunction
  */
 
 /**
- * @template T extends Object.<string, any>
+ * @template {Record<string, any>} T
  * @typedef {import('./lib/build-pages/resolve-vars.js').PostVarsFunction<T>} PostVarsFunction
  */
 
 /**
- * @template T extends Object.<string, any>
+ * @template {Record<string, any>} T
  * @typedef {import('./lib/build-pages/page-builders/page-writer.js').PageFunction<T>} PageFunction
  */
 
 /**
- * @template T extends Object.<string, any>
+ * @template {Record<string, any>} T
  * @typedef {import('./lib/build-pages/page-builders/template-builder.js').TemplateFunction<T>} TemplateFunction
  */
 
 /**
- * @template T extends Object.<string, any>
+ * @template {Record<string, any>} T
  * @typedef {import('./lib/build-pages/page-builders/template-builder.js').TemplateAsyncIterator<T>} TemplateAsyncIterator
  */
 

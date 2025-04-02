@@ -3,7 +3,7 @@ import { html } from 'htm/preact'
 import { render } from 'preact-render-to-string'
 
 /**
- * @template T extends object
+ * @template {Record<string, any>} T
  * @typedef {import('../build-pages/resolve-layout.js').LayoutFunction<T>} LayoutFunction
  */
 

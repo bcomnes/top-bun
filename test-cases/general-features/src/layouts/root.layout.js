@@ -2,7 +2,7 @@
 import { html, render } from 'uhtml-isomorphic'
 
 /**
- * @template T extends object
+ * @template {Record<string, any>} T
  * @typedef {import('../../../../index.js').LayoutFunction<T>} LayoutFunction
  */
 

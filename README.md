@@ -397,7 +397,7 @@ The default `root.layout.js` is featured below, and is implemented with [`uhtml`
 import { html, render } from 'uhtml-isomorphic'
 
 /**
- * @template T extends object
+ * @template {Record<string, any>} T
  * @typedef {import('top-bun').LayoutFunction<T>} LayoutFunction
  */
 
@@ -460,7 +460,7 @@ import defaultRootLayout from './root.layout.js'
 import { html } from 'uhtml-isomorphic'
 
 /**
- * @template T extends object
+ * @template {Record<string, any>} T
  * @typedef {import('top-bun').LayoutFunction<T>} LayoutFunction
  */
 

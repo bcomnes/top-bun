@@ -2,7 +2,7 @@
 import { html, render } from 'uhtml-isomorphic'
 
 /**
- * @template T extends Object.<string, any>
+ * @template {Record<string, any>} T
  * @typedef {import('../../../index.js').PostVarsFunction<T>} PostVarsFunction
  */
 
