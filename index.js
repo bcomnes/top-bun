@@ -48,10 +48,13 @@ import { TopBunAggregateError } from './lib/helpers/top-bun-aggregate-error.js'
  * @typedef {import('./lib/build-pages/page-builders/template-builder.js').TemplateOutputOverride} TemplateOutputOverride
  */
 
+/**
+ * @template {TopBunOpts} [CurrentOpts=TopBunOpts]
+ */
 export class TopBun {
   /** @type {string} */ #src = ''
   /** @type {string} */ #dest = ''
-  /** @type {TopBunOpts} */ opts = {}
+  /** @type {CurrentOpts & { ignore: string[] }} */ opts
   /** @type {FSWatcher?} */ #watcher = null
   /** @type {any?} */ #cpxWatcher = null
   /** @type {browserSync.BrowserSyncInstance?} */ #browserSyncServer = null
@@ -60,20 +63,21 @@ export class TopBun {
    *
    * @param {string} src - The src path of the page build
    * @param {string} dest - The dest path of the page build
-   * @param {TopBunOpts} [opts] - The options for the site build
+   * @param {CurrentOpts} [opts] - The options for the site build
    */
-  constructor (src, dest, opts = {}) {
+  constructor (src, dest, opts = /** @type {CurrentOpts} */ ({})) {
     assert(src, 'src is a required argument')
     assert(dest, 'dest is a required argument')
 
     const defaultIgnore = ['.*', 'node_modules', basename(dest), 'package.json', 'pacakge-lock.json']
 
-    opts.ignore = defaultIgnore.concat(makeArray(opts.ignore))
-
     this.#src = src
     this.#dest = dest
 
-    this.opts = opts
+    this.opts = {
+      ...opts,
+      ignore: defaultIgnore.concat(makeArray(opts.ignore)),
+    }
   }
 
   get watching () {
