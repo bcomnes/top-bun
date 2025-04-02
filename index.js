@@ -76,8 +76,9 @@ export class TopBun {
    * @param {CurrentOpts} [opts] - The options for the site build
    */
   constructor (src, dest, opts = /** @type {CurrentOpts} */ ({})) {
-    assert(src, 'src is a required argument')
-    assert(dest, 'dest is a required argument')
+    if (!src || typeof src !== 'string') throw new TypeError('src should be a (non-empty) string')
+    if (!dest || typeof dest !== 'string') throw new TypeError('dest should be a (non-empty) string')
+    if (!opts || typeof opts !== 'object') throw new TypeError('opts should be an object')
 
     this.#src = src
     this.#dest = dest
