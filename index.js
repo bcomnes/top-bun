@@ -48,6 +48,13 @@ import { TopBunAggregateError } from './lib/helpers/top-bun-aggregate-error.js'
  * @typedef {import('./lib/build-pages/page-builders/template-builder.js').TemplateOutputOverride} TemplateOutputOverride
  */
 
+const DEFAULT_IGNORES = /** @type {const} */ ([
+  '.*',
+  'node_modules',
+  'package.json',
+  'package-lock.json',
+])
+
 /**
  * @template {TopBunOpts} [CurrentOpts=TopBunOpts]
  */
@@ -69,14 +76,16 @@ export class TopBun {
     assert(src, 'src is a required argument')
     assert(dest, 'dest is a required argument')
 
-    const defaultIgnore = ['.*', 'node_modules', basename(dest), 'package.json', 'pacakge-lock.json']
-
     this.#src = src
     this.#dest = dest
 
     this.opts = {
       ...opts,
-      ignore: defaultIgnore.concat(makeArray(opts.ignore)),
+      ignore: [
+        ...DEFAULT_IGNORES,
+        basename(dest),
+        ...makeArray(opts.ignore),
+      ],
     }
   }
 
