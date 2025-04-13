@@ -33,6 +33,7 @@ Usage: top-bun [options]
     --dest, -d            path to build destination directory (default: "public")
     --ignore, -i          comma separated gitignore style ignore string
     --drafts              Build draft pages with the `.draft.{md,js,html}` page suffix.
+    --copy                Path to directories to copy into dist; can be used multiple times
     --target, -t          comma separated target strings for esbuild
     --noEsbuildMeta       skip writing the esbuild metafile to disk
     --watch-only          watch and build the src directory without serving
@@ -586,6 +587,38 @@ These imports will include the `root.layout.js` layout assets into the `blog.lay
 ## Static assets
 
 All static assets in the `src` directory are copied 1:1 to the `public` directory. Any file in the `src` directory that doesn't end in `.js`, `.css`, `.html`, or `.md` is copied to the `dest` directory.
+
+### 📁 `--copy` directories
+
+You can specify directories to copy into your `dest` directory using the `--copy` flag. Everything in those directories will be copied as-is into the destination, including js, css, html and markdown, preserving the internal directory structure. Conflicting files are not detected or reported and will cause undefined behavior.
+
+Copy folders must live **outside** of the `src` directory.
+
+This is useful when you have legacy or archived site content that you want to include in your site, but don't want `top-bun` to process or modify it.
+In general, static content should live in your primary `src` directory, however for merging in old static assets over your top-bun build is sometimes easier to reason about when it's kept in a separate folder and isn't processed in any way.
+
+For example:
+
+```
+src/...
+oldsite/
+├── client.js
+├── hello.html
+└── styles/
+    └── globals.css
+```
+
+After build:
+
+```
+src/...
+oldsite/...
+public/
+├── client.js
+├── hello.html
+└── styles/
+    └── globals.css
+```
 
 ## Templates
 

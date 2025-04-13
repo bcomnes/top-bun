@@ -1,7 +1,7 @@
 import { once } from 'events'
 import assert from 'node:assert'
 import chokidar from 'chokidar'
-import { basename, relative } from 'path'
+import { basename, relative, resolve } from 'node:path'
 // @ts-ignore
 import makeArray from 'make-array'
 import ignore from 'ignore'
@@ -11,6 +11,7 @@ import { inspect } from 'util'
 import browserSync from 'browser-sync'
 
 import { getCopyGlob } from './lib/build-static/index.js'
+import { getCopyDirs } from './lib/build-copy/index.js'
 import { builder } from './lib/builder.js'
 import { TopBunAggregateError } from './lib/helpers/top-bun-aggregate-error.js'
 
@@ -66,7 +67,7 @@ export class TopBun {
   /** @type {string} */ #dest = ''
   /** @type {Readonly<CurrentOpts & { ignore: string[] }>} */ opts
   /** @type {FSWatcher?} */ #watcher = null
-  /** @type {any?} */ #cpxWatcher = null
+  /** @type {any[]?} */ #cpxWatchers = null
   /** @type {browserSync.BrowserSyncInstance?} */ #browserSyncServer = null
 
   /**
@@ -83,13 +84,28 @@ export class TopBun {
     this.#src = src
     this.#dest = dest
 
+    const copyDirs = opts?.copy ?? []
+
     this.opts = {
       ...opts,
       ignore: [
         ...DEFAULT_IGNORES,
         basename(dest),
+        ...copyDirs.map(dir => basename(dir)),
         ...makeArray(opts.ignore),
       ],
+    }
+
+    if (copyDirs && copyDirs.length > 0) {
+      const absDest = resolve(this.#dest)
+      for (const copyDir of copyDirs) {
+        // Copy dirs can be in the src dir (nested builds), but not in the dest dir.
+        const absCopyDir = resolve(copyDir)
+        const relToDest = relative(absDest, absCopyDir)
+        if (relToDest === '' || !relToDest.startsWith('..')) {
+          throw new Error(`copyDir ${copyDir} is within the dest directory`)
+        }
+      }
     }
   }
 
@@ -126,7 +142,12 @@ export class TopBun {
       report = err.results
     }
 
-    this.#cpxWatcher = cpx.watch(getCopyGlob(this.#src), this.#dest, { ignore: this.opts.ignore })
+    const copyDirs = getCopyDirs(this.opts.copy)
+
+    this.#cpxWatchers = [
+      cpx.watch(getCopyGlob(this.#src), this.#dest, { ignore: this.opts.ignore }),
+      ...copyDirs.map(copyDir => cpx.watch(copyDir, this.#dest))
+    ]
     if (serve) {
       const bs = browserSync.create()
       this.#browserSyncServer = bs
@@ -136,20 +157,22 @@ export class TopBun {
       })
     }
 
-    this.#cpxWatcher.on('watch-ready', () => {
-      console.log('Copy watcher ready')
+    this.#cpxWatchers.forEach(w => {
+      w.on('watch-ready', () => {
+        console.log('Copy watcher ready')
 
-      this.#cpxWatcher.on('copy', (/** @type{{ srcPath: string, dstPath: string }} */e) => {
-        console.log(`Copy ${e.srcPath} to ${e.dstPath}`)
+        w.on('copy', (/** @type{{ srcPath: string, dstPath: string }} */e) => {
+          console.log(`Copy ${e.srcPath} to ${e.dstPath}`)
+        })
+
+        w.on('remove', (/** @type{{ path: string }} */e) => {
+          console.log(`Remove ${e.path}`)
+        })
+
+        w.on('watch-error', (/** @type{Error} */err) => {
+          console.log(`Copy error: ${err.message}`)
+        })
       })
-
-      this.#cpxWatcher.on('remove', (/** @type{{ path: string }} */e) => {
-        console.log(`Remove ${e.path}`)
-      })
-    })
-
-    this.#cpxWatcher.on('watch-error', (/** @type{Error} */err) => {
-      console.log(`Copy error: ${err.message}`)
     })
 
     const ig = ignore().add(this.opts.ignore ?? [])
@@ -204,11 +227,13 @@ export class TopBun {
   }
 
   async stopWatching () {
-    if ((!this.watching || !this.#cpxWatcher)) throw new Error('Not watching')
-    if (this.#watcher) await this.#watcher.close()
-    this.#cpxWatcher.close()
+    if ((!this.watching || !this.#cpxWatchers)) throw new Error('Not watching')
+    if (this.#watcher) this.#watcher.close()
+    this.#cpxWatchers.forEach(w => {
+      w.close()
+    })
     this.#watcher = null
-    this.#cpxWatcher = null
+    this.#cpxWatchers = null
     this.#browserSyncServer?.exit() // This will kill the process
     this.#browserSyncServer = null
   }
