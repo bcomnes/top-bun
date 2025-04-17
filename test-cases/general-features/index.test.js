@@ -10,7 +10,7 @@ const __dirname = import.meta.dirname
 tap.test('general-features', async (t) => {
   const src = path.join(__dirname, './src')
   const dest = path.join(__dirname, './public')
-  const siteUp = new TopBun(src, dest)
+  const siteUp = new TopBun(src, dest, { copy: [path.join(__dirname, './copyfolder')] })
 
   await rm(dest, { recursive: true, force: true })
 
@@ -155,5 +155,17 @@ tap.test('general-features', async (t) => {
       console.error(e)
       t.fail(`Assertions failed on ${filePath}`)
     }
+  }
+
+  const expected = [
+    'client.js',
+    'hello.html',
+    'styles/globals.css'
+  ]
+
+  for (const rel of expected) {
+    const full = path.join(dest, 'oldsite', rel)
+    const st = await stat(full)
+    t.ok(st.isFile(), `oldsite/${rel} exists and is a file`)
   }
 })

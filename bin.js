@@ -80,6 +80,11 @@ const options = {
     type: 'boolean',
     help: 'watch and build the src folder without serving',
   },
+  copy: {
+    type: 'string',
+    help: 'path to directories to copy into dist; can be used multiple times',
+    multiple: true
+  },
   help: {
     type: 'boolean',
     short: 'h',
@@ -202,6 +207,11 @@ top-bun eject actions:
   if (argv['target']) opts.target = String(argv['target']).split(',')
   if (argv['noEsbuildMeta']) opts.metafile = false
   if (argv['drafts']) opts.buildDrafts = true
+  if (argv['copy']) {
+    const copyPaths = Array.isArray(argv['copy']) ? argv['copy'] : [argv['copy']]
+    // @ts-expect-error
+    opts.copy = copyPaths.map(p => resolve(cwd, p))
+  }
 
   const topBun = new TopBun(src, dest, opts)
 
