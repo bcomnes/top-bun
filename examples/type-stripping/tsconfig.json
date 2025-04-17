@@ -1,0 +1,19 @@
+{
+  "extends": "@voxpelli/tsconfig/node20.json",
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "erasableSyntaxOnly": true,
+    "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": true,
+    "verbatimModuleSyntax": true
+  },
+  "include": [
+    "**/*",
+  ],
+  "exclude": [
+    "**/*.js",
+    "node_modules",
+    "coverage",
+    ".github"
+  ]
+}

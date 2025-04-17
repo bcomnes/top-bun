@@ -6,7 +6,6 @@ on:
       - master
 
 env:
-  node-version: lts/*
   FORCE_COLOR: 1
 
 concurrency: # prevent concurrent deploys doing starnge things
@@ -23,7 +22,7 @@ jobs:
     - name: Use Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: ${{env.node-version}}
+        node-version-file: package.json
         check-latest: true
     - run: npm i
     - run: npm run build

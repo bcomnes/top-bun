@@ -8,8 +8,7 @@ on:
         required: true
 
 env:
-  node_version: lts/*
-  FORCE_COLOR: 2
+  FORCE_COLOR: 1
 
 jobs:
   version_and_release:
@@ -19,10 +18,10 @@ jobs:
       with:
         # fetch full history so things like auto-changelog work properly
         fetch-depth: 0
-    - name: Use Node.js ${{ env.node_version }}
+    - name: Use Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ env.node_version }}
+        node-version-file: package.json
         check-latest: true
         # setting a registry enables the NODE_AUTH_TOKEN env variable where we can set an npm token.  REQUIRED
         registry-url: 'https://registry.npmjs.org'
@@ -37,4 +36,3 @@ jobs:
         newversion: ${{ github.event.inputs.newversion }}
         github_token: ${{ secrets.GITHUB_TOKEN }} # built in actions token.  Passed tp gh-release if in use.
         npm_token: ${{ secrets.NPM_TOKEN }} # user set secret token generated at npm
-
