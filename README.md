@@ -592,7 +592,7 @@ All static assets in the `src` directory are copied 1:1 to the `public` director
 
 You can specify directories to copy into your `dest` directory using the `--copy` flag. Everything in those directories will be copied as-is into the destination, including js, css, html and markdown, preserving the internal directory structure. Conflicting files are not detected or reported and will cause undefined behavior.
 
-Copy folders must live **outside** of the `src` directory.
+Copy folders must live **outside** of the `dest` directory. Copy directories can be in the src directory allowing for nested builds. In this case they are added to the ignore glob and ignored by the rest of `top-bun`.
 
 This is useful when you have legacy or archived site content that you want to include in your site, but don't want `top-bun` to process or modify it.
 In general, static content should live in your primary `src` directory, however for merging in old static assets over your top-bun build is sometimes easier to reason about when it's kept in a separate folder and isn't processed in any way.
