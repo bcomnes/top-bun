@@ -1077,6 +1077,7 @@ Some notable features are included below, see the [roadmap](https://github.com/u
 - [x] Built in browsersync dev server
 - [x] Real default layout style builds
 - [x] Esbuild settings escape hatch
+- [x] Copy folders 
 - ...[See roadmap](https://github.com/users/bcomnes/projects/3/)
 
 ## History
