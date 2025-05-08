@@ -16,6 +16,7 @@ npm install top-bun
 - 🌎 [`top-bun` docs website](https://top-bun.org)
 - 💬 [Discord Chat](https://discord.gg/AVTsPRGeR9)
 - 📢 [v7 Announcement](https://bret.io/blog/2023/reintroducing-top-bun/)
+- 📘 [Full TypeScript Support](#typescript-support)
 
 ## Table of Contents
 
@@ -73,6 +74,12 @@ src % tree
 │        ├── page.html # Raw html pages are also supported. They support handlebars template blocks.
 │        ├── page.vars.js # pages can define page variables in a page.vars.js.
 │        └── style.css
+├── js-page
+│        └── page.js # A page can also just be a plain javascript function that returns content
+├── ts-page
+│        ├── client.ts # client bundles can be written in typescript via type stripping
+│        ├── page.vars.ts # pages can define page variables in a page.vars.js.
+│        └── page.ts # Anywhere you can use js in top-bun, you can also use typescript files. They compile via speedy type stripping.
 ├── feeds
 │        └── feeds.template.js # Templates let you generate any file you want from variables and page data.
 ├── layouts # layouts can live anywhere. The inner content of your page is slotted into your layout.
@@ -80,6 +87,7 @@ src % tree
 │        ├── blog.layout.css # layouts can define an additional layout style.
 │        ├── blog.layout.client.js # layouts can also define a layout client.
 │        ├── article.layout.js # layouts can extend other layouts, since they are just functions.
+│        ├── typescript.layout.ts # layouts can also be written in typescript
 │        └── root.layout.js # the default layout is called root.
 ├── globals # global assets can live anywhere. Here they are in a folder called globals.
 │        ├── global.client.js # you can define a global js client that loads on every page.
@@ -588,7 +596,7 @@ These imports will include the `root.layout.js` layout assets into the `blog.lay
 
 All static assets in the `src` directory are copied 1:1 to the `public` directory. Any file in the `src` directory that doesn't end in `.js`, `.css`, `.html`, or `.md` is copied to the `dest` directory.
 
-### 📁 `--copy` directories
+### `--copy` directories
 
 You can specify directories to copy into your `dest` directory using the `--copy` flag. Everything in those directories will be copied as-is into the destination, including js, css, html and markdown, preserving the internal directory structure. Conflicting files are not detected or reported and will cause undefined behavior.
 
@@ -926,18 +934,6 @@ Template files receive a similar set of variables:
 - `pages`: An array of [`PageData`](https://github.com/bcomnes/top-bun/blob/master/lib/build-pages/page-data.js) instances for every page in the site build. Use this array to introspect pages to generate feeds and index pages.
 - `template`: An object of the template file data being rendered.
 
-### Variable types
-
-The following types are exported from `top-bun`:
-
-```ts
-LayoutFunction<T>
-PostVarsFunction<T>
-PageFunction<T>
-TemplateFunction<T>
-TemplateAsyncIterator<T>
-```
-
 Where `T` is your set of variables in the `vars` object.
 
 ### `postVars` post processing variables (Advanced) {#postVars}
@@ -992,6 +988,115 @@ This `postVars` renders some html from page introspection of the last 5 blog pos
 \{{{ vars.blogPostsHtml }}}
 ```
 
+
+## TypeScript Support
+
+`top-bun` now supports **TypeScript** via native type-stripping in Node.js.
+
+- **Requires Node.js ≥23** *(built-in)* or **Node.js 22** with the `NODE_OPTIONS="--experimental-strip-types" top-bun` env variable.
+- Seamlessly mix `.ts`, `.mts`, `.cts` files alongside `.js`, `.mjs`, `.cjs`.
+- No explicit compilation step needed—Node.js handles type stripping at runtime.
+- Fully compatible with existing `top-bun` file naming conventions.
+
+### Supported File Types
+
+Anywhere you can use  a `.js`, `.mjs` or `.cjs` file in top-bun, you can now use `.ts`, `.mts`, `.cts`.
+When running in a Node.js context, [type-stripping](https://nodejs.org/api/typescript.html#type-stripping) is used.
+When running in a web client context, [esbuild](https://esbuild.github.io/content-types/#typescript) type stripping is used.
+Type stripping provides 0 type checking, so be sure to set up `tsc` and `tsconfig.json` so you can catch type errors while editing or in CI.
+
+### Recommended `tsconfig.json`
+
+Install [@voxpelli/tsconfig](https://ghub.io/@voxpelli/tsconfig) which provides type checking in `.js` and `.ts` files and preconfigured for `--no-emit` and extend with type stripping friendly rules:
+
+```json
+{
+  "extends": "@voxpelli/tsconfig/node20.json",
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "erasableSyntaxOnly": true,
+    "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": true,
+    "verbatimModuleSyntax": true
+  },
+  "include": [
+    "**/*",
+  ],
+  "exclude": [
+    "**/*.js",
+    "node_modules",
+    "coverage",
+    ".github"
+  ]
+}
+```
+
+### Using TypeScript with top-bun Types
+
+You can use `top-bun`'s built-in types to strongly type your layout, page, and template functions. The following types are available:
+
+```ts
+import type {
+  LayoutFunction,
+  PostVarsFunction,
+  PageFunction,
+  TemplateFunction,
+  TemplateAsyncIterator
+} from 'top-bun'
+```
+
+They are all generic and accept a variable template that you can develop and share between files.
+
+### TypeScript Examples
+
+#### Page Function
+
+```typescript
+// page.ts
+import type { PageFunction } from 'top-bun'
+
+export const vars = {
+  message: 'TypeScript pages are easy!'
+}
+
+const page: PageFunction<typeof vars> = async ({ vars }) => {
+  return `<h1>Hello from TypeScript!</h1><p>${vars.message}</p>`
+}
+
+export default page
+```
+
+#### Layout Function
+
+```typescript
+// root.layout.ts
+import type { LayoutFunction } from 'top-bun'
+import { html, render } from 'uhtml-isomorphic'
+
+type Vars = {
+  siteName: string,
+  title?: string
+}
+
+const layout: LayoutFunction<Vars> = ({ vars, scripts, styles, children }) => {
+  return render(String, html`
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>${vars.title ? `${vars.title} | ` : ''}${vars.siteName}</title>
+      ${styles?.map(style => html`<link rel="stylesheet" href="${style}">`)}
+      ${scripts?.map(script => html`<script type="module" src="${script}"></script>`)}
+    </head>
+    <body>
+      ${children}
+    </body>
+    </html>
+  `)
+}
+
+export default layout
+```
+
 ## Design Goals
 
 - Convention over configuration. All configuration should be optional, and at most it should be minimal.
@@ -1013,8 +1118,8 @@ This `postVars` renders some html from page introspection of the last 5 blog pos
 - Garbage in, garbage out. Don't over-correct bad input.
 - Conventions + standards. Vanilla file types. No new file extensions. No weird syntax to learn. Language tools should just work because you aren't doing anything weird or out of band.
 - Encourage directly runnable source files. Direct run is an incredible, undervalued feature more people should learn to use.
-- Support typescript, via ts-in-js and type stripping features when available.
-- Embrace the now. Limit support to pretend you are working in the future (technology predictions nearly always are wrong!)
+- Support typescript, via ts-in-js and type stripping features. Leave type checking to tsc.
+- Embrace the now. Limit support on features that let one pretend they are working with future ecosystem features e.g. pseudo esm (technology predictions nearly always are wrong!)
 
 ## FAQ
 
@@ -1077,7 +1182,9 @@ Some notable features are included below, see the [roadmap](https://github.com/u
 - [x] Built in browsersync dev server
 - [x] Real default layout style builds
 - [x] Esbuild settings escape hatch
-- [x] Copy folders 
+- [x] Copy folders
+- [x] Full Typescript support via native type stripping
+- [ ] JSX support in client bundles
 - ...[See roadmap](https://github.com/users/bcomnes/projects/3/)
 
 ## History
