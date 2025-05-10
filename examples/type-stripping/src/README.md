@@ -2,4 +2,5 @@
 
 This is a preact example.
 
-[Isomorphic Component Rendering](./isomorphic/)
+- [Isomorphic Component Rendering](./isomorphic/)
+- [tsx-client]('./isomorphic/')
