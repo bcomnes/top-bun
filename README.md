@@ -70,7 +70,7 @@ src % tree
 │               ├── client.js # nested pages are just pages, so they also can have a page scoped client and style.
 │               └── style.css
 ├── html-page
-│        ├── client.js
+│        ├── client.jsx # client bundles can also be written in .jsx/.tsx
 │        ├── page.html # Raw html pages are also supported. They support handlebars template blocks.
 │        ├── page.vars.js # pages can define page variables in a page.vars.js.
 │        └── style.css
@@ -315,6 +315,10 @@ import { someHelper } from '../helpers/foo.js'
 await someHelper()
 await funnyLibrary()
 ```
+
+#### .tsx/.jsx
+
+Client bundles support .jsx and .tsx. They default to preact, so if you want mainlain recat, customize your esbuild settings to load that instead.
 
 ### Page variable files
 
@@ -1184,7 +1188,7 @@ Some notable features are included below, see the [roadmap](https://github.com/u
 - [x] Esbuild settings escape hatch
 - [x] Copy folders
 - [x] Full Typescript support via native type stripping
-- [ ] JSX support in client bundles
+- [x] JSX+TSX support in client bundles
 - ...[See roadmap](https://github.com/users/bcomnes/projects/3/)
 
 ## History

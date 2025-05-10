@@ -1,5 +1,8 @@
 export default function ()  {
-  return `Hello world, from 2025. Also typescript`
+  return `
+  Hello world, from 2025. Also typescript
+  <div class="tsx-app"></div>
+  `
 }
 
 export const vars = {
