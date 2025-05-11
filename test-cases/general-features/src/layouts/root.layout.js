@@ -1,5 +1,5 @@
-// @ts-ignore
-import { html, render } from 'uhtml-isomorphic'
+import { html } from 'htm/preact'
+import { render } from 'preact-render-to-string'
 
 /**
  * @template {Record<string, any>} T
@@ -8,14 +8,14 @@ import { html, render } from 'uhtml-isomorphic'
 
 /**
  * @typedef {{
- * title: string
- * siteName: string,
- * authorImgUrl: string
- * authorName: string,
- * authorUrl: string,
- * authorImgAlt: string,
- * publishDate: string,
- * updatedDate?: string
+ *   title: string,
+ *   siteName: string,
+ *   authorImgUrl: string,
+ *   authorName: string,
+ *   authorUrl: string,
+ *   authorImgAlt: string,
+ *   publishDate: string,
+ *   updatedDate?: string
  * }} SiteVars
  */
 
@@ -23,34 +23,46 @@ import { html, render } from 'uhtml-isomorphic'
 export default function defaultRootLayout ({
   vars: {
     title,
-    siteName = 'TopBun',
+    siteName = 'TopBun'
   },
   scripts,
   styles,
-  children,
-  /* pages */
+  children
 }) {
-  return render(String, html`
-    <!DOCTYPE html>
-    <html>
+  const pageTitle = title && siteName
+    ? `${title} | ${siteName}`
+    : title || siteName
+
+  const head = render(html`
     <head>
-      <meta charset="utf-8">
-      <title>${title ? `${title}` : ''}${title && siteName ? ' | ' : ''}${siteName}</title>
+      <meta charset="utf-8" />
+      <title>${pageTitle}</title>
       <meta name="viewport" content="width=device-width, user-scalable=no" />
-      <meta itemprop="publisher" content="${siteName}">
-      <meta property="og:site_name" content="${siteName}">
-      ${scripts
-        ? scripts.map(script => html`<script type='module' src="${script}"></script>`)
-        : null}
-      ${styles
-        ? styles.map(style => html`<link rel="stylesheet" href=${style} />`)
-        : null}
+      <meta itemprop="publisher" content="${siteName}" />
+      <meta property="og:site_name" content="${siteName}" />
+      ${scripts?.map(script =>
+        html`<script type="module" src="${script}" />`
+      )}
+      ${styles?.map(style =>
+        html`<link rel="stylesheet" href="${style}" />`
+      )}
     </head>
-    <body class="safe-area-inset">
-      <main class="mine-layout">
-        ${typeof children === 'string' ? html([children]) : children /* Support both uhtml and string children. Optional. */}
+  `)
+
+  const body = render(html`
+    <body className="safe-area-inset">
+      <main className="mine-layout">
+        ${typeof children === 'string'
+          ? html`<div dangerouslySetInnerHTML="${{ __html: children }}" />`
+          : children
+        }
       </main>
     </body>
-    </html>
-`)
+  `)
+
+  return `<!DOCTYPE html>
+<html>
+  ${head}
+  ${body}
+</html>`
 }
