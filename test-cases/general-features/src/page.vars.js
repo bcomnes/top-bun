@@ -1,5 +1,5 @@
-// @ts-ignore
-import { html, render } from 'uhtml-isomorphic'
+import { html } from 'htm/preact'
+import { render } from 'preact-render-to-string'
 
 /**
  * @template {Record<string, any>} T
@@ -14,13 +14,11 @@ export default () => ({
  * @type {PostVarsFunction<{
  *   layout?: string,
  *   title?: string,
- *   publishDate?: string
+ *   publishDate?: string,
  *   blogPostsHtml: string
  * }>}
  */
-export async function postVars ({
-  pages,
-}) {
+export async function postVars ({ pages }) {
   const blogPosts = pages
     .filter(page => page.vars.layout === 'blog' && page.vars.publishDate)
     // @ts-ignore
@@ -28,25 +26,29 @@ export async function postVars ({
     .slice(0, 5)
 
   /** @type {string} */
-  const blogPostsHtml = render(String, html`<ul class="blog-index-list">
+  const blogPostsHtml = render(html`
+    <ul className="blog-index-list">
       ${blogPosts.map(p => {
         const publishDate = p.vars.publishDate ? new Date(p.vars.publishDate) : null
         return html`
-<li class="blog-entry h-entry">
-  <a class="blog-entry-link u-url u-uid p-name" href="/${p.pageInfo.path}/">${p.vars.title}</a>
-  ${publishDate
-      ? html`<time class="blog-entry-date dt-published" datetime="${publishDate.toISOString()}">
-          ${publishDate.toISOString().split('T')[0]}
-        </time>`
-      : null
-  }
-</li>
-`
-})}
+          <li className="blog-entry h-entry">
+            <a className="blog-entry-link u-url u-uid p-name" href="/${p.pageInfo.path}/">
+              ${p.vars.title}
+            </a>
+            ${publishDate
+              ? html`
+                  <time className="blog-entry-date dt-published" datetime="${publishDate.toISOString()}">
+                    ${publishDate.toISOString().split('T')[0]}
+                  </time>`
+              : null
+            }
+          </li>
+        `
+      })}
     </ul>
-`)
+  `)
 
   return {
-    blogPostsHtml,
+    blogPostsHtml
   }
 }
