@@ -20,7 +20,7 @@ import { render } from 'preact-render-to-string'
 export default function defaultRootLayout ({
   vars: {
     title,
-    siteName = 'TopBun',
+    siteName = 'Domstack',
     basePath,
     /* defaultStyle = true  Set this to false in global or page to disable the default style in the default layout */
   },

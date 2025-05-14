@@ -13,10 +13,10 @@ import browserSync from 'browser-sync'
 import { getCopyGlob } from './lib/build-static/index.js'
 import { getCopyDirs } from './lib/build-copy/index.js'
 import { builder } from './lib/builder.js'
-import { TopBunAggregateError } from './lib/helpers/top-bun-aggregate-error.js'
+import { DomStackAggregateError } from './lib/helpers/dom-stack-aggregate-error.js'
 
 /**
- * @import { TopBunOpts, Results } from './lib/builder.js'
+ * @import { DomStackOpts as DomStackOpts, Results } from './lib/builder.js'
  * @import { FSWatcher, Stats } from 'node:fs'
 */
 
@@ -60,9 +60,9 @@ const DEFAULT_IGNORES = /** @type {const} */ ([
 ])
 
 /**
- * @template {TopBunOpts} [CurrentOpts=TopBunOpts]
+ * @template {DomStackOpts} [CurrentOpts=DomStackOpts]
  */
-export class TopBun {
+export class DomStack {
   /** @type {string} */ #src = ''
   /** @type {string} */ #dest = ''
   /** @type {Readonly<CurrentOpts & { ignore: string[] }>} */ opts
@@ -118,7 +118,7 @@ export class TopBun {
   }
 
   /**
-   * Build and watch a top-bun build
+   * Build and watch a domstack build
    * @param  {object} [params]
    * @param  {boolean} params.serve
    * @return {Promise<Results>}
@@ -138,7 +138,7 @@ export class TopBun {
       console.log('Initial JS, CSS and Page Build Complete')
     } catch (err) {
       errorLogger(err)
-      if (!(err instanceof TopBunAggregateError)) throw new Error('Non-aggregate error thrown', { cause: err })
+      if (!(err instanceof DomStackAggregateError)) throw new Error('Non-aggregate error thrown', { cause: err })
       report = err.results
     }
 

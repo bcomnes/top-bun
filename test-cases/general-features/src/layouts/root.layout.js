@@ -23,7 +23,7 @@ import { render } from 'preact-render-to-string'
 export default function defaultRootLayout ({
   vars: {
     title,
-    siteName = 'TopBun'
+    siteName = 'DomStack',
   },
   scripts,
   styles,

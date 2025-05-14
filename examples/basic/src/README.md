@@ -1,7 +1,7 @@
 ---
 md-files: support yaml frontmatter!
 ---
-# Minimal top-bun example
+# Minimal domstack example
 
 This example demonstrates a example of a minimal website, no customization.
 

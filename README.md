@@ -1,20 +1,19 @@
-# 🥐 top-bun
-[![npm version](https://img.shields.io/npm/v/top-bun.svg)](https://npmjs.org/package/top-bun)
-[![Actions Status](https://github.com/bcomnes/top-bun/workflows/tests/badge.svg)](https://github.com/bcomnes/top-bun/actions)
-[![Coverage Status](https://coveralls.io/repos/github/bcomnes/top-bun/badge.svg?branch=master)](https://coveralls.io/github/bcomnes/top-bun?branch=master)
+# 🪢 DOMStack
+[![npm version](https://img.shields.io/npm/v/@domstack/cli.svg)](https://npmjs.org/package/@domstack/cli)
+[![Actions Status](https://github.com/bcomnes/domstack/workflows/tests/badge.svg)](https://github.com/bcomnes/domstack/actions)
+[![Coverage Status](https://coveralls.io/repos/github/bcomnes/domstack/badge.svg?branch=master)](https://coveralls.io/github/bcomnes/domstack?branch=master)
 [![Types in JS](https://img.shields.io/badge/types_in_js-yes-brightgreen)](https://github.com/voxpelli/types-in-js)
-[![Neocities][neocities-img]](https://top-bun.org)
+[![Neocities][neocities-img]](https://domstack.net)
 
-`top-bun`: a traditional web bakery made with html, md, css and js.
-
-<small>(A bakery themed static site generator that's as fun as making bread.)</small>
+`domstack`: Build websites with actual html, md, css and js, and now ts and jsx.
 
 ```console
-npm install top-bun
+npm install @domstack/cli
 ```
 
-- 🌎 [`top-bun` docs website](https://top-bun.org)
+- 🌎 [domstack docs website](https://domstack.net)
 - 💬 [Discord Chat](https://discord.gg/AVTsPRGeR9)
+- 📢 [v11 - top-bun is now domstack](https://bret.io/blog/2023/top-bun-is-now-domstack/)
 - 📢 [v7 Announcement](https://bret.io/blog/2023/reintroducing-top-bun/)
 - 📘 [Full TypeScript Support](#typescript-support)
 
@@ -25,10 +24,10 @@ npm install top-bun
 ## Usage
 
 ```console
-$ top-bun --help
-Usage: top-bun [options]
+$ domstack --help
+Usage: domstack [options]
 
-    Example: top-bun --src website --dest public
+    Example: domstack --src website --dest public
 
     --src, -s             path to source directory (default: "src")
     --dest, -d            path to build destination directory (default: "public")
@@ -42,22 +41,22 @@ Usage: top-bun [options]
     --copy                path to directories to copy into dist; can be used multiple times
     --help, -h            show help
     --version, -v         show version information
-top-bun (v10.5.1)
+domstack (v11.0.0)
 ```
 
-`top-bun` builds a `src` directory into a `dest` directory (default: `public`).
-`top-bun` is also aliased to a `tb` bin.
+`domstack` builds a `src` directory into a `dest` directory (default: `public`).
+`domstack` is also aliased to a `tb` bin.
 
-- Running `top-bun` will result in a `build` by default.
-- Running `top-bun --watch` or `top-bun -w` will build the site and start an auto-reloading development web-server that watches for changes.
-- Running `top-bun --eject` or `top-bun -e` will extract the default layout, global styles, and client-side JavaScript into your source directory and add the necessary dependencies to your package.json.
+- Running `domstack` will result in a `build` by default.
+- Running `domstack --watch` or `domstack -w` will build the site and start an auto-reloading development web-server that watches for changes.
+- Running `domstack --eject` or `domstack -e` will extract the default layout, global styles, and client-side JavaScript into your source directory and add the necessary dependencies to your package.json.
 
 `top-bun` is primarily a unix `bin` written for the [Node.js](https://nodejs.org) runtime that is intended to be installed from `npm` as a `devDependency` inside a `package.json` committed to a `git` repository.
 It can be used outside of this context, but it works best within it.
 
 ## Core Concepts
 
-`top-bun` builds a website from "pages" in a `src` directory, nearly 1:1 into a `dest` directory.
+`domstack` builds a website from "pages" in a `src` directory, nearly 1:1 into a `dest` directory.
 A `src` directory tree might look something like this:
 
 ```bash
@@ -82,7 +81,7 @@ src % tree
 ├── ts-page
 │        ├── client.ts # client bundles can be written in typescript via type stripping
 │        ├── page.vars.ts # pages can define page variables in a page.vars.js.
-│        └── page.ts # Anywhere you can use js in top-bun, you can also use typescript files. They compile via speedy type stripping.
+│        └── page.ts # Anywhere you can use js in domstack, you can also use typescript files. They compile via speedy type stripping.
 ├── feeds
 │        └── feeds.template.js # Templates let you generate any file you want from variables and page data.
 ├── layouts # layouts can live anywhere. The inner content of your page is slotted into your layout.
@@ -99,13 +98,13 @@ src % tree
 │        └── esbuild.settings.js # You can even customize the build settings passed to esbuild!
 ├── README.md # This is just a top level page built from a README.md file.
 ├── client.js # the top level page can define a page scoped js client.
-├── style.js # the top level page can define a page scoped Css style.
+├── style.js # the top level page can define a page scoped css style.
 └── favicon-16x16.png # static assets can live anywhere. Anything other than JS, CSS and HTML get copied over automatically.
 ```
 
-The core idea of `top-bun` is that a `src` directory of markdown, html and js "inner" documents will be transformed into layout wrapped html documents in the `dest` directory, along with page scoped js and css bundles, as well as a global stylesheet and global js bundle.
+The core idea of `domstack` is that a `src` directory of markdown, html and js "inner" documents will be transformed into layout wrapped html documents in the `dest` directory, along with page scoped js and css bundles, as well as a global stylesheet and global js bundle.
 
-It ships with sane defaults so that you can point `top-bun` at a standard [markdown documented repository](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github) and have it build a website with near-zero preparation.
+It ships with sane defaults so that you can point `domstack` at a standard [markdown documented repository](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github) and have it build a website with near-zero preparation.
 
 ## Examples
 
@@ -114,8 +113,8 @@ A collection of examples can be found in the [`./examples`](./examples) folder.
 To run examples:
 
 ```console
-$ git clone git@github.com:bcomnes/top-bun.git
-$ cd top-bun
+$ git clone git@github.com:bcomnes/domstack.git
+$ cd domstack
 $ npm i
 $ npm run example:{example-name}
 $ npm i
@@ -124,8 +123,8 @@ $ npm start
 
 ### Additional examples
 
-Here are some additional external examples of larger top-bun projects.
-If you have a project that uses top-bun and could act as a nice example, please PR it to the list!
+Here are some additional external examples of larger domstack projects.
+If you have a project that uses domstack and could act as a nice example, please PR it to the list!
 
 - [Blog Example](https://github.com/bcomnes/bret.io/)
 - [Isomorphic Static/Client App](https://github.com/hifiwi-fi/breadcrum.net/tree/master/packages/web/client)
@@ -187,7 +186,7 @@ src/page-name/page.html
 ```
 
 - `html` pages are named `page.html` inside an associated page folder.
-- `html` pages are the simplest page type in `top-bun`. They let you build with raw html for when you don't want that page to have access to markdown features. Some pages are better off with just raw `html`.
+- `html` pages are the simplest page type in `domstack`. They let you build with raw html for when you don't want that page to have access to markdown features. Some pages are better off with just raw `html`.
 - `html` page variables can only be set in a `page.vars.js` file inside the page directory.
 - `html` pages support [handlebars][hb] template placeholders.
 - You can disable `html` page [handlebars][hb] processing by setting the `handlebars` variable to `false`.
@@ -216,7 +215,7 @@ src/page-name/page.js
 - `js` pages consist of a named directory with a `page.js` inside of it, that exports a default function that returns the contents of the inner page.
 - a `js` page needs to `export default` a function (async or sync) that accepts a variables argument and returns a string of the inner html of the page, or any other type that your layout can accept.
 - A `js` page can export a `vars` object or function (async or sync) that takes highest variable precedence when rendering the page. `export vars` is similar to a `md` page's front matter.
-- A `js` page receives the standard `top-bun` [Variables](#variables) set.
+- A `js` page receives the standard `domstack` [Variables](#variables) set.
 - There is no built in handlebars support in `js` pages, however you are free to use any template library that you can import.
 - `js` pages are run in a Node.js context only.
 
@@ -237,7 +236,7 @@ export const vars = {
 }
 ```
 
-It is it's recommended to use some level of template processing over raw string templates so that html is well formed and you default escape variable values. Here is a more realistic `js` example that uses [`uhtml`](https://github.com/WebReflection/uhtml) and [types-in-js](https://github.com/voxpelli/types-in-js) and `top-bun` page introspection.
+It is it's recommended to use some level of template processing over raw string templates so that html is well formed and you default escape variable values. Here is a more realistic `js` example that uses [`uhtml`](https://github.com/WebReflection/uhtml) and [types-in-js](https://github.com/voxpelli/types-in-js) and `domstack` page introspection.
 
 
 ```js
@@ -247,7 +246,7 @@ import { dirname, basename } from 'node:path'
 
 /**
  * @template T
- * @typedef {import('top-bun').LayoutFunction<T>} LayoutFunction
+ * @typedef {import('domstack').LayoutFunction<T>} LayoutFunction
  */
 
 /**
@@ -374,7 +373,7 @@ src/layouts/root.layout.js # this layout is references as 'root'
 src/other-layouts/article.layout.js # this layout is references as 'article'
 ```
 
-At a minimum, your site requires a `root` layout (a file named `root.layout.js`), though `top-bun` ships a default `root` layout so defining one in your `src` directory is optional, though recommended.
+At a minimum, your site requires a `root` layout (a file named `root.layout.js`), though `domstack` ships a default `root` layout so defining one in your `src` directory is optional, though recommended.
 
 All pages have a `layout` variable that defaults to `root`. If you set the `layout` variable to a different name, pages will build with a layout matching the name you set to that variable.
 
@@ -414,7 +413,7 @@ import { html, render } from 'uhtml-isomorphic'
 
 /**
  * @template {Record<string, any>} T
- * @typedef {import('top-bun').LayoutFunction<T>} LayoutFunction
+ * @typedef {import('domstack').LayoutFunction<T>} LayoutFunction
  */
 
 /**
@@ -429,7 +428,7 @@ import { html, render } from 'uhtml-isomorphic'
 export default function defaultRootLayout ({
   vars: {
     title,
-    siteName = 'TopBun'
+    siteName = 'Domstack'
     /* defaultStyle = true  Set this to false in global or page vars to disable the default style in the default layout */
   },
   scripts,
@@ -462,7 +461,7 @@ export default function defaultRootLayout ({
 }
 ```
 
-If your `src` folder doesn't have a `root.layout.js` file somewhere in it, `top-bun` will use the default [`default.root.layout.js`](./lib/defaults/default.root.layout.js) file it ships. The default `root` layout includes a special boolean variable called `defaultStyle` that lets you disable a default page style (provided by [mine.css](http://github.com/bcomnes/mine.css)) that it ships with.
+If your `src` folder doesn't have a `root.layout.js` file somewhere in it, `domstack` will use the default [`default.root.layout.js`](./lib/defaults/default.root.layout.js) file it ships. The default `root` layout includes a special boolean variable called `defaultStyle` that lets you disable a default page style (provided by [mine.css](http://github.com/bcomnes/mine.css)) that it ships with.
 
 ### Nested layouts
 
@@ -477,7 +476,7 @@ import { html } from 'uhtml-isomorphic'
 
 /**
  * @template {Record<string, any>} T
- * @typedef {import('top-bun').LayoutFunction<T>} LayoutFunction
+ * @typedef {import('domstack').LayoutFunction<T>} LayoutFunction
  */
 
 /**
@@ -623,10 +622,10 @@ This is useful when you want to heavily customize the default theme or behavior 
 
 You can specify directories to copy into your `dest` directory using the `--copy` flag. Everything in those directories will be copied as-is into the destination, including js, css, html and markdown, preserving the internal directory structure. Conflicting files are not detected or reported and will cause undefined behavior.
 
-Copy folders must live **outside** of the `dest` directory. Copy directories can be in the src directory allowing for nested builds. In this case they are added to the ignore glob and ignored by the rest of `top-bun`.
+Copy folders must live **outside** of the `dest` directory. Copy directories can be in the src directory allowing for nested builds. In this case they are added to the ignore glob and ignored by the rest of `domstack`.
 
-This is useful when you have legacy or archived site content that you want to include in your site, but don't want `top-bun` to process or modify it.
-In general, static content should live in your primary `src` directory, however for merging in old static assets over your top-bun build is sometimes easier to reason about when it's kept in a separate folder and isn't processed in any way.
+This is useful when you have legacy or archived site content that you want to include in your site, but don't want `domstack` to process or modify it.
+In general, static content should live in your primary `src` directory, however for merging in old static assets over your domstack build is sometimes easier to reason about when it's kept in a separate folder and isn't processed in any way.
 
 For example:
 
@@ -670,7 +669,7 @@ A function that returns a string. The `name-of-template.txt` portion of the temp
 ```js
 /**
  * @template T
- * @typedef {import('top-bun').TemplateFunction<T>} TemplateFunction
+ * @typedef {import('domstack').TemplateFunction<T>} TemplateFunction
  */
 
 /**
@@ -698,7 +697,7 @@ A function that returns a single object with a `content` and `outputName` entrie
 ```js
 /**
  * @template T
- * @typedef {import('top-bun').TemplateFunction<T>} TemplateFunction
+ * @typedef {import('domstack').TemplateFunction<T>} TemplateFunction
  */
 
 /**
@@ -723,7 +722,7 @@ A function that returns an array of objects with a `content` and `outputName` en
 ```js
 /**
  * @template T
- * @typedef {import('top-bun').TemplateFunction<T>} TemplateFunction
+ * @typedef {import('domstack').TemplateFunction<T>} TemplateFunction
  */
 
 /**
@@ -762,7 +761,7 @@ An [AsyncIterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refer
 ```js
 /**
  * @template T
- * @typedef {import('top-bun').TemplateAsyncIterator<T>} TemplateAsyncIterator
+ * @typedef {import('@domstack/cli').TemplateAsyncIterator<T>} TemplateAsyncIterator
  */
 
 /** @type {TemplateAsyncIterator<{
@@ -806,7 +805,7 @@ import jsonfeedToAtom from 'jsonfeed-to-atom'
 
 /**
  * @template T
- * @typedef {import('top-bun').TemplateAsyncIterator<T>} TemplateAsyncIterator
+ * @typedef {import('domstack').TemplateAsyncIterator<T>} TemplateAsyncIterator
  */
 
 /** @type {TemplateAsyncIterator<{
@@ -919,9 +918,9 @@ Importing css from `npm` modules work well here.
 ### `esbuild.settings.js`
 
 This is an optional file you can create anywhere.
-It should export a default sync or async function that accepts a single argument (the esbuild settings object generated by top-bun) and returns a modified build object.
+It should export a default sync or async function that accepts a single argument (the esbuild settings object generated by domstack) and returns a modified build object.
 Use this to customize the esbuild settings directly.
-You can break top-bun with this, so be careful.
+You can break domstack with this, so be careful.
 Here is an example of using this file to polyfill node builtins in the browser bundle:
 
 ```js
@@ -940,7 +939,7 @@ export default async function esbuildSettingsOverride (esbuildSettings) {
 Pages, Layouts, and `postVars` all receive an object with the following parameters:
 
 - `vars`: An object with the variables of `global.vars.js`, `page.vars.js`, and any front-matter,`vars` exports and `postVars` from the page merged together.
-- `pages`: An array of [`PageData`](https://github.com/bcomnes/top-bun/blob/master/lib/build-pages/page-data.js) instances for every page in the site build. Use this array to introspect pages to generate feeds and index pages.
+- `pages`: An array of [`PageData`](https://github.com/bcomnes/domstack/blob/master/lib/build-pages/page-data.js) instances for every page in the site build. Use this array to introspect pages to generate feeds and index pages.
 - `page`: An object of the page being rendered with the following parameters:
   - `type`: The type of page (`md`, `html`, or `js`)
   - `path`: The directory path for the page.
@@ -954,7 +953,7 @@ Pages, Layouts, and `postVars` all receive an object with the following paramete
 Template files receive a similar set of variables:
 
 - `vars`: An object with the variables of `global.vars.js`
-- `pages`: An array of [`PageData`](https://github.com/bcomnes/top-bun/blob/master/lib/build-pages/page-data.js) instances for every page in the site build. Use this array to introspect pages to generate feeds and index pages.
+- `pages`: An array of [`PageData`](https://github.com/bcomnes/domstack/blob/master/lib/build-pages/page-data.js) instances for every page in the site build. Use this array to introspect pages to generate feeds and index pages.
 - `template`: An object of the template file data being rendered.
 
 Where `T` is your set of variables in the `vars` object.
@@ -1014,16 +1013,16 @@ This `postVars` renders some html from page introspection of the last 5 blog pos
 
 ## TypeScript Support
 
-`top-bun` now supports **TypeScript** via native type-stripping in Node.js.
+`domstack` now supports **TypeScript** via native type-stripping in Node.js.
 
-- **Requires Node.js ≥23** *(built-in)* or **Node.js 22** with the `NODE_OPTIONS="--experimental-strip-types" top-bun` env variable.
+- **Requires Node.js ≥23** *(built-in)* or **Node.js 22** with the `NODE_OPTIONS="--experimental-strip-types" domstack` env variable.
 - Seamlessly mix `.ts`, `.mts`, `.cts` files alongside `.js`, `.mjs`, `.cjs`.
 - No explicit compilation step needed—Node.js handles type stripping at runtime.
-- Fully compatible with existing `top-bun` file naming conventions.
+- Fully compatible with existing `domstack` file naming conventions.
 
 ### Supported File Types
 
-Anywhere you can use  a `.js`, `.mjs` or `.cjs` file in top-bun, you can now use `.ts`, `.mts`, `.cts`.
+Anywhere you can use  a `.js`, `.mjs` or `.cjs` file in domstack, you can now use `.ts`, `.mts`, `.cts`.
 When running in a Node.js context, [type-stripping](https://nodejs.org/api/typescript.html#type-stripping) is used.
 When running in a web client context, [esbuild](https://esbuild.github.io/content-types/#typescript) type stripping is used.
 Type stripping provides 0 type checking, so be sure to set up `tsc` and `tsconfig.json` so you can catch type errors while editing or in CI.
@@ -1054,9 +1053,9 @@ Install [@voxpelli/tsconfig](https://ghub.io/@voxpelli/tsconfig) which provides 
 }
 ```
 
-### Using TypeScript with top-bun Types
+### Using TypeScript with domstack Types
 
-You can use `top-bun`'s built-in types to strongly type your layout, page, and template functions. The following types are available:
+You can use `domstack`'s built-in types to strongly type your layout, page, and template functions. The following types are available:
 
 ```ts
 import type {
@@ -1065,7 +1064,7 @@ import type {
   PageFunction,
   TemplateFunction,
   TemplateAsyncIterator
-} from 'top-bun'
+} from '@domstack/cli'
 ```
 
 They are all generic and accept a variable template that you can develop and share between files.
@@ -1076,7 +1075,7 @@ They are all generic and accept a variable template that you can develop and sha
 
 ```typescript
 // page.ts
-import type { PageFunction } from 'top-bun'
+import type { PageFunction } from '@domstack/cli'
 
 export const vars = {
   message: 'TypeScript pages are easy!'
@@ -1093,7 +1092,7 @@ export default page
 
 ```typescript
 // root.layout.ts
-import type { LayoutFunction } from 'top-bun'
+import type { LayoutFunction } from '@domstack/cli'
 import { html, render } from 'uhtml-isomorphic'
 
 type Vars = {
@@ -1132,8 +1131,8 @@ export default layout
 - Library agnostic. Strings are the interchange format.
 - Pages are shallow apps. New page, new blank canvas.
 - Just a program. `js` pages and layouts are just JavaScript programs. This provides an escape hatch to do anything. Use any template language want, but probably just use tagged template literals.
-- Steps remain orthogonal. Static file copying, css and js bundling, are mere optimizations on top of the `src` folder. The `src` folder should essentially run in the browser. Each step in a `top-bun` build should work independent of the others. This allows for maximal parallelism when building.
-- Standardized entrypoints. Every page in a `top-bun` site has a natural and obvious entrypoint. There is no magic redirection to learn about.
+- Steps remain orthogonal. Static file copying, css and js bundling, are mere optimizations on top of the `src` folder. The `src` folder should essentially run in the browser. Each step in a `domstack` build should work independent of the others. This allows for maximal parallelism when building.
+- Standardized entrypoints. Every page in a `domstack` site has a natural and obvious entrypoint. There is no magic redirection to learn about.
 - Pages build into `index.html` files inside of named directories. This allows for naturally colocated assets next to the page, pretty URLs and full support for relative URLs.
 - No parallel directory structures. You should never be forced to have two directories with identical layouts to put files next to each other. Everything should be colocatable.
 - Markdown entrypoints are named README.md. This allows for the `src` folder to be fully navigable in GitHub and other git repo hosting providing a natural hosted CMS UI.
@@ -1150,17 +1149,17 @@ Top-**Bun**? Like the JS runtime?
 
 :   No, like the bakery from Wallace and Gromit in ["A Matter of Loaf and Death"](https://www.youtube.com/watch?v=zXBmZLmfQZ4s)
 
-How does `top-bun` relate to [`sitedown`](https://ghub.io/sitedown)
+How does `domstack` relate to [`sitedown`](https://ghub.io/sitedown)
 
-:   `top-bun` used to be called `siteup` which is sort of like "markup", which is related to "markdown", which inspired the project `sitedown` to which `top-bun` is a spiritual off-shot of. Put a folder of web documents in your `top-bun` oven, and bake a website.
+:   `domstack` used to be called `siteup` which is sort of like "markup", which is related to "markdown", which inspired the project `sitedown` to which `domstack` is a spiritual off-shot of. Put a folder of web documents in your `domstack` oven, and bake a website.
 
 ## Examples
 
-Look at [examples](./examples/) and `top-bun` [dependents](https://github.com/bcomnes/top-bun/network/dependents) for some examples how `top-bun` can work.
+Look at [examples](./examples/) and `domstack` [dependents](https://github.com/bcomnes/domstack/network/dependents) for some examples how `domstack` can work.
 
 ## Implementation
 
-`top-bun` bundles the best tools for every technology in the stack:
+`domstack` bundles the best tools for every technology in the stack:
 
 - `js` and `css` is bundled with [`esbuild`](https://github.com/evanw/esbuild).
 - `md` is processed with [markdown-it](https://github.com/markdown-it/markdown-it).
@@ -1170,7 +1169,7 @@ These tools are treated as implementation details, but they may be exposed more 
 
 ## Roadmap
 
-`top-bun` works and has a rudimentary watch command, but hasn't been battle tested yet.
+`domstack` works and has a rudimentary watch command, but hasn't been battle tested yet.
 If you end up trying it out, please open any issues or ideas that you have, and feel free to share what you build.
 
 Some notable features are included below, see the [roadmap](https://github.com/users/bcomnes/projects/3/) for a more in depth view of whats planned.
@@ -1199,7 +1198,7 @@ Some notable features are included below, see the [roadmap](https://github.com/u
 - [x] Handlebars template support in `md` and `html`
 - [x] `mjs` and `cjs` file extension support
 - [x] Improved watch log output
-- [x] Docs website built with `top-bin`: https://top-bun.org
+- [x] Docs website built with `domstack`: https://domstack.net
 - [x] `--eject` cli flag
 - [x] Global assets can live anywhere
 - [x] Built in browsersync dev server
@@ -1208,6 +1207,7 @@ Some notable features are included below, see the [roadmap](https://github.com/u
 - [x] Copy folders
 - [x] Full Typescript support via native type stripping
 - [x] JSX+TSX support in client bundles
+- [x] Rename to domstack
 - ...[See roadmap](https://github.com/users/bcomnes/projects/3/)
 
 ## History
@@ -1226,4 +1226,4 @@ Some notable features are included below, see the [roadmap](https://github.com/u
 [uhtml]: https://github.com/WebReflection/uhtml
 [hb]: https://handlebarsjs.com
 [esbuild]: http://esbuild.github.io
-[neocities-img]: https://img.shields.io/website/https/top-bun.neocities.org?label=neocities&logo=data:image/png;base64,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
+[neocities-img]: https://img.shields.io/website/https/domstack.neocities.org?label=neocities&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAGhlWElmTU0AKgAAAAgABAEGAAMAAAABAAIAAAESAAMAAAABAAEAAAEoAAMAAAABAAIAAIdpAAQAAAABAAAAPgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAAAueefIAAACC2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS40LjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyI+CiAgICAgICAgIDx0aWZmOk9yaWVudGF0aW9uPjE8L3RpZmY6T3JpZW50YXRpb24+CiAgICAgICAgIDx0aWZmOlBob3RvbWV0cmljSW50ZXJwcmV0YXRpb24+MjwvdGlmZjpQaG90b21ldHJpY0ludGVycHJldGF0aW9uPgogICAgICAgICA8dGlmZjpSZXNvbHV0aW9uVW5pdD4yPC90aWZmOlJlc29sdXRpb25Vbml0PgogICAgICAgICA8dGlmZjpDb21wcmVzc2lvbj4xPC90aWZmOkNvbXByZXNzaW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4Kpl32MAAABzBJREFUWAnFVwtwnFUV/v5//31ks5tsE9I8moS0iWETSNKUVpBKDKFQxtrCUIpacHQEGYk16FQHaZ3ajjqjOGWqOKUyMCl2xFoKhQJDBQftpOnAmDZoOyRNjCS1SdO8H5vXPv7rd/7NZvIipQjjmfn23Me555x77rnnv6sppTT8H0n/tG1rmlZIVBG+eW1JBD4t0GA8cYZQcS7ncXL7bFuYPfBJ9mlwtxg3bJoSTvx0tn7LAU48IJNE3GyBj9unrlJC2XRt4vGvLFGGrkXYDxEl03WyDyfRRoiHrxOfiBPU85bovPezi5pHnlmhHq5IsaLAXHhltgPXi+A0VE8X+Dht6lov+uw2rf/8nmIlDjQ+fp1yO/SYnaKYXoOC5QSu8trgddnND7rHv0EvOymwTcbnI867OZ5PLCOKiUIijQgS54nPE3hsfXog2WNY2Z+V5MDXVifjd3/ths/jquL0QyIj9EdC3V6UoLr25KurU73D0ieOEIniKbkc063EduLPRDcR2828/DOpzrbBp0ut3UsEBMe3X2PJuhw2sWHplgjkEViyyBGM93gcf3kkxVP2hNZ1sWfoLg7/jbttJC8jMgiLHHYj4EuIb81I9gQLM92O0iyH+9pUlZSdGDHCJjA0biI/zZ3NxIstsfjKpfFYmROHutYxDwduIo6JAxI6LIq3cSmtpCSg9jF3UsXuix2tHb3L7YZevHRx/FBZvrNzTaEnLTfFQHaSna6CSrghjbVMJzRbtC1KFqC1xT5xAFdnZdxPMcsBS1wpDLHhEoWpiXbj3R8mZ1zoT0Caz677PE4fdDunJYIzd2UtvoKfWwq9+PnRiwgMDd5RX/PGVRIBixLjbNNKpQaP1wO/NzYb47ON0yEzAhUJQjOYJhKFy9DybDcyk+y40DeSdOz5J+5h7CBAxDQdl1k7d5rGHWW74Cz/GdM0gQGSWrMwxTl0VBRSlnSmoblMjIel0zkgN+gKSDFl7G7YMm+C4d8Ix4pvQ4XGPpKC8snQ/vPfvYXiwPuy6tylK3RAFokTpuU/NF8u08dAzbkA/nCylyVeBOanJawJQpcGxjMkB04QdzS0j5ujQVNntZK5BSkwYaIvEEZmQgjm4AeweTOguRah4ZKJdbubeZwKaYl23HptNNQxZeMhE0fqBrDthXZraHTCtKydlF73cFhv67l8FGRnm55sQcGjZ/GTI50IN75kKdMTsywnzMmtj4XmhuDRP13Ag8+2YnA0GrVgWDFmwFld10dN03TXNg2jIMNlKfywn//0BXGyKWBNv904isj5GqjhdmjeJSjMzUDttmUYChpYnS+1ZiY9+IUUrCvxIS/Nic/tbAiOBBkBltoeGn9PRA+c6Jm5Yp5edrIDlWsWw09Ht23IgBrvQ+i9Zy1JcaKE1+zmZTp0c240i7LiwJIPXdPACMnmw9ZriOV2Czu/ES3v7izAdZlx0rw8SQLy/jtu/AEmstfhTP3fcUPRUkS6ziB0eh/M/hZovCkx6ugP4ccvtuO1+gGMMI9IfbGM289j6JSRY/8YEIbmSxM4enoA+2t60MuEm0NyA2xOuL5UDaPgXjQ0NODmW27DgVeOw5a3Dq6Nh2DLWcMnyOjU0v6RME63jloJOjnYZ0VAOozCb8kq4506fG4bOgZCU1fphe/m4osliZNrokwFA3Cs/A7sq6qsgU0bN+LwS9GE9Pv9cLvd8Ofn4Zl7wlC9zXRWSnmUnqvpDVY+1yZ38WgsAjKzX34kNF1DYeQtduLOFT4ceSRvjnFEQrClFMK2/FsIBALYu3evZfw2mxe/Yj1obGzExY4OfPmr98Hu38QCOSGqp+j3tT3RLAZek0SwiMlYxyjIFu6WgX3fzMGNufKonYd49kNGOspLrkdTUxMikQhS4r34tZGDZObEHkccdu3chQ0bNiDc/OoMBQdqe/HOv0aSONhBHJ5yYFLqR+QVoYjyPcT7+mJVLsZ5n988O4gTvHrfX5uKMimjzOJEewhbt25FZ2cnWlpaUF1djdcTR1A6NoH24BiC/E4IKSaiyMuX9OVT/Xh4f5tkn0R+Czc9MOdZzokHLGmuiLPr8qqViqKchqYObcmNvnCeLlajz9+uzGCAOpTiNVabN2+25ETWMAxVV1enzPEBS254X5GqWpsmHwqRkfP4OpdF8y/WmM4psJ3HIVuYMr7n/qwZz6uRp/xq4uQvuSxK4sTBgwfVjh07VH19veInWnW9+j11uDJdlebEj0zqaiC/gSum/gxN3QJOzCA6sIIDv2D0KlhdrWS9Jt2F9aU+FKQ7eeYKi3kaSaur4C29j98lE4P9XWg59z5OnXgDb7/1pvlOY7c5EbYKjug+RFTSeJ90pmi6N/O1KbiKeIqOtJFPhXl6m87OGae8hPoU8SSxaj7dMvahEeCiGUQjcm/LiHLCT8hbUsaGCKk2wqWWNxHykD1LA13kC9JHdmBBLf/D5H8By9d+IkwR5NMAAAAASUVORK5CYII=
