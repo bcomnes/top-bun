@@ -1,17 +1,17 @@
 {
-  "name": "top-bun",
-  "description": "top-bun: a traditional web bakery made with html, md, css and js.",
+  "name": "@domstack/cli",
+  "description": "@domstack/cli: a traditional web bakery made with html, md, css and js.",
   "version": "10.5.2",
   "type": "module",
   "main": "./index.js",
   "types": "index.d.ts",
   "bin": {
-    "top-bun": "./bin.js",
-    "tb": "./bin.js"
+    "domstack": "./bin.js",
+    "dom": "./bin.js"
   },
   "author": "Bret Comnes <bcomnes@gmail.com> (https://bret.io)",
   "bugs": {
-    "url": "https://github.com/bcomnes/top-bun/issues"
+    "url": "https://github.com/bcomnes/domstack/issues"
   },
   "engines": {
     "node": ">=22.0.0"
@@ -73,12 +73,12 @@
     "tap": "^21.0.0",
     "typescript": "~5.8.2"
   },
-  "homepage": "https://github.com/bcomnes/top-bun",
+  "homepage": "https://github.com/bcomnes/domstack",
   "keywords": [],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bcomnes/top-bun.git"
+    "url": "https://github.com/bcomnes/domstack.git"
   },
   "scripts": {
     "prepublishOnly": "npm run build && git push --follow-tags && gh-release -y",
@@ -99,10 +99,10 @@
     "clean:declarations-lib": "rm -rf $(find lib -type f -name '*.d.ts*' ! -name '*-types.d.ts')",
     "clean-node_modules": "rm -rf node_modules && rm -rf examples/*/node_modules",
     "build": "npm run clean && run-p build:*",
-    "build:top-bun": "./bin.js --src . --ignore examples,test-cases,coverage,*.tsconfig.json",
+    "build:domstack": "./bin.js --src . --ignore examples,test-cases,coverage,*.tsconfig.json",
     "build:declaration": "tsc -p declaration.tsconfig.json",
     "watch": "npm run clean && run-p watch:*",
-    "watch:top-bun": "npm run build:top-bun -- --watch",
+    "watch:domstack": "npm run build:domstack -- --watch",
     "example:basic": "cd examples/basic && npm i && npm run build",
     "example:string-layouts": "cd examples/string-layouts && npm i --production && npm run build",
     "example:default-layout": "cd examples/default-layout && npm i --production && npm run build",

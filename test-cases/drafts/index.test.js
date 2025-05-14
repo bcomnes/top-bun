@@ -1,5 +1,5 @@
 import tap from 'tap'
-import { TopBun } from '../../index.js'
+import { DomStack } from '../../index.js'
 import * as path from 'path'
 import { rm, stat, readFile } from 'fs/promises'
 import * as cheerio from 'cheerio'
@@ -10,12 +10,12 @@ const __dirname = import.meta.dirname
 tap.test('drafts', async (t) => {
   const src = path.join(__dirname, './src')
   const dest = path.join(__dirname, './public')
-  const siteUp = new TopBun(src, dest, { buildDrafts: true })
+  const siteUp = new DomStack(src, dest, { buildDrafts: true })
 
   await rm(dest, { recursive: true, force: true })
 
   const results = await siteUp.build()
-  t.ok(results, 'TopBun built site and returned build results')
+  t.ok(results, 'Domstack built site and returned build results')
 
   const pages = {
     'index.html': {

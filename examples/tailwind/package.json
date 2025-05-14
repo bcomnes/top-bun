@@ -1,10 +1,10 @@
 {
-  "name": "@top-bun/preact-example",
+  "name": "@domstack/preact-example",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "start": "npm run watch",
-    "build": "npm run clean && top-bun",
+    "build": "npm run clean && domstack",
     "clean": "rm -rf public && mkdir -p public",
     "watch": "npm run clean && tb --watch"
   },
@@ -17,7 +17,7 @@
     "htm": "^3.1.1",
     "preact": "^10.24.0",
     "preact-render-to-string": "^6.5.11",
-    "top-bun": "../../.",
+    "@domstack/cli": "../../.",
     "esbuild-plugin-tailwindcss": "2.0.1"
   }
 }

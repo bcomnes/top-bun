@@ -15,13 +15,13 @@ import { readPackage } from 'read-pkg'
 import { addPackageDependencies } from 'write-package'
 
 import { copyFile } from './lib/helpers/copy-file.js'
-import { TopBun } from './index.js'
-import { TopBunAggregateError } from './lib/helpers/top-bun-aggregate-error.js'
+import { DomStack } from './index.js'
+import { DomStackAggregateError } from './lib/helpers/dom-stack-aggregate-error.js'
 import { generateTreeData } from './lib/helpers/generate-tree-data.js'
 import { askYesNo } from './lib/helpers/cli-prompt.js'
 
 /**
- * @import {TopBunOpts} from './lib/builder.js'
+ * @import {DomStackOpts as DomStackOpts} from './lib/builder.js'
  * @import { ArgscloptsParseArgsOptionsConfig } from 'argsclopts'
  */
 
@@ -162,7 +162,7 @@ async function run () {
     }
 
     console.log(`
-top-bun eject actions:
+domstack eject actions:
   - Write ${join(relativeSrc, targetLayoutPath)}
   - Write ${join(relativeSrc, targetGlobalStylePath)}
   - Write ${join(relativeSrc, targetGlobalClientPath)}
@@ -200,7 +200,7 @@ top-bun eject actions:
     process.exit(0)
   }
 
-  /** @type {TopBunOpts} */
+  /** @type {DomStackOpts} */
   const opts = {}
 
   if (argv['ignore']) opts.ignore = String(argv['ignore']).split(',')
@@ -213,14 +213,14 @@ top-bun eject actions:
     opts.copy = copyPaths.map(p => resolve(cwd, p))
   }
 
-  const topBun = new TopBun(src, dest, opts)
+  const domStack = new DomStack(src, dest, opts)
 
   process.once('SIGINT', quit)
   process.once('SIGTERM', quit)
 
   async function quit () {
-    if (topBun.watching) {
-      const results = await topBun.stopWatching()
+    if (domStack.watching) {
+      const results = await domStack.stopWatching()
       console.log(results)
       console.log('watching stopped')
     }
@@ -230,7 +230,7 @@ top-bun eject actions:
 
   if (!argv['watch'] && !argv['watch-only']) {
     try {
-      const results = await topBun.build()
+      const results = await domStack.build()
       console.log(tree(generateTreeData(cwd, src, dest, results)))
       if (results?.warnings?.length > 0) {
         console.log(
@@ -247,7 +247,7 @@ top-bun eject actions:
       console.log('\nBuild Success!\n\n')
     } catch (err) {
       if (!(err instanceof Error || err instanceof AggregateError)) throw new Error('Non-error thrown', { cause: err })
-      if (err instanceof TopBunAggregateError) {
+      if (err instanceof DomStackAggregateError) {
         if (err?.results?.siteData?.pages) {
           console.log(tree(generateTreeData(cwd, src, dest, err.results)))
         }
@@ -259,7 +259,7 @@ top-bun eject actions:
       process.exit(1)
     }
   } else {
-    const initialResults = await topBun.watch({
+    const initialResults = await domStack.watch({
       serve: !argv['watch-only'],
     })
     console.log(tree(generateTreeData(cwd, src, dest, initialResults)))
@@ -279,6 +279,6 @@ top-bun eject actions:
 }
 
 run().catch(err => {
-  console.error(new Error('Unhandled top-bun error', { cause: err }))
+  console.error(new Error('Unhandled domstack error', { cause: err }))
   process.exit(1)
 })

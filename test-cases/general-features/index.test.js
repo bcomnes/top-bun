@@ -1,5 +1,5 @@
 import tap from 'tap'
-import { TopBun } from '../../index.js'
+import { DomStack } from '../../index.js'
 import * as path from 'path'
 import { rm, stat, readFile } from 'fs/promises'
 import * as cheerio from 'cheerio'
@@ -10,12 +10,12 @@ const __dirname = import.meta.dirname
 tap.test('general-features', async (t) => {
   const src = path.join(__dirname, './src')
   const dest = path.join(__dirname, './public')
-  const siteUp = new TopBun(src, dest, { copy: [path.join(__dirname, './copyfolder')] })
+  const siteUp = new DomStack(src, dest, { copy: [path.join(__dirname, './copyfolder')] })
 
   await rm(dest, { recursive: true, force: true })
 
   const results = await siteUp.build()
-  t.ok(results, 'TopBun built site and returned build results')
+  t.ok(results, 'DomStack built site and returned build results')
 
   const globalAssets = {
     globalStyle: true,
@@ -99,7 +99,7 @@ tap.test('general-features', async (t) => {
       const hasPageStyleHeader = headLinks.map(n => n?.attribs?.['href']).some(href => href && href.match(/\.\/style-([A-Z0-9])\w+.css/g))
       const generatedPageStyle = files.some(f => f.relname.match(/style-([A-Z0-9])\w+.css/g))
 
-      const wroteTopBunEsbuildMetaFile = files.find(f => f.relname.match(/top-bun-esbuild-meta.json/g))
+      const wroteDomstackEsbuildMetaFile = files.find(f => f.relname.match(/dom-stack-esbuild-meta.json/g))
 
       t.equal(
         hasGlboalClientHeader,
@@ -139,8 +139,8 @@ tap.test('general-features', async (t) => {
             : 'Does not include'} a page style header`)
 
       t.ok(
-        wroteTopBunEsbuildMetaFile,
-        'wrote out the top-bun-esbuild-meta.json file'
+        wroteDomstackEsbuildMetaFile,
+        'wrote out the dom-stack-esbuild-meta.json file'
       )
 
       if (hasPageStyleHeader) { // covering for loose files
