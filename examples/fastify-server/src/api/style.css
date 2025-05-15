@@ -1,0 +1,33 @@
+.api-example {
+  background-color: #f0f8ff;
+  border: 1px solid #b3d9ff;
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.api-example h2 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+.api-example strong {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+h2 {
+  margin-top: 2rem;
+  color: var(--primary-color);
+}
+
+pre {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.button {
+  margin-top: 2rem;
+}

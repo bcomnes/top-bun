@@ -1,0 +1,19 @@
+{
+  "name": "fastify-domstack-example",
+  "version": "1.0.0",
+  "description": "Example of using domstack with fastify",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "@fastify/static": "^6.10.2",
+    "domstack": "file:../..",
+    "fastify": "^4.22.2",
+    "fastify-plugin": "^4.5.1",
+    "pino-pretty": "^10.2.0"
+  }
+}
