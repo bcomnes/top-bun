@@ -5,14 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run watch",
-    "build": "npm run clean && top-bun",
+    "build": "npm run clean && domstack",
     "clean": "rm -rf public && mkdir -p public",
     "watch": "npm run clean && run-p watch:*",
     "watch:serve": "browser-sync start --server 'public' --files 'public'",
-    "watch:top-bun": "npm run build -- --watch"
+    "watch:domstack": "npm run build -- --watch"
   },
   "dependencies": {
-    "top-bun": "../../."
+    "@domstack/cli": "../../."
   },
   "devDependencies": {
     "browser-sync": "^2.26.7",
