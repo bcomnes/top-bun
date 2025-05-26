@@ -34,20 +34,23 @@ Usage: top-bun [options]
     --dest, -d            path to build destination directory (default: "public")
     --ignore, -i          comma separated gitignore style ignore string
     --drafts              Build draft pages with the `.draft.{md,js,html}` page suffix.
-    --copy                Path to directories to copy into dist; can be used multiple times
     --target, -t          comma separated target strings for esbuild
     --noEsbuildMeta       skip writing the esbuild metafile to disk
-    --watch-only          watch and build the src directory without serving
+    --eject, -e           eject the top bun default layout, style and client into the src flag directory
+    --watch, -w           build, watch and serve the site build
+    --watch-only          watch and build the src folder without serving
+    --copy                path to directories to copy into dist; can be used multiple times
     --help, -h            show help
     --version, -v         show version information
-top-bun (v7.0.0)
+top-bun (v10.5.1)
 ```
 
 `top-bun` builds a `src` directory into a `dest` directory (default: `public`).
 `top-bun` is also aliased to a `tb` bin.
 
 - Running `top-bun` will result in a `build` by default.
-- Running `top-bun --watch` will build the site and start an auto-reloading development web-server that watches for changes.
+- Running `top-bun --watch` or `top-bun -w` will build the site and start an auto-reloading development web-server that watches for changes.
+- Running `top-bun --eject` or `top-bun -e` will extract the default layout, global styles, and client-side JavaScript into your source directory and add the necessary dependencies to your package.json.
 
 `top-bun` is primarily a unix `bin` written for the [Node.js](https://nodejs.org) runtime that is intended to be installed from `npm` as a `devDependency` inside a `package.json` committed to a `git` repository.
 It can be used outside of this context, but it works best within it.
@@ -599,6 +602,22 @@ These imports will include the `root.layout.js` layout assets into the `blog.lay
 ## Static assets
 
 All static assets in the `src` directory are copied 1:1 to the `public` directory. Any file in the `src` directory that doesn't end in `.js`, `.css`, `.html`, or `.md` is copied to the `dest` directory.
+
+### `--eject` flag
+
+The `--eject` (or `-e`) flag extracts top-bun's default layout, global CSS, and client-side JavaScript into your source directory. This allows you to fully customize these files while maintaining the same functionality.
+
+When you run `top-bun --eject`, it will:
+
+1. Create a default root layout file at `layouts/root.layout.js` (or `.mjs` depending on your package.json type)
+2. Create a default global CSS file at `globals/global.css`
+3. Create a default client-side JavaScript file at `globals/global.client.js` (or `.mjs`)
+4. Add the necessary dependencies to your package.json:
+   - mine.css
+   - uhtml-isomorphic
+   - highlight.js
+
+This is useful when you want to heavily customize the default theme or behavior while still leveraging top-bun's core functionality.
 
 ### `--copy` directories
 
