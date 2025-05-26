@@ -6,14 +6,16 @@ import { rm } from 'fs/promises'
 
 const __dirname = import.meta.dirname
 
-test('default-layout', async () => {
-  const src = path.join(__dirname, './src')
-  const dest = path.join(__dirname, './public')
-  const siteUp = new DomStack(src, dest)
+test.describe('default-layout', () => {
+  test('should build site with default layout', async () => {
+    const src = path.join(__dirname, './src')
+    const dest = path.join(__dirname, './public')
+    const siteUp = new DomStack(src, dest)
 
-  await rm(dest, { recursive: true, force: true })
+    await rm(dest, { recursive: true, force: true })
 
-  await siteUp.build()
+    await siteUp.build()
 
-  assert.ok(true, 'built with default layout')
+    assert.ok(true, 'built with default layout')
+  })
 })

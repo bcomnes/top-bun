@@ -6,18 +6,20 @@ import { rm } from 'fs/promises'
 
 const __dirname = import.meta.dirname
 
-test('nested-dest', async () => {
-  const src = __dirname
-  const dest = path.join(__dirname, './public')
-  const siteUp = new DomStack(src, dest, {
-    copy: [
-      path.join(__dirname, './copydir')
-    ]
+test.describe('nested-dest', () => {
+  test('should build site with nested destination', async () => {
+    const src = __dirname
+    const dest = path.join(__dirname, './public')
+    const siteUp = new DomStack(src, dest, {
+      copy: [
+        path.join(__dirname, './copydir')
+      ]
+    })
+
+    await rm(dest, { recursive: true, force: true })
+
+    await siteUp.build()
+
+    assert.ok(true, 'built with default layout')
   })
-
-  await rm(dest, { recursive: true, force: true })
-
-  await siteUp.build()
-
-  assert.ok(true, 'built with default layout')
 })
