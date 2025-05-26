@@ -1,4 +1,5 @@
-import tap from 'tap'
+import { test } from 'node:test'
+import assert from 'node:assert'
 import { DomStack } from '../../index.js'
 import * as path from 'path'
 import { rm, stat, readFile } from 'fs/promises'
@@ -7,7 +8,7 @@ import { allFiles } from 'async-folder-walker'
 
 const __dirname = import.meta.dirname
 
-tap.test('general-features', async (t) => {
+test('general-features', async () => {
   const src = path.join(__dirname, './src')
   const dest = path.join(__dirname, './public')
   const siteUp = new DomStack(src, dest, { copy: [path.join(__dirname, './copyfolder')] })
@@ -15,7 +16,7 @@ tap.test('general-features', async (t) => {
   await rm(dest, { recursive: true, force: true })
 
   const results = await siteUp.build()
-  t.ok(results, 'DomStack built site and returned build results')
+  assert.ok(results, 'DomStack built site and returned build results')
 
   const globalAssets = {
     globalStyle: true,
@@ -67,15 +68,15 @@ tap.test('general-features', async (t) => {
 
   const files = await allFiles(dest, { shaper: fwData => fwData })
 
-  t.ok('All files walked in output')
+  assert.ok('All files walked in output')
 
   const generatedGlobalStyle = files.some(f => f.relname.match(/global-([A-Z0-9])\w+.css/g))
-  t.equal(generatedGlobalStyle, globalAssets.globalStyle, `${globalAssets.globalStyle
+  assert.equal(generatedGlobalStyle, globalAssets.globalStyle, `${globalAssets.globalStyle
             ? 'Generated'
             : 'Did not generate'} a global style`)
 
   const generatedGlobalClient = files.some(f => f.relname.match(/global.client-([A-Z0-9])\w+.js/g))
-  t.equal(generatedGlobalClient, globalAssets.globalClient, `${globalAssets.globalClient
+  assert.equal(generatedGlobalClient, globalAssets.globalClient, `${globalAssets.globalClient
             ? 'Generated'
             : 'Did not generate'} a global client`)
 
@@ -83,7 +84,7 @@ tap.test('general-features', async (t) => {
     try {
       const fullPath = path.join(dest, filePath)
       const st = await stat(fullPath)
-      t.ok(st, `${filePath} exists`)
+      assert.ok(st, `${filePath} exists`)
 
       const contents = await readFile(fullPath, 'utf8')
       const doc = cheerio.load(contents)
@@ -101,21 +102,21 @@ tap.test('general-features', async (t) => {
 
       const wroteDomstackEsbuildMetaFile = files.find(f => f.relname.match(/dom-stack-esbuild-meta.json/g))
 
-      t.equal(
+      assert.equal(
         hasGlboalClientHeader,
         globalAssets.globalClient,
         `${filePath} ${globalAssets.globalClient
             ? 'includes'
             : 'does not include'} a global client header`)
 
-      t.equal(
+      assert.equal(
         hasGlobalStyleHeader,
         globalAssets.globalStyle,
         `${filePath} ${globalAssets.globalStyle
             ? 'Includes'
             : 'Does not include'} a global style header`)
 
-      t.equal(
+      assert.equal(
         hasPageClientHeader,
         assertions.client,
         `${filePath} ${assertions.client
@@ -123,7 +124,7 @@ tap.test('general-features', async (t) => {
             : 'Does not include'} a page client header`)
 
       if (hasPageClientHeader) { // covering for loose files
-        t.equal(
+        assert.equal(
           generatedPageClient,
           assertions.client,
           `${filePath} ${assertions.client
@@ -131,20 +132,20 @@ tap.test('general-features', async (t) => {
             : 'Did not generate'} a page client file`)
       }
 
-      t.equal(
+      assert.equal(
         hasPageStyleHeader,
         assertions.style,
         `${filePath} ${assertions.client
             ? 'Includes'
             : 'Does not include'} a page style header`)
 
-      t.ok(
+      assert.ok(
         wroteDomstackEsbuildMetaFile,
         'wrote out the dom-stack-esbuild-meta.json file'
       )
 
       if (hasPageStyleHeader) { // covering for loose files
-        t.equal(
+        assert.equal(
           generatedPageStyle,
           assertions.style,
           `${filePath} ${assertions.client
@@ -153,7 +154,7 @@ tap.test('general-features', async (t) => {
       }
     } catch (e) {
       console.error(e)
-      t.fail(`Assertions failed on ${filePath}`)
+      assert.fail(`Assertions failed on ${filePath}`)
     }
   }
 
@@ -166,6 +167,6 @@ tap.test('general-features', async (t) => {
   for (const rel of expected) {
     const full = path.join(dest, 'oldsite', rel)
     const st = await stat(full)
-    t.ok(st.isFile(), `oldsite/${rel} exists and is a file`)
+    assert.ok(st.isFile(), `oldsite/${rel} exists and is a file`)
   }
 })

@@ -1,11 +1,12 @@
-import tap from 'tap'
+import { test } from 'node:test'
+import assert from 'node:assert'
 import { DomStack } from '../../index.js'
 import * as path from 'path'
 import { rm } from 'fs/promises'
 
 const __dirname = import.meta.dirname
 
-tap.test('nested-dest', async (t) => {
+test('nested-dest', async () => {
   const src = __dirname
   const dest = path.join(__dirname, './public')
   const siteUp = new DomStack(src, dest, {
@@ -18,5 +19,5 @@ tap.test('nested-dest', async (t) => {
 
   await siteUp.build()
 
-  t.ok('built with default layout')
+  assert.ok(true, 'built with default layout')
 })
