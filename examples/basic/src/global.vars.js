@@ -5,6 +5,6 @@
 
 export default async function () {
   return {
-    siteName: 'top-bun basic',
+    siteName: 'domstack basic',
   }
 }
