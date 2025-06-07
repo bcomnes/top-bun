@@ -1167,6 +1167,164 @@ Look at [examples](./examples/) and `domstack` [dependents](https://github.com/b
 
 These tools are treated as implementation details, but they may be exposed more in the future. The idea is that they can be swapped out for better tools in the future if they don't make it.
 
+### Build Process Flow
+
+The following diagram illustrates the DomStack build process:
+
+```
+                    ┌─────────────┐
+                    │    START    │
+                    └──────┬──────┘
+                           │
+                           ▼
+                 ┌──────────────────┐
+                 │ identifyPages()  │
+                 │                  │
+                 │ • Find pages     │
+                 │ • Find layouts   │
+                 │ • Find templates │
+                 │ • Find globals   │
+                 │ • Find settings  │
+                 └────────┬─────────┘
+                          │
+                          │
+      ┌───────────────────┼───────────────────┐
+      │                   │                   │
+      ▼                   ▼                   ▼
+┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
+│ buildEsbuild()  │ │ buildStatic()   │ │  buildCopy()    │
+│                 │ │                 │ │                 │
+│ • Bundle JS/CSS │ │ • Copy static   │ │ • Copy extra    │
+│ • Generate      │ │   files         │ │   directories   │
+│   metafile      │ │ (if enabled)    │ │   from opts     │
+└────────┬────────┘ └────────┬────────┘ └────────┬────────┘
+         │                   │                   │
+         └───────────────────┼───────────────────┘
+                             │
+                             ▼
+                    ┌──────────────────┐
+                    │  buildPages()    │
+                    │                  │
+                    │ • Process HTML   │
+                    │ • Process MD     │
+                    │ • Process JS     │
+                    │ • Apply layouts  │
+                    └────────┬─────────┘
+                             │
+                             ▼
+                    ┌──────────────────┐
+                    │  Return Results  │
+                    │                  │
+                    │ • siteData       │
+                    │ • esbuildResults │
+                    │ • staticResults  │
+                    │ • copyResults    │
+                    │ • pageResults    │
+                    │ • warnings       │
+                    └──────────────────┘
+```
+
+The build process follows these key steps:
+
+1. **Page identification** - Scans the source directory to identify all pages, layouts, templates, and global assets
+2. **Destination preparation** - Ensures the destination directory is ready for the build output
+3. **Parallel asset processing** - Three operations run concurrently:
+   - JavaScript and CSS bundling via esbuild
+   - Static file copying (when enabled)
+   - Additional directory copying (from `--copy` options)
+4. **Page building** - Processes all pages, applying layouts and generating final HTML
+
+This architecture allows for efficient parallel processing of independent tasks while maintaining the correct build order dependencies.
+
+#### buildPages() Detail
+
+The `buildPages()` step processes pages in parallel with a concurrency limit:
+
+```
+                    ┌──────────────────┐
+                    │  buildPages()    │
+                    └────────┬─────────┘
+                             │
+                    ┌────────▼─────────┐
+                    │ Resolve Once:    │
+                    │ • Global vars    │
+                    │ • All layouts    │
+                    └────────┬─────────┘
+                             │
+                ┌────────────▼───────────────┐
+                │  Parallel Page Queue       │
+                │(Concurrency: min(CPUs, 24))│
+                └────────────┬───────────────┘
+                             │
+        ┌────────────────────┼────────────────────┐
+        │                    │                    │
+        ▼                    ▼                    ▼
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│  MD Page Task   │    │ HTML Page Task  │    │  JS Page Task   │
+├─────────────────┤    ├─────────────────┤    ├─────────────────┤
+│ ┌─────────────┐ │    │ ┌─────────────┐ │    │ ┌─────────────┐ │
+│ │1. Read .md  │ │    │ │1. Read .html│ │    │ │1. Import .js│ │
+│ │   file      │ │    │ │   file      │ │    │ │   module    │ │
+│ └──────┬──────┘ │    │ └──────┬──────┘ │    │ └──────┬──────┘ │
+│        ▼        │    │        ▼        │    │        ▼        │
+│ ┌─────────────┐ │    │ ┌─────────────┐ │    │ ┌─────────────┐ │
+│ │2. Extract   │ │    │ │2. Variable  │ │    │ │2. Variable  │ │
+│ │ frontmatter │ │    │ │  Resolution │ │    │ │  Resolution │ │
+│ └──────┬──────┘ │    │ └──────┬──────┘ │    │ └──────┬──────┘ │
+│        ▼        │    │        ▼        │    │        ▼        │
+│ ┌─────────────┐ │    │ ┌─────────────┐ │    │ ┌─────────────┐ │
+│ │ Frontmatter │ │    │ │page.vars.js │ │    │ │  Exported   │ │
+│ │    vars     │ │    │ │             │ │    │ │    vars     │ │
+│ └──────┬──────┘ │    │ └──────┬──────┘ │    │ └──────┬──────┘ │
+│        ▼        │    │        ▼        │    │        ▼        │
+│ ┌─────────────┐ │    │ ┌─────────────┐ │    │ ┌─────────────┐ │
+│ │page.vars.js │ │    │ │  postVars   │ │    │ │page.vars.js │ │
+│ │             │ │    │ │             │ │    │ │             │ │
+│ └──────┬──────┘ │    │ └──────┬──────┘ │    │ └──────┬──────┘ │
+│        ▼        │    │        ▼        │    │        ▼        │
+│ ┌─────────────┐ │    │ ┌─────────────┐ │    │ ┌─────────────┐ │
+│ │  postVars   │ │    │ │3. Handlebars│ │    │ │  postVars   │ │
+│ │             │ │    │ │ (if enabled)│ │    │ │             │ │
+│ └──────┬──────┘ │    │ └──────┬──────┘ │    │ └──────┬──────┘ │
+│        ▼        │    │        ▼        │    │        ▼        │
+│ ┌─────────────┐ │    │ ┌─────────────┐ │    │ ┌─────────────┐ │
+│ │3. Render MD │ │    │ │4. Render    │ │    │ │3. Execute   │ │
+│ │   to HTML   │ │    │ │  with layout│ │    │ │  page func  │ │
+│ └──────┬──────┘ │    │ └──────┬──────┘ │    │ └──────┬──────┘ │
+│        ▼        │    │        ▼        │    │        ▼        │
+│ ┌─────────────┐ │    │ ┌─────────────┐ │    │ ┌─────────────┐ │
+│ │4. Extract   │ │    │ │5. Write HTML│ │    │ │4. Render    │ │
+│ │  title (h1) │ │    │ │             │ │    │ │  with layout│ │
+│ └──────┬──────┘ │    │ └─────────────┘ │    │ └──────┬──────┘ │
+│        ▼        │    │                 │    │        ▼        │
+│ ┌─────────────┐ │    │                 │    │ ┌─────────────┐ │
+│ │5. Render    │ │    │                 │    │ │5. Write HTML│ │
+│ │  with layout│ │    │                 │    │ │             │ │
+│ └──────┬──────┘ │    │                 │    │ └─────────────┘ │
+│        ▼        │    │                 │    │                 │
+│ ┌─────────────┐ │    │                 │    │                 │
+│ │6. Write HTML│ │    │                 │    │                 │
+│ └─────────────┘ │    │                 │    │                 │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                      │                      │
+         └──────────────────────┼──────────────────────┘
+                                │
+                                ▼
+                       ┌──────────────────┐
+                       │  Complete when   │
+                       │  all pages done  │
+                       └──────────────────┘
+```
+
+Variable Resolution Layers:
+- **Global vars** - Site-wide variables from `global.vars.js` (resolved once)
+- **Layout vars** - Layout-specific variables from layout functions (resolved once)
+- **Page-specific vars** vary by type:
+  - **MD pages**: frontmatter → page.vars.js → postVars
+  - **HTML pages**: page.vars.js → postVars
+  - **JS pages**: exported vars → page.vars.js → postVars
+- **postVars** - Post-processing function that can modify variables based on all resolved data
+
 ## Roadmap
 
 `domstack` works and has a rudimentary watch command, but hasn't been battle tested yet.
