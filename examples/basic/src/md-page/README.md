@@ -1,6 +1,12 @@
-# Nested Markdown
+---
+title: Markdown Page Example
+---
 
-A page folder with a `README.md` markdown file renders to an `index.html` file inside the parent folder.
+# Markdown Page Example
+
+## How Markdown Pages Work
+
+A page folder with a `README.md` markdown file renders to an `index.html` file inside the corresponding output folder.
 
 For example:
 
@@ -8,20 +14,34 @@ For example:
 /md-page/README.md ---> /md-page/index.html
 ```
 
-They can link to other markdown files, and the links are correctly built to their html equivalent.
+Links to other markdown files are automatically transformed to their HTML equivalents during the build process, making navigation seamless between source and output.
 
-Page folder markdown file can utilize the following page scoped files:
+## Page-Scoped Resources
 
-- [`client.js`](./client.js)
-- [`style.css`](./style.css)
-- [`page.vars.js`](./page.vars.js)
+Each markdown page can utilize the following page-scoped files:
 
-All assets in the `src` directory are copied over to the `dist` folder, 1:1.
-It's a good idea to co-locate images near the document they live in, otherwise
-you end up with a jumble of files in one global images folder.
-It's worth the overhead of copying static assets into a build directory in order to gain a simple approach to organzing assets.
-In the future, asset serving may be virtualized during development.
+- [`client.js`](./client.js) - Client-side JavaScript specific to this page
+- [`style.css`](./style.css) - CSS styles specific to this page
+- [`page.vars.js`](./page.vars.js) - Variables and metadata for this page
 
-![](./assets/matrix.gif)
+## Asset Management
+
+DOMStack copies all assets from the `src` directory to the output folder with a 1:1 mapping. This approach encourages:
+
+- **Co-location of assets** - Keep images near the documents that use them
+- **Logical organization** - Avoid a single overcrowded global assets folder
+- **Simplified references** - Maintain the same relative paths in source and output
+
+### Example Image Asset
+
+Below is an example of an image asset referenced from the page's assets folder:
+
+![Matrix Animation](./assets/matrix.gif)
+
+## Navigation
+
+- [Back to Home](../)
+- [View Subpage](./sub-page/README.md)
+
 
 

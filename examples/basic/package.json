@@ -20,7 +20,9 @@
   },
   "dependencies": {
     "@domstack/cli": "../../.",
-    "uhtml-isomorphic": "^2.1.0",
+    "htm": "^3.1.1",
+    "preact": "^10.26.6",
+    "preact-render-to-string": "^6.5.13",
     "mine.css": "^9.0.1"
   }
 }

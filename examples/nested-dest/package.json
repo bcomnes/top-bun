@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "start": "npm run watch",
-    "build": "npm run clean && depscan --src . --ignore ignore",
+    "build": "npm run clean && domstack --src . --ignore ignore",
     "clean": "rm -rf public && mkdir -p public",
     "watch": "npm run clean && run-p watch:*",
     "watch:serve": "browser-sync start --server 'public' --files 'public'",
-    "watch:depscan": "npm run build -- --watch"
+    "watch:domstack": "npm run build -- --watch"
   },
   "keywords": [],
   "author": "Bret Comnes <bcomnes@gmail.com> (https://bret.io/)",
