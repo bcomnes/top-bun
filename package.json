@@ -107,7 +107,7 @@
     "example:string-layouts": "cd examples/string-layouts && npm i --production && npm run build",
     "example:default-layout": "cd examples/default-layout && npm i --production && npm run build",
     "example:nested-dest": "cd examples/nested-dest && npm i --production && npm run build",
-    "example:preact": "cd examples/preact && npm i --production && npm run build",
+    "example:uhtml-isomorphic": "cd examples/uhtml-isomorphic && npm i --production && npm run build",
     "deps": "depcruise --exclude '^node_modules|^[a-zA-Z0-9\\_]+$' --output-type dot . | dot -T svg > dependencygraph.svg",
     "deps3d": "depcruise --exclude '^node_modules|^[a-zA-Z0-9\\_]+$' --output-type plugin:dependency-cruiser/sample-3d-reporter-plugin --output-to 3d-dependency-graph.html .",
     "start": "npm run watch"

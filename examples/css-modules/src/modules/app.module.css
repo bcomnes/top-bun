@@ -1,4 +1,58 @@
 /* app.module.css */
 .outerShell {
-    background: blue;
+    background: #3498db;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.outerShell:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+.button {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #27ae60;
+}
+
+/* Example of composition */
+.dangerButton {
+    composes: button;
+    background: #e74c3c;
+}
+
+.dangerButton:hover {
+    background: #c0392b;
+}
+
+/* Example of complex nesting */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card .title {
+    font-size: 1.2rem;
+    margin-top: 0;
+    color: #333;
+}
+
+.card .content {
+    color: #666;
 }

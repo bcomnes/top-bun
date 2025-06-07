@@ -1,0 +1,27 @@
+<div class="app-container">
+    <div class="page-header">
+        <h1>React with TypeScript in DOMStack</h1>
+        <p>This example demonstrates client-side rendering with React and TypeScript in DOMStack.</p>
+    </div>
+    
+    <div class="info-panel">
+        <h3>How It Works</h3>
+        <p>This static HTML page includes a mount point that React will use to render interactive components.</p>
+        <p>The client.tsx file contains React components with TypeScript that will be mounted to the container below.</p>
+    </div>
+    
+    <!-- React will mount to this container -->
+    <div id="react-root"></div>
+    
+    <div class="explanation">
+        <h3>Implementation Details</h3>
+        <p>Unlike Preact examples that support isomorphic rendering, this example:</p>
+        <ul>
+            <li>Runs exclusively in the browser</li>
+            <li>Uses React instead of Preact</li>
+            <li>Mounts to an empty container after page load</li>
+            <li>Uses TypeScript and TSX with custom ESBuild configuration</li>
+            <li>Provides type safety with TypeScript interfaces and type annotations</li>
+        </ul>
+    </div>
+</div>

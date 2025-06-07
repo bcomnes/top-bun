@@ -4,11 +4,13 @@
   "description": "Example demonstrating markdown-it.settings.js usage",
   "type": "module",
   "scripts": {
-    "build": "domstack build src dist",
-    "dev": "domstack dev src"
+    "start": "npm run dev",
+    "build": "npm run clean && domstack",
+    "clean": "rm -rf public && mkdir -p public",
+    "dev": "npm run clean && domstack --watch"
   },
-  "devDependencies": {
-    "domstack": "workspace:*",
+  "dependencies": {
+    "@domstack/cli": "../../.",
     "markdown-it-container": "^4.0.0",
     "markdown-it-admonition": "^1.0.4"
   }
