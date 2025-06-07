@@ -37,6 +37,10 @@ test.describe('general-features', () => {
         client: false,
         style: false,
       },
+      'md-page/markdown-settings-test.html': {
+        client: false,
+        style: false
+      },
       'md-page/md-no-style-client/index.html': {
         client: false,
         style: false,
@@ -81,6 +85,19 @@ test.describe('general-features', () => {
             ? 'Generated'
             : 'Did not generate'} a global client`)
 
+    // Special test for markdown-it.settings.js
+    const mdSettingsTestPath = path.join(dest, 'md-page/markdown-settings-test.html')
+    try {
+      const mdTestContent = await readFile(mdSettingsTestPath, 'utf8')
+      const mdTestDoc = cheerio.load(mdTestContent)
+      
+      // Check if our custom test-box container exists - this proves markdown-it.settings.js worked
+      const testBox = mdTestDoc('.test-box')
+      assert.ok(testBox.length > 0, 'markdown-it.settings.js was applied - custom container found')
+    } catch (err) {
+      assert.fail('Failed to verify markdown-it.settings.js customization: ' + err.message)
+    }
+
     for (const [filePath, assertions] of Object.entries(pages)) {
       try {
         const fullPath = path.join(dest, filePath)
@@ -89,6 +106,8 @@ test.describe('general-features', () => {
 
         const contents = await readFile(fullPath, 'utf8')
         const doc = cheerio.load(contents)
+        
+
 
         const headScripts = Array.from(doc('head script[type="module"]'))
 
