@@ -934,6 +934,59 @@ export default async function esbuildSettingsOverride (esbuildSettings) {
 }
 ```
 
+### `markdown-it.settings.js`
+
+This is an optional file you can create anywhere.
+It should export a default sync or async function that accepts a single argument (the markdown-it instance configured by domstack) and returns a modified markdown-it instance.
+Use this to add custom markdown-it plugins or modify the parser configuration.
+Here are some examples:
+
+```js
+// Add custom plugins
+import markdownItContainer from 'markdown-it-container'
+import markdownItPlantuml from 'markdown-it-plantuml'
+
+export default async function markdownItSettingsOverride (md) {
+  // Add custom plugins
+  md.use(markdownItContainer, 'spoiler', {
+    validate: function(params) {
+      return params.trim().match(/^spoiler\s+(.*)$/)
+    },
+    render: function (tokens, idx) {
+      const m = tokens[idx].info.trim().match(/^spoiler\s+(.*)$/)
+      if (tokens[idx].nesting === 1) {
+        return '<details><summary>' + md.utils.escapeHtml(m[1]) + '</summary>\n'
+      } else {
+        return '</details>\n'
+      }
+    }
+  })
+  
+  md.use(markdownItPlantuml)
+  
+  return md
+}
+```
+
+```js
+// Replace with a completely new instance
+import markdownIt from 'markdown-it'
+
+export default async function markdownItSettingsOverride (md) {
+  // Create a new instance with different settings
+  const newMd = markdownIt({
+    html: false,        // Disable HTML tags in source
+    breaks: true,       // Convert \n to <br>
+    linkify: false,     // Disable auto-linking
+  })
+  
+  // Add only the plugins you want
+  newMd.use(myCustomPlugin)
+  
+  return newMd
+}
+```
+
 ## Variables
 
 Pages, Layouts, and `postVars` all receive an object with the following parameters:
