@@ -1,0 +1,22 @@
+{
+  "name": "@domstack/worker-example",
+  "version": "0.0.0",
+  "description": "DOMStack Web Workers Example",
+  "type": "module",
+  "scripts": {
+    "start": "npm run watch",
+    "build": "npm run clean && domstack",
+    "clean": "rm -rf public && mkdir -p public",
+    "watch": "npm run clean && tb --watch"
+  },
+  "keywords": ["domstack", "web-workers", "static-site-generator"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "mine.css": "^9.0.1",
+    "@domstack/cli": "../../."
+  },
+  "devDependencies": {
+    "npm-run-all2": "^6.0.0"
+  }
+}

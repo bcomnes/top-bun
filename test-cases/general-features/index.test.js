@@ -9,7 +9,7 @@ import { allFiles } from 'async-folder-walker'
 const __dirname = import.meta.dirname
 
 test.describe('general-features', () => {
-  test('should build site with all features', async () => {
+  test('should build site with all features', async (t) => {
     const src = path.join(__dirname, './src')
     const dest = path.join(__dirname, './public')
     const siteUp = new DomStack(src, dest, { copy: [path.join(__dirname, './copyfolder')] })
@@ -69,6 +69,11 @@ test.describe('general-features', () => {
         client: false,
         style: false,
       },
+      'worker-page/index.html': {
+        client: true,
+        style: true,
+        worker: true
+      },
     }
 
     const files = await allFiles(dest, { shaper: fwData => fwData })
@@ -90,13 +95,62 @@ test.describe('general-features', () => {
     try {
       const mdTestContent = await readFile(mdSettingsTestPath, 'utf8')
       const mdTestDoc = cheerio.load(mdTestContent)
-      
+
       // Check if our custom test-box container exists - this proves markdown-it.settings.js worked
       const testBox = mdTestDoc('.test-box')
       assert.ok(testBox.length > 0, 'markdown-it.settings.js was applied - custom container found')
     } catch (err) {
-      assert.fail('Failed to verify markdown-it.settings.js customization: ' + err.message)
+      const error = err instanceof Error ? err : new Error('Unknown error', { cause: err })
+      assert.fail('Failed to verify markdown-it.settings.js customization: ' + error.message)
     }
+
+    // Check for worker files existence (used in the next test)
+    const hasWorkerFiles = files.some(f => f.relname.includes('worker-page') && f.relname.includes('counter.worker-'))
+    assert.ok(hasWorkerFiles, 'Worker files exist in the output')
+
+    // Test for web worker functionality
+    await t.test('should support web workers', async () => {
+      // Check for worker files in the output
+      const workerFiles = files.filter(f => f.relname.includes('counter.worker-'))
+      assert.ok(workerFiles.length > 0, 'Web worker files were bundled')
+
+      // Check that the metafile contains worker entries
+      const metaFilePath = path.join(dest, 'dom-stack-esbuild-meta.json')
+      const metaContent = await readFile(metaFilePath, 'utf8')
+      const metaData = JSON.parse(metaContent)
+
+      // Verify worker files in the outputs section of the metafile
+      let workerOutputFound = false
+      for (const outputPath of Object.keys(metaData.outputs)) {
+        if (outputPath.includes('counter.worker-')) {
+          workerOutputFound = true
+          break
+        }
+      }
+      assert.ok(workerOutputFound, 'Worker output found in metafile')
+
+      // Check the worker page HTML content
+      const workerPagePath = path.join(dest, 'worker-page/index.html')
+      const workerContent = await readFile(workerPagePath, 'utf8')
+      const workerDoc = cheerio.load(workerContent)
+
+      // Verify the counter display element exists
+      const counterElement = workerDoc('#counter')
+      assert.ok(counterElement.length > 0, 'Counter element exists in worker page')
+
+      // Verify the worker page has client.js that uses the worker
+      const clientScripts = workerDoc('script[type="module"]')
+      assert.ok(clientScripts.length > 0, 'Client scripts exist in worker page')
+
+      let hasClientScript = false
+      clientScripts.each((_, script) => {
+        const src = workerDoc(script).attr('src')
+        if (src && src.includes('client-')) {
+          hasClientScript = true
+        }
+      })
+      assert.ok(hasClientScript, 'Client script with worker initialization is included')
+    })
 
     for (const [filePath, assertions] of Object.entries(pages)) {
       try {
@@ -106,8 +160,6 @@ test.describe('general-features', () => {
 
         const contents = await readFile(fullPath, 'utf8')
         const doc = cheerio.load(contents)
-        
-
 
         const headScripts = Array.from(doc('head script[type="module"]'))
 

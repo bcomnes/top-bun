@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 
-// @ts-ignore
 import { readFile } from 'node:fs/promises'
 import { resolve, join, relative } from 'node:path'
 import { parseArgs } from 'node:util'
 import { printHelpText } from 'argsclopts'
 import readline from 'node:readline'
 import process from 'process'
-// @ts-ignore
+// @ts-expect-error
 import tree from 'pretty-tree'
 import { inspect } from 'util'
 import { packageDirectory } from 'pkg-dir'
@@ -69,7 +68,7 @@ const options = {
   eject: {
     type: 'boolean',
     short: 'e',
-    help: 'eject the top bun default layout, style and client into the src flag directory',
+    help: 'eject the DOMStack default layout, style and client into the src flag directory',
   },
   watch: {
     type: 'boolean',

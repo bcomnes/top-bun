@@ -5,7 +5,7 @@
 [![Types in JS](https://img.shields.io/badge/types_in_js-yes-brightgreen)](https://github.com/voxpelli/types-in-js)
 [![Neocities][neocities-img]](https://domstack.net)
 
-`domstack`: Build websites with actual html, md, css and js, and now ts and jsx.
+`domstack`: Cut the gordian knot of modern web development and build websites with actual html, md, css, js, ts and jsx.
 
 ```console
 npm install @domstack/cli
@@ -35,7 +35,7 @@ Usage: domstack [options]
     --drafts              Build draft pages with the `.draft.{md,js,html}` page suffix.
     --target, -t          comma separated target strings for esbuild
     --noEsbuildMeta       skip writing the esbuild metafile to disk
-    --eject, -e           eject the top bun default layout, style and client into the src flag directory
+    --eject, -e           eject the DOMStack default layout, style and client into the src flag directory
     --watch, -w           build, watch and serve the site build
     --watch-only          watch and build the src folder without serving
     --copy                path to directories to copy into dist; can be used multiple times
@@ -51,7 +51,7 @@ domstack (v11.0.0)
 - Running `domstack --watch` or `domstack -w` will build the site and start an auto-reloading development web-server that watches for changes.
 - Running `domstack --eject` or `domstack -e` will extract the default layout, global styles, and client-side JavaScript into your source directory and add the necessary dependencies to your package.json.
 
-`top-bun` is primarily a unix `bin` written for the [Node.js](https://nodejs.org) runtime that is intended to be installed from `npm` as a `devDependency` inside a `package.json` committed to a `git` repository.
+`domstack` is primarily a unix `bin` written for the [Node.js](https://nodejs.org) runtime that is intended to be installed from `npm` as a `devDependency` inside a `package.json` committed to a `git` repository.
 It can be used outside of this context, but it works best within it.
 
 ## Core Concepts
@@ -84,6 +84,11 @@ src % tree
 │        └── page.ts # Anywhere you can use js in domstack, you can also use typescript files. They compile via speedy type stripping.
 ├── feeds
 │        └── feeds.template.js # Templates let you generate any file you want from variables and page data.
+├── workers
+│        ├── client.ts
+│        └── page.ts
+│        ├── counter.worker.js # Web workers use a .worker.js naming convention and are auto-bundled
+│        └── analytics.worker.js
 ├── layouts # layouts can live anywhere. The inner content of your page is slotted into your layout.
 │        ├── blog.layout.js # pages specify which layout they want by setting a `layout` page variable.
 │        ├── blog.layout.css # layouts can define an additional layout style.
@@ -127,8 +132,9 @@ Here are some additional external examples of larger domstack projects.
 If you have a project that uses domstack and could act as a nice example, please PR it to the list!
 
 - [Blog Example](https://github.com/bcomnes/bret.io/)
-- [Isomorphic Static/Client App](https://github.com/hifiwi-fi/breadcrum.net/tree/master/packages/web/client)
+- [Isomorphic Static/Client App](https://github.com/hifiwi-fi/example-app/tree/master/packages/web/client)
 - [Zero-Conf Markdown Docs](https://github.com/bcomnes/deploy-to-neocities/blob/70b264bcb37fca5b21e45d6cba9265f97f6bfa6f/package.json#L38)
+- [Web Workers Example](https://github.com/domstack/domstack/tree/master/examples/worker-example)
 
 ## Pages
 
@@ -167,14 +173,14 @@ An example of a `md` page:
 ```md
 ---
 title: A title for my markdown
-favoriteBread: 'Baguette'
+favoriteColor: 'Blue'
 ---
 
-Just writing about baking.
+Just writing about web development.
 
-## Favorite breads
+## Favorite colors
 
-My favorite bread is \{{ vars.favoriteBread }}.
+My favorite color is \{{ vars.favoriteColor }}.
 ```
 
 ### `html` pages
@@ -194,13 +200,13 @@ src/page-name/page.html
 An example `html` page:
 
 ```html
-<h2>Favorite breads</h2>
+<h2>Favorite frameworks</h2>
 <ul>
-  <li>French</li>
-  <li>Sour dough</li>
-  <li>Dutch crunch</li>
-  <!-- favoriteBread defined in page.vars.js -->
-  <li>\{{ vars.favoriteBread }}</li>
+  <li>React</li>
+  <li>Vue</li>
+  <li>Svelte</li>
+  <!-- favoriteFramework defined in page.vars.js -->
+  <li>\{{ vars.favoriteFramework }}</li>
 </ul>
 ```
 
@@ -358,6 +364,59 @@ It is a good idea to display something indicating the page is a draft in your te
 Any static assets near draft pages will still be copied because static assets are processed in parallel from page generation (to keep things fast).
 If you have an idea on how to relate static assets to a draft page for omission, please open a discussion issue.
 
+## Web Workers
+
+DOMStack supports web workers through a simple naming convention. Any file with the pattern `{name}.worker.js` is recognized as a web worker and automatically bundled by esbuild.
+
+Web workers can be added to any page in your DOMStack project:
+
+```
+page-directory/
+  ├── page.js
+  ├── client.js
+  ├── counter.worker.js  # Worker with counter functionality
+  └── data.worker.js     # Worker for data processing
+```
+
+During the build process, DOMStack:
+
+1. Bundles each worker file separately with proper cache-busting (hashed filenames)
+2. Generates a `workers.json` file in each page directory that has workers
+3. Maps the worker names directly to their hashed filenames in a flat structure
+
+To use web workers in your client code:
+
+```js
+// First, fetch the workers.json to get worker paths
+async function initializeWorkers() {
+  const response = await fetch('./workers.json');
+  const workersData = await response.json();
+
+  // Initialize workers with the correct hashed filenames
+  const counterWorker = new Worker(
+    new URL(`./${workersData.counter}`, import.meta.url),
+    { type: 'module' }
+  );
+
+  // Use the worker
+  counterWorker.postMessage({ action: 'increment' });
+
+  counterWorker.onmessage = (e) => {
+    console.log(e.data);
+  };
+
+  return counterWorker;
+}
+
+// Initialize workers when the page loads
+document.addEventListener('DOMContentLoaded', async () => {
+  const worker = await initializeWorkers();
+  // Use the worker in your page...
+});
+```
+
+See the [Web Workers Example](https://github.com/domstack/domstack/tree/master/examples/worker-example) for a complete implementation.
+
 ## Layouts
 
 Layouts are "outer page templates" that pages get rendered into.
@@ -392,7 +451,7 @@ A page referencing a layout name that doesn't have a matching layout file will r
 
 ### The default `root.layout.js`
 
-A layout is a js file that `export default`'s an async or sync function that implements an outer-wrapper html template that will house the inner content from the page (`children`) being rendered. Think of the bread in a sandwich. That's a layout. 🥪
+A layout is a js file that `export default`'s an async or sync function that implements an outer-wrapper html template that will house the inner content from the page (`children`) being rendered. Think of the frame around a picture. That's a layout. 🖼️
 
 It is always passed a single object argument with the following entries:
 
@@ -604,9 +663,9 @@ All static assets in the `src` directory are copied 1:1 to the `public` director
 
 ### `--eject` flag
 
-The `--eject` (or `-e`) flag extracts top-bun's default layout, global CSS, and client-side JavaScript into your source directory. This allows you to fully customize these files while maintaining the same functionality.
+The `--eject` (or `-e`) flag extracts DOMStack's default layout, global CSS, and client-side JavaScript into your source directory. This allows you to fully customize these files while maintaining the same functionality.
 
-When you run `top-bun --eject`, it will:
+When you run `domstack --eject`, it will:
 
 1. Create a default root layout file at `layouts/root.layout.js` (or `.mjs` depending on your package.json type)
 2. Create a default global CSS file at `globals/global.css`
@@ -616,7 +675,7 @@ When you run `top-bun --eject`, it will:
    - uhtml-isomorphic
    - highlight.js
 
-This is useful when you want to heavily customize the default theme or behavior while still leveraging top-bun's core functionality.
+This is useful when you want to heavily customize the default theme or behavior while still leveraging DOMStack's core functionality.
 
 ### `--copy` directories
 
@@ -961,9 +1020,9 @@ export default async function markdownItSettingsOverride (md) {
       }
     }
   })
-  
+
   md.use(markdownItPlantuml)
-  
+
   return md
 }
 ```
@@ -979,10 +1038,10 @@ export default async function markdownItSettingsOverride (md) {
     breaks: true,       // Convert \n to <br>
     linkify: false,     // Disable auto-linking
   })
-  
+
   // Add only the plugins you want
   newMd.use(myCustomPlugin)
-  
+
   return newMd
 }
 ```
@@ -1198,13 +1257,13 @@ export default layout
 
 ## FAQ
 
-Top-**Bun**? Like the JS runtime?
+Why DOMStack?
 
-:   No, like the bakery from Wallace and Gromit in ["A Matter of Loaf and Death"](https://www.youtube.com/watch?v=zXBmZLmfQZ4s)
+:   DOMStack is named after the DOM (Document Object Model) and the concept of stacking technologies together to build websites. It represents the layering of HTML, CSS, and JavaScript in a cohesive build system.
 
 How does `domstack` relate to [`sitedown`](https://ghub.io/sitedown)
 
-:   `domstack` used to be called `siteup` which is sort of like "markup", which is related to "markdown", which inspired the project `sitedown` to which `domstack` is a spiritual off-shot of. Put a folder of web documents in your `domstack` oven, and bake a website.
+:   `domstack` used to be called `siteup` which is sort of like "markup", which is related to "markdown", which inspired the project `sitedown` to which `domstack` is a spiritual off-shoot of. Put a folder of web documents in your `domstack` build system, and generate a website.
 
 ## Examples
 
@@ -1217,6 +1276,7 @@ Look at [examples](./examples/) and `domstack` [dependents](https://github.com/b
 - `js` and `css` is bundled with [`esbuild`](https://github.com/evanw/esbuild).
 - `md` is processed with [markdown-it](https://github.com/markdown-it/markdown-it).
 - static files are processed with [cpx2](https://github.com/bcomnes/cpx2).
+- web workers are supported via special naming conventions and automatic path resolution.
 
 These tools are treated as implementation details, but they may be exposed more in the future. The idea is that they can be swapped out for better tools in the future if they don't make it.
 
@@ -1423,6 +1483,15 @@ Some notable features are included below, see the [roadmap](https://github.com/u
 
 ## History
 
+DOMStack started its life as `top-bun` in 2023, named after the bakery from Wallace and Gromit. The project was created to provide a simple, fast, and flexible static site generator that could handle modern web development needs while staying true to web standards.
+
+The project was renamed to DOMStack in version 11 to better reflect its purpose and avoid confusion with the Bun JavaScript runtime. The name DOMStack represents the layering of web technologies (HTML, CSS, JavaScript) that the tool helps developers stack together efficiently.
+
+Key milestones:
+- **v7 (2023)**: Major rewrite and reintroduction as top-bun
+- **v11 (2023)**: Renamed from top-bun to DOMStack
+- **v12+**: Added full TypeScript support and improved performance
+- **Current**: Added Web Workers support with automatic path resolution
 
 ## Links
 

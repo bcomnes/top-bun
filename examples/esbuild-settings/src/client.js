@@ -1,6 +1,6 @@
 /**
  * ESBuild Node.js Polyfill Example
- * 
+ *
  * This file demonstrates how we can use Node.js built-in modules
  * in browser-side JavaScript when proper ESBuild settings are configured.
  */
