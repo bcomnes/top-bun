@@ -3,7 +3,7 @@ import { useState, useEffect } from 'preact/hooks'
 
 /**
  * Simple JSX Client-Side Component Example
- * 
+ *
  * This demonstrates a Preact component using JSX syntax that runs
  * exclusively on the client-side (browser). Unlike the isomorphic example,
  * this component is not pre-rendered on the server.
@@ -11,18 +11,18 @@ import { useState, useEffect } from 'preact/hooks'
 
 // User profile card component
 const ProfileCard = ({ name, role, avatar, isActive }) => (
-  <div className="profile-card">
-    <div className="profile-header">
-      <img 
-        src={avatar || "https://via.placeholder.com/64"} 
-        alt={`${name}'s avatar`} 
-        className="avatar" 
+  <div className='profile-card'>
+    <div className='profile-header'>
+      <img
+        src={avatar || 'https://via.placeholder.com/64'}
+        alt={`${name}'s avatar`}
+        className='avatar'
       />
-      <span className={`status-indicator ${isActive ? 'active' : 'inactive'}`}></span>
+      <span className={`status-indicator ${isActive ? 'active' : 'inactive'}`} />
     </div>
-    <div className="profile-info">
+    <div className='profile-info'>
       <h3>{name}</h3>
-      <p className="role">{role}</p>
+      <p className='role'>{role}</p>
     </div>
   </div>
 )
@@ -31,51 +31,51 @@ const ProfileCard = ({ name, role, avatar, isActive }) => (
 export const page = () => {
   // State for the counter
   const [count, setCount] = useState(0)
-  
+
   // State for theme toggling
   const [darkMode, setDarkMode] = useState(false)
-  
+
   // State for user profiles
   const [users, setUsers] = useState([
-    { id: 1, name: "Alex Johnson", role: "Developer", isActive: true },
-    { id: 2, name: "Sam Taylor", role: "Designer", isActive: false },
-    { id: 3, name: "Jordan Casey", role: "Product Manager", isActive: true }
+    { id: 1, name: 'Alex Johnson', role: 'Developer', isActive: true },
+    { id: 2, name: 'Sam Taylor', role: 'Designer', isActive: false },
+    { id: 3, name: 'Jordan Casey', role: 'Product Manager', isActive: true }
   ])
-  
+
   // Effect to demonstrate client-side lifecycle
   useEffect(() => {
-    console.log("Component mounted in the browser")
-    
+    console.log('Component mounted in the browser')
+
     // Update document title when count changes
     document.title = `Count: ${count}`
-    
+
     return () => {
-      console.log("Component will unmount")
+      console.log('Component will unmount')
     }
   }, [count])
-  
+
   // Toggle a user's active status
   const toggleUserStatus = (userId) => {
-    setUsers(users.map(user => 
-      user.id === userId 
-        ? { ...user, isActive: !user.isActive } 
+    setUsers(users.map(user =>
+      user.id === userId
+        ? { ...user, isActive: !user.isActive }
         : user
     ))
   }
-  
+
   return (
     <div className={`jsx-demo ${darkMode ? 'dark-theme' : 'light-theme'}`}>
       <h2>Client-Side JSX Rendering</h2>
-      
-      <div className="theme-toggle">
+
+      <div className='theme-toggle'>
         <button onClick={() => setDarkMode(!darkMode)}>
           {darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
         </button>
       </div>
-      
-      <div className="counter-section">
+
+      <div className='counter-section'>
         <h3>Interactive Counter: {count}</h3>
-        <div className="counter-controls">
+        <div className='counter-controls'>
           <button onClick={() => setCount(count - 1)} disabled={count <= 0}>
             Decrement
           </button>
@@ -87,11 +87,11 @@ export const page = () => {
           </button>
         </div>
       </div>
-      
-      <div className="profiles-section">
+
+      <div className='profiles-section'>
         <h3>User Profiles</h3>
         <p>Click on a profile to toggle active status:</p>
-        <div className="profiles-grid">
+        <div className='profiles-grid'>
           {users.map(user => (
             <div key={user.id} onClick={() => toggleUserStatus(user.id)}>
               <ProfileCard {...user} />
@@ -99,8 +99,8 @@ export const page = () => {
           ))}
         </div>
       </div>
-      
-      <div className="explanation">
+
+      <div className='explanation'>
         <h3>How This Works</h3>
         <p>Unlike the isomorphic example, this component:</p>
         <ul>

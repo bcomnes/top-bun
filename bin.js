@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 
-// @ts-ignore
 import { readFile } from 'node:fs/promises'
 import { resolve, join, relative } from 'node:path'
 import { parseArgs } from 'node:util'
 import { printHelpText } from 'argsclopts'
 import readline from 'node:readline'
 import process from 'process'
-// @ts-ignore
+// @ts-expect-error
 import tree from 'pretty-tree'
 import { inspect } from 'util'
 import { packageDirectory } from 'pkg-dir'

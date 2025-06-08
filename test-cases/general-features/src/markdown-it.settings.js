@@ -1,15 +1,18 @@
 /**
+ * @import markdownIt from 'markdown-it'
+ */
+
+/**
  * Custom markdown-it settings for testing
  * This adds a custom container for "test-box" that will be used in our test
  */
-import markdownIt from 'markdown-it'
 
 /**
  * Customize the markdown-it instance
  * @param {markdownIt} md - The markdown-it instance
- * @returns {markdownIt} - The modified markdown-it instance
+ * @returns {Promise<markdownIt>} - The modified markdown-it instance
  */
-export default async function markdownItSettingsOverride(md) {
+export default async function markdownItSettingsOverride (md) {
   // Add custom container for test-box
   md.use(createTestBoxPlugin())
   return md
@@ -19,10 +22,11 @@ export default async function markdownItSettingsOverride(md) {
  * Creates a plugin that adds a custom container for test-box
  * This is a simplified version of markdown-it-container
  */
-function createTestBoxPlugin() {
+function createTestBoxPlugin () {
   const TEST_BOX_MARKER = 'test-box'
-  
-  return (md) => {
+
+  return (/** @type {markdownIt} */md) => {
+    // @ts-ignore
     const container = (state, startLine, endLine, silent) => {
       let pos = state.bMarks[startLine] + state.tShift[startLine]
       let max = state.eMarks[startLine]
@@ -35,7 +39,7 @@ function createTestBoxPlugin() {
       }
 
       // Check for TEST_BOX_MARKER after :::
-      let match = state.src.slice(pos + 3, max).trim()
+      const match = state.src.slice(pos + 3, max).trim()
       if (match !== TEST_BOX_MARKER) {
         return false
       }
@@ -51,7 +55,7 @@ function createTestBoxPlugin() {
 
       while (nextLine < endLine) {
         nextLine++
-        
+
         // End of document
         if (nextLine >= state.lineMax) {
           break
