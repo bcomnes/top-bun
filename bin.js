@@ -68,7 +68,7 @@ const options = {
   eject: {
     type: 'boolean',
     short: 'e',
-    help: 'eject the top bun default layout, style and client into the src flag directory',
+    help: 'eject the DOMStack default layout, style and client into the src flag directory',
   },
   watch: {
     type: 'boolean',
