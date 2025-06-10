@@ -17,6 +17,10 @@ This example demonstrates how to customize the bundling process in DOMStack by c
 3. During the build process, DOMStack uses these settings to polyfill Node.js modules
 4. The result is browser-compatible JavaScript that simulates Node.js APIs
 
+Open your developer tools to see something like this:
+
+![](./img/dev.png)
+
 ## Key Files
 
 - `esbuild.settings.js`: Contains the ESBuild configuration

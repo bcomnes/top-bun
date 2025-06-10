@@ -1,20 +1,26 @@
+/**
+ * @import { PageFunction } from '@domstack/cli'
+ * @import { PageVars } from '../layouts/root.layout.js
+ */
 import { html } from 'htm/preact'
-import { render } from 'preact-render-to-string'
 
+/**
+* @type { PageFunction <PageVars>}
+*/
 export default async function JSPage ({
   vars: {
     siteName,
     title,
   }
 }) {
-  return render(html`
+  return html`
   <div class="js-page-example">
     <h1>JavaScript Page Example</h1>
-    
+
     <section class="explanation">
       <h2>What is a JavaScript Page?</h2>
       <p>
-        The JavaScript page type is the most powerful and flexible option in DOMStack. 
+        The JavaScript page type is the most powerful and flexible option in DOMStack.
         It allows you to:
       </p>
       <ul>
@@ -29,12 +35,12 @@ export default async function JSPage ({
       <h2>How to Implement</h2>
       <p>
         Export a default function (async or sync) that returns a string or any
-        type that your layout can handle. In this example, we're using 
+        type that your layout can handle. In this example, we're using
         <a href="https://github.com/developit/htm"><code>htm/preact</code></a> for JSX-like syntax.
       </p>
       <div class="code-example">
         <pre><code>export default async function MyPage({ vars }) {
-  return render(html\`<div>Content here</div>\`)
+  return html\`<div>Content here</div>\`
 }</code></pre>
       </div>
     </section>
@@ -61,7 +67,7 @@ export default async function JSPage ({
 
     <a href="../" class="back-link">← Back to Home</a>
   </div>
-  `)
+  `
 }
 
 // Define page-specific variables

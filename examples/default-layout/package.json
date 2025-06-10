@@ -12,7 +12,7 @@
     "watch:domstack": "npm run build -- --watch"
   },
   "dependencies": {
-    "@domstack/cli": "../../."
+    "@domstack/cli": "file:../../."
   },
   "devDependencies": {
     "browser-sync": "^2.26.7",

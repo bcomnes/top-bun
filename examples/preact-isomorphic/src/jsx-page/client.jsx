@@ -14,7 +14,7 @@ const ProfileCard = ({ name, role, avatar, isActive }) => (
   <div className='profile-card'>
     <div className='profile-header'>
       <img
-        src={avatar || 'https://via.placeholder.com/64'}
+        src={avatar || 'https://placecats.com/64/64'}
         alt={`${name}'s avatar`}
         className='avatar'
       />
@@ -28,7 +28,7 @@ const ProfileCard = ({ name, role, avatar, isActive }) => (
 )
 
 // Main application component
-export const page = () => {
+export const Page = () => {
   // State for the counter
   const [count, setCount] = useState(0)
 
@@ -116,5 +116,6 @@ export const page = () => {
 // Mount the component to the DOM
 const renderTarget = document.querySelector('.jsx-app')
 if (renderTarget) {
-  render(page(), renderTarget)
+  console.log({ renderTarget })
+  render(<Page />, renderTarget)
 }

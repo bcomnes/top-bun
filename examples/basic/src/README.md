@@ -37,7 +37,7 @@ Navigate through different page types:
 - [Loose Markdown File](./loose-file.md)
 - [Markdown Page Example](./md-page/README.md)
 - [Nested Markdown Page](./md-page/sub-page/README.md)
-- [JavaScript Page Example](./js-page/page.js)
+- [JavaScript Page Example](./js-page/)
 - [HTML Page Example](./html-page/page.html)
 
 ## How It Works

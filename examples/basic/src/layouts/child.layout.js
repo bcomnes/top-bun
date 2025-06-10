@@ -1,8 +1,13 @@
+/**
+ * @import { LayoutFunction } from '@domstack/cli'
+ * @import { PageVars } from './root.layout.js'
+ */
 import { html } from 'htm/preact'
 import { render } from 'preact-render-to-string'
 
 import defaultRootLayout from './root.layout.js'
 
+/** @type{LayoutFunction<PageVars>} */
 export default function articleLayout (args) {
   const { children, ...rest } = args
   const wrappedChildren = render(html`

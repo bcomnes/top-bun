@@ -1,5 +1,5 @@
-import { html } from 'htm/preact'
-import { render } from 'preact-render-to-string'
+import { html } from 'htm/react'
+import { renderToStaticMarkup } from 'react-dom/server'
 
 // Define TypeScript interfaces for layout props
 interface LayoutVars {
@@ -17,9 +17,10 @@ interface LayoutProps {
 
 /**
  * Basic layout for React with TypeScript example
- * 
+ *
  * This layout is only used for the initial HTML page structure.
  * React components will be mounted client-side after the page loads.
+ * Uses React DOM Server for server-side rendering.
  */
 export default function rootLayout({
   vars: {
@@ -34,10 +35,10 @@ export default function rootLayout({
   return /* html */`
     <!DOCTYPE html>
     <html>
-      ${render(html`
+      ${renderToStaticMarkup(html`
         <head>
-          <meta charset="utf-8" />
-          <title>${title ? `${title}` : ''}${title && siteName ? ' | ' : ''}${siteName}</title>
+          <meta charSet="utf-8" />
+          <title>${`${title ? `${title}` : ''}${title && siteName ? ' | ' : ''}${siteName}`}</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="description" content="React with TypeScript and DOMStack example" />
           ${scripts
@@ -48,11 +49,11 @@ export default function rootLayout({
             : null}
         </head>
       `)}
-      ${render(html`
+      ${renderToStaticMarkup(html`
         <body>
           ${typeof children === 'string'
-            ? html`<main class="mine-layout" dangerouslySetInnerHTML="${{ __html: children }}"/>`
-            : html`<main class="mine-layout">${children}</main>`
+            ? html`<main className="mine-layout" dangerouslySetInnerHTML="${{ __html: children }}"/>`
+            : html`<main className="mine-layout">${children}</main>`
           }
         </body>
       `)}

@@ -1,10 +1,9 @@
 import { html } from 'htm/preact'
-import { render } from 'preact-render-to-string'
 
 import sharedData from './shared-lib.js'
 
 export default async function JSPage () {
-  return render(html`
+  return html`
   <div>
     <p>
       You can keep loose assets basically anywhere in the <pre>src</pre> directory.
@@ -17,7 +16,7 @@ export default async function JSPage () {
     </p>
     <p>${sharedData.shared}</p>
   </div>
-  `)
+  `
 }
 
 export const vars = {

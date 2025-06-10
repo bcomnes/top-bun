@@ -6,12 +6,12 @@
     "start": "npm run watch",
     "build": "npm run clean && domstack",
     "clean": "rm -rf public && mkdir -p public",
-    "watch": "npm run clean && tb --watch"
+    "watch": "npm run clean && dom --watch"
   },
   "author": "Bret Comnes <bcomnes@gmail.com> (https://bret.io/)",
   "license": "MIT",
   "dependencies": {
-    "@domstack/cli": "../../."
+    "@domstack/cli": "file:../../."
   },
   "devDependencies": {
     "esbuild-plugin-polyfill-node": "^0.3.0",

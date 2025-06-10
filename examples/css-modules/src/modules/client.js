@@ -4,8 +4,6 @@ import { useCallback } from 'preact/hooks'
 import { useSignal, useComputed } from '@preact/signals'
 import { outerShell } from './app.module.css'
 
-console.log({ outerShell })
-
 const Header = ({ name }) => html`<h1>${name} List</h1>`
 
 const Footer = props => {

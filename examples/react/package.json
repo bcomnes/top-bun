@@ -12,16 +12,16 @@
   "author": "Bret Comnes <bcomnes@gmail.com> (https://bret.io/)",
   "license": "MIT",
   "dependencies": {
-    "@domstack/cli": "../../.",
+    "@domstack/cli": "file:../../.",
     "mine.css": "^9.0.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.0.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0", 
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
     "@voxpelli/tsconfig": "^15.0.0",
     "npm-run-all2": "^6.0.0",
+    "react-dom": "^18.0.0",
     "typescript": "~5.8.2"
   }
 }

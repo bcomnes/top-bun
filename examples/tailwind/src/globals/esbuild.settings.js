@@ -15,10 +15,7 @@ import tailwindPlugin from 'esbuild-plugin-tailwindcss'
 export default async function esbuildSettingsOverride (esbuildSettings) {
   // Add the Tailwind plugin to the ESBuild configuration
   esbuildSettings.plugins = [
-    tailwindPlugin({
-      // You can add Tailwind plugin options here if needed
-      // Example: tailwindConfig: './custom-tailwind.config.js'
-    }),
+    tailwindPlugin(),
   ]
 
   // You can also add other ESBuild settings as needed

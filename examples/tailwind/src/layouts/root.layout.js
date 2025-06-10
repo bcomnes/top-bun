@@ -44,7 +44,7 @@ export default function defaultRootLayout ({
         </head>
       `)}
       ${render(html`
-        <body class="min-h-screen bg-gray-50 text-gray-900 safe-area-inset">
+        <body class="prose min-h-screen bg-gray-50 text-gray-900 safe-area-inset">
           ${typeof children === 'string'
             ? html`<main class="container mx-auto p-4 mine-layout app-main" dangerouslySetInnerHTML="${{ __html: children }}" />`
             : html`<main class="container mx-auto p-4 mine-layout app-main">${children}</main>`

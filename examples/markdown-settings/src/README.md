@@ -89,7 +89,7 @@ This allows you to:
 
 ## Implementation Steps
 
-1. Create a `markdown-it.settings.js` file in your project's source directory
+1. Create a `markdown-it.settings.js` file anywhere in your project's source directory
 2. Import any markdown-it plugins you want to use
 3. Implement the `markdownItSettingsOverride` function
 4. Use the enhanced markdown syntax in your .md files

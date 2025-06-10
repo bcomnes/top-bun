@@ -1,21 +1,22 @@
-// @ts-ignore
+/**
+ * @import { LayoutFunction } from '@domstack/cli'
+ */
 import { html } from 'htm/preact'
 import { render } from 'preact-render-to-string'
 
 /**
- * @template {Record<string, any>} T
- * @typedef {import('../build-pages/resolve-layout.js').LayoutFunction<T>} LayoutFunction
+ * @typedef {{
+ *   title: string,
+ *   siteName: string,
+ *   defaultStyle: boolean,
+ *   basePath: string
+ * }} PageVars
  */
 
 /**
  * Build all of the bundles using esbuild.
  *
- * @type {LayoutFunction<{
- *   title: string,
- *   siteName: string,
- *   defaultStyle: boolean,
- *   basePath: string
- * }>}
+ * @type {LayoutFunction<PageVars>}
  */
 export default function defaultRootLayout ({
   vars: {

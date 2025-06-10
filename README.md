@@ -5,7 +5,7 @@
 [![Types in JS](https://img.shields.io/badge/types_in_js-yes-brightgreen)](https://github.com/voxpelli/types-in-js)
 [![Neocities][neocities-img]](https://domstack.net)
 
-`domstack`: Cut the gordian knot of modern web development and build websites with actual html, md, css, js, ts and jsx.
+`domstack`: Cut the [gordian knot](https://en.wikipedia.org/wiki/Gordian_Knot) of modern web development and build websites with a stack of html, md, css, js, ts, jsx. DOMStack provides a few project based conventions around esbuild ande Node.js that lets you quickly, cleanly and easily build websites and web apps using all of your favorite technolgies without any framework specific impurities. It's also extreemly fast.
 
 ```console
 npm install @domstack/cli

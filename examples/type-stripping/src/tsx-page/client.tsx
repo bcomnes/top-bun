@@ -33,7 +33,7 @@ const Button = ({ onClick, variant, children, disabled = false }: ButtonProps) =
   }
 
   return (
-    <button 
+    <button
       onClick={onClick}
       disabled={disabled}
       className={`px-4 py-2 rounded font-bold ${getButtonClass()} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
@@ -54,13 +54,13 @@ const UserCard = ({ id, name, email, role = 'User' }: UserCardProps) => (
 )
 
 // Main application component with state management
-export const page = () => {
+export const Page = () => {
   // TypeScript typed state
   const [users, setUsers] = useState<UserCardProps[]>([
     { id: 1, name: 'John Doe', email: 'john@example.com', role: 'Admin' },
     { id: 2, name: 'Jane Smith', email: 'jane@example.com' }
   ])
-  
+
   const [count, setCount] = useState<number>(0)
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
@@ -72,7 +72,7 @@ export const page = () => {
   // Add a new user with TypeScript type safety
   const addUser = (): void => {
     setIsLoading(true)
-    
+
     // Simulate API call
     setTimeout(() => {
       const newUser: UserCardProps = {
@@ -80,7 +80,7 @@ export const page = () => {
         name: `User ${users.length + 1}`,
         email: `user${users.length + 1}@example.com`
       }
-      
+
       setUsers([...users, newUser])
       setIsLoading(false)
     }, 500)
@@ -94,23 +94,23 @@ export const page = () => {
   return (
     <div className="p-4 max-w-md mx-auto">
       <h1 className="text-2xl font-bold mb-4">TypeScript JSX Example</h1>
-      
+
       <div className="mb-6">
         <p className="mb-2">Counter: {count}</p>
         <Button onClick={incrementCounter} variant="primary">
           Increment
         </Button>
       </div>
-      
+
       <div className="mb-6">
         <h2 className="text-xl font-bold mb-2">Users</h2>
         {users.map(user => (
           <UserCard key={user.id} {...user} />
         ))}
-        
+
         <div className="mt-4">
-          <Button 
-            onClick={addUser} 
+          <Button
+            onClick={addUser}
             variant="secondary"
             disabled={isLoading}
           >
@@ -118,7 +118,7 @@ export const page = () => {
           </Button>
         </div>
       </div>
-      
+
       <Button onClick={() => setUsers([])} variant="danger">
         Clear All Users
       </Button>
@@ -129,5 +129,5 @@ export const page = () => {
 // TypeScript DOM null check
 const renderTarget = document.querySelector('.jsx-app')
 if (renderTarget) {
-  render(page(), renderTarget)
+  render(<Page />, renderTarget)
 }

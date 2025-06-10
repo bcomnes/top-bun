@@ -48,3 +48,6 @@ This tells DOMStack to:
 1. Examine this project's structure - notice how files are in the root
 2. Look at the built output in `/public` to see how files are processed
 3. Check `package.json` to see how the build command is configured
+
+- [CHANGELOG.md](./CHANGELOG.md)
+- [CONTRIBUTING.md](./CONTRIBUTING.md)
