@@ -6,6 +6,7 @@ md-files: support yaml frontmatter!
 # Basic DOMStack Example
 
 This example demonstrates a complete basic website built with DOMStack, showcasing the core features without advanced customization.
+Please inspect the website, the web inspector (source and network tab), the src code in the example folder as well as the ouput files in the public folder to get an idea of how everything works.
 
 ## Features Demonstrated
 

@@ -38,10 +38,9 @@ Below is an example of an image asset referenced from the page's assets folder:
 
 ![Matrix Animation](./assets/matrix.gif)
 
+The static asset can live in the same directory as the page, or in any other directory.
+
 ## Navigation
 
 - [Back to Home](../)
 - [View Subpage](./sub-page/README.md)
-
-
-

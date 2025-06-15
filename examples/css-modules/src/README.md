@@ -2,6 +2,13 @@
 
 This example demonstrates how to use CSS modules with DOMStack, providing component-scoped styling that avoids global namespace conflicts.
 
+CSS module support is provided by esbuild, so for more information on what is and isn't supported read the esbuild CSS module docs:
+
+- [esbuild.github.io/content-types/#local-css](https://esbuild.github.io/content-types/#local-css)
+- [github.com/css-modules/css-modules](https://github.com/css-modules/css-modules)
+
+CSS modules are NOT supported in Node.js natively, so you need to import a loader to support them, or only reference them in client bundles.
+
 ## What Are CSS Modules?
 
 CSS modules are CSS files where class names and animation names are scoped locally by default. This prevents style leakage and naming collisions in your application.

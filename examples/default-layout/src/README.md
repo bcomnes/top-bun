@@ -81,3 +81,21 @@ While the default layout is convenient for getting started, you should create cu
 - Special metadata or analytics integrations
 
 For custom layouts, check the other examples in the DOMStack repository, particularly the `basic` example.
+
+## Ejecting from the Default Layout
+
+If you want to customize the default layout, you can use the `--eject` flag to extract the built-in layout into your project:
+
+```bash
+npx domstack --eject
+```
+
+This command will:
+
+1. Create a `root.layout.js` file in your project's `src` directory
+2. Copy the contents of the default layout into this new file
+3. Allow you to modify the layout to suit your specific needs
+
+After ejecting, you can edit the generated `root.layout.js` file like any other custom layout. This gives you a solid foundation to build upon rather than starting from scratch.
+
+> **Note:** Once you eject, DOMStack will use your custom layout file instead of the built-in default. If you want to revert to the original default layout, you'll need to delete your custom `root.layout.js` file.
