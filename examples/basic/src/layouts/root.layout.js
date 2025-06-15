@@ -7,36 +7,58 @@
 //
 // All other variables are set on a page level basis, either by hand or by data extraction from the page type.
 
-import { html, render } from 'uhtml-isomorphic'
+/**
+ * @import { LayoutFunction } from '@domstack/cli'
+ */
 
+import { html } from 'htm/preact'
+import { render } from 'preact-render-to-string'
+
+/**
+ * @typedef {{
+ * title: string,
+ * siteName: string,
+ * basePath?: string,
+ }} PageVars
+ */
+
+/**
+  * @type {LayoutFunction<PageVars>}
+  */
 export default async function RootLayout ({
   vars: {
     title,
     siteName,
+    basePath
   },
   scripts,
   styles,
   children,
 }) {
-  return render(String, html`
+  return /* html */`
     <!DOCTYPE html>
     <html>
-      <head>
-        <meta charset="utf-8">
-        <title>${siteName}${title ? ` | ${title}` : ''}</title>
-        <meta name="viewport" content="width=device-width, user-scalable=no" />
-        ${scripts
-          ? scripts.map(script => html`<script src="${script}" type='module'></script>`)
-          : null}
-        ${styles
-          ? styles.map(style => html`<link rel="stylesheet" href=${style} />`)
-          : null}
-      </head>
-      <body>
-        <div class="mine-layout">
-          ${typeof children === 'string' ? html([children]) : children /* Support both uhtml and string children. Optional. */}
-        </div>
-      </body>
+      ${render(html`
+        <head>
+          <meta charset="utf-8" />
+          <title>${siteName}${title ? ` | ${title}` : ''}</title>
+          <meta name="viewport" content="width=device-width, user-scalable=no" />
+          ${scripts
+            ? scripts.map(script => html`<script type='module' src="${script.startsWith('/') ? `${basePath ?? ''}${script}` : script}" />`)
+            : null}
+          ${styles
+            ? styles.map(style => html`<link rel="stylesheet" href="${style.startsWith('/') ? `${basePath ?? ''}${style}` : style}" />`)
+            : null}
+        </head>
+      `)}
+      ${render(html`
+        <body className="safe-area-inset">
+        ${typeof children === 'string'
+            ? html`<main className="mine-layout app-main" dangerouslySetInnerHTML="${{ __html: children }}"/>`
+            : html`<main className="mine-layout app-main">${children}</main>`
+        }
+        </body>
+      `)}
     </html>
-`)
+  `
 }

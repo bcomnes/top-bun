@@ -1,0 +1,341 @@
+@import 'mine.css/dist/mine.css';
+@import 'mine.css/dist/layout.css';
+@import 'highlight.js/styles/github-dark-dimmed.css';
+
+/* ===== Isomorphic Example Styles ===== */
+
+.isomorphic-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.app-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.app-header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.app-header .subtitle {
+  color: #666;
+  font-style: italic;
+}
+
+.todo-app {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.todo-form {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.todo-form input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px 0 0 4px;
+}
+
+.todo-form button {
+  padding: 0.5rem 1rem;
+  background-color: #4a8fe7;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.todo-form button:hover {
+  background-color: #3a7fd7;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+  border-bottom: 1px solid #eee;
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.todo-item.completed .todo-text {
+  color: #999;
+  text-decoration: line-through;
+}
+
+.todo-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.delete-btn {
+  background-color: #ff5252;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #ff0000;
+}
+
+.todo-stats {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.counter-widget {
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.counter-widget h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.counter-display {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: white;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.counter-display.even {
+  background-color: #e6f7ff;
+}
+
+.counter-display.odd {
+  background-color: #fff2e6;
+}
+
+.counter-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.counter-controls button {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #4a8fe7;
+  color: white;
+  cursor: pointer;
+}
+
+.counter-controls button:hover {
+  background-color: #3a7fd7;
+}
+
+.info-panel {
+  background-color: #f9f9f9;
+  border-left: 4px solid #4a8fe7;
+  padding: 1rem;
+  border-radius: 0 4px 4px 0;
+}
+
+.info-panel h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+/* ===== JSX Page Styles ===== */
+
+.jsx-page-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.explanation-section, 
+.demo-section, 
+.code-reference {
+  margin-bottom: 2rem;
+}
+
+.key-points {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+}
+
+.key-points h3 {
+  margin-top: 0;
+}
+
+.key-points ul {
+  margin-bottom: 0;
+}
+
+.jsx-demo {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.jsx-demo.dark-theme {
+  background-color: #222;
+  color: #eee;
+}
+
+.theme-toggle {
+  margin-bottom: 1.5rem;
+  text-align: right;
+}
+
+.theme-toggle button {
+  background-color: #4a8fe7;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.jsx-demo.dark-theme .theme-toggle button {
+  background-color: #f1c40f;
+  color: #222;
+}
+
+.counter-section, 
+.profiles-section, 
+.explanation {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.jsx-demo.dark-theme .counter-section, 
+.jsx-demo.dark-theme .profiles-section, 
+.jsx-demo.dark-theme .explanation {
+  border-bottom-color: #444;
+}
+
+.counter-section h3, 
+.profiles-section h3, 
+.explanation h3 {
+  margin-top: 0;
+}
+
+.profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.profile-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.jsx-demo.dark-theme .profile-card {
+  background-color: #333;
+}
+
+.profile-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-header {
+  padding: 1rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: #eee;
+}
+
+.jsx-demo.dark-theme .profile-header {
+  background-color: #444;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: 1rem;
+  right: calc(50% - 40px);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.status-indicator.active {
+  background-color: #4caf50;
+}
+
+.status-indicator.inactive {
+  background-color: #ccc;
+}
+
+.profile-info {
+  padding: 1rem;
+  text-align: center;
+}
+
+.profile-info h3 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.1rem;
+}
+
+.profile-info .role {
+  color: #666;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.jsx-demo.dark-theme .profile-info .role {
+  color: #aaa;
+}
+
+code {
+  background-color: #f0f0f0;
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
