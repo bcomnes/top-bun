@@ -21,6 +21,10 @@ import { DomStackAggregateError } from './lib/helpers/dom-stack-aggregate-error.
 */
 
 /**
+ * @typedef {import('esbuild').BuildOptions} BuildOptions
+ */
+
+/**
  * @template {Record<string, any>} T
  * @typedef {import('./lib/build-pages/resolve-layout.js').LayoutFunction<T>} LayoutFunction
  */

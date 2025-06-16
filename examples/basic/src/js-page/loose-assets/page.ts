@@ -1,8 +1,10 @@
 import { html } from 'htm/preact'
+import type { PageFunction } from '@domstack/cli'
 
 import sharedData from './shared-lib.js'
+import type { PageVars } from '../../layouts/root.layout.ts'
 
-export default async function JSPage () {
+const JSPage: PageFunction<PageVars> = async () => {
   return html`
   <div>
     <p>
@@ -19,6 +21,12 @@ export default async function JSPage () {
   `
 }
 
-export const vars = {
+export default JSPage
+
+interface PageVariables extends PageVars {
+  title: string;
+}
+
+export const vars: Partial<PageVariables> = {
   title: 'JS Page with loose assets',
 }

@@ -20,6 +20,8 @@
     "@domstack/cli": "file:../../."
   },
   "devDependencies": {
-    "npm-run-all2": "^6.0.0"
+    "@voxpelli/tsconfig": "^15.0.0",
+    "npm-run-all2": "^6.0.0",
+    "typescript": "~5.8.2"
   }
 }

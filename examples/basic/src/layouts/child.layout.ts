@@ -1,14 +1,11 @@
-/**
- * @import { LayoutFunction } from '@domstack/cli'
- * @import { PageVars } from './root.layout.js'
- */
+import type { LayoutFunction } from '@domstack/cli'
 import { html } from 'htm/preact'
 import { render } from 'preact-render-to-string'
 
 import defaultRootLayout from './root.layout.js'
+import type { PageVars } from './root.layout.js'
 
-/** @type{LayoutFunction<PageVars>} */
-export default function articleLayout (args) {
+const articleLayout: LayoutFunction<PageVars> = (args) => {
   const { children, ...rest } = args
   const wrappedChildren = render(html`
     <article class="bc-article h-entry" itemscope itemtype="http://schema.org/NewsArticle">
@@ -26,3 +23,5 @@ export default function articleLayout (args) {
 
   return defaultRootLayout({ children: wrappedChildren, ...rest })
 }
+
+export default articleLayout

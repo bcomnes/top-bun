@@ -1,4 +1,4 @@
-// The root.layout.js file must return the rendered page.
+// The root.layout.ts file must return the rendered page.
 // It must implement the following variables:
 //
 // - children: the string or type that the page returns that represents the inner-content of the page
@@ -7,25 +7,17 @@
 //
 // All other variables are set on a page level basis, either by hand or by data extraction from the page type.
 
-/**
- * @import { LayoutFunction } from '@domstack/cli'
- */
-
 import { html } from 'htm/preact'
 import { render } from 'preact-render-to-string'
+import type { LayoutFunction } from '@domstack/cli'
 
-/**
- * @typedef {{
- * title: string,
- * siteName: string,
- * basePath?: string,
- }} PageVars
- */
+export interface PageVars {
+  title: string;
+  siteName: string;
+  basePath?: string;
+}
 
-/**
-  * @type {LayoutFunction<PageVars>}
-  */
-export default async function RootLayout ({
+const RootLayout: LayoutFunction<PageVars> = async ({
   vars: {
     title,
     siteName,
@@ -34,7 +26,7 @@ export default async function RootLayout ({
   scripts,
   styles,
   children,
-}) {
+}) => {
   return /* html */`
     <!DOCTYPE html>
     <html>
@@ -62,3 +54,5 @@ export default async function RootLayout ({
     </html>
   `
 }
+
+export default RootLayout

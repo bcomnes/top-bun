@@ -5,7 +5,7 @@
 import { html } from 'htm/preact'
 
 /**
-* @type { PageFunction <PageVars>}
+* @type { PageFunction <PageVars> }
 */
 export default async function JSPage ({
   vars: {

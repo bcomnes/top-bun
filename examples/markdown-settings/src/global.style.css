@@ -1,6 +1,7 @@
+@import 'highlight.js/styles/github-dark-dimmed.css';
 /**
  * Markdown-it Custom Styling
- * 
+ *
  * This stylesheet provides custom styling for the enhanced markdown-it features
  * configured in markdown-it.settings.js.
  */
@@ -254,7 +255,7 @@ hr {
     padding: 0;
     background: white;
   }
-  
+
   .custom-warning, .custom-info, details {
     break-inside: avoid;
   }

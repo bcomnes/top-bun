@@ -20,7 +20,7 @@ This example demonstrates how to use React with TypeScript in DOMStack for clien
 ## Example Structure
 
 - `globals/esbuild.settings.ts` - Configuration to use React instead of Preact
-- `react-page/` - Client-side React component example with TypeScript
+- [`react-page/`](./react-page/) - Client-side React component example with TypeScript
 - `layouts/` - Basic layout structure
 
 ## How It Works

@@ -5,7 +5,11 @@
 [![Types in JS](https://img.shields.io/badge/types_in_js-yes-brightgreen)](https://github.com/voxpelli/types-in-js)
 [![Neocities][neocities-img]](https://domstack.net)
 
-`domstack`: Cut the [gordian knot](https://en.wikipedia.org/wiki/Gordian_Knot) of modern web development and build websites with a stack of html, md, css, js, ts, jsx. DOMStack provides a few project based conventions around esbuild ande Node.js that lets you quickly, cleanly and easily build websites and web apps using all of your favorite technolgies without any framework specific impurities. It's also extreemly fast.
+`domstack`: Cut the [gordian knot](https://en.wikipedia.org/wiki/Gordian_Knot) of modern web development and build websites with a stack of html, md, css, ts, tsx, (and/or js/jsx).
+
+DOMStack provides a few project conventions around esbuild ande Node.js that lets you quickly, cleanly and easily build websites and web apps using all of your favorite technolgies without any framework specific impurities, unlocking the web platform as a freeform canvas.
+
+It's fast to learn, quick to build with, and performs better than you are used to.
 
 ```console
 npm install @domstack/cli
@@ -32,9 +36,7 @@ Usage: domstack [options]
     --src, -s             path to source directory (default: "src")
     --dest, -d            path to build destination directory (default: "public")
     --ignore, -i          comma separated gitignore style ignore string
-    --drafts              Build draft pages with the `.draft.{md,js,html}` page suffix.
-    --target, -t          comma separated target strings for esbuild
-    --noEsbuildMeta       skip writing the esbuild metafile to disk
+    --drafts              Build draft pages with the `.draft.{md,js,ts,html}` page suffix.
     --eject, -e           eject the DOMStack default layout, style and client into the src flag directory
     --watch, -w           build, watch and serve the site build
     --watch-only          watch and build the src folder without serving
@@ -45,10 +47,10 @@ domstack (v11.0.0)
 ```
 
 `domstack` builds a `src` directory into a `dest` directory (default: `public`).
-`domstack` is also aliased to a `tb` bin.
+`domstack` is also aliased to a `dom` bin.
 
 - Running `domstack` will result in a `build` by default.
-- Running `domstack --watch` or `domstack -w` will build the site and start an auto-reloading development web-server that watches for changes.
+- Running `domstack --watch` or `domstack -w` will build the site and start an auto-reloading development web-server that watches for changes (provided by [Browsersync](https://browsersync.io)).
 - Running `domstack --eject` or `domstack -e` will extract the default layout, global styles, and client-side JavaScript into your source directory and add the necessary dependencies to your package.json.
 
 `domstack` is primarily a unix `bin` written for the [Node.js](https://nodejs.org) runtime that is intended to be installed from `npm` as a `devDependency` inside a `package.json` committed to a `git` repository.
@@ -56,7 +58,9 @@ It can be used outside of this context, but it works best within it.
 
 ## Core Concepts
 
-`domstack` builds a website from "pages" in a `src` directory, nearly 1:1 into a `dest` directory.
+`domstack` is a static site generator that builds a website from "pages" in a `src` directory, nearly 1:1 into a `dest` directory.
+By building "pages" from their `src` location to the `dest` destination, the directory structure inside of `src` becomes a "filesystem router" naturally, without any additional moving systems or structures.
+
 A `src` directory tree might look something like this:
 
 ```bash
@@ -64,50 +68,51 @@ src % tree
 .
 ├── md-page
 │        ├── README.md # directories with README.md in them turn into /md-page/index.html.
-│        ├── client.js # Every page can define its own client.js script that loads only with it.
+│        ├── client.ts # Every page can define its own client.ts script that loads only with it.
 │        ├── style.css # Every page can define its own style.css style that loads only with it.
 │        ├── loose-md-page.md # loose markdown get built in place, but lacks some page features.
 │        └── nested-page # pages are built in place and can nest.
 │               ├── README.md # This page is accessed at /md-page/nested-page/.
-│               ├── client.js # nested pages are just pages, so they also can have a page scoped client and style.
-│               └── style.css
+│               ├── style.css # nested pages are just pages, so they also can have a page scoped client and style.
+│               └── client.js # Anywhere JS loads, you can use .js or .ts
 ├── html-page
-│        ├── client.jsx # client bundles can also be written in .jsx/.tsx
+│        ├── client.tsx # client bundles can also be written in .jsx/.tsx
 │        ├── page.html # Raw html pages are also supported. They support handlebars template blocks.
-│        ├── page.vars.js # pages can define page variables in a page.vars.js.
+│        ├── page.vars.ts # pages can define page variables in a page.vars.ts
 │        └── style.css
 ├── js-page
-│        └── page.js # A page can also just be a plain javascript function that returns content
+│        └── page.js # A page can also just be a plain javascript function that returns content. They can also be type checked.
 ├── ts-page
-│        ├── client.ts # client bundles can be written in typescript via type stripping
-│        ├── page.vars.ts # pages can define page variables in a page.vars.js.
-│        └── page.ts # Anywhere you can use js in domstack, you can also use typescript files. They compile via speedy type stripping.
+│        ├── client.ts # domstack provides type-stripping via Node.JS and esbuild
+│        ├── page.vars.ts # use tsc to run typechecking
+│        └── page.ts
 ├── feeds
-│        └── feeds.template.js # Templates let you generate any file you want from variables and page data.
-├── workers
+│        └── feeds.template.ts # Templates let you generate any file you want from variables and page data.
+├── page-with-workers
 │        ├── client.ts
 │        └── page.ts
-│        ├── counter.worker.js # Web workers use a .worker.js naming convention and are auto-bundled
+│        ├── counter.worker.ts # Web workers use a .worker.{ts,js} naming convention and are auto-bundled
 │        └── analytics.worker.js
 ├── layouts # layouts can live anywhere. The inner content of your page is slotted into your layout.
-│        ├── blog.layout.js # pages specify which layout they want by setting a `layout` page variable.
+│        ├── blog.layout.ts # pages specify which layout they want by setting a `layout` page variable.
 │        ├── blog.layout.css # layouts can define an additional layout style.
-│        ├── blog.layout.client.js # layouts can also define a layout client.
-│        ├── article.layout.js # layouts can extend other layouts, since they are just functions.
-│        ├── typescript.layout.ts # layouts can also be written in typescript
-│        └── root.layout.js # the default layout is called root.
+│        ├── blog.layout.client.ts # layouts can also define a layout client.
+│        ├── article.layout.ts # layouts can extend other layouts, since they are just functions.
+│        ├── javascript.layout.js # layouts can also be written in javascript
+│        └── root.layout.ts # the default layout is called "root"
 ├── globals # global assets can live anywhere. Here they are in a folder called globals.
-│        ├── global.client.js # you can define a global js client that loads on every page.
+│        ├── global.client.ts # you can define a global client that loads on every page.
 │        ├── global.css # you can define a global css file that loads on every page.
-│        ├── global.vars.js # site wide variables get defined in global.vars.js.
-│        └── esbuild.settings.js # You can even customize the build settings passed to esbuild!
+│        ├── global.vars.ts # site wide variables get defined in global.vars.ts
+│        ├── markdown-it.settings.ts # You can customize the markdown-it instance used to render markdown
+│        └── esbuild.settings.ts # You can even customize the build settings passed to esbuild
 ├── README.md # This is just a top level page built from a README.md file.
-├── client.js # the top level page can define a page scoped js client.
-├── style.js # the top level page can define a page scoped css style.
+├── client.ts # the top level page can define a page scoped js client.
+├── style.css # the top level page can define a page scoped css style.
 └── favicon-16x16.png # static assets can live anywhere. Anything other than JS, CSS and HTML get copied over automatically.
 ```
 
-The core idea of `domstack` is that a `src` directory of markdown, html and js "inner" documents will be transformed into layout wrapped html documents in the `dest` directory, along with page scoped js and css bundles, as well as a global stylesheet and global js bundle.
+The core idea of `domstack` is that a `src` directory of markdown, html and ts/js "inner" documents will be transformed into layout wrapped html documents in the `dest` directory, along with page scoped js and css bundles, as well as a global stylesheet and global js bundle.
 
 It ships with sane defaults so that you can point `domstack` at a standard [markdown documented repository](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github) and have it build a website with near-zero preparation.
 
@@ -117,12 +122,15 @@ A collection of examples can be found in the [`./examples`](./examples) folder.
 
 To run examples:
 
-```console
+```bash
 $ git clone git@github.com:bcomnes/domstack.git
 $ cd domstack
+# install the top level deps
 $ npm i
-$ npm run example:{example-name}
+$ cd example:{example-name}
+# install the example deps
 $ npm i
+# start the example
 $ npm start
 ```
 
@@ -131,10 +139,9 @@ $ npm start
 Here are some additional external examples of larger domstack projects.
 If you have a project that uses domstack and could act as a nice example, please PR it to the list!
 
-- [Blog Example](https://github.com/bcomnes/bret.io/)
-- [Isomorphic Static/Client App](https://github.com/hifiwi-fi/example-app/tree/master/packages/web/client)
-- [Zero-Conf Markdown Docs](https://github.com/bcomnes/deploy-to-neocities/blob/70b264bcb37fca5b21e45d6cba9265f97f6bfa6f/package.json#L38)
-- [Web Workers Example](https://github.com/domstack/domstack/tree/master/examples/worker-example)
+- [Blog Example](https://github.com/bcomnes/bret.io/) - A personal blog written with DOMStack
+- [Isomorphic Static/Client App](https://github.com/hifiwi-fi/breadcrum.net/tree/master/packages/web/client) - Pages build from client templates and hydrate on load.
+- [Zero-Conf Markdown Docs](https://github.com/bcomnes/deploy-to-neocities/blob/70b264bcb37fca5b21e45d6cba9265f97f6bfa6f/package.json#L38) - A npm package with markdown docs, transformed into a website without any any configuration
 
 ## Pages
 
@@ -142,17 +149,17 @@ Pages are a named directories inside of `src`, with **one of** the following pag
 
 - `md` pages are [CommonMark](https://commonmark.org) markdown pages, with an optional [YAML](https://yaml.org) front-matter block.
 - `html` pages are an inner [html](https://developer.mozilla.org/en-US/docs/Web/HTML) fragment that get inserted into the page layout.
-- `js` pages are a [js](https://developer.mozilla.org/en-US/docs/Web/JavaScript) file that exports a default function that resolves into an inner-html fragment that is inserted into the page layout.
+- `ts`/`js` pages are a [ts](https://developer.mozilla.org/en-US/docs/Glossary/TypeScript)/[js](https://developer.mozilla.org/en-US/docs/Web/JavaScript) file that exports a default function that resolves into an inner-html fragment that is inserted into the page layout.
 
-Variables are available in all pages. `md` and `html` pages support variable access via [handlebars][hb] template blocks. `js` pages receive variables as part of the argument passed to them. See the [Variables](#variables) section for more info.
+Variables are available in all pages. `md` and `html` pages support variable access via [handlebars][hb] template blocks. `ts`/`js` pages receive variables as part of the argument passed to them. See the [Variables](#variables) section for more info.
 
-A special variable called `layout` determines which layout the page is rendered into.
+Pages can define a special variable called `layout` determines which layout the page is rendered into.
 
-Because pages are just directories, they nest and structure naturally. Directories in the `src` folder that lack one of these special page files can exist along side page directories and can be used to store co-located code or static assets without conflict.
+Because pages are just directories, they nest and structure naturally as a filesystem router. Directories in the `src` folder that lack one of these special page files can exist along side page directories and can be used to store co-located code or static assets without conflict.
 
 ### `md` pages
 
-A `md` page looks like this:
+A `md` page looks like this on the filesystem:
 
 ```bash
 src/page-name/README.md
@@ -172,7 +179,7 @@ An example of a `md` page:
 
 ```md
 ---
-title: A title for my markdown
+title: A title for a markdown page
 favoriteColor: 'Blue'
 ---
 
@@ -180,7 +187,7 @@ Just writing about web development.
 
 ## Favorite colors
 
-My favorite color is \{{ vars.favoriteColor }}.
+My favorite color is {{ vars.favoriteColor }}.
 ```
 
 ### `html` pages
@@ -192,7 +199,7 @@ src/page-name/page.html
 ```
 
 - `html` pages are named `page.html` inside an associated page folder.
-- `html` pages are the simplest page type in `domstack`. They let you build with raw html for when you don't want that page to have access to markdown features. Some pages are better off with just raw `html`.
+- `html` pages are the simplest page type in `domstack`. They let you build with raw html for when you don't want that page to have access to markdown features. Some pages are better off with just raw `html`, and the rules with building `html` in a real `html` file are much more flexible than inside of a `md` file.
 - `html` page variables can only be set in a `page.vars.js` file inside the page directory.
 - `html` pages support [handlebars][hb] template placeholders.
 - You can disable `html` page [handlebars][hb] processing by setting the `handlebars` variable to `false`.
@@ -206,29 +213,37 @@ An example `html` page:
   <li>Vue</li>
   <li>Svelte</li>
   <!-- favoriteFramework defined in page.vars.js -->
-  <li>\{{ vars.favoriteFramework }}</li>
+  <li>{{ vars.favoriteFramework }}</li>
 </ul>
 ```
 
-### `js` pages
+### `ts`/`js` pages
 
-A `js` page looks like this:
+A `ts`/`js` page looks like this:
 
 ```bash
+src/page-name/page.ts
+# or
 src/page-name/page.js
 ```
 
-- `js` pages consist of a named directory with a `page.js` inside of it, that exports a default function that returns the contents of the inner page.
-- a `js` page needs to `export default` a function (async or sync) that accepts a variables argument and returns a string of the inner html of the page, or any other type that your layout can accept.
-- A `js` page can export a `vars` object or function (async or sync) that takes highest variable precedence when rendering the page. `export vars` is similar to a `md` page's front matter.
-- A `js` page receives the standard `domstack` [Variables](#variables) set.
-- There is no built in handlebars support in `js` pages, however you are free to use any template library that you can import.
-- `js` pages are run in a Node.js context only.
+- `js`/`ts` pages consist of a named directory with a `page.js` or `page.ts` inside of it, that exports a default function that returns the contents of the inner page.
+- a `js`/`ts` page needs to `export default` a function (async or sync) that accepts a variables argument and returns a string of the inner html of the page, or any other type that your layout can accept.
+- A `js`/`ts` page can export a `vars` object or function (async or sync) that takes highest variable precedence when rendering the page. `export vars` is similar to a `md` page's front matter.
+- A `js`/`ts` page receives the standard `domstack` [Variables](#variables) set.
+- There is no built in handlebars support in `js`/`ts` pages, however you are free to use any template library that you can import.
+- `js`/`ts` pages are run in a Node.js context only.
 
-An example `js` page:
+An example TypeScript page:
 
-```js
-export default async ({
+```typescript
+import type { PageFunction } from '@domstack/cli'
+
+export const vars = {
+  favoriteCookie: 'Chocolate Chip with Sea Salt'
+}
+
+export default const page: PageFunction<typeof vars}> = async ({
   vars
 }) => {
   return /* html */`<div>
@@ -237,35 +252,28 @@ export default async ({
   </div>`
 }
 
-export const vars = {
-  favoriteCookie: 'Chocolate Chip with Sea Salt'
-}
 ```
 
-It is it's recommended to use some level of template processing over raw string templates so that html is well formed and you default escape variable values. Here is a more realistic `js` example that uses [`uhtml`](https://github.com/WebReflection/uhtml) and [types-in-js](https://github.com/voxpelli/types-in-js) and `domstack` page introspection.
+It is recommended to use some level of template processing over raw string templates so that HTML is well-formed and variable values are properly escaped. Here is a more realistic TypeScript example that uses [`preact`](https://preactjs.com/) with [`htm`](https://github.com/developit/htm) and `domstack` page introspection.
 
 
-```js
-// @ts-ignore
-import { html } from 'uhtml-isomorphic'
+```typescript
+import { html } from 'htm/preact'
 import { dirname, basename } from 'node:path'
+import type { PageFunction } from '@domstack/cli'
 
-/**
- * @template T
- * @typedef {import('domstack').LayoutFunction<T>} LayoutFunction
- */
+type BlogVars = {
+  favoriteCake: string
+}
 
-/**
- * @type {LayoutFunction<{
- *   favoriteCake: string
- * }>}
- */
-export default async function blogIndex ({
-  vars: {
-    favoriteCake
-  },
+export const vars = {
+  favoriteCake: 'Chocolate Cloud Cake'
+}
+
+export default const blogIndex: PageFunction<BlogVars> = async ({
+  vars: { favoriteCake },
   pages
-}) {
+}) => {
   const yearPages = pages.filter(page => dirname(page.pageInfo.path) === 'blog')
   return html`<div>
     <p>I love ${favoriteCake}!!</p>
@@ -273,10 +281,6 @@ export default async function blogIndex ({
       ${yearPages.map(yearPage => html`<li><a href="${`/${yearPage.pageInfo.path}/`}">${basename(yearPage.pageInfo.path)}</a></li>`)}
     </ul>
   </div>`
-}
-
-export const vars = {
-  favoriteCake: 'Chocolate Cloud Cake'
 }
 ```
 
@@ -306,17 +310,17 @@ An example of a page `style.css` file:
 
 ### Page JS Bundles
 
-You can create a `client.js` file in any page folder.
+You can create a `client.ts` or `client.js` file in any page folder.
 Page bundles are client side JS bundles that are loaded on that one page only.
-You can import common code and modules from relative paths, or `npm` modules.
-The `client.js` page bundles are bundle-split with every other client-side js entry-point, so importing common chunks of code are loaded in a maximally efficient way.
+You can import common code and modules from relative paths, or `npm` modules out of `node_modules`.
+The `client.js` page bundles are bundle-split with every other client-side js/ts entry-point, so importing common chunks of code are loaded in a maximally efficient way.
 Page bundles are run in a browser context only, however they can share carefully crafted code that also runs in a Node.js or layout context.
-`js` page bundles are bundled using [`esbuild`][esbuild].
+`ts`/`js` page bundles are bundled using [`esbuild`][esbuild].
 
 An example of a page `client.js` file:
 
-```js
-/* /some-page/client.js */
+```typescript
+/* /some-page/client.ts */
 import { funnyLibrary } from 'funny-library'
 import { someHelper } from '../helpers/foo.js'
 
@@ -326,13 +330,14 @@ await funnyLibrary()
 
 #### .tsx/.jsx
 
-Client bundles support .jsx and .tsx. They default to preact, so if you want mainlain recat, customize your esbuild settings to load that instead.
+Client bundles support .jsx and .tsx. They default to preact, so if you want mainlain react, customize your esbuild settings to load that instead.
+See the [react](./examples/react/) example for more details.
 
 ### Page variable files
 
-Each page can also have a `page.vars.js` file that exports a `default` function or object that contains page specific variables.
+Each page can also have a `page.vars.ts` or `page.vars.js` file that exports a `default` sync/async function or object that contains page specific variables.
 
-```js
+```typescript
 // export an object
 export default {
   my: 'vars'
@@ -349,11 +354,11 @@ export default async () => {
 }
 ```
 
-Page variable files have higher precedent than `global.vars.js` variables, but lower precedent than frontmatter or `vars` page exports.
+Page variable files have higher precedent than `global.vars.ts` variables, but lower precedent than frontmatter or `vars` ts/js page exports.
 
 ### Draft pages
 
-If you add a `.draft.{md,html,js}` to any of the page types, the page is considered a draft page.
+If you add a `.draft.{md,html,ts,js}` to any of the page types, the page is considered a draft page.
 Draft pages are not built by default.
 If you pass the `--drafts` flag when building or watching, the draft pages will be built.
 When draft pages are omitted, they are completely ignored.
@@ -364,11 +369,12 @@ It is a good idea to display something indicating the page is a draft in your te
 Any static assets near draft pages will still be copied because static assets are processed in parallel from page generation (to keep things fast).
 If you have an idea on how to relate static assets to a draft page for omission, please open a discussion issue.
 
+Draft pages let you work on pages before they are ready and easily omit them from a build when deploying pages that are ready.
+
 ## Web Workers
 
-DOMStack supports web workers through a simple naming convention. Any file with the pattern `{name}.worker.js` is recognized as a web worker and automatically bundled by esbuild.
-
-Web workers can be added to any page in your DOMStack project:
+You can easily write [web workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) for a page by adding a file called `${name}.worker.ts` or `${name}.worker.js` where `name` becomes the name of the worker filename in the `workers.json` file.
+DOMStack will build these similarly to page `client.ts` bundles, and will even bundle split their contents with the rest of your site.
 
 ```
 page-directory/
@@ -378,16 +384,10 @@ page-directory/
   └── data.worker.js     # Worker for data processing
 ```
 
-During the build process, DOMStack:
+To use a woker, load in a `./workers.json` file that is generated along with the worker bundle to get the final name of the worker entrypoint and then create a worker with that filename.
 
-1. Bundles each worker file separately with proper cache-busting (hashed filenames)
-2. Generates a `workers.json` file in each page directory that has workers
-3. Maps the worker names directly to their hashed filenames in a flat structure
-
-To use web workers in your client code:
-
-```js
-// First, fetch the workers.json to get worker paths
+```typescript
+// First, fetch the workers.json to get worker paths in your client.ts
 async function initializeWorkers() {
   const response = await fetch('./workers.json');
   const workersData = await response.json();
@@ -408,11 +408,7 @@ async function initializeWorkers() {
   return counterWorker;
 }
 
-// Initialize workers when the page loads
-document.addEventListener('DOMContentLoaded', async () => {
-  const worker = await initializeWorkers();
-  // Use the worker in your page...
-});
+const worker = await initializeWorkers();
 ```
 
 See the [Web Workers Example](https://github.com/domstack/domstack/tree/master/examples/worker-example) for a complete implementation.
@@ -451,7 +447,7 @@ A page referencing a layout name that doesn't have a matching layout file will r
 
 ### The default `root.layout.js`
 
-A layout is a js file that `export default`'s an async or sync function that implements an outer-wrapper html template that will house the inner content from the page (`children`) being rendered. Think of the frame around a picture. That's a layout. 🖼️
+A layout is a `ts`/`js` file that `export default`'s an async or sync function that implements an outer-wrapper html template that will house the inner content from the page (`children`) being rendered. Think of the frame around a picture. That's a layout. 🖼️
 
 It is always passed a single object argument with the following entries:
 
@@ -462,61 +458,61 @@ It is always passed a single object argument with the following entries:
 - `pages`: An array of page data that you can use to generate index pages with, or any other page-introspection based content that you desire.
 - `page`: An object with metadata and other facts about the current page being rendered into the template. This will also be found somewhere in the `pages` array.
 
-The default `root.layout.js` is featured below, and is implemented with [`uhtml`][uhtml], though it could just be done with a template literal or any other template system.
+The default `root.layout.ts` is featured below, and is implemented with [`preact`](https://preactjs.com/) and [`htm`](https://github.com/developit/htm), though it could just be done with a template literal or any other template system that runs in Node.js.
 
-`root.layout.js` can live anywhere in the `src` directory.
+`root.layout.ts` can live anywhere in the `src` directory.
 
-```js
-// @ts-ignore
-import { html, render } from 'uhtml-isomorphic'
+```typescript
+import { html } from 'htm/preact'
+import { render } from 'preact-render-to-string'
+import type { LayoutFunction } from '@domstack/cli'
 
-/**
- * @template {Record<string, any>} T
- * @typedef {import('domstack').LayoutFunction<T>} LayoutFunction
- */
+type RootLayoutVars = {
+  title: string,
+  siteName: string,
+  defaultStyle: boolean,
+  basePath?: string
+}
 
-/**
- * Build all of the bundles using esbuild.
- *
- * @type {LayoutFunction<{
- *   title: string,
- *   siteName: string,
- *   defaultStyle: boolean
- * }>}
- */
-export default function defaultRootLayout ({
+export default const defaultRootLayout: LayoutFunction<RootLayoutVars> = ({
   vars: {
     title,
-    siteName = 'Domstack'
+    siteName = 'Domstack',
+    basePath,
     /* defaultStyle = true  Set this to false in global or page vars to disable the default style in the default layout */
   },
   scripts,
   styles,
-  children
-  /* pages */
-  /* page */
-}) {
-  return render(String, html`
+  children,
+  pages,
+  page,
+}) => {
+  return /* html */`
     <!DOCTYPE html>
     <html>
-    <head>
-      <meta charset="utf-8">
-      <title>${title ? `${title}` : ''}${title && siteName ? ' | ' : ''}${siteName}</title>
-      <meta name="viewport" content="width=device-width, user-scalable=no" />
-      ${scripts
-        ? scripts.map(script => html`<script type='module' src="${script}"></script>`)
-        : null}
-      ${styles
-        ? styles.map(style => html`<link rel="stylesheet" href=${style} />`)
-        : null}
-    </head>
-    <body class="safe-area-inset">
-      <main class="mine-layout">
-        ${typeof children === 'string' ? html([children]) : children /* Support both uhtml and string children. Optional. */}
-      </main>
-    </body>
+      ${render(html`
+        <head>
+          <meta charset="utf-8" />
+          <title>${title ? `${title}` : ''}${title && siteName ? ' | ' : ''}${siteName}</title>
+          <meta name="viewport" content="width=device-width, user-scalable=no" />
+          ${scripts
+            ? scripts.map(script => html`<script type='module' src="${script.startsWith('/') ? `${basePath ?? ''}${script}` : script}" />`)
+            : null}
+          ${styles
+            ? styles.map(style => html`<link rel="stylesheet" href="${style.startsWith('/') ? `${basePath ?? ''}${style}` : style}" />`)
+            : null}
+        </head>
+      `)}
+      ${render(html`
+        <body className="safe-area-inset">
+        ${typeof children === 'string'
+            ? html`<main className="mine-layout app-main" dangerouslySetInnerHTML=${{ __html: children }}></main>`
+            : html`<main className="mine-layout app-main">${children}</main>`
+        }
+        </body>
+      `)}
     </html>
-`)
+  `
 }
 ```
 
@@ -524,42 +520,46 @@ If your `src` folder doesn't have a `root.layout.js` file somewhere in it, `doms
 
 ### Nested layouts
 
-Since layouts are just functions™️, they nest naturally. If you define the majority of your html page meta detritus in a `root.layout.js`, you can define additional layouts that act as child wrappers, without having to re-define everything in `root.layout.js`.
+Since layouts are just functions™️, they nest naturally. If you define the majority of your html page meta detritus in a `root.layout.js`, you can define additional layouts that act as child wrappers, without having to re-define everything in `root.layout.ts`.
 
-For example, you could define a `blog.layout.js` that re-uses the `root.layout.js`:
+For example, you could define a `blog.layout.ts` that re-uses the `root.layout.ts`:
 
-```js
+```typescript
 import defaultRootLayout from './root.layout.js'
-// @ts-ignore
-import { html } from 'uhtml-isomorphic'
+import { html } from 'htm/preact'
+import { render } from 'preact-render-to-string'
+import type { LayoutFunction } from '@domstack/cli'
 
-/**
- * @template {Record<string, any>} T
- * @typedef {import('domstack').LayoutFunction<T>} LayoutFunction
- */
+// Import the type from root layout
+import type { RootLayoutVars } from './root.layout'
 
-/**
- * @typedef {import('./root.layout.js').SiteVars} SiteVars
- */
+// Extend the RootLayoutVars with blog-specific properties
+interface BlogLayoutVars extends RootLayoutVars {
+  authorImgUrl?: string;
+  authorImgAlt?: string;
+  authorName?: string;
+  authorUrl?: string;
+  publishDate?: string;
+  updatedDate?: string;
+}
 
-/** @type {LayoutFunction<SiteVars>} */
-export default function blogLayout (layoutVars) {
+const blogLayout: LayoutFunction<BlogLayoutVars> = (layoutVars) => {
   const { children: innerChildren, ...rest } = layoutVars
   const vars = layoutVars.vars
 
-  const children = html`
-    <article class="article-layout h-entry" itemscope itemtype="http://schema.org/NewsArticle">
-      <header class="article-header">
-        <h1 class="p-name article-title" itemprop="headline">${vars.title}</h1>
-        <div class="metadata">
-          <address class="author-info" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  const children = render(html`
+    <article className="article-layout h-entry" itemscope itemtype="http://schema.org/NewsArticle">
+      <header className="article-header">
+        <h1 className="p-name article-title" itemprop="headline">${vars.title}</h1>
+        <div className="metadata">
+          <address className="author-info" itemprop="author" itemscope itemtype="http://schema.org/Person">
             ${vars.authorImgUrl
-              ? html`<img height="40" width="40"  src="${vars.authorImgUrl}" alt="${vars.authorImgAlt}" class="u-photo" itemprop="image">`
+              ? html`<img height="40" width="40" src="${vars.authorImgUrl}" alt="${vars.authorImgAlt}" className="u-photo" itemprop="image" />`
               : null
             }
             ${vars.authorName && vars.authorUrl
               ? html`
-                  <a href="${vars.authorUrl}" class="p-author h-card" itemprop="url">
+                  <a href="${vars.authorUrl}" className="p-author h-card" itemprop="url">
                     <span itemprop="name">${vars.authorName}</span>
                   </a>`
               : null
@@ -567,47 +567,45 @@ export default function blogLayout (layoutVars) {
           </address>
           ${vars.publishDate
             ? html`
-              <time class="dt-published" itemprop="datePublished" datetime="${vars.publishDate}">
-                <a href="#" class="u-url">
+              <time className="dt-published" itemprop="datePublished" datetime="${vars.publishDate}">
+                <a href="#" className="u-url">
                   ${(new Date(vars.publishDate)).toLocaleString()}
                 </a>
               </time>`
             : null
           }
           ${vars.updatedDate
-            ? html`<time class="dt-updated" itemprop="dateModified" datetime="${vars.updatedDate}">Updated ${(new Date(vars.updatedDate)).toLocaleString()}</time>`
+            ? html`<time className="dt-updated" itemprop="dateModified" datetime="${vars.updatedDate}">Updated ${(new Date(vars.updatedDate)).toLocaleString()}</time>`
             : null
           }
         </div>
       </header>
 
-      <section class="e-content" itemprop="articleBody">
+      <section className="e-content" itemprop="articleBody">
         ${typeof innerChildren === 'string'
-          ? html([innerChildren])
-          : innerChildren /* Support both uhtml and string children. Optional. */
+          ? html`<div dangerouslySetInnerHTML=${{ __html: innerChildren }}></div>`
+          : innerChildren
         }
       </section>
-
-      <!--
-        <footer>
-            <p>Footer notes or related info here...</p>
-        </footer>
-      -->
     </article>
-  `
+  `)
 
   const rootArgs = { ...rest, children }
   return defaultRootLayout(rootArgs)
 }
+
+export default blogLayout
 ```
 
 Now the `blog.layout.js` becomes a nested layout of `root.layout.js`. No magic, just functions.
 
-Alternatively, you could compose your layouts from re-usable template functions and strings. If you find your layouts nesting more than one or two levels, perhaps composition would be a better strategy.
+Alternatively, you could compose your layouts from re-usable template functions and strings.
+If you find your layouts nesting more than one or two levels, perhaps composition would be a better strategy.
 
 ### Layout styles
 
 You can create a `${layout-name}.layout.css` next to any layout file.
+While the layout file can live anywhere in `src`, the layout style must live next to the associated layout file.
 
 ```css
 /* /layouts/article.layout.css */
@@ -624,24 +622,25 @@ You can create a `${layout-name}.layout.css` next to any layout file.
 Layout styles are loaded on all pages that use that layout.
 Layout styles are bundled with [`esbuild`][esbuild] and can bundle relative and `npm` css using css `@import` statements.
 
-### Layout JS Bundles
+### Layout TS/JS Bundles
 
-You can create a `${layout-name}.layout.client.js` next to any layout file.
+You can create a `${layout-name}.layout.client.ts` or `${layout-name}.layout.client.js` next to any layout file.
+While the layout file can live anywhere in `src`, the layout client bundles must live next to the associated layout file.
 
-```js
-/* /layouts/article.layout.client.js */
+```typescript
+/* /layouts/article.layout.client.ts */
 
 console.log('I run on every page rendered with the \'article\' layout')
 
 /* This layout client is included in every page rendered with the 'article' layout */
 ```
 
-Layout js bundles are loaded on all pages that use that layout.
-Layout js bundles are bundled with [`esbuild`][esbuild] and can bundle relative and `npm` modules using ESM `import` statements.
+Layout ts/js bundles are loaded on all pages that use that layout.
+Layout ts/js bundles are bundled with [`esbuild`][esbuild] and can bundle relative and `npm` modules using ESM `import` statements.
 
-### Nested layout JS bundles and styles
+### Nested layout TS/JS bundles and styles
 
-If you create a nested layout that imports another layout file, **and** that imported layout has a layout style and/or layout js bundle, there is no magic that will include those layout styles and clients into the importing layout. To include those layout styles and clients into an additional layout, just import them into the additional layout client and style files. For example:
+If you create a nested layout that imports another layout file, **and** that imported layout has a layout style and/or layout js bundle, there is no magic that will include those layout styles and clients into the importing layout. To include those layout styles and clients into an additional layout, just import them into the additional layout client and style files. For example, if `article.layout.ts` wraps `root.layout.ts`, you must do the following:
 
 ```css
 /* article.layout.css  */
@@ -650,16 +649,16 @@ If you create a nested layout that imports another layout file, **and** that imp
 
 This will include the layout style from the `root` layout in the `article` layout style.
 
-```js
-/* article.layout.client.js  */
-import './root.layout.client.js'
+```typescript
+/* article.layout.client.ts  */
+import './root.layout.client.ts'
 ```
 
-These imports will include the `root.layout.js` layout assets into the `blog.layout.js` asset files.
+Adding these imports will include the `root.layout.ts` layout assets into the `blog.layout.ts` asset files.
 
 ## Static assets
 
-All static assets in the `src` directory are copied 1:1 to the `public` directory. Any file in the `src` directory that doesn't end in `.js`, `.css`, `.html`, or `.md` is copied to the `dest` directory.
+All static assets in the `src` directory are copied 1:1 to the `public` directory. Any file in the `src` directory that doesn't end in `.ts`, `.js`, `.css`, `.html`, or `.md` is copied to the `dest` directory.
 
 ### `--eject` flag
 
@@ -669,13 +668,15 @@ When you run `domstack --eject`, it will:
 
 1. Create a default root layout file at `layouts/root.layout.js` (or `.mjs` depending on your package.json type)
 2. Create a default global CSS file at `globals/global.css`
-3. Create a default client-side JavaScript file at `globals/global.client.js` (or `.mjs`)
+3. Create a default client-side JavaScript file at `globals/global.client.js`
 4. Add the necessary dependencies to your package.json:
    - mine.css
-   - uhtml-isomorphic
+   - preact
+   - htm
+   - preact-render-to-string
    - highlight.js
 
-This is useful when you want to heavily customize the default theme or behavior while still leveraging DOMStack's core functionality.
+It is recomended to eject early in your project so that you can customize the root layout as you see fit, and de-couple yourself from potential unwanted changes in the default layout as new versions of DOMStack are released.
 
 ### `--copy` directories
 
@@ -714,38 +715,34 @@ public/
 Template files let you write any kind of file type to the `dest` folder while customizing the contents of that file with access to the site [Variables](#variables) object, or inject any other kind of data fetched at build time. Template files can be located anywhere and look like:
 
 ```bash
-name-of-template.txt.template.js
-
-${name-portion}.template.js
+name-of-template.txt.template.ts
+${name-portion}.template.ts
 ```
 
-Template files are a `js` file that default exports one of the following sync/async functions:
+Template files are a `ts`/`js` file that default exports one of the following sync/async functions:
 
 ### Simple string template
 
 A function that returns a string. The `name-of-template.txt` portion of the template file name becomes the file name of the output file.
 
-```js
-/**
- * @template T
- * @typedef {import('domstack').TemplateFunction<T>} TemplateFunction
- */
+```typescript
+// name-of-template.txt.template.ts
+import type { TemplateFunction } from '@domstack/cli'
 
-/**
- * @type {TemplateFunction<{
- * foo: string,
- * testVar: string
- * }>}
- */
-export default async ({
+interface TemplateVars {
+  foo: string;
+  testVar: string;
+}
+
+export default const simpleTemplate: TemplateFunction<TemplateVars> = async ({
   vars: {
-    foo
+    foo,
+    testVar
   }
 }) => {
-  return `{Hello world
+  return `Hello world
 
-This is just a file with access to global vars: ${foo}
-`
+This is just a file with access to global vars: ${foo}`
 }
 ```
 
@@ -753,17 +750,12 @@ This is just a file with access to global vars: ${foo}
 
 A function that returns a single object with a `content` and `outputName` entries. The `outputName` overrides the name portion of the template file name.
 
-```js
-/**
- * @template T
- * @typedef {import('domstack').TemplateFunction<T>} TemplateFunction
- */
+```typescript
+import type { TemplateFunction } from '@domstack/cli'
 
-/**
- * @type {TemplateFunction<{
- * foo: string,
- * }>}
- */
+interface TemplateVars {
+  foo: string;
+}
 export default async ({
   vars: { foo }
 }) => ({
@@ -778,24 +770,20 @@ This is just a file with access to global vars: ${foo}`,
 
 A function that returns an array of objects with a `content` and `outputName` entries. This template file generates more than one file from a single template file.
 
-```js
-/**
- * @template T
- * @typedef {import('domstack').TemplateFunction<T>} TemplateFunction
- */
+```typescript
+import type { TemplateFunction } from '@domstack/cli'
 
-/**
- * @type {TemplateFunction<{
- * foo: string,
- * testVar: string
- * }>}
- */
-export default async function objectArrayTemplate ({
+interface TemplateVars {
+  foo: string;
+  testVar: string;
+}
+
+export default const objectArrayTemplate: TemplateFunction<TemplateVars> = async ({
   vars: {
     foo,
     testVar
   }
-}) {
+}) => {
   return [
     {
       content: `Hello world
@@ -817,17 +805,15 @@ This is just a file with access to global vars: ${testVar}`,
 
 An [AsyncIterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator) that `yields` objects with `content` and `outputName` entries.
 
-```js
-/**
- * @template T
- * @typedef {import('@domstack/cli').TemplateAsyncIterator<T>} TemplateAsyncIterator
- */
+```typescript
+import type { TemplateAsyncIterator } from '@domstack/cli'
 
-/** @type {TemplateAsyncIterator<{
- * foo: string,
- * testVar: string
- * }>} */
-export default async function * ({
+interface TemplateVars {
+  foo: string;
+  testVar: string;
+}
+
+export default const templateIterator: TemplateAsyncIterator<TemplateVars> = async function * ({
   vars: {
     foo,
     testVar
@@ -838,7 +824,7 @@ export default async function * ({
     content: `Hello world
 
 This is just a file with access to global vars: ${foo}`,
-    outputName: 'async-iterator-1.txt'
+    outputName: 'yielded-1.txt'
   }
 
   // Second item
@@ -846,7 +832,7 @@ This is just a file with access to global vars: ${foo}`,
     content: `Hello world again
 
 This is just a file with access to global vars: ${testVar}`,
-    outputName: 'async-iterator-2.txt'
+    outputName: 'yielded-2.txt'
   }
 }
 ```
@@ -857,43 +843,37 @@ Templates receive the standard variables available to pages, so its possible to 
 
 The following example shows how to generate an [RSS](https://www.rssboard.org) and [JSON feed](https://www.jsonfeed.org) of the last 10 date sorted pages with the `blog` layout using the AsyncIterator template type.
 
-```js
+```typescript
 import pMap from 'p-map'
-// @ts-ignore
 import jsonfeedToAtom from 'jsonfeed-to-atom'
+import type { TemplateAsyncIterator } from '@domstack/cli'
 
-/**
- * @template T
- * @typedef {import('domstack').TemplateAsyncIterator<T>} TemplateAsyncIterator
- */
+interface TemplateVars {
+  title: string;
+  layout: string;
+  siteName: string;
+  homePageUrl: string;
+  authorName: string;
+  authorUrl: string;
+  authorImgUrl?: string;
+  siteDescription: string;
+  language: string;
+}
 
-/** @type {TemplateAsyncIterator<{
-  *  title: string,
-  *  layout: string,
-  *  siteName: string,
-  *  homePageUrl: string,
-  *  authorName: string,
-  *  authorUrl: string,
-  *  authorImgUrl: string,
-  *  publishDate: string,
-  *  siteDescription: string
-  * }>}
-*/
-export default async function * feedsTemplate ({
+export default const feedsTemplate: TemplateAsyncIterator<TemplateVars> = async function * ({
   vars: {
     siteName,
+    siteDescription,
     homePageUrl,
+    language = 'en-us',
     authorName,
     authorUrl,
     authorImgUrl,
-    siteDescription
   },
   pages
 }) {
   const blogPosts = pages
-    // @ts-ignore
     .filter(page => page.pageInfo.path.startsWith('blog/') && page.vars['layout'] === 'blog')
-    // @ts-ignore
     .sort((a, b) => new Date(b.vars.publishDate) - new Date(a.vars.publishDate))
     .slice(0, 10)
 
@@ -933,14 +913,14 @@ export default async function * feedsTemplate ({
 
 ## Global Assets
 
-There are a few important (and optional) global assets that live anywhere in the `src` directory. If duplicate named files that match the global asset file name pattern are found, a build error will occur until the duplicate file is removed.
+There are a few important (and optional) global assets that live anywhere in the `src` directory. If duplicate named files that match the global asset file name pattern are found, a build error will occur until the duplicate file error is resolved.
 
-### `global.vars.js`
+### `global.vars.ts`
 
-The `global.vars.js` file should `export default` a variables object or a (sync or async) function that returns a variable object.
+The `global.vars.ts` or `global.vars.js` file should `export default` a variables object or a (sync or async) function that returns a variable object.
 The variables in this file are available to all pages, unless the page sets a variable with the same key, taking a higher precedence.
 
-```js
+```typescript
 export default {
   siteName: 'The name of my website',
   authorName: 'Mr. Wallace'
@@ -949,22 +929,22 @@ export default {
 
 #### `browser` variable
 
-`global.vars.js` can uniquely export a `browser` object. These object variables are made available in all js bundles. The `browser` export can be an object, or a sync/async function that returns an object.
+`global.vars.ts` can uniquely export a `browser` object. These object variables are made available in all js bundles. The `browser` export can be an object, or a sync/async function that returns an object.
 
-```js
+```typescript
 export const browser = {
-  'process.env.TRANSPORT': transport,
-  'process.env.HOST': host
+  'process.env.TRANSPORT': 'http',
+  'process.env.HOST': 'localhost'
 }
 ```
 
 The exported object is passed to esbuild's [`define`](https://esbuild.github.io/api/#define) options and is available to every js bundle.
 
-### `global.client.js`
+### `global.client.ts`
 
 This is a script bundle that is included on every page. It provides an easy way to inject analytics, or other small scripts that every page should have. Try to minimize what you put in here.
 
-```js
+```typescript
 console.log('I run on every page in the site!')
 ```
 
@@ -974,7 +954,7 @@ This is a global stylesheet that every page will use.
 Any styles that need to be on every single page should live here.
 Importing css from `npm` modules work well here.
 
-### `esbuild.settings.js`
+### `esbuild.settings.ts`
 
 This is an optional file you can create anywhere.
 It should export a default sync or async function that accepts a single argument (the esbuild settings object generated by domstack) and returns a modified build object.
@@ -982,36 +962,42 @@ Use this to customize the esbuild settings directly.
 You can break domstack with this, so be careful.
 Here is an example of using this file to polyfill node builtins in the browser bundle:
 
-```js
+```typescript
 import { polyfillNode } from 'esbuild-plugin-polyfill-node'
+// BuildOptions re-exported from esbuild
+import type { BuildOptions } from '@domstack/cli'
 
-export default async function esbuildSettingsOverride (esbuildSettings) {
-  esbuildSettings.plugins = [
-    polyfillNode(),
-  ]
+export default const esbuildSettingsOverride = async (esbuildSettings: BuildOptions): Promise<BuildOptions> => {
+  esbuildSettings.plugins = [polyfillNode()]
   return esbuildSettings
 }
 ```
 
-### `markdown-it.settings.js`
+Important esbuild settings you may want to set here are:
+
+- [target](https://esbuild.github.io/api/#target) - Set the `target` to make `esbuild` run a few small transforms on your CSS and JS code.
+- [jsx](https://esbuild.github.io/api/#jsx) - Unset this if you want default react transform.
+- [jsxImportSource](https://esbuild.github.io/api/#jsx-import-source)  - Unset this if you want default react transform.
+
+### `markdown-it.settings.ts`
 
 This is an optional file you can create anywhere.
 It should export a default sync or async function that accepts a single argument (the markdown-it instance configured by domstack) and returns a modified markdown-it instance.
 Use this to add custom markdown-it plugins or modify the parser configuration.
 Here are some examples:
 
-```js
-// Add custom plugins
+```typescript
 import markdownItContainer from 'markdown-it-container'
 import markdownItPlantuml from 'markdown-it-plantuml'
+import type { MarkdownIt } from 'markdown-it'
 
-export default async function markdownItSettingsOverride (md) {
+export default const markdownItSettingsOverride = async (md: MarkdownIt) => {
   // Add custom plugins
   md.use(markdownItContainer, 'spoiler', {
-    validate: function(params) {
-      return params.trim().match(/^spoiler\s+(.*)$/)
+    validate: (params: string) => {
+      return params.trim().match(/^spoiler\s+(.*)$/) !== null
     },
-    render: function (tokens, idx) {
+    render: (tokens: any[], idx: number) => {
       const m = tokens[idx].info.trim().match(/^spoiler\s+(.*)$/)
       if (tokens[idx].nesting === 1) {
         return '<details><summary>' + md.utils.escapeHtml(m[1]) + '</summary>\n'
@@ -1027,11 +1013,11 @@ export default async function markdownItSettingsOverride (md) {
 }
 ```
 
-```js
-// Replace with a completely new instance
-import markdownIt from 'markdown-it'
+```typescript
+import markdownIt, { MarkdownIt } from 'markdown-it'
+import myCustomPlugin from './my-custom-plugin'
 
-export default async function markdownItSettingsOverride (md) {
+export default const markdownItSettingsOverride = async (md: MarkdownIt) => {
   // Create a new instance with different settings
   const newMd = markdownIt({
     html: false,        // Disable HTML tags in source
@@ -1044,31 +1030,33 @@ export default async function markdownItSettingsOverride (md) {
 
   return newMd
 }
+
+markdownItSettingsOverride
 ```
 
-By default, DOMStack ships with the following markdown-it plugins:
+By default, DOMStack ships with the following markdown-it plugins enabled:
 
-- ['markdown-it'](https://github.com/markdown-it/markdown-it)
-- ['markdown-it-footnote'](https://github.com/markdown-it/markdown-it-footnote)
-- ['markdown-it-highlightjs'](https://github.com/valeriangalliat/markdown-it-highlightjs)
-- ['markdown-it-emoji'](https://github.com/markdown-it/markdown-it-emoji)
-- ['markdown-it-sub'](https://github.com/markdown-it/markdown-it-sub)
-- ['markdown-it-sup'](https://github.com/markdown-it/markdown-it-sup)
-- ['markdown-it-deflist'](https://github.com/markdown-it/markdown-it-deflist)
-- ['markdown-it-ins'](https://github.com/markdown-it/markdown-it-ins)
-- ['markdown-it-mark'](https://github.com/markdown-it/markdown-it-mark)
-- ['markdown-it-abbr'](https://github.com/markdown-it/markdown-it-abbr)
-- ['markdown-it-task-lists'](https://github.com/revin/markdown-it-task-lists)
-- ['markdown-it-anchor'](https://github.com/valeriangalliat/markdown-it-anchor)
-- ['markdown-it-attrs'](https://github.com/arve0/markdown-it-attrs)
-- ['markdown-it-table-of-contents'](https://github.com/cmaas/markdown-it-table-of-contents)
+- [markdown-it](https://github.com/markdown-it/markdown-it)
+- [markdown-it-footnote](https://github.com/markdown-it/markdown-it-footnote)
+- [markdown-it-highlightjs](https://github.com/valeriangalliat/markdown-it-highlightjs)
+- [markdown-it-emoji](https://github.com/markdown-it/markdown-it-emoji)
+- [markdown-it-sub](https://github.com/markdown-it/markdown-it-sub)
+- [markdown-it-sup](https://github.com/markdown-it/markdown-it-sup)
+- [markdown-it-deflist](https://github.com/markdown-it/markdown-it-deflist)
+- [markdown-it-ins](https://github.com/markdown-it/markdown-it-ins)
+- [markdown-it-mark](https://github.com/markdown-it/markdown-it-mark)
+- [markdown-it-abbr](https://github.com/markdown-it/markdown-it-abbr)
+- [markdown-it-task-lists](https://github.com/revin/markdown-it-task-lists)
+- [markdown-it-anchor](https://github.com/valeriangalliat/markdown-it-anchor)
+- [markdown-it-attrs](https://github.com/arve0/markdown-it-attrs)
+- [markdown-it-table-of-contents](https://github.com/cmaas/markdown-it-table-of-contents)
 
 ## Variables
 
 Pages, Layouts, and `postVars` all receive an object with the following parameters:
 
-- `vars`: An object with the variables of `global.vars.js`, `page.vars.js`, and any front-matter,`vars` exports and `postVars` from the page merged together.
-- `pages`: An array of [`PageData`](https://github.com/bcomnes/domstack/blob/master/lib/build-pages/page-data.js) instances for every page in the site build. Use this array to introspect pages to generate feeds and index pages.
+- `vars`: An object with the variables of `global.vars.ts`, `page.vars.ts`, and any front-matter,`vars` exports and `postVars` from the page merged together.
+- `pages`: An array of [`PageData`](https://github.com/bcomnes/d omstack/blob/master/lib/build-pages/page-data.js) instances for every page in the site build. Use this array to introspect pages to generate feeds and index pages.
 - `page`: An object of the page being rendered with the following parameters:
   - `type`: The type of page (`md`, `html`, or `js`)
   - `path`: The directory path for the page.
@@ -1081,39 +1069,38 @@ Pages, Layouts, and `postVars` all receive an object with the following paramete
 
 Template files receive a similar set of variables:
 
-- `vars`: An object with the variables of `global.vars.js`
+- `vars`: An object with the variables of `global.vars.ts`
 - `pages`: An array of [`PageData`](https://github.com/bcomnes/domstack/blob/master/lib/build-pages/page-data.js) instances for every page in the site build. Use this array to introspect pages to generate feeds and index pages.
 - `template`: An object of the template file data being rendered.
 
-Where `T` is your set of variables in the `vars` object.
-
 ### `postVars` post processing variables (Advanced) {#postVars}
 
-In `page.vars.js` files, you can export a `postVars` sync/async function that returns an object. This function receives the same variable set as pages and layouts. Whatever object is returned from the function is merged into the final `vars` object and is available in the page and layout. This is useful if you want to apply advanced rendering page introspection and insert it into a markdown document (for example, the last few blog posts on a markdown page.)
+In `page.vars.ts` files, you can export a `postVars` sync/async function that returns an object. This function receives the same variable set as pages and layouts. Whatever object is returned from the function is merged into the final `vars` object and is available in the page and layout. This is useful if you want to apply advanced rendering page introspection and insert it into a markdown document (for example, the last few blog posts on a markdown page.)
 
 For example:
 
-```js
-// page.vars.js
-import { html, render } from 'uhtml-isomorphic'
+```typescript
+import { html } from 'htm/preact'
+import { render } from 'preact-render-to-string'
+import type { PostVarsFunction } from '@domstack/cli'
 
-export async function postVars ({
+export const postVars: PostVarsFunction = async ({
   pages
-}) {
+}) => {
   const blogPosts = pages
     .filter(page => page.vars.layout === 'article')
     .sort((a, b) => new Date(b.vars.publishDate) - new Date(a.vars.publishDate))
     .slice(0, 5)
 
-  const blogpostsHtml = render(String, html`<ul class="blog-index-list">
+  const blogpostsHtml = render(html`<ul className="blog-index-list">
       ${blogPosts.map(p => {
         const publishDate = p.vars.publishDate ? new Date(p.vars.publishDate) : null
         return html`
-          <li class="blog-entry h-entry">
-            <a class="blog-entry-link u-url u-uid p-name" href="/${p.pageInfo.path}/">${p.vars.title}</a>
+          <li className="blog-entry h-entry">
+            <a className="blog-entry-link u-url u-uid p-name" href="/${p.pageInfo.path}/">${p.vars.title}</a>
             ${
               publishDate
-                ? html`<time class="blog-entry-date dt-published" datetime="${publishDate.toISOString()}">
+                ? html`<time className="blog-entry-date dt-published" datetime="${publishDate.toISOString()}">
                     ${publishDate.toISOString().split('T')[0]}
                   </time>`
                 : null
@@ -1122,11 +1109,9 @@ export async function postVars ({
         })}
     </ul>`)
 
-  const pageVars = {
+  return {
     blogPostsHtml: blogpostsHtml
   }
-
-  return pageVars
 }
 ```
 
@@ -1136,18 +1121,18 @@ This `postVars` renders some html from page introspection of the last 5 blog pos
 <!-- README.md -->
 ## [Blog](./blog/)
 
-\{{{ vars.blogPostsHtml }}}
+{{{ vars.blogPostsHtml }}}
 ```
-
 
 ## TypeScript Support
 
-`domstack` now supports **TypeScript** via native type-stripping in Node.js.
+`domstack` supports **TypeScript** via native type-stripping in Node.js.
 
 - **Requires Node.js ≥23** *(built-in)* or **Node.js 22** with the `NODE_OPTIONS="--experimental-strip-types" domstack` env variable.
 - Seamlessly mix `.ts`, `.mts`, `.cts` files alongside `.js`, `.mjs`, `.cjs`.
 - No explicit compilation step needed—Node.js handles type stripping at runtime.
 - Fully compatible with existing `domstack` file naming conventions.
+- Anywhere DOMStack loads JS files, it can now load TS files.
 
 ### Supported File Types
 
@@ -1198,56 +1183,6 @@ import type {
 
 They are all generic and accept a variable template that you can develop and share between files.
 
-### TypeScript Examples
-
-#### Page Function
-
-```typescript
-// page.ts
-import type { PageFunction } from '@domstack/cli'
-
-export const vars = {
-  message: 'TypeScript pages are easy!'
-}
-
-const page: PageFunction<typeof vars> = async ({ vars }) => {
-  return `<h1>Hello from TypeScript!</h1><p>${vars.message}</p>`
-}
-
-export default page
-```
-
-#### Layout Function
-
-```typescript
-// root.layout.ts
-import type { LayoutFunction } from '@domstack/cli'
-import { html, render } from 'uhtml-isomorphic'
-
-type Vars = {
-  siteName: string,
-  title?: string
-}
-
-const layout: LayoutFunction<Vars> = ({ vars, scripts, styles, children }) => {
-  return render(String, html`
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <title>${vars.title ? `${vars.title} | ` : ''}${vars.siteName}</title>
-      ${styles?.map(style => html`<link rel="stylesheet" href="${style}">`)}
-      ${scripts?.map(script => html`<script type="module" src="${script}"></script>`)}
-    </head>
-    <body>
-      ${children}
-    </body>
-    </html>
-  `)
-}
-
-export default layout
-```
-
 ## Design Goals
 
 - Convention over configuration. All configuration should be optional, and at most it should be minimal.
@@ -1293,7 +1228,8 @@ Look at [examples](./examples/) and `domstack` [dependents](https://github.com/b
 - `js` and `css` is bundled with [`esbuild`](https://github.com/evanw/esbuild).
 - `md` is processed with [markdown-it](https://github.com/markdown-it/markdown-it).
 - static files are processed with [cpx2](https://github.com/bcomnes/cpx2).
-- web workers are supported via special naming conventions and automatic path resolution.
+- `ts` support via native typestripping in Node.js and esbuild.
+- `jsx/tsx` support via esbuild.
 
 These tools are treated as implementation details, but they may be exposed more in the future. The idea is that they can be swapped out for better tools in the future if they don't make it.
 
@@ -1496,19 +1432,16 @@ Some notable features are included below, see the [roadmap](https://github.com/u
 - [x] Full Typescript support via native type stripping
 - [x] JSX+TSX support in client bundles
 - [x] Rename to domstack
+- [x] markdown-it.settings.ts support
+- [x] page-worker.worker.ts page worker support
 - ...[See roadmap](https://github.com/users/bcomnes/projects/3/)
 
 ## History
 
 DOMStack started its life as `top-bun` in 2023, named after the bakery from Wallace and Gromit. The project was created to provide a simple, fast, and flexible static site generator that could handle modern web development needs while staying true to web standards.
 
-The project was renamed to DOMStack in version 11 to better reflect its purpose and avoid confusion with the Bun JavaScript runtime. The name DOMStack represents the layering of web technologies (HTML, CSS, JavaScript) that the tool helps developers stack together efficiently.
-
-Key milestones:
-- **v7 (2023)**: Major rewrite and reintroduction as top-bun
-- **v11 (2023)**: Renamed from top-bun to DOMStack
-- **v12+**: Added full TypeScript support and improved performance
-- **Current**: Added Web Workers support with automatic path resolution
+The project was renamed to DOMStack in version 11 to better reflect its purpose and avoid confusion with the Bun JavaScript runtime. The name DOMStack represents the layering of web technologies (HTML, CSS, JavaScript).
+It is also an homage to [subtack](https://substack.net) as well as a play on the productname that stole his name.
 
 ## Links
 
@@ -1520,7 +1453,8 @@ Key milestones:
 
 [MIT](LICENSE)
 
-[uhtml]: https://github.com/WebReflection/uhtml
+[preact]: https://preactjs.com/
+[htm]: https://github.com/developit/htm
 [hb]: https://handlebarsjs.com
 [esbuild]: http://esbuild.github.io
 [neocities-img]: https://img.shields.io/website/https/domstack.neocities.org?label=neocities&logo=data:image/png;base64,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

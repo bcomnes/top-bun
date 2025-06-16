@@ -1,4 +1,11 @@
+// @ts-expect-error
 import { toggleTheme } from 'mine.css'
+
+declare global {
+  interface Window {
+    toggleTheme: typeof toggleTheme;
+  }
+}
 
 window.toggleTheme = toggleTheme
 
