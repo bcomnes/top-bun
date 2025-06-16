@@ -137,11 +137,8 @@ const App = ({ title }) => {
   `
 }
 
-// Page component for export
-export const page = () => html`<${App} title="CSS Modules Demo" />`
-
 // Client-side rendering
 if (typeof window !== 'undefined') {
   const renderTarget = document.querySelector('.app-main')
-  render(page(), renderTarget)
+  render(html`<${App} title="CSS Modules Demo" />`, renderTarget)
 }

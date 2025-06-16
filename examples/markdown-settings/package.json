@@ -12,6 +12,6 @@
   "devDependencies": {
     "@domstack/cli": "file:../../.",
     "markdown-it-container": "^4.0.0",
-    "markdown-it-admonition": "^1.0.4"
+    "markdown-it-admonition": "1.0.4"
   }
 }

@@ -9,21 +9,11 @@ CSS module support is provided by esbuild, so for more information on what is an
 
 CSS modules are NOT supported in Node.js natively, so you need to import a loader to support them, or only reference them in client bundles.
 
-## What Are CSS Modules?
-
-CSS modules are CSS files where class names and animation names are scoped locally by default. This prevents style leakage and naming collisions in your application.
-
-## Features Demonstrated
-
-- Scoped CSS class names via the `.module.css` extension
-- Isomorphic component rendering with Preact
-- Integration of CSS modules with JavaScript components
-
 ## How It Works
 
 1. Create a CSS file with the `.module.css` extension
-2. Import the styles in your JavaScript component
-3. Use the imported class names as object properties
+2. Import the styles in your JavaScript components that get loaded in your client bundles.
+3. Use the imported class names as object properties on the javascript side.
 
 ## Project Structure
 
@@ -41,4 +31,4 @@ src/
 
 ## Example
 
-Check out the [Isomorphic Component Rendering](./modules/) example to see CSS modules in action.
+Check out the [CSS Modules in a Preact Component](./modules/) example to see CSS modules in action.

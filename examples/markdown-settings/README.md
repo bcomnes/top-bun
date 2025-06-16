@@ -10,18 +10,18 @@ This example demonstrates how to customize the markdown-it instance used for ren
 
 ## How it Works
 
-DOMStack now supports a `markdown-it.settings.js` file that allows you to customize the markdown-it instance. This file should export a default function that receives the default markdown-it instance and returns a modified instance.
+DOMStack now supports a `markdown-it.settings.js` file that allows you to customize the markdown-it instance. This file should export a default function that receives the default markdown-it instance and returns a modified or replaced instance.
 
 ```js
 export default async function markdownItSettingsOverride (md) {
   // Add plugins
   md.use(somePlugin)
-  
+
   // Customize renderers
   md.renderer.rules.someRule = function (tokens, idx, options, env, renderer) {
     // Custom rendering logic
   }
-  
+
   return md
 }
 ```

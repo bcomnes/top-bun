@@ -1046,6 +1046,23 @@ export default async function markdownItSettingsOverride (md) {
 }
 ```
 
+By default, DOMStack ships with the following markdown-it plugins:
+
+- ['markdown-it'](https://github.com/markdown-it/markdown-it)
+- ['markdown-it-footnote'](https://github.com/markdown-it/markdown-it-footnote)
+- ['markdown-it-highlightjs'](https://github.com/valeriangalliat/markdown-it-highlightjs)
+- ['markdown-it-emoji'](https://github.com/markdown-it/markdown-it-emoji)
+- ['markdown-it-sub'](https://github.com/markdown-it/markdown-it-sub)
+- ['markdown-it-sup'](https://github.com/markdown-it/markdown-it-sup)
+- ['markdown-it-deflist'](https://github.com/markdown-it/markdown-it-deflist)
+- ['markdown-it-ins'](https://github.com/markdown-it/markdown-it-ins)
+- ['markdown-it-mark'](https://github.com/markdown-it/markdown-it-mark)
+- ['markdown-it-abbr'](https://github.com/markdown-it/markdown-it-abbr)
+- ['markdown-it-task-lists'](https://github.com/revin/markdown-it-task-lists)
+- ['markdown-it-anchor'](https://github.com/valeriangalliat/markdown-it-anchor)
+- ['markdown-it-attrs'](https://github.com/arve0/markdown-it-attrs)
+- ['markdown-it-table-of-contents'](https://github.com/cmaas/markdown-it-table-of-contents)
+
 ## Variables
 
 Pages, Layouts, and `postVars` all receive an object with the following parameters:

@@ -10,6 +10,18 @@ This example demonstrates how to customize the bundling process in DOMStack by c
 - How to configure ESBuild plugins (in this case, for Node.js polyfills)
 - How browser code can use Node.js modules safely
 
+## Esbuild build options
+
+The settings file export defaults an async function that receives BuildOptions for esbuild.
+The function should modify, extend or replace this BuildOptions object and return it as the return value of the function.
+These options are used to build the CSS and client bundles in all of the pages.
+
+- [ESbuild BuildOptions API Docs](https://esbuild.github.io/api/#build)
+
+This is a powerful hook that you can use to modify almost anything about the build with.
+However, modifying certain parts of the build options can also break the DOMSTack build.
+Proceed with caution!
+
 ## How It Works
 
 1. The `client.js` file imports a Node.js built-in module (`os`)
