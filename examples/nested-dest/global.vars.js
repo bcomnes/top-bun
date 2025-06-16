@@ -1,4 +1,4 @@
 export default {
   defaultStyle: false,
-  siteName: 'nested top-bun example',
+  siteName: 'nested depscan example',
 }
