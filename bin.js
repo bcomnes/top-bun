@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 
+/**
+ * @import {DomStackOpts as DomStackOpts} from './lib/builder.js'
+ * @import { ArgscloptsParseArgsOptionsConfig } from 'argsclopts'
+ */
+
 import { readFile } from 'node:fs/promises'
 import { resolve, join, relative } from 'node:path'
 import { parseArgs } from 'node:util'
@@ -18,11 +23,6 @@ import { DomStack } from './index.js'
 import { DomStackAggregateError } from './lib/helpers/dom-stack-aggregate-error.js'
 import { generateTreeData } from './lib/helpers/generate-tree-data.js'
 import { askYesNo } from './lib/helpers/cli-prompt.js'
-
-/**
- * @import {DomStackOpts as DomStackOpts} from './lib/builder.js'
- * @import { ArgscloptsParseArgsOptionsConfig } from 'argsclopts'
- */
 
 const __dirname = import.meta.dirname
 

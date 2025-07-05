@@ -1,11 +1,21 @@
+/**
+ * @import { DomStackOpts as DomStackOpts, Results } from './lib/builder.js'
+ * @import { FSWatcher, Stats } from 'node:fs'
+ * @import { PostVarsFunction, LayoutFunction } from './lib/build-pages/page-data.js'
+ * @import { PageFunction } from './lib/build-pages/page-builders/page-writer.js'
+ * @import { TemplateFunction } from './lib/build-pages/page-builders/template-builder.js'
+ * @import { TemplateAsyncIterator } from './lib/build-pages/page-builders/template-builder.js'
+ * @import { TemplateOutputOverride } from './lib/build-pages/page-builders/template-builder.js'
+ * @import { BuildOptions } from 'esbuild'
+*/
 import { once } from 'events'
 import assert from 'node:assert'
 import chokidar from 'chokidar'
 import { basename, relative, resolve } from 'node:path'
-// @ts-ignore
+// @ts-expect-error
 import makeArray from 'make-array'
 import ignore from 'ignore'
-// @ts-ignore
+// @ts-expect-error
 import cpx from 'cpx2'
 import { inspect } from 'util'
 import browserSync from 'browser-sync'
@@ -16,41 +26,36 @@ import { builder } from './lib/builder.js'
 import { DomStackAggregateError } from './lib/helpers/dom-stack-aggregate-error.js'
 
 /**
- * @import { DomStackOpts as DomStackOpts, Results } from './lib/builder.js'
- * @import { FSWatcher, Stats } from 'node:fs'
-*/
-
-/**
- * @typedef {import('esbuild').BuildOptions} BuildOptions
+ * @typedef {BuildOptions} BuildOptions
  */
 
 /**
  * @template {Record<string, any>} T
- * @typedef {import('./lib/build-pages/resolve-layout.js').LayoutFunction<T>} LayoutFunction
+ * @typedef {LayoutFunction<T>} LayoutFunction
  */
 
 /**
  * @template {Record<string, any>} T
- * @typedef {import('./lib/build-pages/resolve-vars.js').PostVarsFunction<T>} PostVarsFunction
+ * @typedef {PostVarsFunction<T>} PostVarsFunction
  */
 
 /**
  * @template {Record<string, any>} T
- * @typedef {import('./lib/build-pages/page-builders/page-writer.js').PageFunction<T>} PageFunction
+ * @typedef {PageFunction<T>} PageFunction
  */
 
 /**
  * @template {Record<string, any>} T
- * @typedef {import('./lib/build-pages/page-builders/template-builder.js').TemplateFunction<T>} TemplateFunction
+ * @typedef {TemplateFunction<T>} TemplateFunction
  */
 
 /**
  * @template {Record<string, any>} T
- * @typedef {import('./lib/build-pages/page-builders/template-builder.js').TemplateAsyncIterator<T>} TemplateAsyncIterator
+ * @typedef {TemplateAsyncIterator<T>} TemplateAsyncIterator
  */
 
 /**
- * @typedef {import('./lib/build-pages/page-builders/template-builder.js').TemplateOutputOverride} TemplateOutputOverride
+ * @typedef {TemplateOutputOverride} TemplateOutputOverride
  */
 
 const DEFAULT_IGNORES = /** @type {const} */ ([
