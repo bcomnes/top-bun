@@ -47,7 +47,7 @@
     "mine.css": "^10.0.0",
     "p-map": "^7.0.2",
     "package-json": "^10.0.0",
-    "pkg-dir": "^8.0.0",
+    "pkg-dir": "^9.0.0",
     "preact": "^10.26.6",
     "pretty": "^2.0.0",
     "pretty-tree": "^1.0.0",
