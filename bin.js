@@ -10,7 +10,7 @@ import process from 'process'
 // @ts-ignore
 import tree from 'pretty-tree'
 import { inspect } from 'util'
-import { packageDirectory } from 'pkg-dir'
+import { packageDirectory } from 'package-directory'
 import { readPackage } from 'read-pkg'
 import { addPackageDependencies } from 'write-package'
 
