@@ -1,11 +1,21 @@
+/**
+ * @import { DomStackOpts as DomStackOpts, Results } from './lib/builder.js'
+ * @import { FSWatcher, Stats } from 'node:fs'
+ * @import { PostVarsFunction, LayoutFunction } from './lib/build-pages/page-data.js'
+ * @import { PageFunction } from './lib/build-pages/page-builders/page-writer.js'
+ * @import { TemplateFunction } from './lib/build-pages/page-builders/template-builder.js'
+ * @import { TemplateAsyncIterator } from './lib/build-pages/page-builders/template-builder.js'
+ * @import { TemplateOutputOverride } from './lib/build-pages/page-builders/template-builder.js'
+ * @import { BuildOptions } from 'esbuild'
+*/
 import { once } from 'events'
 import assert from 'node:assert'
 import chokidar from 'chokidar'
 import { basename, relative, resolve } from 'node:path'
-// @ts-ignore
+// @ts-expect-error
 import makeArray from 'make-array'
 import ignore from 'ignore'
-// @ts-ignore
+// @ts-expect-error
 import cpx from 'cpx2'
 import { inspect } from 'util'
 import browserSync from 'browser-sync'
@@ -13,40 +23,39 @@ import browserSync from 'browser-sync'
 import { getCopyGlob } from './lib/build-static/index.js'
 import { getCopyDirs } from './lib/build-copy/index.js'
 import { builder } from './lib/builder.js'
-import { TopBunAggregateError } from './lib/helpers/top-bun-aggregate-error.js'
+import { DomStackAggregateError } from './lib/helpers/dom-stack-aggregate-error.js'
 
 /**
- * @import { TopBunOpts, Results } from './lib/builder.js'
- * @import { FSWatcher, Stats } from 'node:fs'
-*/
-
-/**
- * @template {Record<string, any>} T
- * @typedef {import('./lib/build-pages/resolve-layout.js').LayoutFunction<T>} LayoutFunction
+ * @typedef {BuildOptions} BuildOptions
  */
 
 /**
  * @template {Record<string, any>} T
- * @typedef {import('./lib/build-pages/resolve-vars.js').PostVarsFunction<T>} PostVarsFunction
+ * @typedef {LayoutFunction<T>} LayoutFunction
  */
 
 /**
  * @template {Record<string, any>} T
- * @typedef {import('./lib/build-pages/page-builders/page-writer.js').PageFunction<T>} PageFunction
+ * @typedef {PostVarsFunction<T>} PostVarsFunction
  */
 
 /**
  * @template {Record<string, any>} T
- * @typedef {import('./lib/build-pages/page-builders/template-builder.js').TemplateFunction<T>} TemplateFunction
+ * @typedef {PageFunction<T>} PageFunction
  */
 
 /**
  * @template {Record<string, any>} T
- * @typedef {import('./lib/build-pages/page-builders/template-builder.js').TemplateAsyncIterator<T>} TemplateAsyncIterator
+ * @typedef {TemplateFunction<T>} TemplateFunction
  */
 
 /**
- * @typedef {import('./lib/build-pages/page-builders/template-builder.js').TemplateOutputOverride} TemplateOutputOverride
+ * @template {Record<string, any>} T
+ * @typedef {TemplateAsyncIterator<T>} TemplateAsyncIterator
+ */
+
+/**
+ * @typedef {TemplateOutputOverride} TemplateOutputOverride
  */
 
 const DEFAULT_IGNORES = /** @type {const} */ ([
@@ -60,9 +69,9 @@ const DEFAULT_IGNORES = /** @type {const} */ ([
 ])
 
 /**
- * @template {TopBunOpts} [CurrentOpts=TopBunOpts]
+ * @template {DomStackOpts} [CurrentOpts=DomStackOpts]
  */
-export class TopBun {
+export class DomStack {
   /** @type {string} */ #src = ''
   /** @type {string} */ #dest = ''
   /** @type {Readonly<CurrentOpts & { ignore: string[] }>} */ opts
@@ -118,7 +127,7 @@ export class TopBun {
   }
 
   /**
-   * Build and watch a top-bun build
+   * Build and watch a domstack build
    * @param  {object} [params]
    * @param  {boolean} params.serve
    * @return {Promise<Results>}
@@ -138,7 +147,7 @@ export class TopBun {
       console.log('Initial JS, CSS and Page Build Complete')
     } catch (err) {
       errorLogger(err)
-      if (!(err instanceof TopBunAggregateError)) throw new Error('Non-aggregate error thrown', { cause: err })
+      if (!(err instanceof DomStackAggregateError)) throw new Error('Non-aggregate error thrown', { cause: err })
       report = err.results
     }
 
