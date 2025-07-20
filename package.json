@@ -65,7 +65,6 @@
     "@types/node": "^24.0.1",
     "@voxpelli/tsconfig": "^15.0.0",
     "auto-changelog": "^2.4.0",
-    "dependency-cruiser": "^16.3.3",
     "gh-release": "^7.0.2",
     "installed-check": "^9.3.0",
     "jsonfeed-to-atom": "^1.2.5",
@@ -91,7 +90,6 @@
     "test:neostandard": "eslint . --ignore-pattern 'test-cases/build-errors/src/**/*.js' --ignore-pattern 'test-cases/page-build-errors/src/**/*.js'",
     "test:node-test": "c8 --reporter=lcov --reporter=text node --test --test-reporter spec",
     "test:tsc": "tsc",
-    "test:deptree": "depcruise --validate .dependency-cruiser.json bin.js",
     "build-examples": "run-p example:*",
     "clean": "run-p clean:*",
     "clean:public": "rm -rf public && mkdir -p public",
@@ -108,8 +106,6 @@
     "example:default-layout": "cd examples/default-layout && npm i --production && npm run build",
     "example:nested-dest": "cd examples/nested-dest && npm i --production && npm run build",
     "example:uhtml-isomorphic": "cd examples/uhtml-isomorphic && npm i --production && npm run build",
-    "deps": "depcruise --exclude '^node_modules|^[a-zA-Z0-9\\_]+$' --output-type dot . | dot -T svg > dependencygraph.svg",
-    "deps3d": "depcruise --exclude '^node_modules|^[a-zA-Z0-9\\_]+$' --output-type plugin:dependency-cruiser/sample-3d-reporter-plugin --output-to 3d-dependency-graph.html .",
     "start": "npm run watch"
   },
   "funding": {
