@@ -1,15 +1,15 @@
-name: Deploy domstack website to neociteis
+name: Deploy old website to neociteis
 
 on:
   push:
     branches:
-      - next
+      - master
 
 env:
   FORCE_COLOR: 1
 
 concurrency: # prevent concurrent deploys doing starnge things
-  group: deploy-to-neocities
+  group: deploy-to-neocities-old
   cancel-in-progress: true
 
 jobs:
@@ -30,7 +30,7 @@ jobs:
     - name: Deploy to neocities
       uses: bcomnes/deploy-to-neocities@v3
       with:
-        api_token: ${{ secrets.NEOCITIES_DOMSTACK_API_TOKEN }}
+        api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
         cleanup: true
         neocoties_supporter: true
         preview_before_deploy: true
