@@ -1,7 +1,7 @@
 import { html } from 'htm/preact'
 import { render } from 'preact-render-to-string'
 
-import type { LayoutFunction } from 'top-bun'
+import type { LayoutFunction } from '@domstack/static'
 
 interface Vars {
   title?: string
@@ -15,7 +15,7 @@ type DefaultRootLayout = LayoutFunction<Vars>
 const defaultRootLayout: DefaultRootLayout = ({
   vars: {
     title,
-    siteName = 'TopBun',
+    siteName = 'Domstack',
     basePath,
   },
   scripts,
