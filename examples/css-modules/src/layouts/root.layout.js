@@ -1,5 +1,5 @@
 /**
- * @import { LayoutFunction } from '@domstack/cli'
+ * @import { LayoutFunction } from '@domstack/static'
  */
 
 import { html } from 'htm/preact'

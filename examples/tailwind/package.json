@@ -14,7 +14,7 @@
     "@tailwindcss/typography": "^0.5.16"
   },
   "devDependencies": {
-    "@domstack/cli": "file:../../.",
+    "@domstack/static": "file:../../.",
     "@preact/signals": "^2.0.0",
     "esbuild-plugin-tailwindcss": "2.0.1",
     "htm": "^3.1.1",

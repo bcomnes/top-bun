@@ -11,7 +11,7 @@
   "author": "Bret Comnes <bcomnes@gmail.com> (https://bret.io/)",
   "license": "MIT",
   "dependencies": {
-    "@domstack/cli": "file:../../."
+    "@domstack/static": "file:../../."
   },
   "devDependencies": {
     "esbuild-plugin-polyfill-node": "^0.3.0",

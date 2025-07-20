@@ -1,6 +1,6 @@
 {
-  "name": "@domstack/cli",
-  "description": "@domstack/cli: a traditional web bakery made with html, md, css and js.",
+  "name": "@domstack/static",
+  "description": "@domstack/static: a traditional web bakery made with html, md, css and js.",
   "version": "10.5.2",
   "type": "module",
   "main": "./index.js",

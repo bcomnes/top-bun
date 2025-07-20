@@ -14,7 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "mine.css": "^9.0.1",
-    "@domstack/cli": "file:../../."
+    "@domstack/static": "file:../../."
   },
   "devDependencies": {
     "npm-run-all2": "^6.0.0"

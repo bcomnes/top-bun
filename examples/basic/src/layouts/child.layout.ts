@@ -1,4 +1,4 @@
-import type { LayoutFunction } from '@domstack/cli'
+import type { LayoutFunction } from '@domstack/static'
 import { html } from 'htm/preact'
 import { render } from 'preact-render-to-string'
 

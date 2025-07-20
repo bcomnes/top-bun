@@ -1,5 +1,5 @@
 /**
- * @import { PageFunction } from '@domstack/cli'
+ * @import { PageFunction } from '@domstack/static'
  * @import { PageVars } from '../layouts/root.layout.js
  */
 import { html } from 'htm/preact'

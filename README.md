@@ -1,5 +1,5 @@
 # 🪢 DOMStack
-[![npm version](https://img.shields.io/npm/v/@domstack/cli.svg)](https://npmjs.org/package/@domstack/cli)
+[![npm version](https://img.shields.io/npm/v/@domstack/static.svg)](https://npmjs.org/package/@domstack/static)
 [![Actions Status](https://github.com/bcomnes/domstack/workflows/tests/badge.svg)](https://github.com/bcomnes/domstack/actions)
 [![Coverage Status](https://coveralls.io/repos/github/bcomnes/domstack/badge.svg?branch=master)](https://coveralls.io/github/bcomnes/domstack?branch=master)
 [![Types in JS](https://img.shields.io/badge/types_in_js-yes-brightgreen)](https://github.com/voxpelli/types-in-js)
@@ -12,7 +12,7 @@ DOMStack provides a few project conventions around esbuild ande Node.js that let
 It's fast to learn, quick to build with, and performs better than you are used to.
 
 ```console
-npm install @domstack/cli
+npm install @domstack/static
 ```
 
 - 🌎 [domstack docs website](https://domstack.net)
@@ -237,7 +237,7 @@ src/page-name/page.js
 An example TypeScript page:
 
 ```typescript
-import type { PageFunction } from '@domstack/cli'
+import type { PageFunction } from '@domstack/static'
 
 export const vars = {
   favoriteCookie: 'Chocolate Chip with Sea Salt'
@@ -260,7 +260,7 @@ It is recommended to use some level of template processing over raw string templ
 ```typescript
 import { html } from 'htm/preact'
 import { dirname, basename } from 'node:path'
-import type { PageFunction } from '@domstack/cli'
+import type { PageFunction } from '@domstack/static'
 
 type BlogVars = {
   favoriteCake: string
@@ -465,7 +465,7 @@ The default `root.layout.ts` is featured below, and is implemented with [`preact
 ```typescript
 import { html } from 'htm/preact'
 import { render } from 'preact-render-to-string'
-import type { LayoutFunction } from '@domstack/cli'
+import type { LayoutFunction } from '@domstack/static'
 
 type RootLayoutVars = {
   title: string,
@@ -528,7 +528,7 @@ For example, you could define a `blog.layout.ts` that re-uses the `root.layout.t
 import defaultRootLayout from './root.layout.js'
 import { html } from 'htm/preact'
 import { render } from 'preact-render-to-string'
-import type { LayoutFunction } from '@domstack/cli'
+import type { LayoutFunction } from '@domstack/static'
 
 // Import the type from root layout
 import type { RootLayoutVars } from './root.layout'
@@ -727,7 +727,7 @@ A function that returns a string. The `name-of-template.txt` portion of the temp
 
 ```typescript
 // name-of-template.txt.template.ts
-import type { TemplateFunction } from '@domstack/cli'
+import type { TemplateFunction } from '@domstack/static'
 
 interface TemplateVars {
   foo: string;
@@ -751,7 +751,7 @@ This is just a file with access to global vars: ${foo}`
 A function that returns a single object with a `content` and `outputName` entries. The `outputName` overrides the name portion of the template file name.
 
 ```typescript
-import type { TemplateFunction } from '@domstack/cli'
+import type { TemplateFunction } from '@domstack/static'
 
 interface TemplateVars {
   foo: string;
@@ -771,7 +771,7 @@ This is just a file with access to global vars: ${foo}`,
 A function that returns an array of objects with a `content` and `outputName` entries. This template file generates more than one file from a single template file.
 
 ```typescript
-import type { TemplateFunction } from '@domstack/cli'
+import type { TemplateFunction } from '@domstack/static'
 
 interface TemplateVars {
   foo: string;
@@ -806,7 +806,7 @@ This is just a file with access to global vars: ${testVar}`,
 An [AsyncIterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator) that `yields` objects with `content` and `outputName` entries.
 
 ```typescript
-import type { TemplateAsyncIterator } from '@domstack/cli'
+import type { TemplateAsyncIterator } from '@domstack/static'
 
 interface TemplateVars {
   foo: string;
@@ -846,7 +846,7 @@ The following example shows how to generate an [RSS](https://www.rssboard.org) a
 ```typescript
 import pMap from 'p-map'
 import jsonfeedToAtom from 'jsonfeed-to-atom'
-import type { TemplateAsyncIterator } from '@domstack/cli'
+import type { TemplateAsyncIterator } from '@domstack/static'
 
 interface TemplateVars {
   title: string;
@@ -965,7 +965,7 @@ Here is an example of using this file to polyfill node builtins in the browser b
 ```typescript
 import { polyfillNode } from 'esbuild-plugin-polyfill-node'
 // BuildOptions re-exported from esbuild
-import type { BuildOptions } from '@domstack/cli'
+import type { BuildOptions } from '@domstack/static'
 
 export default const esbuildSettingsOverride = async (esbuildSettings: BuildOptions): Promise<BuildOptions> => {
   esbuildSettings.plugins = [polyfillNode()]
@@ -1082,7 +1082,7 @@ For example:
 ```typescript
 import { html } from 'htm/preact'
 import { render } from 'preact-render-to-string'
-import type { PostVarsFunction } from '@domstack/cli'
+import type { PostVarsFunction } from '@domstack/static'
 
 export const postVars: PostVarsFunction = async ({
   pages
@@ -1178,7 +1178,7 @@ import type {
   PageFunction,
   TemplateFunction,
   TemplateAsyncIterator
-} from '@domstack/cli'
+} from '@domstack/static'
 ```
 
 They are all generic and accept a variable template that you can develop and share between files.

@@ -14,7 +14,7 @@
   "author": "Bret Comnes <bcomnes@gmail.com> (https://bret.io/)",
   "license": "MIT",
   "dependencies": {
-    "@domstack/cli": "file:../../.",
+    "@domstack/static": "file:../../.",
     "mine.css": "^9.0.1"
   },
   "devDependencies": {

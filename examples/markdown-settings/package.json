@@ -10,7 +10,7 @@
     "dev": "npm run clean && domstack --watch"
   },
   "devDependencies": {
-    "@domstack/cli": "file:../../.",
+    "@domstack/static": "file:../../.",
     "markdown-it-container": "^4.0.0",
     "markdown-it-admonition": "1.0.4",
     "highlight.js": "^11.9.0"
