@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
+    "@types/react-dom": "^19.0.1",
     "@voxpelli/tsconfig": "^15.0.0",
     "npm-run-all2": "^6.0.0",
     "react-dom": "^18.0.0",
