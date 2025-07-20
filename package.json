@@ -97,7 +97,7 @@
     "clean:declarations-lib": "rm -rf $(find lib -type f -name '*.d.ts*' ! -name '*-types.d.ts')",
     "clean-node_modules": "rm -rf node_modules && rm -rf examples/*/node_modules",
     "build": "npm run clean && run-p build:*",
-    "build:domstack": "./bin.js --src . --ignore examples,test-cases,coverage,*.tsconfig.json",
+    "build:domstack": "./bin.js --src . --ignore examples,test-cases,coverage,*.tsconfig.json,fonts",
     "build:declaration": "tsc -p declaration.tsconfig.json",
     "watch": "npm run clean && run-p watch:*",
     "watch:domstack": "npm run build:domstack -- --watch",
