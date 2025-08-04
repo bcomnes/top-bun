@@ -1,0 +1,18 @@
+{
+  "name": "markdown-settings-example",
+  "version": "1.0.0",
+  "description": "Example demonstrating markdown-it.settings.js usage",
+  "type": "module",
+  "scripts": {
+    "start": "npm run dev",
+    "build": "npm run clean && domstack",
+    "clean": "rm -rf public && mkdir -p public",
+    "dev": "npm run clean && domstack --watch"
+  },
+  "devDependencies": {
+    "@domstack/static": "file:../../.",
+    "markdown-it-container": "^4.0.0",
+    "markdown-it-admonition": "1.0.4",
+    "highlight.js": "^11.9.0"
+  }
+}
