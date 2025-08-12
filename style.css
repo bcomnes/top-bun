@@ -1,0 +1,10 @@
+/* Styles go here */
+
+@font-face {
+    font-family: 'DSWeiss-Gotisch';
+    src: url('./fonts/ds-weiss-gotisch/DSWeiss-Gotisch.ttf') format('truetype');
+}
+
+h1 {
+    font-family: 'DSWeiss-Gotisch', serif;
+}

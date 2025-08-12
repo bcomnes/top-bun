@@ -1,0 +1,36 @@
+name: Deploy old website to neociteis
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  FORCE_COLOR: 1
+
+concurrency: # prevent concurrent deploys doing starnge things
+  group: deploy-to-neocities-old
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v5
+
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version-file: package.json
+        check-latest: true
+    - run: npm i
+    - run: npm run build
+
+    - name: Deploy to neocities
+      uses: bcomnes/deploy-to-neocities@v3
+      with:
+        api_key: ${{ secrets.NEOCITIES_API_TOKEN }}
+        cleanup: true
+        neocities_supporter: true
+        preview_before_deploy: true

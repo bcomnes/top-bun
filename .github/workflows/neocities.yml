@@ -1,9 +1,9 @@
-name: Deploy to neociteis
+name: Deploy domstack website to neociteis
 
 on:
   push:
     branches:
-      - master
+      - next
 
 env:
   FORCE_COLOR: 1
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     - name: Use Node.js
       uses: actions/setup-node@v4
@@ -30,7 +30,7 @@ jobs:
     - name: Deploy to neocities
       uses: bcomnes/deploy-to-neocities@v3
       with:
-        api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
+        api_key: ${{ secrets.NEOCITIES_DOMSTACK_API_TOKEN }}
         cleanup: true
-        neocoties_supporter: true
+        neocities_supporter: true
         preview_before_deploy: true

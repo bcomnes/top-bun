@@ -1,5 +1,6 @@
-// Layouts can be a simple as returning a template literal, though you can use
-// libraries like uhtml-isomorphic for better DX.
+// Layouts can be as simple as returning a template literal.
+// This example shows how to use pure string template literals
+// without any additional templating library.
 
 export default async function RootLayout ({
   vars: {
@@ -13,20 +14,22 @@ export default async function RootLayout ({
   return /* html */`
     <!DOCTYPE html>
     <html>
-    <head>
-      <meta charset="utf-8">
-      <title>${siteName || ''}${title ? ` | ${title}` : ''}</title>
-      <meta name="viewport" content="width=device-width, user-scalable=no" />
-      ${scripts
-        ? scripts.map(script => /* html */`<script src="${script}" type='module'></script>`)
-        : ''}
-      ${styles
-        ? styles.map(style => /* html */`<link rel="stylesheet" href=${style} />`)
-        : ''}
-    </head>
-    <body>
-      ${children}
-    </body>
+      <head>
+        <meta charset="utf-8">
+        <title>${siteName || ''}${title ? ` | ${title}` : ''}</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        ${scripts
+          ? scripts.map(script => /* html */`<script src="${script}" type='module'></script>`).join('\n        ')
+          : ''}
+        ${styles
+          ? styles.map(style => /* html */`<link rel="stylesheet" href="${style}" />`).join('\n        ')
+          : ''}
+      </head>
+      <body>
+        <div class="mine-layout">
+          ${children}
+        </div>
+      </body>
     </html>
-`
+  `
 }

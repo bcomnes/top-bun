@@ -1,0 +1,26 @@
+/* Style for the markdown settings test page */
+.test-box {
+  border: 2px solid #e74c3c;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 25px 0;
+  background-color: #fef9e7;
+  position: relative;
+}
+
+.test-box::before {
+  content: "Custom Test Box";
+  position: absolute;
+  top: -12px;
+  left: 15px;
+  background-color: white;
+  padding: 0 10px;
+  color: #e74c3c;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.test-box p {
+  margin: 0;
+  color: #7d3c98;
+}

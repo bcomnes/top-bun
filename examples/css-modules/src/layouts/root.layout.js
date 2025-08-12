@@ -1,34 +1,30 @@
-// @ts-ignore
+/**
+ * @import { LayoutFunction } from '@domstack/static'
+ */
+
 import { html } from 'htm/preact'
 import { render } from 'preact-render-to-string'
 
 /**
- * @template {Record<string, any>} T
- * @typedef {import('../build-pages/resolve-layout.js').LayoutFunction<T>} LayoutFunction
+ * @typedef {{
+ * title: string,
+ * siteName: string,
+ * basePath?: string,
+ }} PageVars
  */
 
 /**
- * Build all of the bundles using esbuild.
- *
- * @type {LayoutFunction<{
- *   title: string,
- *   siteName: string,
- *   defaultStyle: boolean,
- *   basePath: string
- * }>}
- */
-export default function defaultRootLayout ({
+  * @type {LayoutFunction<PageVars>}
+  */
+export default async function RootLayout ({
   vars: {
     title,
-    siteName = 'TopBun',
-    basePath,
-    /* defaultStyle = true  Set this to false in global or page to disable the default style in the default layout */
+    siteName,
+    basePath
   },
   scripts,
   styles,
   children,
-  /* pages */
-  /* page */
 }) {
   return /* html */`
     <!DOCTYPE html>
@@ -36,7 +32,7 @@ export default function defaultRootLayout ({
       ${render(html`
         <head>
           <meta charset="utf-8" />
-          <title>${title ? `${title}` : ''}${title && siteName ? ' | ' : ''}${siteName}</title>
+          <title>${siteName}${title ? ` | ${title}` : ''}</title>
           <meta name="viewport" content="width=device-width, user-scalable=no" />
           ${scripts
             ? scripts.map(script => html`<script type='module' src="${script.startsWith('/') ? `${basePath ?? ''}${script}` : script}" />`)
@@ -47,10 +43,10 @@ export default function defaultRootLayout ({
         </head>
       `)}
       ${render(html`
-        <body class="safe-area-inset">
+        <body className="safe-area-inset">
         ${typeof children === 'string'
-            ? html`<main class="mine-layout app-main" dangerouslySetInnerHTML="${{ __html: children }}"/>`
-            : html`<main class="mine-layout app-main">${children}</main>`
+            ? html`<main className="mine-layout app-main" dangerouslySetInnerHTML="${{ __html: children }}"/>`
+            : html`<main className="mine-layout app-main">${children}</main>`
         }
         </body>
       `)}

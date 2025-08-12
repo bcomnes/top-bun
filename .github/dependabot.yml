@@ -15,7 +15,19 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "npm"
+    directory: "/examples/css-modules/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm"
     directory: "/examples/default-layout/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/examples/esbuild-settings"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/examples/markdown-settings/"
     schedule:
       interval: "daily"
   - package-ecosystem: "npm"
@@ -23,13 +35,34 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "npm"
-    directory: "/examples/preact/"
+    directory: "/examples/preact-isomorphic/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/examples/react/"
     schedule:
       interval: "daily"
   - package-ecosystem: "npm"
     directory: "/examples/string-layouts/"
     schedule:
       interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/examples/tailwind/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/examples/type-stripping/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/examples/uhtml-isomorphic/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/examples/worker-examples/"
+    schedule:
+      interval: "daily"
+  # Enable version updates for pnpm
   # Enable updates to github actions
   - package-ecosystem: "github-actions"
     directory: "/"

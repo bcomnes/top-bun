@@ -5,22 +5,25 @@
   "type": "module",
   "scripts": {
     "start": "npm run watch",
-    "build": "npm run clean && top-bun",
+    "build": "npm run clean && domstack",
     "clean": "rm -rf public && mkdir -p public",
-    "watch": "npm run clean && run-p watch:*",
-    "watch:serve": "browser-sync start --server 'public' --files 'public'",
-    "watch:top-bun": "npm run build -- --watch"
+    "watch": "npm run clean && dom --watch",
+    "test": "tsc"
   },
   "keywords": [],
   "author": "Bret Comnes <bcomnes@gmail.com> (https://bret.io/)",
   "license": "MIT",
   "devDependencies": {
-    "browser-sync": "^2.26.7",
-    "npm-run-all2": "^6.0.0"
+    "npm-run-all2": "^6.0.0",
+    "typescript": "~5.8.2",
+    "@voxpelli/tsconfig": "^15.0.0"
   },
   "dependencies": {
-    "top-bun": "../../.",
-    "uhtml-isomorphic": "^2.1.0",
-    "mine.css": "^9.0.1"
+    "@domstack/static": "file:../../.",
+    "htm": "^3.1.1",
+    "preact": "^10.26.6",
+    "preact-render-to-string": "^6.5.13",
+    "mine.css": "^9.0.1",
+    "highlight.js": "^11.9.0"
   }
 }

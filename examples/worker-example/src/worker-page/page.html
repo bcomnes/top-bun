@@ -1,0 +1,90 @@
+<div class="worker-example">
+  <h1>{{ vars.title }}</h1>
+  <p>
+    This page demonstrates how to use web workers in DOMStack for offloading
+    tasks from the main thread to maintain a responsive user interface.
+  </p>
+
+  <section class="explanation">
+    <h2>About Web Workers</h2>
+    <p>
+      Web Workers run JavaScript in background threads, allowing you to perform
+      computations without blocking the main UI thread. This example shows two
+      worker implementations:
+    </p>
+    <ul>
+      <li><strong>Counter Worker:</strong> A simple worker that maintains state</li>
+      <li><strong>Fibonacci Worker:</strong> A computationally intensive worker</li>
+    </ul>
+  </section>
+
+  <section class="demo-section counter">
+    <h2>Counter Worker Example</h2>
+    <p>This worker maintains a state and updates it based on messages:</p>
+    <div class="demo-container">
+      <div class="counter-display">
+        <p>Counter value: <span id="counter">0</span></p>
+        <p class="last-operation" id="lastOperation"></p>
+      </div>
+      <div class="controls">
+        <button id="increment">Increment</button>
+        <button id="decrement">Decrement</button>
+        <button id="reset">Reset</button>
+        <button id="multiply">Multiply by 2</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-section fibonacci">
+    <h2>Fibonacci Calculator Worker</h2>
+    <p>
+      This worker performs CPU-intensive calculations in a background thread.
+      Try entering a large number (30-45) to see how the worker prevents UI blocking.
+    </p>
+    <div class="demo-container">
+      <div class="input-group">
+        <label for="fibInput">Calculate Fibonacci number:</label>
+        <input type="number" id="fibInput" min="1" max="50" value="30">
+      </div>
+      <div class="controls">
+        <button id="calculate">Calculate</button>
+      </div>
+      <div class="result">
+        <p>Result: <span id="fibResult">-</span></p>
+        <p id="computationTime" class="computation-time"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="code-example">
+    <h2>Implementation</h2>
+    <p>Worker files use the <code>{name}.worker.js</code> naming convention. DOMStack generates a <code>workers.json</code> file with worker path mappings:</p>
+    <pre><code>// First, fetch the workers.json to get worker paths
+async function initializeWorkers() {
+  const response = await fetch('./workers.json');
+  const workersData = await response.json();
+
+  // Initialize workers with the correct hashed filenames
+  const counterWorker = new Worker(
+    new URL(`./${workersData.counter}`, import.meta.url),
+    { type: 'module' }
+  );
+  const fibWorker = new Worker(
+    new URL(`./${workersData.fibonacci}`, import.meta.url),
+    { type: 'module' }
+  );
+
+  return { counterWorker, fibWorker };
+}</code></pre>
+    <p>This handles the hashed filenames that get generated during the build process.</p>
+    <p>Send messages to workers:</p>
+    <pre><code>// Send data to the worker
+counterWorker.postMessage({ action: 'increment' });
+fibWorker.postMessage({ n: 42 });</code></pre>
+    <p>Receive responses from workers:</p>
+    <pre><code>// Listen for worker responses
+counterWorker.onmessage = (e) => {
+  console.log('New count:', e.data.count);
+};</code></pre>
+  </section>
+</div>

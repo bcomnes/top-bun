@@ -1,17 +1,17 @@
 {
-  "name": "@top-bun/preact-example",
+  "name": "@domstack/preact-example",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "start": "npm run watch",
-    "build": "npm run clean && top-bun",
+    "build": "npm run clean && domstack",
     "clean": "rm -rf public && mkdir -p public",
-    "watch": "npm run clean && tb --watch"
+    "watch": "npm run clean && dom --watch"
   },
   "author": "Bret Comnes <bcomnes@gmail.com> (https://bret.io/)",
   "license": "MIT",
   "dependencies": {
-    "top-bun": "../../."
+    "@domstack/static": "file:../../."
   },
   "devDependencies": {
     "esbuild-plugin-polyfill-node": "^0.3.0",

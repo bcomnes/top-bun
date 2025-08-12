@@ -1,16 +1,19 @@
-import tap from 'tap'
-import { TopBun } from '../../index.js'
+import { test } from 'node:test'
+import assert from 'node:assert'
+import { DomStack } from '../../index.js'
 import * as path from 'path'
 import { rm } from 'fs/promises'
 
 const __dirname = import.meta.dirname
 
-tap.test('conflict-pages', async (t) => {
-  const src = path.join(__dirname, './src')
-  const dest = path.join(__dirname, './public')
-  const siteUp = new TopBun(src, dest)
+test.describe('conflict-pages', () => {
+  test('should throw error when conflicting pages are found', async () => {
+    const src = path.join(__dirname, './src')
+    const dest = path.join(__dirname, './public')
+    const siteUp = new DomStack(src, dest)
 
-  await rm(dest, { recursive: true, force: true })
+    await rm(dest, { recursive: true, force: true })
 
-  t.rejects(siteUp.build(), /Page walk finished but there were errors/, 'Throws when conflicting page is found on build.')
+    await assert.rejects(siteUp.build(), /Page walk finished but there were errors/, 'Throws when conflicting page is found on build.')
+  })
 })

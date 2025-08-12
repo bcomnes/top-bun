@@ -1,0 +1,29 @@
+{
+  "name": "@domstack/react-typescript-example",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "npm run watch",
+    "build": "npm run clean && domstack",
+    "clean": "rm -rf public && mkdir -p public",
+    "watch": "npm run clean && domstack --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "author": "Bret Comnes <bcomnes@gmail.com> (https://bret.io/)",
+  "license": "MIT",
+  "dependencies": {
+    "@domstack/static": "file:../../.",
+    "htm": "^3.1.1",
+    "mine.css": "^9.0.1",
+    "react": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^18.0.0",
+    "@voxpelli/tsconfig": "^15.0.0",
+    "npm-run-all2": "^6.0.0",
+    "react-dom": "^18.0.0",
+    "typescript": "~5.8.2",
+    "highlight.js": "^11.9.0"
+  }
+}

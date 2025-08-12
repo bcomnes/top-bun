@@ -1,0 +1,38 @@
+<div class="jsx-page-container">
+    <h2>Client-Side JSX Rendering Example</h2>
+    
+    <div class="explanation-section">
+        <p>
+            This example demonstrates how Preact JSX components can be mounted to static HTML pages.
+            Unlike isomorphic rendering, the component below is rendered entirely on the client-side.
+        </p>
+        
+        <div class="key-points">
+            <h3>Key Concepts:</h3>
+            <ul>
+                <li>Static HTML page with an empty container</li>
+                <li>JSX syntax for component definition</li>
+                <li>Client-side only rendering lifecycle</li>
+                <li>No server-side pre-rendering</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="demo-section">
+        <h3>Live Demo:</h3>
+        <!-- The client.jsx component will mount to this div -->
+        <div class="jsx-app"></div>
+    </div>
+    
+    <div class="code-reference">
+        <h3>How It Works:</h3>
+        <p>
+            The empty <code>div.jsx-app</code> above serves as a mount point. When the page loads,
+            the Preact component defined in <code>client.jsx</code> is rendered into this container.
+        </p>
+        <p>
+            This approach is useful when adding interactive components to otherwise static pages,
+            or when you want to isolate complex UI logic to the client-side only.
+        </p>
+    </div>
+</div>
